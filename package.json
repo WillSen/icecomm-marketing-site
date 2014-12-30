@@ -9,9 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular-ui-router": "^0.2.13",
     "bcrypt": "^0.8.0",
     "express": "^4.10.6",
     "mongodb": "^1.4.26",
-    "mongoose": "^3.8.21"
+    "mongoose": "^3.8.21",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0"
   }
 }

@@ -6,10 +6,14 @@ var app = angular.module('tawnyOwlApp', [
   'ngRoute' 
   ]);
 
+// REQUIRE UIROUTER; TODO: SWITCH CODE BELOW LATER
+
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
     // Home
     .when("/", {templateUrl: "partials/home.html"})
+    .when("/signup", {templateUrl: "partials/signup.html"})
+    .when("/login", {templateUrl: "partials/login.html"})
     // Pages
     // .when("/about", {templateUrl: "partials/about.html", controller: "PageCtrl"})
     .when("/foundation", {templateUrl: "partials/foundation-components.html", controller: "SignupCtrl"})
