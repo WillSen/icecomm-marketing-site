@@ -1,5 +1,5 @@
 var bcrypt = require('bcrypt');
-var db = require('../db');
+var db = require('./db');
 var SALT_WORK_FACTOR = 10;
 
 db.userSchema.pre('save', function(next) {
@@ -23,4 +23,4 @@ db.userSchema.pre('save', function(next) {
   });
 });
 
-module.exports = db.userSchema.pre;
+// module.exports = db.userSchema.pre;

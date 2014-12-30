@@ -1,14 +1,13 @@
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
-var db = require('./db');
-var bcrypt = require('./middleware/bcrypt');
+var db = require('./auth/db');
+var bcrypt = require('./auth/bcryptFile');
 var mongoose = require('mongoose');
 
 db.hola();
 
-var User = mongoose.model('User', db.userSchema);
-var userWallace = new User({ username: 'wallace', email: 'wallace@example.com', password: 'wally', apiKey: '' });
+var userWallace = new db.User({ username: 'pp', email: 'pp@example.com', password: 'george', apiKey: '' });
 
 userWallace.save(function(err) {
   if(err) {
@@ -18,6 +17,13 @@ userWallace.save(function(err) {
   }
 });
 
+db.User.find(function(err, data){
+  console.log('finding mongoose data');
+  data.forEach(function(item) {
+    console.log(item);
+  })
+  // console.log(data);
+})
 
 app.use(express.static('.'));
 
