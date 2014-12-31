@@ -1,5 +1,6 @@
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
 
 
 mongoose.connect('localhost', 'test');
@@ -17,6 +18,13 @@ db.userSchema = mongoose.Schema({
   password: { type: String, required: true},
   apiKey: {type: String}
 });
+// Password verification
+db.userSchema.methods.comparePassword = function(candidatePassword, cb) {
+  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+    if(err) return cb(err);
+    cb(null, isMatch);
+  });
+};
 db.User = mongoose.model('User', db.userSchema);
 
 module.exports = db;

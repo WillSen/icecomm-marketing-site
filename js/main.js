@@ -17,8 +17,14 @@ app.config(['$routeProvider', function ($routeProvider) {
     // Pages
     // .when("/about", {templateUrl: "partials/about.html", controller: "PageCtrl"})
     .when("/foundation", {templateUrl: "partials/foundation-components.html", controller: "SignupCtrl"})
-    
 }]);
+  
+// app.controller('UsernameCtrl', function($scope, $http) {
+//   $http.get("/checkUsername").success(function (data) {
+//     console.log(data);
+//     $scope.A = data.username;
+//   });
+// })  
 
 app.controller('SignupCtrl', function (/* $scope, $location, $http */) {
   console.log("SignupCtrl Controller reporting for duty.");

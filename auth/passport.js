@@ -1,6 +1,7 @@
 var passport = require('passport');
 var db = require('./db');
 var LocalStrategy = require('passport-local').Strategy;
+var bcrypt = require('bcrypt');
 
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to
@@ -26,15 +27,23 @@ passport.use(new LocalStrategy(function(username, password, done) {
   db.User.findOne({ username: username }, function(err, user) {
     if (err) { return done(err); }
     if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
+    console.log('user', user);
     user.comparePassword(password, function(err, isMatch) {
-      if (err) return done(err);
+      if (err) {
+        console.log('Errorrrr');
+        return done(err);
+      }
       if(isMatch) {
+        console.log('match found');
         return done(null, user);
       } else {
+        console.log('NOT MATCH!');
         return done(null, false, { message: 'Invalid password' });
       }
     });
   });
 }));
+
+
 
 module.exports = passport;
