@@ -9,10 +9,12 @@ var bcrypt = require('bcrypt');
 //   this will be as simple as storing the user ID when serializing, and finding
 //   the user by ID when deserializing.
 passport.serializeUser(function(user, done) {
+  // console.log('user is being seriliazed');
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
+  // console.log('user be deserialized');
   db.User.findById(id, function (err, user) {
     done(err, user);
   });

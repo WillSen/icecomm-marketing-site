@@ -72,11 +72,30 @@ app.post('/login', function(req, res, next) {
   }) (req, res, next);
 });
 
-// app.get('/login', function(req, res){
-//   console.log('getting login');
-//   res.render('login', { user: req.user, message: req.session.messages });
-// });
+app.post('/signup', function(req, res, next) {
+  console.log(req.body);
+  var newUser = new db.User({ username: req.body.username, email: req.body.email, password: req.body.password, apiKey: '' });
+  newUser.save(function(err) {
+    console.log('attempting to save user');
+    if(err) {
+      console.log(err);
+    } else {
+      console.log('user: ' + newUser.username + " saved.");
+      passport.authenticate('local', function(err, user, info) {
+        if (err) { return next(err) }
+        if (!user) {
+          console.log('req session: ', req.session);
+          req.session.messages =  [info.message];
+          return res.redirect('/login')
+        }
+        req.logIn(user, function(err) {
+          if (err) { return next(err); }
+          return res.redirect('/');
+        });
+      }) (req, res, next);
+    }
+  });
+});
+
 
 server.listen(3000);
-
-module.exports = app;
