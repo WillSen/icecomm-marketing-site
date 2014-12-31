@@ -8,8 +8,6 @@ var mongoose = require('mongoose');
 var passport = require('./auth/passport');
 var bodyParser = require('body-parser');
 
-db.hola();
-
 console.log('app: ', app);
 ////////////////////////
 // Testing
