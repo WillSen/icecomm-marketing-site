@@ -1,53 +1,27 @@
 <!doctype html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vidjib</title>
-    <link rel="stylesheet" href="stylesheets/app.css" />
-    <script src="bower_components/modernizr/modernizr.js"></script>
-  </head>
-  <body ng-app="tawnyOwlApp">
-    <!-- Navbar -->
-    <div ng-include='"templates/header.html"'></div>
-    
-    <div ng-view class="main"></div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IceCom</title>
+  <link rel="stylesheet" href="stylesheets/app.css" />
+  <script src="bower_components/modernizr/modernizr.js"></script>
+</head>
+<body ng-app="tawnyOwlApp">
+  <div ng-include='"templates/header.html"'></div>
+  <div ng-view class="main"></div>
+  <div ng-include='"templates/footer.html"'></div>
 
-           
-          
-            
-          
+  <script src="js/foundation/foundation.clearing.js"></script>
 
-          <footer class="row">
-            <div class="large-12 columns">
-              <div class="row">
-                <div class="large-6 columns">
-                  <p>© Copyright no one at all. Go to town.</p>
-                </div>
-                <div class="large-6 columns">
-                  <ul class="inline-list right">
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Suscribe</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </footer>
-          
-           
-          <script src="js/foundation/foundation.clearing.js"></script>
-        
-    
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/foundation/js/foundation.min.js"></script>
-    
-    <!-- Vendor: Angular, followed by our custom Javascripts -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
-    <script src="node_modules/angular-ui-router.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/foundation/js/foundation.min.js"></script>
 
+  <!-- Vendor: Angular, followed by our custom Javascripts -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
+  <script src="node_modules/angular-ui-router.min.js"></script>
 
-    <script src="js/main.js"></script>
-  </body>
+  <script src="js/main.js"></script>
+</body>
 </html>
