@@ -8,7 +8,6 @@ var mongoose = require('mongoose');
 var passport = require('./auth/passport');
 var bodyParser = require('body-parser');
 
-console.log('app: ', app);
 ////////////////////////
 // Testing
 ////////////////////////
@@ -22,13 +21,14 @@ userWallace.save(function(err) {
   }
 });
 
-db.User.find(function(err, data){
-  console.log('finding mongoose data');
-  data.forEach(function(item) {
-    console.log(item);
-  })
-  // console.log(data);
-})
+// db.User.find(function(err, data){
+//   console.log('finding mongoose data');
+//   data.forEach(function(item) {
+//     console.log(item);
+//   })
+//   // console.log(data);
+// })
+
 ////////////////////////
 // End Testing
 ////////////////////////

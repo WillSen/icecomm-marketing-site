@@ -8,19 +8,25 @@
   <script src="bower_components/modernizr/modernizr.js"></script>
 </head>
 <body ng-app="tawnyOwlApp">
+
+  
+
   <div ng-include='"templates/header.html"'></div>
-  <div ng-view class="main"></div>
+  <div ng-view class="main">
+  <!-- templates will route to ui-view div -->
+    <div ui-view></div>
+  </div>
   <div ng-include='"templates/footer.html"'></div>
 
-  <script src="js/foundation/foundation.clearing.js"></script>
+  <!-- <script src="js/foundation/foundation.clearing.js"></script> -->
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/foundation/js/foundation.min.js"></script>
 
   <!-- Vendor: Angular, followed by our custom Javascripts -->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
-  <script src="node_modules/angular-ui-router.min.js"></script>
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script> -->
+  <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
 
   <script src="js/main.js"></script>
 </body>
