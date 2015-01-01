@@ -37,6 +37,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 app.controller('UsernameCtrl', function($scope, $http) {
   $http.get("/checkUsername").success(function (data) {
     console.log(data);
-    $scope.A = data.username;
+    $scope.user = data.username;
   });
 })
