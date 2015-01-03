@@ -32,20 +32,59 @@ passport.use(new LocalStrategy(function(username, password, done) {
     console.log('user', user);
     user.comparePassword(password, function(err, isMatch) {
       if (err) {
-        console.log('Errorrrr');
+        console.log('error', err);
         return done(err);
       }
       if(isMatch) {
         console.log('match found');
         return done(null, user);
       } else {
-        console.log('NOT MATCH!');
+        console.log('no matches were found');
         return done(null, false, { message: 'Invalid password' });
       }
     });
   });
 }));
 
+passport.loginAuth = function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) { return next(err) }
+    if (!user) {
+      console.log('req session: ', req.session);
+      req.session.messages =  [info.message];
+      return res.redirect('login')
+    }
+    req.logIn(user, function(err) {
+      if (err) { return next(err); }
+      return res.redirect('/');
+    });
+  }) (req, res, next);
+}
 
+passport.signupAuth = function(req, res, next) {
+  console.log(req.body);
+  var newUser = new db.User({ username: req.body.username, email: req.body.email, password: req.body.password, apiKey: '' });
+  newUser.save(function(err) {
+    console.log('attempting to save user');
+    if(err) {
+      console.log(err);
+    } else {
+      console.log('user: ' + newUser.username + " saved.");
+
+      passport.authenticate('local', function(err, user, info) {
+        if (err) { return next(err) }
+        if (!user) {
+          console.log('req session: ', req.session);
+          req.session.messages =  [info.message];
+          return res.redirect('login')
+        }
+        req.logIn(user, function(err) {
+          if (err) { return next(err); }
+          return res.redirect('/');
+        });
+      }) (req, res, next);
+    }
+  });
+};
 
 module.exports = passport;

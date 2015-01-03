@@ -11,7 +11,7 @@ var bodyParser = require('body-parser');
 ////////////////////////
 // Testing
 ////////////////////////
-var userWallace = new db.User({ username: 'pp', email: 'pp@example.com', password: 'george', apiKey: '' });
+var userWallace = new db.User({ username: 'Wallace', email: 'wally@example.com', password: 'poop', apiKey: '' });
 
 userWallace.save(function(err) {
   if(err) {
@@ -32,6 +32,7 @@ userWallace.save(function(err) {
 ////////////////////////
 // End Testing
 ////////////////////////
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -55,45 +56,9 @@ app.get('/checkUsername', function(req, res) {
   // res.json({A: 5});
 })
 
-app.post('/login', function(req, res, next) {
-  passport.authenticate('local', function(err, user, info) {
-    if (err) { return next(err) }
-    if (!user) {
-      console.log('req session: ', req.session);
-      req.session.messages =  [info.message];
-      return res.redirect('/login')
-    }
-    req.logIn(user, function(err) {
-      if (err) { return next(err); }
-      return res.redirect('/');
-    });
-  }) (req, res, next);
-});
+app.post('/login', passport.loginAuth);
+app.post('/signup', passport.signupAuth);
 
-app.post('/signup', function(req, res, next) {
-  console.log(req.body);
-  var newUser = new db.User({ username: req.body.username, email: req.body.email, password: req.body.password, apiKey: '' });
-  newUser.save(function(err) {
-    console.log('attempting to save user');
-    if(err) {
-      console.log(err);
-    } else {
-      console.log('user: ' + newUser.username + " saved.");
-      passport.authenticate('local', function(err, user, info) {
-        if (err) { return next(err) }
-        if (!user) {
-          console.log('req session: ', req.session);
-          req.session.messages =  [info.message];
-          return res.redirect('/login')
-        }
-        req.logIn(user, function(err) {
-          if (err) { return next(err); }
-          return res.redirect('/');
-        });
-      }) (req, res, next);
-    }
-  });
-});
 
 
 server.listen(3000);

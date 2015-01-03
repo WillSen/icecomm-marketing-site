@@ -1,13 +1,12 @@
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
-$(document).foundation();
+// $(document).foundation();
 
 var app = angular.module('tawnyOwlApp', [
-  // 'ngRoute',
   'ui.router'
   ]);
 
-// REQUIRE UIROUTER
+// switched from ngroute to ui.router
 app.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
@@ -27,11 +26,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'partials/login.html'
       // controller: 'UsernameCtrl'
     })
-
-  // $routeProvider
-  //   .when("/", {templateUrl: "partials/home.html"})
-  //   .when("/signup", {templateUrl: "partials/signup.html"})
-  //   .when("/login", {templateUrl: "partials/login.html"})
 });
   
 app.controller('UsernameCtrl', function($scope, $http) {
