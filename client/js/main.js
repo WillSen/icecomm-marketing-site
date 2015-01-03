@@ -13,17 +13,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'partials/home.html'
+      templateUrl: 'client/partials/home.html'
       // add controller
     })
     .state('signup', {
       url: '/signup',
-      templateUrl: 'partials/signup.html'
+      templateUrl: 'client/partials/signup.html'
       // add controller
     })
     .state('login', {
       url: '/login',
-      templateUrl: 'partials/login.html'
+      templateUrl: 'client/partials/login.html'
       // controller: 'UsernameCtrl'
     })
 });

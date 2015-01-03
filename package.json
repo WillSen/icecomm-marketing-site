@@ -2,7 +2,7 @@
   "name": "foundationtest2",
   "version": "0.0.0",
   "description": "The easiest way to get started with Foundation + Compass.",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
