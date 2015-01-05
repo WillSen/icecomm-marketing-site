@@ -4,10 +4,16 @@
   src: asset-url("assets/fonts/Gotham-XLight.otf");
   font-weight: light;
   font-style: normal; }
+.navbar {
+  background: #fff; }
+  .navbar .namelogo {
+    content: url("../assets/img/icecomm-logo-lg.png");
+    width: 180px; }
+
 body {
   font-family: 'Raleway',Helvetica,Arial,sans-serif;
   font-weight: 400;
-  background-color: rgba(0, 0, 0, 0.02); }
+  background-color: #fff; }
 
 .button {
   font-family: "Raleway", Helvetica, Arial, sans-serif; }
@@ -49,9 +55,8 @@ body {
     font-size: 24px;
     text-align: left; } }
 .hero {
-  background: url(https://www.firebase.com/resources/images/website/backgrounds/krisskross.png);
+  background: #fff;
   background-size: cover;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.15);
   height: 600px; }
 
 .intro-text {
