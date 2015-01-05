@@ -1,4 +1,5 @@
 @import url("../../bower_components/foundation/css/foundation.css");
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
 @font-face {
   font-family: 'GothamXLight';
   src: asset-url("assets/fonts/Gotham-XLight.otf");
@@ -14,6 +15,8 @@
     width: 180px; }
   .top-bar .top-bar-section ul {
     padding: 15px 0px 10px 0px; }
+    .top-bar .top-bar-section ul a {
+      font-family: 'Open Sans', sans-serif !important; }
     .top-bar .top-bar-section ul.left {
       padding-left: 30px; }
   .top-bar li:not(.has-form) a:not(.button) {
@@ -21,12 +24,8 @@
     color: #333; }
 
 body {
-  font-family: 'Raleway',Helvetica,Arial,sans-serif;
   font-weight: 400;
   background-color: #fff; }
-
-.button {
-  font-family: "Raleway", Helvetica, Arial, sans-serif; }
 
 .button-group li {
   padding-top: 3%; }
