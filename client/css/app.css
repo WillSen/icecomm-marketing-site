@@ -6,10 +6,19 @@
   font-style: normal; }
 .top-bar {
   background: #fff;
-  height: 70px; }
+  height: 70px;
+  border: solid #000 1px;
+  padding: 0px 150px; }
   .top-bar .namelogo {
     content: url("../assets/img/icecomm-logo-lg.png");
     width: 180px; }
+  .top-bar .top-bar-section ul {
+    padding: 15px 0px 10px 0px; }
+    .top-bar .top-bar-section ul.left {
+      padding-left: 30px; }
+  .top-bar li:not(.has-form) a:not(.button) {
+    background: #fff;
+    color: #333; }
 
 body {
   font-family: 'Raleway',Helvetica,Arial,sans-serif;
