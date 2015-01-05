@@ -4,9 +4,10 @@
   src: asset-url("assets/fonts/Gotham-XLight.otf");
   font-weight: light;
   font-style: normal; }
-.navbar {
-  background: #fff; }
-  .navbar .namelogo {
+.top-bar {
+  background: #fff;
+  height: 70px; }
+  .top-bar .namelogo {
     content: url("../assets/img/icecomm-logo-lg.png");
     width: 180px; }
 
