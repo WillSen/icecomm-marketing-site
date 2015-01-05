@@ -1,3 +1,4 @@
+@import url("../../bower_components/foundation/css/foundation.css");
 @font-face {
   font-family: 'GothamXLight';
   src: asset-url("assets/fonts/Gotham-XLight.otf");
