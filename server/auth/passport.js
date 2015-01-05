@@ -70,19 +70,22 @@ passport.signupAuth = function(req, res, next) {
       console.log(err);
     } else {
       console.log('user: ' + newUser.username + " saved.");
-
-      passport.authenticate('local', function(err, user, info) {
-        if (err) { return next(err) }
-        if (!user) {
-          console.log('req session: ', req.session);
-          req.session.messages =  [info.message];
-          return res.redirect('login')
-        }
-        req.logIn(user, function(err) {
+      req.logIn(newUser, function(err) {
           if (err) { return next(err); }
           return res.redirect('/');
-        });
-      }) (req, res, next);
+      });
+      // passport.authenticate('local', function(err, user, info) {
+      //   if (err) { return next(err) }
+      //   if (!user) {
+      //     console.log('req session: ', req.session);
+      //     req.session.messages =  [info.message];
+      //     return res.redirect('login')
+      //   }
+        // req.logIn(user, function(err) {
+        //   if (err) { return next(err); }
+        //   return res.redirect('/');
+        // });
+      // }) (req, res, next);
       // callback(req, res, next);
     }
   });
