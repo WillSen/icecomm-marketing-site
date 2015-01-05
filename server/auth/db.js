@@ -1,9 +1,17 @@
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
+var uriUtil = require('mongodb-uri');
 var bcrypt = require('bcrypt');
 
+// mongoose uri string format is different from vanilla mongodb:
+var mongodbUri = 'mongodb://nmandel:backmassage4@ds031271.mongolab.com:31271/icecommusers';
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 
-mongoose.connect('localhost', 'test');
+// 30 second connection timeout reccommended by mongolab:
+var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
+                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } }; 
+                
+mongoose.connect(mongooseUri, options);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
