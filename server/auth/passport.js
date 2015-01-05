@@ -83,8 +83,10 @@ passport.signupAuth = function(req, res, next) {
           return res.redirect('/');
         });
       }) (req, res, next);
+      // callback(req, res, next);
     }
   });
 };
+
 
 module.exports = passport;
