@@ -8,7 +8,6 @@
 .top-bar {
   background: #fff;
   height: 70px;
-  border: solid #000 1px;
   padding: 0px 170px; }
   .top-bar .namelogo {
     content: url("../assets/img/icecomm-logo-lg.png");
