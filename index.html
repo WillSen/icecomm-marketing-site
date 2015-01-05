@@ -4,24 +4,30 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IceCom</title>
-  <link rel="stylesheet" href="stylesheets/app.css" />
+  <link rel="stylesheet" href="client/stylesheets/app.css" />
   <script src="bower_components/modernizr/modernizr.js"></script>
 </head>
 <body ng-app="tawnyOwlApp">
-  <div ng-include='"templates/header.html"'></div>
-  <div ng-view class="main"></div>
-  <div ng-include='"templates/footer.html"'></div>
 
-  <script src="js/foundation/foundation.clearing.js"></script>
+  
+
+  <div ng-include='"client/templates/header.html"'></div>
+  <div ng-view class="main">
+  <!-- templates will route to ui-view div -->
+    <div ui-view></div>
+  </div>
+  <div ng-include='"client/templates/footer.html"'></div>
+
+  <!-- <script src="js/foundation/foundation.clearing.js"></script> -->
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/foundation/js/foundation.min.js"></script>
 
   <!-- Vendor: Angular, followed by our custom Javascripts -->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
-  <script src="node_modules/angular-ui-router.min.js"></script>
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script> -->
+  <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
 
-  <script src="js/main.js"></script>
+  <script src="client/js/main.js"></script>
 </body>
 </html>
