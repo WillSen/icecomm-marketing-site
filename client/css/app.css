@@ -43,7 +43,7 @@
     font-size: 16px; }
 
 .screens {
-  padding: 50px 0 0 0; }
+  padding: 50px 50px 0 50px; }
   .screens .term {
     margin: 0 auto;
     width: 400px;
@@ -171,6 +171,9 @@ footer a:hover {
   .term .workshopper {
     background: #F8F0BD;
     padding: 2px; }
+
+code {
+  border: none; }
 
 .term .workshopper code {
   border: 0 none; }
