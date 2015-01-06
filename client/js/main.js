@@ -35,3 +35,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 //     $scope.user = data.username;
 //   });
 // })
+
+$(document).ready(function(){
+  setTimeout(function() {
+
+  }, 500);
+});

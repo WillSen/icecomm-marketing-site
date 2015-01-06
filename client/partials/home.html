@@ -18,7 +18,7 @@
         <span class="btn btn-term max"></span>
       </div>
       <div class="shell">
-        <code>var comm = new IceComm('test');</code>
+        <code class="animated fadeInRight">var comm = new IceComm('test');</code>
         <code>comm.on('room', function(options) {<br>
                 &nbsp;&nbsp; createRemoteVideo(options.stream);<br>
 });
@@ -30,6 +30,8 @@
     &nbsp;&nbsp;}<br>
   });  
 </code>
+  
+
       </div>
     </div>
   </div>
@@ -42,7 +44,10 @@
         <span class="btn btn-term max"></span>
       </div>
       <div class="shell">
-        <div class="video-screen"></div>
+        
+        <div class="video-screen">
+          <span class="recording-light blink_me"></span>
+        </div>
         <div class="video-screen"></div>
       </div>
     </div>
