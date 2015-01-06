@@ -18,8 +18,18 @@
         <span class="btn btn-term max"></span>
       </div>
       <div class="shell">
-        <code>npm install -g learnyounode</code>
-        <code>learnyounode</code>
+        <code>var comm = new IceComm('test');</code>
+        <code>comm.on('room', function(options) {
+                createRemoteVideo(options.stream);
+});
+</code>
+<code>
+  comm.ready(function(data) {
+    for (var key in data.remoteStreams) {
+      createRemoteVideo(URL.createObjectURL(data.remoteStreams[key]));
+    }
+  });  
+</code>
       </div>
     </div>
   </div>

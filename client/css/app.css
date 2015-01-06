@@ -47,7 +47,7 @@
   .screens .term {
     margin: 0 auto;
     width: 400px;
-    height: 200px; }
+    height: 250px; }
 
 body {
   font-weight: 400;
@@ -182,7 +182,7 @@ code {
   display: block;
   margin: 12px 0;
   padding: 4px 10px;
-  border-left: 8px solid #F7DA03;
+  border-left: 8px solid #82CAFF;
   border-radius: 0;
   background: none; }
 
