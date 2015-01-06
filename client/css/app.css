@@ -279,22 +279,61 @@ code {
     opacity: 0.0; }
   100% {
     opacity: 1.0; } }
-@keyframes slideInRight {
-  0% {
-    transform: translateX(120%);
-    visibility: visible; }
-  100% {
-    transform: translateX(0); } }
 @-webkit-keyframes slideInRight {
   0% {
-    transform: translateX(120%);
+    transform: translateX(110%);
     visibility: visible; }
   100% {
     transform: translateX(0); } }
-.slideInRight {
+@-moz-keyframes slideInRight {
+  0% {
+    transform: translateX(110%);
+    visibility: visible; }
+  100% {
+    transform: translateX(0); } }
+@keyframes slideInRight {
+  0% {
+    transform: translateX(110%);
+    visibility: visible; }
+  100% {
+    transform: translateX(0); } }
+.slideInRightTop {
   -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-name: slideInRight;
+  -moz-animation-name: slideInRight;
+  animation-name: slideInRight;
   -webkit-animation-fill-mode: both;
-  -webkit-animation-delay: 1s; }
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.slideInRightMiddle {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: slideInRight;
+  -moz-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s; }
+
+.slideInRightBottom {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: slideInRight;
+  -moz-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s; }
 
 /*# sourceMappingURL=app.css.map */

@@ -18,12 +18,12 @@
         <span class="btn btn-term max"></span>
       </div>
       <div class="shell codebase">
-        <code class="slideInRight">var comm = new IceComm('test');</code>
-        <code>comm.on('room', function(options) {<br>
+        <code class="slideInRightTop">var comm = new IceComm('test');</code>
+        <code class="slideInRightMiddle">comm.on('room', function(options) {<br>
                 &nbsp;&nbsp; createRemoteVideo(options.stream);<br>
 });
 </code>
-<code>
+<code class="slideInRightBottom">
   comm.ready(function(data) { <br>
     &nbsp;&nbsp;for (var key in data.remoteStreams) {<br>
       &nbsp;&nbsp;&nbsp;&nbsp;createRemoteVideo(URL.createObjectURL(data));<br>

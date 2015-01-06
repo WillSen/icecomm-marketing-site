@@ -385,9 +385,9 @@ code {
 //   animation-fill-mode: both;
 // }
 
-@keyframes slideInRight {
+@include keyframes(slideInRight) {
   0% {
-    transform: translateX(120%);
+    transform: translateX(110%);
     visibility: visible;
   }
 
@@ -396,23 +396,27 @@ code {
   }
 }
 
-@-webkit-keyframes slideInRight {
-  0% {
-    transform: translateX(120%);
-    visibility: visible;
-  }
-
-  100% {
-    transform: translateX(0);
-  }
+.slideInRightTop {
+  @include animation-duration(1s);
+  @include animation-name(slideInRight);
+  @include animation-fill-mode(both);
 }
 
-.slideInRight {
-  -webkit-animation-duration: 1s;
-  -webkit-animation-name: slideInRight;
-  -webkit-animation-fill-mode: both;
-  -webkit-animation-delay: 1s;  
+.slideInRightMiddle {
+  @include animation-duration(1s);
+  @include animation-name(slideInRight);
+  @include animation-fill-mode(both);
+  @include animation-delay(2s);  
 }
+.slideInRightBottom {
+  @include animation-duration(1s);
+  @include animation-name(slideInRight);
+  @include animation-fill-mode(both);
+  @include animation-delay(4s);  
+}
+
+
+
 
 // Or selectively include components
 // @import
