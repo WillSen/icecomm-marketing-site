@@ -5,6 +5,11 @@
   src: asset-url("assets/fonts/Gotham-XLight.otf");
   font-weight: light;
   font-style: normal; }
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url("../assets/fonts/brandon_re.ttf");
+  font-weight: regular;
+  font-style: normal; }
 .top-bar {
   background: #fff;
   height: 70px;
@@ -21,6 +26,11 @@
   .top-bar li:not(.has-form) a:not(.button) {
     background: #fff;
     color: #333; }
+
+.hero .intro-text {
+  color: #333;
+  font-family: 'BrandonGrotesque';
+  font-size: 40px; }
 
 body {
   font-weight: 400;

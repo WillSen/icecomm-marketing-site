@@ -8,11 +8,19 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('../assets/fonts/brandon_re.ttf');
+  font-weight: regular;
+  font-style: normal;
+}
+
+
+
 
 .top-bar {
   background: #fff;
   height: 70px;
-  // border: solid #000 1px;
   padding: 0px 170px;
   .namelogo {
     content: url('../assets/img/icecomm-logo-lg.png');
@@ -33,6 +41,14 @@
     background: #fff;
     color: #333;
   }
+}
+
+.hero {
+    .intro-text {
+      color: #333;
+      font-family: 'BrandonGrotesque';
+      font-size: 40px;
+    }
 }
 
 // .main {
