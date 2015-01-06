@@ -279,5 +279,22 @@ code {
     opacity: 0.0; }
   100% {
     opacity: 1.0; } }
+@keyframes slideInRight {
+  0% {
+    transform: translateX(120%);
+    visibility: visible; }
+  100% {
+    transform: translateX(0); } }
+@-webkit-keyframes slideInRight {
+  0% {
+    transform: translateX(120%);
+    visibility: visible; }
+  100% {
+    transform: translateX(0); } }
+.slideInRight {
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: slideInRight;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-delay: 1s; }
 
 /*# sourceMappingURL=app.css.map */

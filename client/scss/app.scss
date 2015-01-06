@@ -1,5 +1,6 @@
 @import url("../../bower_components/foundation/css/foundation.css");
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
+@import "../bourbon/bourbon";
 
 @font-face {
   font-family: 'GothamXLight';
@@ -376,6 +377,41 @@ code {
     0% { opacity: 1.0; }
     50% { opacity: 0.0; }
     100% { opacity: 1.0; }
+}
+
+
+// .animated {
+//   animation-duration: 1s;
+//   animation-fill-mode: both;
+// }
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(120%);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes slideInRight {
+  0% {
+    transform: translateX(120%);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slideInRight {
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: slideInRight;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-delay: 1s;  
 }
 
 // Or selectively include components

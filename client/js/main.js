@@ -2,6 +2,10 @@
 // Documentation can be found at: http://foundation.zurb.com/docs
 // $(document).foundation();
 
+
+
+
+
 var app = angular.module('tawnyOwlApp', [
   'ui.router',
   'tawnyOwlApp.authControllers'
@@ -28,7 +32,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       // controller: 'UsernameCtrl'
     })
 });
+
+
   
+
+
 // app.controller('UsernameCtrl', function($scope, $http) {
 //   $http.get("/checkUsername").success(function (data) {
 //     console.log(data);
@@ -36,8 +44,4 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 //   });
 // })
 
-$(document).ready(function(){
-  setTimeout(function() {
-
-  }, 500);
-});
+// animated fadeInRight
