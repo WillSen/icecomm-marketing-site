@@ -10,7 +10,7 @@ var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 // 30 second connection timeout reccommended by mongolab:
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } }; 
-                
+
 mongoose.connect(mongooseUri, options);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

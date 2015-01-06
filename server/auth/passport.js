@@ -67,7 +67,9 @@ passport.signupAuth = function(req, res, next) {
   newUser.save(function(err) {
     console.log('attempting to save user');
     if(err) {
-      console.log(err);
+
+      console.log('Error with saving new user', err);
+      return res.redirect('/#/signup');
     } else {
       console.log('user: ' + newUser.username + " saved.");
       req.logIn(newUser, function(err) {
@@ -90,6 +92,5 @@ passport.signupAuth = function(req, res, next) {
     }
   });
 };
-
 
 module.exports = passport;

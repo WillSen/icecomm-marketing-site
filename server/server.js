@@ -11,15 +11,15 @@ var bodyParser = require('body-parser');
 ////////////////////////
 // Testing
 ////////////////////////
-var userWallace = new db.User({ username: 'Wallace', email: 'wally@example.com', password: 'poop', apiKey: '' });
+// var userWallace = new db.User({ username: 'Wallace', email: 'wally@example.com', password: 'poop', apiKey: '' });
 
-userWallace.save(function(err) {
-  if(err) {
-    console.log(err);
-  } else {
-    console.log('user: ' + userWallace.username + " saved.");
-  }
-});
+// userWallace.save(function(err) {
+//   if(err) {
+//     console.log(err);
+//   } else {
+//     console.log('user: ' + userWallace.username + " saved.");
+//   }
+// });
 
 // db.User.find(function(err, data){
 //   console.log('finding mongoose data');
