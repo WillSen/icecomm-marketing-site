@@ -56,6 +56,15 @@ app.get('/checkUsername', function(req, res) {
   // res.json({A: 5});
 })
 
+app.get('/checkUserExists', function(req, res) {
+  //req.params.tryusername
+  //query database with req.params.tryusername
+  // if present res.send(false)
+  // else res.send(true)
+  console.log('checking if user exists', req.query);
+  res.json('testing');
+})
+
 app.post('/login', passport.loginAuth);
 app.post('/signup', passport.signupAuth);
 

@@ -19,8 +19,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('signup', {
       url: '/signup',
-      templateUrl: 'client/partials/signup.html'
-      // add controller
+      templateUrl: 'client/partials/signup.html',
+      controller: 'SignupCtrl'
     })
     .state('login', {
       url: '/login',
@@ -29,9 +29,3 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
 });
   
-// app.controller('UsernameCtrl', function($scope, $http) {
-//   $http.get("/checkUsername").success(function (data) {
-//     console.log(data);
-//     $scope.user = data.username;
-//   });
-// })

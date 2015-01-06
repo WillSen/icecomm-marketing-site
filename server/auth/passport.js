@@ -67,7 +67,6 @@ passport.signupAuth = function(req, res, next) {
   newUser.save(function(err) {
     console.log('attempting to save user');
     if(err) {
-
       console.log('Error with saving new user', err);
       return res.redirect('/#/signup');
     } else {
