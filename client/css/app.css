@@ -27,10 +27,14 @@
     background: #fff;
     color: #333; }
 
-.hero .intro-text {
-  color: #333;
-  font-family: 'BrandonGrotesque';
-  font-size: 40px; }
+.hero {
+  text-align: center; }
+  .hero .intro-text {
+    color: #333;
+    font-family: 'BrandonGrotesque';
+    font-size: 40px; }
+  .hero .sub-intro-text {
+    font-size: 16px; }
 
 body {
   font-weight: 400;
@@ -76,12 +80,6 @@ body {
   background: #fff;
   background-size: cover;
   height: 600px; }
-
-.intro-text {
-  padding-top: 40%;
-  color: white;
-  text-align: center;
-  font-family: 'GothamXLight'; }
 
 @media only screen and (min-width: 40.063em) {
   .intro-text {

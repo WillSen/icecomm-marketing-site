@@ -44,10 +44,14 @@
 }
 
 .hero {
+    text-align:center;
     .intro-text {
       color: #333;
       font-family: 'BrandonGrotesque';
       font-size: 40px;
+    }
+    .sub-intro-text {
+      font-size: 16px; 
     }
 }
 
@@ -64,10 +68,6 @@ body {
   // font-family:'Raleway',Helvetica,Arial,sans-serif;
   font-weight:400;
   background-color:#fff;
-}
-
-.button {
-  // font-family:'Raleway',Helvetica,Arial,sans-serif
 }
 
 .button-group li {
@@ -130,12 +130,12 @@ body {
   height:600px
 }
 
-.intro-text {
-  padding-top:40%;
-  color:rgba(255,255,255,1);
-  text-align:center;
-  font-family: 'GothamXLight';
-}
+// .in/tro-text {
+//   padding-top:40%;
+//   color:rgba(255,255,255,1);
+//   text-align:center;
+//   font-family: 'GothamXLight';
+// }
 
 @media only screen and (min-width: 40.063em) {
 .intro-text {
