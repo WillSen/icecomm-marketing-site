@@ -47,7 +47,7 @@
   .screens .term {
     margin: 0 auto;
     width: 400px;
-    height: 250px; }
+    height: 290px; }
 
 body {
   font-weight: 400;
@@ -148,6 +148,24 @@ footer a:hover {
   .term .shell {
     min-height: 130px;
     overflow: hidden; }
+    div:nth-child(2) > .term .shell {
+      padding: 20px 30px; }
+    .term .shell .video-screen {
+      position: relative;
+      border-radius: 4px;
+      width: 150px;
+      height: 120px;
+      border-bottom: 8px solid #82CAFF;
+      padding: 20px;
+      border-radius: 0px; }
+      .term .shell .video-screen:nth-child(1) {
+        float: left;
+        background: url("../assets/img/lego-full-lg.png") no-repeat center;
+        background-size: 84px 67px; }
+      .term .shell .video-screen:nth-child(2) {
+        float: right;
+        background: url("../assets/img/playmobil-full.png") no-repeat center;
+        background-size: 77px 70px; }
   .term .chrome {
     height: 34px;
     padding-left: 10px;
@@ -173,7 +191,8 @@ footer a:hover {
     padding: 2px; }
 
 code {
-  border: none; }
+  border: none;
+  font-size: 13px !important; }
 
 .term .workshopper code {
   border: 0 none; }
