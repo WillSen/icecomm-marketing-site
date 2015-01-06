@@ -388,6 +388,18 @@ body {
   padding: 25px;
   font-size: 24px; }
 
+.connection {
+  position: absolute;
+  top: 50px;
+  left: 200px; }
+
+.connectionDot {
+  color: #82CAFF;
+  opacity: 0;
+  position: relative;
+  font-size: 55px;
+  font-family: 'BrandonGrotesque' !important; }
+
 .one {
   opacity: 0;
   -webkit-animation: dot 1.3s infinite;
@@ -395,41 +407,98 @@ body {
   animation: dot 1.3s infinite;
   -webkit-animation-delay: 0s;
   -moz-animation-delay: 0s;
-  animation-delay: 0s; }
+  animation-delay: 0s;
+  top: 20px; }
 
 .two {
   opacity: 0;
   -webkit-animation: dot 1.3s infinite;
-  -webkit-animation-delay: 0.2s;
+  -moz-animation: dot 1.3s infinite;
   animation: dot 1.3s infinite;
-  animation-delay: 0.2s; }
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  top: 15px; }
 
 .three {
   opacity: 0;
   -webkit-animation: dot 1.3s infinite;
-  -webkit-animation-delay: 0.3s;
+  -moz-animation: dot 1.3s infinite;
   animation: dot 1.3s infinite;
-  animation-delay: 0.3s; }
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+  top: 10px; }
+
+.four {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  top: 5px; }
+
+.five {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  top: 0px; }
+
+.six {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+  top: -5px; }
+
+.seven {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+  top: -10px; }
+
+.eight {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  top: -15px; }
 
 @-webkit-keyframes dot {
   0% {
     opacity: 0; }
   50% {
-    opacity: 0; }
+    opacity: 0.3; }
   100% {
     opacity: 1; } }
 @-moz-keyframes dot {
   0% {
     opacity: 0; }
   50% {
-    opacity: 0; }
+    opacity: 0.3; }
   100% {
     opacity: 1; } }
 @keyframes dot {
   0% {
     opacity: 0; }
   50% {
-    opacity: 0; }
+    opacity: 0.3; }
   100% {
     opacity: 1; } }
 .screen {
@@ -438,9 +507,9 @@ body {
   background-size: 230px 137px;
   width: 242px;
   height: 143px; }
-  .screen:nth-child(1) {
-    float: right; }
   .screen:nth-child(2) {
+    float: right; }
+  .screen:nth-child(3) {
     float: left;
     margin: 10px 60px 0 0; }
 
