@@ -18,8 +18,18 @@
         <span class="btn btn-term max"></span>
       </div>
       <div class="shell">
-        <code>npm install -g learnyounode</code>
-        <code>learnyounode</code>
+        <code>var comm = new IceComm('test');</code>
+        <code>comm.on('room', function(options) {<br>
+                &nbsp;&nbsp; createRemoteVideo(options.stream);<br>
+});
+</code>
+<code>
+  comm.ready(function(data) { <br>
+    &nbsp;&nbsp;for (var key in data.remoteStreams) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;createRemoteVideo(URL.createObjectURL(data));<br>
+    &nbsp;&nbsp;}<br>
+  });  
+</code>
       </div>
     </div>
   </div>
@@ -32,8 +42,8 @@
         <span class="btn btn-term max"></span>
       </div>
       <div class="shell">
-        <code>npm install -g learnyounode</code>
-        <code>learnyounode</code>
+        <div class="video-screen"></div>
+        <div class="video-screen"></div>
       </div>
     </div>
   </div>
