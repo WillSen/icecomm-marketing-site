@@ -48,6 +48,11 @@
     margin: 0 auto;
     width: 400px;
     height: 290px; }
+  .screens .columns:nth-child(1) {
+    width: 40%;
+    left: -60px; }
+  .screens .columns:nth-child(2) {
+    width: 60%; }
 
 body {
   font-weight: 400;
@@ -236,5 +241,276 @@ code {
 
 .term.min .chrome {
   border: 0 none; }
+
+.recording-light {
+  background: #DF7065;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%; }
+
+.blink_me {
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-name: blinker;
+  -moz-animation-duration: 1s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+  animation-name: blinker;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; }
+
+@-moz-keyframes blinker {
+  0% {
+    opacity: 1.0; }
+  50% {
+    opacity: 0.0; }
+  100% {
+    opacity: 1.0; } }
+@-webkit-keyframes blinker {
+  0% {
+    opacity: 1.0; }
+  50% {
+    opacity: 0.0; }
+  100% {
+    opacity: 1.0; } }
+@keyframes blinker {
+  0% {
+    opacity: 1.0; }
+  50% {
+    opacity: 0.0; }
+  100% {
+    opacity: 1.0; } }
+@-webkit-keyframes slideInRight {
+  0% {
+    transform: translateX(110%);
+    visibility: visible; }
+  100% {
+    transform: translateX(0); } }
+@-moz-keyframes slideInRight {
+  0% {
+    transform: translateX(110%);
+    visibility: visible; }
+  100% {
+    transform: translateX(0); } }
+@keyframes slideInRight {
+  0% {
+    transform: translateX(110%);
+    visibility: visible; }
+  100% {
+    transform: translateX(0); } }
+.slideInRightTop {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: slideInRight;
+  -moz-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.slideInRightMiddle {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: slideInRight;
+  -moz-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s; }
+
+.slideInRightBottom {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: slideInRight;
+  -moz-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s; }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 400ms;
+  -moz-animation-duration: 400ms;
+  animation-duration: 400ms;
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.fadeInSecond {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 400ms;
+  -moz-animation-duration: 400ms;
+  animation-duration: 400ms;
+  -webkit-animation-delay: 6s;
+  -moz-animation-delay: 6s;
+  animation-delay: 6s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+body {
+  padding: 25px;
+  font-size: 24px; }
+
+.connection {
+  position: absolute;
+  top: 50px;
+  left: 200px; }
+
+.connectionDot {
+  color: #82CAFF;
+  opacity: 0;
+  position: relative;
+  font-size: 55px;
+  font-family: 'BrandonGrotesque' !important; }
+
+.one {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  animation-delay: 0s;
+  top: 20px; }
+
+.two {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  top: 15px; }
+
+.three {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+  top: 10px; }
+
+.four {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  top: 5px; }
+
+.five {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  top: 0px; }
+
+.six {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+  top: -5px; }
+
+.seven {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+  top: -10px; }
+
+.eight {
+  opacity: 0;
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  top: -15px; }
+
+@-webkit-keyframes dot {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0.3; }
+  100% {
+    opacity: 1; } }
+@-moz-keyframes dot {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0.3; }
+  100% {
+    opacity: 1; } }
+@keyframes dot {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0.3; }
+  100% {
+    opacity: 1; } }
+.screen {
+  position: relative;
+  background: url("../assets/img/lego-screen.png") no-repeat;
+  background-size: 230px 137px;
+  width: 242px;
+  height: 143px; }
+  .screen:nth-child(2) {
+    float: right; }
+  .screen:nth-child(3) {
+    float: left;
+    margin: 10px 60px 0 0; }
 
 /*# sourceMappingURL=app.css.map */
