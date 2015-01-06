@@ -415,6 +415,38 @@ code {
   @include animation-delay(4s);  
 }
 
+@include keyframes(fadeIn) {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  @include animation-name(fadeIn);
+  @include animation-duration(400ms);
+  @include animation-delay(4s);  
+  @include animation-fill-mode(both);
+}
+
+.fadeInSecond {
+  @include animation-name(fadeIn);
+  @include animation-duration(400ms);
+  @include animation-delay(6s);  
+  @include animation-fill-mode(both);
+}
+
+// @-webkit-keyframes fadeInDown {
+//   0% {
+//     opacity: 0;
+//     -webkit-transform: translate3d(0, -100%, 0);
+//             transform: translate3d(0, -100%, 0);
+//   }
+
+//   100% {
+//     opacity: 1;
+//     -webkit-transform: none;
+//             transform: none;
+//   }
+// }
 
 
 
