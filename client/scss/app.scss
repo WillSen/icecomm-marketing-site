@@ -16,7 +16,13 @@
 }
 
 
+.main {
+  padding: 0 180px;
+}
 
+.row {
+  max-width: 70rem;
+}
 
 .top-bar {
   background: #fff;
@@ -53,6 +59,14 @@
     .sub-intro-text {
       font-size: 16px; 
     }
+}
+
+.screens {
+  padding: 50px 0 0 0;
+  .term {
+    width: 400px;
+    height: 200px;
+  }
 }
 
 // .main {
@@ -124,11 +138,11 @@ body {
 }
 }
 
-.hero {
-  background: #fff;
-  background-size:cover;
-  height:600px
-}
+// .hero {
+//   background: #fff;
+//   background-size:cover;
+//   height:600px
+// }
 
 // .in/tro-text {
 //   padding-top:40%;
@@ -199,6 +213,109 @@ footer a:hover {
   background-color:transparent
 }
 
+
+
+.term,.term .chrome,.term .chrome {
+  border:solid 2px #777
+}
+
+.term {
+  display:block;
+  border-radius:4px;
+  margin-bottom:10px;
+  text-align:left;
+  .shell {
+    min-height:130px;
+    overflow:hidden;
+  }
+  .chrome {
+    height:34px;
+    padding-left:10px;
+    border-top:0 none;
+    border-right:0 none;
+    border-left:0 none;
+    .btn {
+      display:inline-block;
+      vertical-align:middle;
+      width:8px;
+      height:8px;
+      border-radius:100%;
+    }
+  }
+  .chrome:before {
+    content:" ";
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+  }
+  .shell {
+    padding:10px;
+    color:#777
+  }
+
+  .workshopper {
+    background:#F8F0BD;
+    padding:2px
+  }
+}
+
+
+
+
+
+
+.term .workshopper code {
+  border:0 none
+}
+
+.term code {
+  display:block;
+  margin:12px 0;
+  padding:4px 10px;
+  border-left:8px solid #F7DA03;
+  border-radius:0;
+  background:none
+}
+
+.term .chrome .btn:hover {
+  border-color:#404040
+}
+
+.term .chrome .btn.close {
+  background: #DF7065
+}
+
+.term .chrome .btn.max {
+  background:#5BCC8B
+}
+
+.term .chrome .btn.min {
+  background:#E6BB46
+}
+
+.term.max {
+  top:0;
+  left:0;
+  position:absolute;
+  width:100%;
+  height:100%;
+  max-width:none
+}
+
+.term.min {
+  position:absolute;
+  bottom:0
+}
+
+.term.min .shell {
+  min-height:0;
+  height:0;
+  padding:0
+}
+
+.term.min .chrome {
+  border:0 none
+}
 
 // Or selectively include components
 // @import
