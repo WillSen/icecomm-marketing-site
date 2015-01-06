@@ -69,6 +69,16 @@
     width: 400px;
     height: 290px;
   }
+  .columns {
+    &:nth-child(1){
+      width: 40%;
+      left: -60px;
+    }
+    &:nth-child(2){
+      width: 60%;
+      // left: -60px;
+    }
+  }
 }
 
 // .main {
@@ -420,6 +430,9 @@ code {
   100% {opacity: 1;}
 }
 
+
+
+
 .fadeIn {
   @include animation-name(fadeIn);
   @include animation-duration(400ms);
@@ -433,6 +446,57 @@ code {
   @include animation-delay(6s);  
   @include animation-fill-mode(both);
 }
+
+body {
+    padding: 25px;
+    font-size: 24px;
+}
+
+.one {
+    opacity: 0;
+    @include animation(dot 1.3s infinite);
+    @include animation-delay(0.0s);
+}
+
+.two {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.2s;
+      animation: dot 1.3s infinite;
+      animation-delay: 0.2s;
+}
+
+.three {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.3s;
+     animation: dot 1.3s infinite;
+     animation-delay: 0.3s;
+}
+
+
+
+@include keyframes(dot) {
+      0% { opacity: 0; }
+     50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.screen {
+  position: relative;
+  background: url('../assets/img/lego-screen.png') no-repeat;
+  background-size: 230px 137px;
+  width: 242px;
+  height: 143px;
+  &:nth-child(1){
+    float: right;
+  }
+  &:nth-child(2){
+    float: left;
+    margin: 10px 60px 0 0;
+  }
+}
+
 
 // @-webkit-keyframes fadeInDown {
 //   0% {
