@@ -1,5 +1,5 @@
-@import "settings";
-@import "foundation";
+@import url("../../bower_components/foundation/css/foundation.css");
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
 
 @font-face {
   font-family: 'GothamXLight';
@@ -9,24 +9,49 @@
 }
 
 
-
-.main {
-  padding-top: 70px;
-}
-
-.fixed {
-  background: white;
-  opacity: 0.95;
+.top-bar {
+  background: #fff;
   height: 70px;
+  // border: solid #000 1px;
+  padding: 0px 170px;
+  .namelogo {
+    content: url('../assets/img/icecomm-logo-lg.png');
+    width: 180px;
+  }
+  .top-bar-section {
+    ul {      
+      padding: 15px 0px 10px 0px; 
+      a {
+        font-family: 'Open Sans', sans-serif !important;
+      }
+      &.left {
+        padding-left: 30px;  
+      }
+    }
+  }
+  li:not(.has-form) a:not(.button) {
+    background: #fff;
+    color: #333;
+  }
 }
+
+// .main {
+//   padding-top: 70px;
+// }
+
+// .fixed {
+//   background: white;
+//   opacity: 0.95;
+//   height: 70px;
+// }
 body {
-  font-family:'Raleway',Helvetica,Arial,sans-serif;
+  // font-family:'Raleway',Helvetica,Arial,sans-serif;
   font-weight:400;
-  background-color:rgba(0,0,0,0.02)
+  background-color:#fff;
 }
 
 .button {
-  font-family:'Raleway',Helvetica,Arial,sans-serif
+  // font-family:'Raleway',Helvetica,Arial,sans-serif
 }
 
 .button-group li {
@@ -84,9 +109,8 @@ body {
 }
 
 .hero {
-  background:url(https://www.firebase.com/resources/images/website/backgrounds/krisskross.png);
+  background: #fff;
   background-size:cover;
-  box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.15);
   height:600px
 }
 
