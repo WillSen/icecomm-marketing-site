@@ -13,6 +13,10 @@
 .main {
   padding: 0 180px; }
 
+body {
+  padding: 25px;
+  font-size: 24px; }
+
 .row {
   max-width: 70rem; }
 
@@ -246,16 +250,16 @@ code {
 
 .blink_me {
   -webkit-animation-name: blinker;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
   -moz-animation-name: blinker;
-  -moz-animation-duration: 1s;
-  -moz-animation-timing-function: linear;
-  -moz-animation-iteration-count: infinite;
   animation-name: blinker;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
   animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
   animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
   animation-iteration-count: infinite; }
 
 @-moz-keyframes blinker {
@@ -358,12 +362,12 @@ code {
   -webkit-animation-name: fadeIn;
   -moz-animation-name: fadeIn;
   animation-name: fadeIn;
-  -webkit-animation-duration: 400ms;
-  -moz-animation-duration: 400ms;
-  animation-duration: 400ms;
-  -webkit-animation-delay: 4s;
-  -moz-animation-delay: 4s;
-  animation-delay: 4s;
+  -webkit-animation-duration: 200ms;
+  -moz-animation-duration: 200ms;
+  animation-duration: 200ms;
+  -webkit-animation-delay: 3s;
+  -moz-animation-delay: 3s;
+  animation-delay: 3s;
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
   animation-fill-mode: both; }
@@ -375,16 +379,25 @@ code {
   -webkit-animation-duration: 400ms;
   -moz-animation-duration: 400ms;
   animation-duration: 400ms;
-  -webkit-animation-delay: 6s;
-  -moz-animation-delay: 6s;
-  animation-delay: 6s;
+  -webkit-animation-delay: 5s;
+  -moz-animation-delay: 5s;
+  animation-delay: 5s;
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
   animation-fill-mode: both; }
 
-body {
-  padding: 25px;
-  font-size: 24px; }
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0); }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0); } }
+.shake {
+  animation-name: shake; }
 
 .connection:nth-of-type(1) {
   position: absolute;
@@ -419,7 +432,6 @@ body {
   font-family: 'BrandonGrotesque' !important; }
 
 .one {
-  opacity: 0;
   -webkit-animation: dot 1.3s infinite;
   -moz-animation: dot 1.3s infinite;
   animation: dot 1.3s infinite;
@@ -428,7 +440,6 @@ body {
   animation-delay: 50ms; }
 
 .two {
-  opacity: 0;
   -webkit-animation: dot 1.3s infinite;
   -moz-animation: dot 1.3s infinite;
   animation: dot 1.3s infinite;
@@ -437,7 +448,6 @@ body {
   animation-delay: 100ms; }
 
 .three {
-  opacity: 0;
   -webkit-animation: dot 1.3s infinite;
   -moz-animation: dot 1.3s infinite;
   animation: dot 1.3s infinite;
@@ -446,7 +456,6 @@ body {
   animation-delay: 150ms; }
 
 .four {
-  opacity: 0;
   -webkit-animation: dot 1.3s infinite;
   -moz-animation: dot 1.3s infinite;
   animation: dot 1.3s infinite;
@@ -455,7 +464,6 @@ body {
   animation-delay: 200ms; }
 
 .five {
-  opacity: 0;
   -webkit-animation: dot 1.3s infinite;
   -moz-animation: dot 1.3s infinite;
   animation: dot 1.3s infinite;
@@ -464,7 +472,6 @@ body {
   animation-delay: 250ms; }
 
 .six {
-  opacity: 0;
   -webkit-animation: dot 1.3s infinite;
   -moz-animation: dot 1.3s infinite;
   animation: dot 1.3s infinite;
@@ -473,7 +480,6 @@ body {
   animation-delay: 300ms; }
 
 .seven {
-  opacity: 0;
   -webkit-animation: dot 1.3s infinite;
   -moz-animation: dot 1.3s infinite;
   animation: dot 1.3s infinite;
@@ -482,7 +488,6 @@ body {
   animation-delay: 350ms; }
 
 .eight {
-  opacity: 0;
   -webkit-animation: dot 1.3s infinite;
   -moz-animation: dot 1.3s infinite;
   animation: dot 1.3s infinite;
