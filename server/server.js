@@ -56,6 +56,26 @@ app.get('/checkUsername', function(req, res) {
   // res.json({A: 5});
 })
 
+app.get('/checkUserExists', function(req, res) {
+  //req.params.tryusername
+  //query database with req.params.tryusername
+  // if present res.send(false)
+  // else res.send(true)
+  console.log('checking if user exists: ', req.query.username);
+  // var alreadyExists = false;
+  db.User.find(function(err, data){
+    console.log('finding mongoose data');
+    data.forEach(function(item) {
+      console.log(item.username);
+      if (item.username === req.query.username) {
+        res.json(true);
+      }
+    })
+    // res.json(false);
+  })
+  // res.json(alreadyExists);
+})
+
 app.post('/login', passport.loginAuth);
 app.post('/signup', passport.signupAuth);
 
