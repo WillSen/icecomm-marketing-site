@@ -529,5 +529,13 @@ body {
     position: absolute;
     top: 10rem;
     left: 9rem; }
+  .videoscreens .video-screen {
+    position: relative; }
+    .videoscreens .video-screen .face {
+      position: absolute;
+      background: url("../assets/img/lego-full-lg.png") no-repeat center;
+      background-size: 84px 67px;
+      width: 100px;
+      height: 100px; }
 
 /*# sourceMappingURL=app.css.map */

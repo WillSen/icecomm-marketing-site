@@ -592,6 +592,17 @@ body {
     top: 10rem;
     left: 9rem;
   }
+  .video-screen {
+    position: relative;
+    // border: solid #000 1px;
+    .face {
+      position: absolute;
+      background: url('../assets/img/lego-full-lg.png') no-repeat center;
+      background-size: 84px 67px;
+      width: 100px;
+      height: 100px;
+    }
+  }
 }
 
 // @-webkit-keyframes fadeInDown {
