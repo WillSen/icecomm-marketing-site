@@ -363,14 +363,19 @@ code {
   border:0 none
 }
 
-.recording-light {
-  background: #DF7065;
-  display: inline-block;
-  // vertical-align: middle;
-  width: 8px;
-  height: 8px;
+.light {
+  background: #5BCC8B;
+  position: absolute;
+  width: 7px;
+  height: 7px;
   border-radius: 100%;
+  top: -25px;
+  left: 40px;
 }
+
+// .video-screen {
+//   border: solid red 1px;
+// }
 
 .blink_me {
   @include animation-name(blinker);
@@ -457,25 +462,22 @@ code {
 }
 
 
-@keyframes shake {
+@include keyframes(shake) {
   0%, 100% {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+    @include transform(translate3d(0, 0, 0));
   }
 
   10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-            transform: translate3d(-10px, 0, 0);
+    @include transform(translate3d(-10px, 0, 0));
   }
 
   20%, 40%, 60%, 80% {
-    -webkit-transform: translate3d(10px, 0, 0);
-            transform: translate3d(10px, 0, 0);
+    @include transform(translate3d(10px, 0, 0));
   }
 }
 
 .shake {
-          animation-name: shake;
+  @include animation(shake 2.3s);
 }
 
 

@@ -241,12 +241,14 @@ code {
 .term.min .chrome {
   border: 0 none; }
 
-.recording-light {
-  background: #DF7065;
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 100%; }
+.light {
+  background: #5BCC8B;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 100%;
+  top: -25px;
+  left: 40px; }
 
 .blink_me {
   -webkit-animation-name: blinker;
@@ -386,18 +388,43 @@ code {
   -moz-animation-fill-mode: both;
   animation-fill-mode: both; }
 
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0); }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0); }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0); } }
+@-moz-keyframes shake {
+  0%, 100% {
+    -moz-transform: translate3d(0, 0, 0); }
+  10%, 30%, 50%, 70%, 90% {
+    -moz-transform: translate3d(-10px, 0, 0); }
+  20%, 40%, 60%, 80% {
+    -moz-transform: translate3d(10px, 0, 0); } }
 @keyframes shake {
   0%, 100% {
     -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
   10%, 30%, 50%, 70%, 90% {
     -webkit-transform: translate3d(-10px, 0, 0);
+    -moz-transform: translate3d(-10px, 0, 0);
+    -ms-transform: translate3d(-10px, 0, 0);
+    -o-transform: translate3d(-10px, 0, 0);
     transform: translate3d(-10px, 0, 0); }
   20%, 40%, 60%, 80% {
     -webkit-transform: translate3d(10px, 0, 0);
+    -moz-transform: translate3d(10px, 0, 0);
+    -ms-transform: translate3d(10px, 0, 0);
+    -o-transform: translate3d(10px, 0, 0);
     transform: translate3d(10px, 0, 0); } }
 .shake {
-  animation-name: shake; }
+  -webkit-animation: shake 2.3s;
+  -moz-animation: shake 2.3s;
+  animation: shake 2.3s; }
 
 .connection:nth-of-type(1) {
   position: absolute;
