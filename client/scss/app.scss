@@ -466,11 +466,24 @@ body {
     font-size: 24px;
 }
 
-.connection {
+.connection:nth-of-type(1) {
   position: absolute;
-  top: 50px;
-  left: 200px;
+  top: 10px;
+  left: 235px;
+  // @include transform(rotate(30deg))
+}.connection:nth-of-type(2) {
+  position: absolute;
+  top: 130px;
+  left: 65px;
+  @include transform(rotate(40deg))
 }
+.connection:nth-of-type(3) {
+  position: absolute;
+  top: 130px;
+  left: 360px;
+  @include transform(rotate(-40deg))
+}
+
 
 .connectionDot {
   color: #82CAFF;
@@ -483,52 +496,52 @@ body {
 .one {
     opacity: 0;
     @include animation(dot 1.3s infinite);
-    @include animation-delay(0.0s);
-    top: 20px;
+    @include animation-delay(50ms);
+    // top: 20px;
 }
 
 .two {
     opacity: 0;
     @include animation(dot 1.3s infinite);
-    @include animation-delay(0.2s);
-    top: 15px;
+    @include animation-delay(100ms);
+    // top: 15px;
 }
 
 .three {
     opacity: 0;
     @include animation(dot 1.3s infinite);
-    @include animation-delay(0.3s);
-    top: 10px;
+    @include animation-delay(150ms);
+    // top: 10px;
 }
 .four {
     opacity: 0;
     @include animation(dot 1.3s infinite);
-    @include animation-delay(0.4s);
-    top: 5px;
+    @include animation-delay(200ms);
+    // top: 5px;
 }
 .five {
     opacity: 0;
     @include animation(dot 1.3s infinite);
-    @include animation-delay(0.5s);
-    top: 0px;
+    @include animation-delay(250ms);
+    // top: 0px;
 }
 .six {
     opacity: 0;
     @include animation(dot 1.3s infinite);
-    @include animation-delay(0.6s);
-    top: -5px;
+    @include animation-delay(300ms);
+    // top: -5px;
 }
 .seven {
     opacity: 0;
     @include animation(dot 1.3s infinite);
-    @include animation-delay(0.7s);
-    top: -10px;
+    @include animation-delay(350ms);
+    // top: -10px;
 }
 .eight {
     opacity: 0;
     @include animation(dot 1.3s infinite);
-    @include animation-delay(0.8s);
-    top: -15px;
+    @include animation-delay(400ms);
+    // top: -15px;
 }
 
 @include keyframes(dot) {
@@ -559,6 +572,8 @@ body {
 
 .videoscreens {
   position: relative;
+  width: 500px;
+  height: 290px;
   .screen {
     background: url('../assets/img/lego-screen.png') no-repeat;
     background-size: 230px 137px;
@@ -574,7 +589,8 @@ body {
   }
   .doll {
     position: absolute;
-    bottom: 0;
+    top: 10rem;
+    left: 9rem;
   }
 }
 
