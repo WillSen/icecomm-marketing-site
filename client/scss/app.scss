@@ -21,7 +21,7 @@ $middleCodeTimeDelay: 2s;
 $bottomCodeTimeDelay: 4s;
 
 .main {
-  padding: 0 180px;
+  padding: 0 5rem;
 }
 
 body {
@@ -553,8 +553,8 @@ code {
 
 .videoscreens {
   position: relative;
-  width: 500px;
-  height: 290px;
+  width: 100%
+  // height: 290px;
   .screen {
     background: url('../assets/img/laptop-screen.png') no-repeat;
     background-size: 230px 137px;
@@ -595,6 +595,38 @@ code {
       
       width: 100px;
       height: 100px;
+    }
+  }
+}
+
+@media all and (max-width: 640px) {
+  .top-bar {
+    .namelogo {
+      display: none;
+    }
+  }
+  .hero {
+    .intro-text {
+      font-size: 30px;
+      padding-bottom: 10px;
+    }
+    .sub-intro-text {
+      font-size: 11px;
+      padding-bottom: 10px; 
+    }
+  }
+  .main {
+    padding: 0;
+  }
+  .screens {
+    padding: 0;
+    .term {
+      width: 100%;
+      height: 310px;
+      code {
+        font-size: 11px !important;
+      }
+      
     }
   }
 }
