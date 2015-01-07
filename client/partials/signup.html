@@ -1,8 +1,9 @@
 <form action="/signup" method="post" name="signup_form" novalidate>
   <div>
     <label>Username:</label>
-    <input type="text" required ng-minlength=3 ng-maxlength=20 name="username" ng-model="username"/><br/>
-    <div class="error" 
+    <input type="text" required ng-minlength=3 ng-maxlength=20 name="username" ng-blur="checkUnique()" ng-model="username"/><br/>
+    {{alreadyExistErrorMsg}}
+<!--     <div class="error" 
         ng-show="signup_form.username.$dirty && signup_form.username.$invalid">
       <small class="error" 
           ng-show="signup_form.username.$error.required">
@@ -15,7 +16,8 @@
       <small class="error" 
               ng-show="signup_form.username.$error.maxlength">
               Your name cannot be longer than 20 characters
-      </small>
+      </small> -->
+
     </div>
   </div>
   <div>
