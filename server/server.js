@@ -62,19 +62,18 @@ app.get('/checkUserExists', function(req, res) {
   // if present res.send(false)
   // else res.send(true)
   console.log('checking if user exists: ', req.query.username);
-
+  // var alreadyExists = false;
   db.User.find(function(err, data){
     console.log('finding mongoose data');
     data.forEach(function(item) {
       console.log(item.username);
       if (item.username === req.query.username) {
         res.json(true);
-        return;
       }
     })
+    // res.json(false);
   })
-  
-  // res.json('testing');
+  // res.json(alreadyExists);
 })
 
 app.post('/login', passport.loginAuth);
