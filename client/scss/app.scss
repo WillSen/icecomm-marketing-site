@@ -199,11 +199,6 @@ code {
     font-size: 13px !important;
   }
 
-
-
-
-
-
 .term .workshopper code {
   border:0 none
 }
@@ -326,9 +321,6 @@ code {
   100% {opacity: 1;}
 }
 
-
-
-
 .fadeIn {
   @include animation-name(fadeIn);
   @include animation-duration(200ms);
@@ -360,32 +352,6 @@ code {
 
 .shake {
   @include animation(shake 2.3s);
-}
-
-
-.connection:nth-of-type(1) {
-  position: absolute;
-  top: 10px;
-  left: 235px;
-}.connection:nth-of-type(2) {
-  position: absolute;
-  top: 130px;
-  left: 65px;
-  @include transform(rotate(40deg))
-}
-.connection:nth-of-type(3) {
-  position: absolute;
-  top: 130px;
-  left: 360px;
-  @include transform(rotate(-40deg))
-}
-
-.connectionDot {
-  color: #82CAFF;
-  opacity: 0;
-  position: relative;
-  font-size: 55px;
-  font-family: 'BrandonGrotesque' !important;
 }
 
 .one {
@@ -428,6 +394,10 @@ code {
      50% { opacity: 0.3; }
     100% { opacity: 1; }
 }
+
+///////////////////////////////////
+///Video screens on homepage //////
+///////////////////////////////////
 
 .videoscreens {
   position: relative;
@@ -478,6 +448,37 @@ code {
   }
 }
 
+.connection:nth-of-type(1) {
+  position: absolute;
+  top: 10px;
+  left: 235px;
+}.connection:nth-of-type(2) {
+  position: absolute;
+  top: 130px;
+  left: 65px;
+  @include transform(rotate(40deg))
+}
+.connection:nth-of-type(3) {
+  position: absolute;
+  top: 130px;
+  left: 360px;
+  @include transform(rotate(-40deg))
+}
+
+.connectionDot {
+  color: #82CAFF;
+  opacity: 0;
+  position: relative;
+  font-size: 55px;
+  font-family: 'BrandonGrotesque' !important;
+}
+
+
+///////////////////////////////////
+////////Responsive styles /////////
+///////////////////////////////////
+
+
 @media all and (max-width: 640px) {
   .top-bar {
     .namelogo {
@@ -509,25 +510,6 @@ code {
     }
   }
 }
-
-
-
-
-// @-webkit-keyframes fadeInDown {
-//   0% {
-//     opacity: 0;
-//     -webkit-transform: translate3d(0, -100%, 0);
-//             transform: translate3d(0, -100%, 0);
-//   }
-
-//   100% {
-//     opacity: 1;
-//     -webkit-transform: none;
-//             transform: none;
-//   }
-// }
-
-
 
 // Or selectively include components
 // @import
