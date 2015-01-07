@@ -196,9 +196,9 @@ code {
   margin: 0 auto; }
   .videoscreens .screen {
     background: url("../assets/img/laptop-screen.png") no-repeat;
-    background-size: 230px 137px;
-    width: 242px;
-    height: 143px; }
+    background-size: 14.4rem 8.58rem;
+    width: 15.15rem;
+    height: 8.95rem; }
   .videoscreens .lego {
     position: absolute; }
     .videoscreens .lego .video-screen .face {
@@ -555,5 +555,8 @@ code {
       height: 310px; }
       .screens .term code {
         font-size: 11px !important; } }
+@media all and (max-width: 1020px) {
+  .videoscreens {
+    margin-top: 30px; } }
 
 /*# sourceMappingURL=app.css.map */
