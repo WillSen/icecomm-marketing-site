@@ -253,7 +253,6 @@ footer a:hover {
       border-radius:4px;
       width: 150px;
       height: 120px;
-      // background: #F7F7F7;
       border-bottom:8px solid #82CAFF;
       padding: 20px;
       border-radius: 0px;
@@ -378,9 +377,10 @@ code {
   left: 39px;
 }
 
-// .video-screen {
-//   border: solid red 1px;
-// }
+///////////////////////////////////
+/////// Animations ////////////////
+///////////////////////////////////
+
 
 .blink_me {
   @include animation-name(blinker);
@@ -389,29 +389,12 @@ code {
   @include animation-iteration-count(infinite);
 }
 
-@-moz-keyframes blinker {
+@include keyframes(blinker) {
     0% { opacity: 1.0; }
     50% { opacity: 0.0; }
     100% { opacity: 1.0; }
 }
 
-@-webkit-keyframes blinker {
-    0% { opacity: 1.0; }
-    50% { opacity: 0.0; }
-    100% { opacity: 1.0; }
-}
-
-@keyframes blinker {
-    0% { opacity: 1.0; }
-    50% { opacity: 0.0; }
-    100% { opacity: 1.0; }
-}
-
-
-// .animated {
-//   animation-duration: 1s;
-//   animation-fill-mode: both;
-// }
 
 @include keyframes(slideInRight) {
   0% {
