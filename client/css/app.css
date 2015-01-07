@@ -109,24 +109,6 @@ hr {
   .term .shell {
     min-height: 130px;
     overflow: hidden; }
-    div:nth-child(2) > .term .shell {
-      padding: 20px 30px; }
-    .term .shell .video-screen {
-      position: relative;
-      border-radius: 4px;
-      width: 150px;
-      height: 120px;
-      border-bottom: 8px solid #82CAFF;
-      padding: 20px;
-      border-radius: 0px; }
-      .term .shell .video-screen:nth-child(1) {
-        float: left;
-        background: url("../assets/img/lego-full-lg.png") no-repeat center;
-        background-size: 84px 67px; }
-      .term .shell .video-screen:nth-child(2) {
-        float: right;
-        background: url("../assets/img/playmobil-full.png") no-repeat center;
-        background-size: 77px 70px; }
   .term .chrome {
     height: 34px;
     padding-left: 10px;

@@ -159,30 +159,8 @@ hr {
   margin-bottom:10px;
   text-align:left;
   .shell {
-    div:nth-child(2) > & {
-      padding: 20px 30px;
-    }
     min-height:130px;
     overflow:hidden;
-    .video-screen {
-      position: relative;
-      border-radius:4px;
-      width: 150px;
-      height: 120px;
-      border-bottom:8px solid #82CAFF;
-      padding: 20px;
-      border-radius: 0px;
-      &:nth-child(1){
-        float: left;
-        background: url('../assets/img/lego-full-lg.png') no-repeat center;
-        background-size: 84px 67px;
-      }
-      &:nth-child(2){
-        float: right;
-        background: url('../assets/img/playmobil-full.png') no-repeat center;
-        background-size: 77px 70px;
-      }
-    }
   }
   .chrome {
     height:34px;
