@@ -516,27 +516,34 @@ body {
   width: 500px;
   height: 290px; }
   .videoscreens .screen {
-    background: url("../assets/img/lego-screen.png") no-repeat;
+    background: url("../assets/img/laptop-screen.png") no-repeat;
     background-size: 230px 137px;
     width: 242px;
     height: 143px; }
   .videoscreens .lego {
     position: absolute; }
+    .videoscreens .lego .video-screen .face {
+      background: url("../assets/img/lego.png") no-repeat center;
+      background-size: 80px 67px; }
   .videoscreens .playmobil {
     position: absolute;
     right: 0; }
+    .videoscreens .playmobil .video-screen .face {
+      background: url("../assets/img/jellybear.png") no-repeat center;
+      background-size: 80px 67px; }
   .videoscreens .doll {
     position: absolute;
     top: 10rem;
     left: 9rem; }
+    .videoscreens .doll .video-screen .face {
+      background: url("../assets/img/playmobil.png") no-repeat center;
+      background-size: 80px 67px; }
   .videoscreens .video-screen {
     position: relative;
     top: 30px;
     left: 63px; }
     .videoscreens .video-screen .face {
       position: absolute;
-      background: url("../assets/img/lego-full-lg.png") no-repeat center;
-      background-size: 84px 67px;
       width: 100px;
       height: 100px; }
 
