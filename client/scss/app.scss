@@ -37,13 +37,20 @@ body {
   background: #fff;
   height: 70px;
   padding: 0px 170px;
+  .title-area {
+    flat: left;
+  }
   .namelogo {
     content: url('../assets/img/icecomm-logo-lg.png');
     width: 180px;
+    padding-bottom: 20px;
   }
   .top-bar-section {
     ul {
       padding: 15px 0px 10px 0px;
+      width: auto;
+      height: auto !important;
+      display: inline;
       a {
         font-family: 'Open Sans', sans-serif !important;
       }
@@ -64,6 +71,7 @@ body {
       color: #333;
       font-family: 'BrandonGrotesque';
       font-size: 40px;
+      padding-top: 18%;
     }
     .sub-intro-text {
       font-size: 16px;
@@ -76,52 +84,30 @@ body {
     margin: 0 auto;
     width: 100%;
     max-width: 500px;
-    // height: 290px;
   }
-  // .columns {
-  //   &:nth-child(1){
-  //     width: 40%;
-  //     left: -60px;
-  //   }
-  //   &:nth-child(2){
-  //     width: 60%;
-  //     // left: -60px;
-  //   }
-  // }
 }
-
-// .main {
-//   padding-top: 70px;
-// }
-
-// .fixed {
-//   background: white;
-//   opacity: 0.95;
-//   height: 70px;
-// }
 body {
-  // font-family:'Raleway',Helvetica,Arial,sans-serif;
   font-weight:400;
   background-color:#fff;
 }
 
-.button-group li {
-  padding-top:3%
-}
+// .button-group li {
+//   padding-top:3%
+// }
 
-.button-group a {
-  color:rgba(0,0,0,1);
-  background-color:transparent
-}
+// .button-group a {
+//   color:rgba(0,0,0,1);
+//   background-color:transparent
+// }
 
-.button-group a:hover {
-  color:rgba(0,0,0,0.4);
-  background-color:transparent
-}
+// .button-group a:hover {
+//   color:rgba(0,0,0,0.4);
+//   background-color:transparent
+// }
 
-.button-group {
-  float:none
-}
+// .button-group {
+//   float:none
+// }
 
 @media only screen and (min-width: 40.063em) {
 .button-group {
@@ -171,36 +157,36 @@ body {
 }
 }
 
-.intro-text p {
-  font-family:'Shadows Into Light',cursive;
-  font-size:44px
-}
+// .intro-text p {
+//   font-family:'Shadows Into Light',cursive;
+//   font-size:44px
+// }
 
-.about,.work,.contact {
-  padding:50px 0 0
-}
+// .about,.work,.contact {
+//   padding:50px 0 0
+// }
 
-.about img {
-  width:250px;
-  height:250px;
-  border-radius:150px;
-  -webkit-border-radius:150px;
-  -moz-border-radius:150px
-}
+// .about img {
+//   width:250px;
+//   height:250px;
+//   border-radius:150px;
+//   -webkit-border-radius:150px;
+//   -moz-border-radius:150px
+// }
 
-.work img:hover {
-  opacity:.5;
-  -webkit-transition:.3s ease;
-  -moz-transition:.3s ease;
-  -ms-transition:.3s ease;
-  -o-transition:.3s ease;
-  transition:.3s ease
-}
+// .work img:hover {
+//   opacity:.5;
+//   -webkit-transition:.3s ease;
+//   -moz-transition:.3s ease;
+//   -ms-transition:.3s ease;
+//   -o-transition:.3s ease;
+//   transition:.3s ease
+// }
 
-.work li {
-  height:140px;
-  overflow:hidden
-}
+// .work li {
+//   height:140px;
+//   overflow:hidden
+// }
 
 hr {
   border:0;
@@ -212,30 +198,22 @@ hr {
   opacity:.8
 }
 
-footer {
-  padding:80px 0 10px
-}
+// footer {
+//   padding:80px 0 10px
+// }
 
-footer a:hover {
-  color:rgba(0,0,0,0.4);
-  background-color:transparent
-}
+// footer a:hover {
+//   color:rgba(0,0,0,0.4);
+//   background-color:transparent
+// }
 
-
-// terminal window on homepage
+///////////////////////////////////
+///Terminal window on homepage ////
+///////////////////////////////////
 
 .term,.term .chrome,.term .chrome {
   border:solid 2px #777
 }
-
-.term .shell {
-
-}
-
-.term .shell::hover {
-
-}
-
 
 .term {
   display:block;

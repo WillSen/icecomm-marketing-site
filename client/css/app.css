@@ -21,11 +21,17 @@ body {
   background: #fff;
   height: 70px;
   padding: 0px 170px; }
+  .top-bar .title-area {
+    flat: left; }
   .top-bar .namelogo {
     content: url("../assets/img/icecomm-logo-lg.png");
-    width: 180px; }
+    width: 180px;
+    padding-bottom: 20px; }
   .top-bar .top-bar-section ul {
-    padding: 15px 0px 10px 0px; }
+    padding: 15px 0px 10px 0px;
+    width: auto;
+    height: auto !important;
+    display: inline; }
     .top-bar .top-bar-section ul a {
       font-family: 'Open Sans', sans-serif !important; }
     .top-bar .top-bar-section ul.left {
@@ -39,7 +45,8 @@ body {
   .hero .intro-text {
     color: #333;
     font-family: 'BrandonGrotesque';
-    font-size: 40px; }
+    font-size: 40px;
+    padding-top: 18%; }
   .hero .sub-intro-text {
     font-size: 16px; }
 
@@ -53,20 +60,6 @@ body {
 body {
   font-weight: 400;
   background-color: #fff; }
-
-.button-group li {
-  padding-top: 3%; }
-
-.button-group a {
-  color: black;
-  background-color: transparent; }
-
-.button-group a:hover {
-  color: rgba(0, 0, 0, 0.4);
-  background-color: transparent; }
-
-.button-group {
-  float: none; }
 
 @media only screen and (min-width: 40.063em) {
   .button-group {
@@ -96,32 +89,6 @@ body {
 @media only screen and (min-width: 64.063em) {
   .intro-text {
     padding-top: 18%; } }
-.intro-text p {
-  font-family: 'Shadows Into Light',cursive;
-  font-size: 44px; }
-
-.about, .work, .contact {
-  padding: 50px 0 0; }
-
-.about img {
-  width: 250px;
-  height: 250px;
-  border-radius: 150px;
-  -webkit-border-radius: 150px;
-  -moz-border-radius: 150px; }
-
-.work img:hover {
-  opacity: .5;
-  -webkit-transition: .3s ease;
-  -moz-transition: .3s ease;
-  -ms-transition: .3s ease;
-  -o-transition: .3s ease;
-  transition: 0.3s ease; }
-
-.work li {
-  height: 140px;
-  overflow: hidden; }
-
 hr {
   border: 0;
   height: 1px;
@@ -130,13 +97,6 @@ hr {
   background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
   background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
   opacity: 0.8; }
-
-footer {
-  padding: 80px 0 10px; }
-
-footer a:hover {
-  color: rgba(0, 0, 0, 0.4);
-  background-color: transparent; }
 
 .term, .term .chrome, .term .chrome {
   border: solid 2px #777; }
