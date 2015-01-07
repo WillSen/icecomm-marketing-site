@@ -520,8 +520,23 @@ code {
   100% {
     opacity: 1; } }
 @media all and (max-width: 640px) {
-  .top-bar .namelogo {
-    display: none; }
+  .top-bar {
+    padding: 0px;
+    height: 45px; }
+    .top-bar .namelogo {
+      width: 130px;
+      padding-top: 12px; }
+    .top-bar .name {
+      background: #fff; }
+    .top-bar .right {
+      float: none !important; }
+    .top-bar .left {
+      padding-left: 0px !important; }
+    .top-bar .top-bar-section ul {
+      width: 100%;
+      padding-top: 0px; }
+    .top-bar .hello-username {
+      display: none; }
 
   .hero .intro-text {
     font-size: 30px;

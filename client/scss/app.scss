@@ -87,6 +87,7 @@ body {
   background-color:#fff;
 }
 
+
 @media only screen and (min-width: 40.063em) {
 .button-group {
   float:right
@@ -478,7 +479,27 @@ code {
 
 @media all and (max-width: 640px) {
   .top-bar {
+    padding: 0px;
+    height: 45px;
     .namelogo {
+      // display: none;
+      width: 130px;
+      padding-top: 12px;
+    }
+    .name {
+      background: #fff;
+    }
+    .right {
+      float:none !important;
+    }
+    .left {
+      padding-left: 0px !important;
+    }
+    .top-bar-section ul {
+      width: 100%;
+      padding-top: 0px;
+    }
+    .hello-username {
       display: none;
     }
   }
