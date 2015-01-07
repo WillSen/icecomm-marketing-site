@@ -1,7 +1,7 @@
 <form action="/signup" method="post" name="signup_form" novalidate>
   <div>
     <label>Username:</label>
-    <input type="text" required ng-minlength=3 ng-maxlength=20 name="username" ng-blur="checkUnique()" ng-model="username"/><br/>
+    <input type="text" name="username" ng-blur="checkUnique()" ng-model="username"/><br/>
     {{alreadyExistErrorMsg}}
 <!--     <div class="error" 
         ng-show="signup_form.username.$dirty && signup_form.username.$invalid">
