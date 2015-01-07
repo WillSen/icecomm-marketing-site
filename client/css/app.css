@@ -1,54 +1,606 @@
-/*
-Error: Invalid CSS after "... height: 290px;": expected ";", was ".screen {"
-        on line 558 of scss/app.scss
+@import url("../../bower_components/foundation/css/foundation.css");
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
+@font-face {
+  font-family: 'GothamXLight';
+  src: asset-url("assets/fonts/Gotham-XLight.otf");
+  font-weight: light;
+  font-style: normal; }
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url("../assets/fonts/brandon_re.ttf");
+  font-weight: regular;
+  font-style: normal; }
+.main {
+  padding: 0 5rem; }
 
-553: 
-554: .videoscreens {
-555:   position: relative;
-556:   width: 100%
-557:   // height: 290px;
-558:   .screen {
-559:     background: url('../assets/img/laptop-screen.png') no-repeat;
-560:     background-size: 230px 137px;
-561:     width: 242px;
-562:     height: 143px;
-563:   }
+body {
+  padding: 25px;
+  font-size: 24px; }
 
-Backtrace:
-scss/app.scss:558
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:1165:in `expected'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:1101:in `expected'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:1096:in `tok!'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:761:in `block in try_declaration'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:1141:in `call'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:1141:in `rethrow'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:766:in `try_declaration'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:696:in `declaration_or_ruleset'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:661:in `block_child'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:653:in `block_contents'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:642:in `block'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:635:in `ruleset'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:660:in `block_child'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:653:in `block_contents'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:117:in `stylesheet'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/scss/parser.rb:42:in `parse'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/engine.rb:393:in `_to_tree'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/engine.rb:285:in `render_with_sourcemap'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `each'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:328:in `block in watch'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/listen-2.7.9/lib/listen/listener.rb:276:in `call'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/listen-2.7.9/lib/listen/listener.rb:276:in `_process_changes'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/listen-2.7.9/lib/listen/listener.rb:233:in `block in _wait_for_changes'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/listen-2.7.9/lib/listen/listener.rb:216:in `loop'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/listen-2.7.9/lib/listen/listener.rb:216:in `_wait_for_changes'
-/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/listen-2.7.9/lib/listen/listener.rb:312:in `block in _start_wait_thread'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"... height: 290px;\": expected \";\", was \".screen {\"\A         on line 558 of scss/app.scss\A \A 553: \A 554: .videoscreens {\A 555:   position: relative;\A 556:   width: 100%\A 557:   // height: 290px;\A 558:   .screen {\A 559:     background: url('../assets/img/laptop-screen.png') no-repeat;\A 560:     background-size: 230px 137px;\A 561:     width: 242px;\A 562:     height: 143px;\A 563:   }"; }
+.row {
+  max-width: 70rem; }
+
+.top-bar {
+  background: #fff;
+  height: 70px;
+  padding: 0px 170px; }
+  .top-bar .namelogo {
+    content: url("../assets/img/icecomm-logo-lg.png");
+    width: 180px; }
+  .top-bar .top-bar-section ul {
+    padding: 15px 0px 10px 0px; }
+    .top-bar .top-bar-section ul a {
+      font-family: 'Open Sans', sans-serif !important; }
+    .top-bar .top-bar-section ul.left {
+      padding-left: 30px; }
+  .top-bar li:not(.has-form) a:not(.button) {
+    background: #fff;
+    color: #333; }
+
+.hero {
+  text-align: center; }
+  .hero .intro-text {
+    color: #333;
+    font-family: 'BrandonGrotesque';
+    font-size: 40px; }
+  .hero .sub-intro-text {
+    font-size: 16px; }
+
+.screens {
+  padding: 50px 50px 0 50px; }
+  .screens .term {
+    margin: 0 auto;
+    width: 100%; }
+
+body {
+  font-weight: 400;
+  background-color: #fff; }
+
+.button-group li {
+  padding-top: 3%; }
+
+.button-group a {
+  color: black;
+  background-color: transparent; }
+
+.button-group a:hover {
+  color: rgba(0, 0, 0, 0.4);
+  background-color: transparent; }
+
+.button-group {
+  float: none; }
+
+@media only screen and (min-width: 40.063em) {
+  .button-group {
+    float: right; } }
+.namelogo {
+  padding: 20px 0px 10px 0; }
+
+@media only screen and (min-width: 40.063em) {
+  .namelogo {
+    padding-bottom: 20px; } }
+.namelogo h1 {
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center; }
+
+@media only screen and (min-width: 40.063em) {
+  .namelogo h1 {
+    font-size: 16px;
+    text-align: left; } }
+@media only screen and (min-width: 64.063em) {
+  .namelogo h1 {
+    font-size: 24px;
+    text-align: left; } }
+@media only screen and (min-width: 40.063em) {
+  .intro-text {
+    padding-top: 25%; } }
+@media only screen and (min-width: 64.063em) {
+  .intro-text {
+    padding-top: 18%; } }
+.intro-text p {
+  font-family: 'Shadows Into Light',cursive;
+  font-size: 44px; }
+
+.about, .work, .contact {
+  padding: 50px 0 0; }
+
+.about img {
+  width: 250px;
+  height: 250px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px; }
+
+.work img:hover {
+  opacity: .5;
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -ms-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: 0.3s ease; }
+
+.work li {
+  height: 140px;
+  overflow: hidden; }
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+  background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+  background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+  background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+  opacity: 0.8; }
+
+footer {
+  padding: 80px 0 10px; }
+
+footer a:hover {
+  color: rgba(0, 0, 0, 0.4);
+  background-color: transparent; }
+
+.term, .term .chrome, .term .chrome {
+  border: solid 2px #777; }
+
+.term {
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: left; }
+  .term .shell {
+    min-height: 130px;
+    overflow: hidden; }
+    div:nth-child(2) > .term .shell {
+      padding: 20px 30px; }
+    .term .shell .video-screen {
+      position: relative;
+      border-radius: 4px;
+      width: 150px;
+      height: 120px;
+      border-bottom: 8px solid #82CAFF;
+      padding: 20px;
+      border-radius: 0px; }
+      .term .shell .video-screen:nth-child(1) {
+        float: left;
+        background: url("../assets/img/lego-full-lg.png") no-repeat center;
+        background-size: 84px 67px; }
+      .term .shell .video-screen:nth-child(2) {
+        float: right;
+        background: url("../assets/img/playmobil-full.png") no-repeat center;
+        background-size: 77px 70px; }
+  .term .chrome {
+    height: 34px;
+    padding-left: 10px;
+    border-top: 0 none;
+    border-right: 0 none;
+    border-left: 0 none; }
+    .term .chrome .btn {
+      display: inline-block;
+      vertical-align: middle;
+      width: 8px;
+      height: 8px;
+      border-radius: 100%; }
+  .term .chrome:before {
+    content: " ";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle; }
+  .term .shell {
+    padding: 10px;
+    color: #777; }
+  .term .workshopper {
+    background: #F8F0BD;
+    padding: 2px; }
+
+code {
+  border: none;
+  font-size: 13px !important; }
+
+.term .workshopper code {
+  border: 0 none; }
+
+.term code {
+  display: block;
+  margin: 12px 0;
+  padding: 4px 10px;
+  border-left: 8px solid #82CAFF;
+  border-radius: 0;
+  background: none; }
+
+.term .chrome .btn:hover {
+  border-color: #404040; }
+
+.term .chrome .btn.close {
+  background: #DF7065; }
+
+.term .chrome .btn.max {
+  background: #5BCC8B; }
+
+.term .chrome .btn.min {
+  background: #E6BB46; }
+
+.term.max {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: none; }
+
+.term.min {
+  position: absolute;
+  bottom: 0; }
+
+.term.min .shell {
+  min-height: 0;
+  height: 0;
+  padding: 0; }
+
+.term.min .chrome {
+  border: 0 none; }
+
+.myclass {
+  border: dotted pink 3px; }
+
+.light {
+  background: #5BCC8B;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  top: -25px;
+  left: 39px; }
+
+.blink_me {
+  -webkit-animation-name: blinker;
+  -moz-animation-name: blinker;
+  animation-name: blinker;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+@-moz-keyframes blinker {
+  0% {
+    opacity: 1.0; }
+  50% {
+    opacity: 0.0; }
+  100% {
+    opacity: 1.0; } }
+@-webkit-keyframes blinker {
+  0% {
+    opacity: 1.0; }
+  50% {
+    opacity: 0.0; }
+  100% {
+    opacity: 1.0; } }
+@keyframes blinker {
+  0% {
+    opacity: 1.0; }
+  50% {
+    opacity: 0.0; }
+  100% {
+    opacity: 1.0; } }
+@-webkit-keyframes slideInRight {
+  0% {
+    transform: translateX(110%);
+    visibility: visible; }
+  100% {
+    transform: translateX(0); } }
+@-moz-keyframes slideInRight {
+  0% {
+    transform: translateX(110%);
+    visibility: visible; }
+  100% {
+    transform: translateX(0); } }
+@keyframes slideInRight {
+  0% {
+    transform: translateX(110%);
+    visibility: visible; }
+  100% {
+    transform: translateX(0); } }
+.slideInRightTop {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: slideInRight;
+  -moz-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  animation-delay: 0s; }
+
+.slideInRightMiddle {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: slideInRight;
+  -moz-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s; }
+
+.slideInRightBottom {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: slideInRight;
+  -moz-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s; }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 200ms;
+  -moz-animation-duration: 200ms;
+  animation-duration: 200ms;
+  -webkit-animation-delay: 3s;
+  -moz-animation-delay: 3s;
+  animation-delay: 3s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.fadeInSecond {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 400ms;
+  -moz-animation-duration: 400ms;
+  animation-duration: 400ms;
+  -webkit-animation-delay: 5s;
+  -moz-animation-delay: 5s;
+  animation-delay: 5s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0); }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0); }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0); } }
+@-moz-keyframes shake {
+  0%, 100% {
+    -moz-transform: translate3d(0, 0, 0); }
+  10%, 30%, 50%, 70%, 90% {
+    -moz-transform: translate3d(-10px, 0, 0); }
+  20%, 40%, 60%, 80% {
+    -moz-transform: translate3d(10px, 0, 0); } }
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    -moz-transform: translate3d(-10px, 0, 0);
+    -ms-transform: translate3d(-10px, 0, 0);
+    -o-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0); }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    -moz-transform: translate3d(10px, 0, 0);
+    -ms-transform: translate3d(10px, 0, 0);
+    -o-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0); } }
+.shake {
+  -webkit-animation: shake 2.3s;
+  -moz-animation: shake 2.3s;
+  animation: shake 2.3s; }
+
+.connection:nth-of-type(1) {
+  position: absolute;
+  top: 10px;
+  left: 235px; }
+
+.connection:nth-of-type(2) {
+  position: absolute;
+  top: 130px;
+  left: 65px;
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg); }
+
+.connection:nth-of-type(3) {
+  position: absolute;
+  top: 130px;
+  left: 360px;
+  -webkit-transform: rotate(-40deg);
+  -moz-transform: rotate(-40deg);
+  -ms-transform: rotate(-40deg);
+  -o-transform: rotate(-40deg);
+  transform: rotate(-40deg); }
+
+.connectionDot {
+  color: #82CAFF;
+  opacity: 0;
+  position: relative;
+  font-size: 55px;
+  font-family: 'BrandonGrotesque' !important; }
+
+.one {
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 50ms;
+  -moz-animation-delay: 50ms;
+  animation-delay: 50ms; }
+
+.two {
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 100ms;
+  -moz-animation-delay: 100ms;
+  animation-delay: 100ms; }
+
+.three {
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 150ms;
+  -moz-animation-delay: 150ms;
+  animation-delay: 150ms; }
+
+.four {
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 200ms;
+  -moz-animation-delay: 200ms;
+  animation-delay: 200ms; }
+
+.five {
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 250ms;
+  -moz-animation-delay: 250ms;
+  animation-delay: 250ms; }
+
+.six {
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 300ms;
+  -moz-animation-delay: 300ms;
+  animation-delay: 300ms; }
+
+.seven {
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 350ms;
+  -moz-animation-delay: 350ms;
+  animation-delay: 350ms; }
+
+.eight {
+  -webkit-animation: dot 1.3s infinite;
+  -moz-animation: dot 1.3s infinite;
+  animation: dot 1.3s infinite;
+  -webkit-animation-delay: 400ms;
+  -moz-animation-delay: 400ms;
+  animation-delay: 400ms; }
+
+@-webkit-keyframes dot {
+  0% {
+    opacity: 0.01; }
+  50% {
+    opacity: 0.3; }
+  100% {
+    opacity: 1; } }
+@-moz-keyframes dot {
+  0% {
+    opacity: 0.01; }
+  50% {
+    opacity: 0.3; }
+  100% {
+    opacity: 1; } }
+@keyframes dot {
+  0% {
+    opacity: 0.01; }
+  50% {
+    opacity: 0.3; }
+  100% {
+    opacity: 1; } }
+.videoscreens {
+  position: relative;
+  width: 500px;
+  height: 290px; }
+  .videoscreens .screen {
+    background: url("../assets/img/laptop-screen.png") no-repeat;
+    background-size: 230px 137px;
+    width: 242px;
+    height: 143px; }
+  .videoscreens .lego {
+    position: absolute; }
+    .videoscreens .lego .video-screen .face {
+      background: url("../assets/img/lego.png") no-repeat center;
+      background-size: 80px 67px; }
+  .videoscreens .playmobil {
+    position: absolute;
+    right: 0; }
+    .videoscreens .playmobil .video-screen .face {
+      background: url("../assets/img/kimono.png") no-repeat center;
+      background-size: 74px 77px; }
+  .videoscreens .doll {
+    position: absolute;
+    top: 10rem;
+    left: 9rem; }
+    .videoscreens .doll .video-screen .face {
+      background: url("../assets/img/playmobil.png") no-repeat center;
+      background-size: 80px 67px; }
+  .videoscreens .video-screen {
+    position: relative;
+    top: 30px;
+    left: 63px; }
+    .videoscreens .video-screen .face {
+      position: absolute;
+      width: 100px;
+      height: 100px; }
+
+@media all and (max-width: 640px) {
+  .top-bar .namelogo {
+    display: none; }
+
+  .hero .intro-text {
+    font-size: 30px;
+    padding-bottom: 10px; }
+  .hero .sub-intro-text {
+    font-size: 11px;
+    padding-bottom: 10px; }
+
+  .main {
+    padding: 0; }
+
+  .screens {
+    padding: 0; }
+    .screens .term {
+      width: 100%;
+      height: 310px; }
+      .screens .term code {
+        font-size: 11px !important; } }
+
+/*# sourceMappingURL=app.css.map */
