@@ -180,9 +180,6 @@ code {
 .term.min .chrome {
   border: 0 none; }
 
-.myclass {
-  border: dotted pink 3px; }
-
 .light {
   background: #5BCC8B;
   position: absolute;
@@ -191,6 +188,75 @@ code {
   border-radius: 100%;
   top: -25px;
   left: 39px; }
+
+.videoscreens {
+  position: relative;
+  width: 500px;
+  height: 290px;
+  margin: 0 auto; }
+  .videoscreens .screen {
+    background: url("../assets/img/laptop-screen.png") no-repeat;
+    background-size: 230px 137px;
+    width: 242px;
+    height: 143px; }
+  .videoscreens .lego {
+    position: absolute; }
+    .videoscreens .lego .video-screen .face {
+      background: url("../assets/img/lego.png") no-repeat center;
+      background-size: 80px 67px; }
+  .videoscreens .playmobil {
+    position: absolute;
+    right: 0; }
+    .videoscreens .playmobil .video-screen .face {
+      background: url("../assets/img/kimono.png") no-repeat center;
+      background-size: 74px 77px; }
+  .videoscreens .doll {
+    position: absolute;
+    top: 10rem;
+    left: 9rem; }
+    .videoscreens .doll .video-screen .face {
+      background: url("../assets/img/playmobil.png") no-repeat center;
+      background-size: 80px 67px; }
+  .videoscreens .video-screen {
+    position: relative;
+    top: 30px;
+    left: 63px; }
+    .videoscreens .video-screen .face {
+      position: absolute;
+      width: 100px;
+      height: 100px; }
+
+.connection:nth-of-type(1) {
+  position: absolute;
+  top: 10px;
+  left: 235px; }
+
+.connection:nth-of-type(2) {
+  position: absolute;
+  top: 130px;
+  left: 65px;
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg); }
+
+.connection:nth-of-type(3) {
+  position: absolute;
+  top: 130px;
+  left: 360px;
+  -webkit-transform: rotate(-40deg);
+  -moz-transform: rotate(-40deg);
+  -ms-transform: rotate(-40deg);
+  -o-transform: rotate(-40deg);
+  transform: rotate(-40deg); }
+
+.connectionDot {
+  color: #82CAFF;
+  opacity: 0;
+  position: relative;
+  font-size: 55px;
+  font-family: 'BrandonGrotesque' !important; }
 
 .blink_me {
   -webkit-animation-name: blinker;
@@ -453,75 +519,6 @@ code {
     opacity: 0.3; }
   100% {
     opacity: 1; } }
-.videoscreens {
-  position: relative;
-  width: 500px;
-  height: 290px;
-  margin: 0 auto; }
-  .videoscreens .screen {
-    background: url("../assets/img/laptop-screen.png") no-repeat;
-    background-size: 230px 137px;
-    width: 242px;
-    height: 143px; }
-  .videoscreens .lego {
-    position: absolute; }
-    .videoscreens .lego .video-screen .face {
-      background: url("../assets/img/lego.png") no-repeat center;
-      background-size: 80px 67px; }
-  .videoscreens .playmobil {
-    position: absolute;
-    right: 0; }
-    .videoscreens .playmobil .video-screen .face {
-      background: url("../assets/img/kimono.png") no-repeat center;
-      background-size: 74px 77px; }
-  .videoscreens .doll {
-    position: absolute;
-    top: 10rem;
-    left: 9rem; }
-    .videoscreens .doll .video-screen .face {
-      background: url("../assets/img/playmobil.png") no-repeat center;
-      background-size: 80px 67px; }
-  .videoscreens .video-screen {
-    position: relative;
-    top: 30px;
-    left: 63px; }
-    .videoscreens .video-screen .face {
-      position: absolute;
-      width: 100px;
-      height: 100px; }
-
-.connection:nth-of-type(1) {
-  position: absolute;
-  top: 10px;
-  left: 235px; }
-
-.connection:nth-of-type(2) {
-  position: absolute;
-  top: 130px;
-  left: 65px;
-  -webkit-transform: rotate(40deg);
-  -moz-transform: rotate(40deg);
-  -ms-transform: rotate(40deg);
-  -o-transform: rotate(40deg);
-  transform: rotate(40deg); }
-
-.connection:nth-of-type(3) {
-  position: absolute;
-  top: 130px;
-  left: 360px;
-  -webkit-transform: rotate(-40deg);
-  -moz-transform: rotate(-40deg);
-  -ms-transform: rotate(-40deg);
-  -o-transform: rotate(-40deg);
-  transform: rotate(-40deg); }
-
-.connectionDot {
-  color: #82CAFF;
-  opacity: 0;
-  position: relative;
-  font-size: 55px;
-  font-family: 'BrandonGrotesque' !important; }
-
 @media all and (max-width: 640px) {
   .top-bar .namelogo {
     display: none; }
