@@ -34,25 +34,3 @@ app.controller('SignupCtrl', function($scope, $http) {
       })
   }
 })
-
-// app.directive('alreadyExisting', function (){ 
-//   return {
-//     require: 'ngModel',
-//     link: function(scope, elem, attr, ngModel) {
-//       var alreadyExists = false;
-//       $http.get("/checkUserExists", {
-//           params: {username: $scope.username}
-//         })
-//         .success(function(data) {
-//           console.log('checkuserexists data' , data);
-//           alreadyExists = data;
-//           $scope.errorMsg = data.err;
-//         })
-//       ngModel.$parsers.unshift(function (value) {
-//         console.log(value);
-//         ngModel.$setValidity('unique', !alreadyExists);
-//         return value;
-//       });
-//     }
-//   };
-// });

@@ -1,10 +1,3 @@
-// Foundation JavaScript
-// Documentation can be found at: http://foundation.zurb.com/docs
-// $(document).foundation();
-
-
-
-
 
 var app = angular.module('tawnyOwlApp', [
   'ui.router',
@@ -19,7 +12,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('home', {
       url: '/',
       templateUrl: 'client/partials/home.html'
-      // controller: 'UsernameCtrl'
+      // controller: ''
     })
     .state('signup', {
       url: '/signup',
@@ -29,7 +22,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('login', {
       url: '/login',
       templateUrl: 'client/partials/login.html'
-      // controller: 'UsernameCtrl'
+      // controller: ''
     })
 });
 
@@ -38,14 +31,4 @@ app.controller('AnimationCtrl', function($scope) {
       $scope.isActive = true;
   } 
 })
-  
 
-
-// app.controller('UsernameCtrl', function($scope, $http) {
-//   $http.get("/checkUsername").success(function (data) {
-//     console.log(data);
-//     $scope.user = data.username;
-//   });
-// })
-
-// animated fadeInRight
