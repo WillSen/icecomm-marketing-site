@@ -33,7 +33,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
 });
 
-
+app.controller('AnimationCtrl', function($scope) {
+  $scope.doCtrlStuff = function(){
+      $scope.isActive = true;
+  } 
+})
   
 
 
