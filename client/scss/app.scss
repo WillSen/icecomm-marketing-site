@@ -545,7 +545,7 @@ body {
 }
 
 @include keyframes(dot) {
-      0% { opacity: 0; }
+      0% { opacity: 0.01; }
      50% { opacity: 0.3; }
     100% { opacity: 1; }
 }
@@ -571,8 +571,8 @@ body {
     position: absolute;
     right: 0;
     .video-screen .face {
-      background: url('../assets/img/jellybear.png') no-repeat center;
-      background-size: 80px 67px;
+      background: url('../assets/img/kimono.png') no-repeat center;
+      background-size: 74px 77px;
     }
   }
   .doll {
