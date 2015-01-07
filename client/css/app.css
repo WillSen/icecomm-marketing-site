@@ -241,14 +241,17 @@ code {
 .term.min .chrome {
   border: 0 none; }
 
+.myclass {
+  border: dotted pink 3px; }
+
 .light {
   background: #5BCC8B;
   position: absolute;
-  width: 7px;
-  height: 7px;
+  width: 5px;
+  height: 5px;
   border-radius: 100%;
   top: -25px;
-  left: 40px; }
+  left: 39px; }
 
 .blink_me {
   -webkit-animation-name: blinker;
