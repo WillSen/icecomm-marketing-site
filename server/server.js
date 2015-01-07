@@ -63,17 +63,18 @@ app.get('/checkUserExists', function(req, res) {
   // else res.send(true)
   console.log('checking if user exists: ', req.query.username);
   // var alreadyExists = false;
+  var alreadyExisting = false;
   db.User.find(function(err, data){
     console.log('finding mongoose data');
     data.forEach(function(item) {
       console.log(item.username);
       if (item.username === req.query.username) {
-        res.json(true);
-      }
+        alreadyExisting = true;
+      } 
     })
-    // res.json(false);
+    // res.json({alreadyExisting: false});
+    res.json({"alreadyExisting":alreadyExisting});
   })
-  // res.json(alreadyExists);
 })
 
 app.post('/login', passport.loginAuth);
