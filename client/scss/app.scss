@@ -594,7 +594,8 @@ body {
   }
   .video-screen {
     position: relative;
-    // border: solid #000 1px;
+    top: 30px;
+    left: 63px;
     .face {
       position: absolute;
       background: url('../assets/img/lego-full-lg.png') no-repeat center;
