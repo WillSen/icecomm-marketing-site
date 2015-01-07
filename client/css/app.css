@@ -48,11 +48,6 @@
     margin: 0 auto;
     width: 400px;
     height: 290px; }
-  .screens .columns:nth-child(1) {
-    width: 40%;
-    left: -60px; }
-  .screens .columns:nth-child(2) {
-    width: 60%; }
 
 body {
   font-weight: 400;
@@ -311,7 +306,10 @@ code {
   animation-name: slideInRight;
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
-  animation-fill-mode: both; }
+  animation-fill-mode: both;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  animation-delay: 0s; }
 
 .slideInRightMiddle {
   -webkit-animation-duration: 1s;
@@ -501,16 +499,20 @@ body {
     opacity: 0.3; }
   100% {
     opacity: 1; } }
-.screen {
-  position: relative;
-  background: url("../assets/img/lego-screen.png") no-repeat;
-  background-size: 230px 137px;
-  width: 242px;
-  height: 143px; }
-  .screen:nth-child(2) {
-    float: right; }
-  .screen:nth-child(3) {
-    float: left;
-    margin: 10px 60px 0 0; }
+.videoscreens {
+  position: relative; }
+  .videoscreens .screen {
+    background: url("../assets/img/lego-screen.png") no-repeat;
+    background-size: 230px 137px;
+    width: 242px;
+    height: 143px; }
+  .videoscreens .lego {
+    position: absolute; }
+  .videoscreens .playmobil {
+    position: absolute;
+    right: 0; }
+  .videoscreens .doll {
+    position: absolute;
+    bottom: 0; }
 
 /*# sourceMappingURL=app.css.map */

@@ -16,6 +16,9 @@
   font-style: normal;
 }
 
+$topCodeTimeDelay: 0s;
+$middleCodeTimeDelay: 2s;
+$bottomCodeTimeDelay: 4s;
 
 .main {
   padding: 0 180px;
@@ -34,13 +37,13 @@
     width: 180px;
   }
   .top-bar-section {
-    ul {      
-      padding: 15px 0px 10px 0px; 
+    ul {
+      padding: 15px 0px 10px 0px;
       a {
         font-family: 'Open Sans', sans-serif !important;
       }
       &.left {
-        padding-left: 30px;  
+        padding-left: 30px;
       }
     }
   }
@@ -58,7 +61,7 @@
       font-size: 40px;
     }
     .sub-intro-text {
-      font-size: 16px; 
+      font-size: 16px;
     }
 }
 
@@ -69,16 +72,16 @@
     width: 400px;
     height: 290px;
   }
-  .columns {
-    &:nth-child(1){
-      width: 40%;
-      left: -60px;
-    }
-    &:nth-child(2){
-      width: 60%;
-      // left: -60px;
-    }
-  }
+  // .columns {
+  //   &:nth-child(1){
+  //     width: 40%;
+  //     left: -60px;
+  //   }
+  //   &:nth-child(2){
+  //     width: 60%;
+  //     // left: -60px;
+  //   }
+  // }
 }
 
 // .main {
@@ -213,10 +216,20 @@ footer a:hover {
 }
 
 
+// terminal window on homepage
 
 .term,.term .chrome,.term .chrome {
   border:solid 2px #777
 }
+
+.term .shell {
+
+}
+
+.term .shell::hover {
+
+}
+
 
 .term {
   display:block;
@@ -347,10 +360,10 @@ code {
 
 .recording-light {
   background: #DF7065;
-  display: inline-block; 
-  // vertical-align: middle; 
-  width: 8px; 
-  height: 8px; 
+  display: inline-block;
+  // vertical-align: middle;
+  width: 8px;
+  height: 8px;
   border-radius: 100%;
 }
 
@@ -359,31 +372,31 @@ code {
     -webkit-animation-duration: 1s;
     -webkit-animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
-    
+
     -moz-animation-name: blinker;
     -moz-animation-duration: 1s;
     -moz-animation-timing-function: linear;
     -moz-animation-iteration-count: infinite;
-    
+
     animation-name: blinker;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
-@-moz-keyframes blinker {  
+@-moz-keyframes blinker {
     0% { opacity: 1.0; }
     50% { opacity: 0.0; }
     100% { opacity: 1.0; }
 }
 
-@-webkit-keyframes blinker {  
+@-webkit-keyframes blinker {
     0% { opacity: 1.0; }
     50% { opacity: 0.0; }
     100% { opacity: 1.0; }
 }
 
-@keyframes blinker {  
+@keyframes blinker {
     0% { opacity: 1.0; }
     50% { opacity: 0.0; }
     100% { opacity: 1.0; }
@@ -410,19 +423,20 @@ code {
   @include animation-duration(1s);
   @include animation-name(slideInRight);
   @include animation-fill-mode(both);
+  @include animation-delay($topCodeTimeDelay);
 }
 
 .slideInRightMiddle {
   @include animation-duration(1s);
   @include animation-name(slideInRight);
   @include animation-fill-mode(both);
-  @include animation-delay(2s);  
+  @include animation-delay($middleCodeTimeDelay);
 }
 .slideInRightBottom {
   @include animation-duration(1s);
   @include animation-name(slideInRight);
   @include animation-fill-mode(both);
-  @include animation-delay(4s);  
+  @include animation-delay($bottomCodeTimeDelay);
 }
 
 @include keyframes(fadeIn) {
@@ -436,14 +450,14 @@ code {
 .fadeIn {
   @include animation-name(fadeIn);
   @include animation-duration(400ms);
-  @include animation-delay(4s);  
+  @include animation-delay(4s);
   @include animation-fill-mode(both);
 }
 
 .fadeInSecond {
   @include animation-name(fadeIn);
   @include animation-duration(400ms);
-  @include animation-delay(6s);  
+  @include animation-delay(6s);
   @include animation-fill-mode(both);
 }
 
@@ -523,21 +537,46 @@ body {
     100% { opacity: 1; }
 }
 
-.screen {
+// .screen {
+//   position: relative;
+//   background: url('../assets/img/lego-screen.png') no-repeat;
+//   background-size: 230px 137px;
+//   width: 242px;
+//   height: 143px;
+//   &:nth-child(2){
+//     float: right;
+//   }
+//   &:nth-child(3){
+//     float: left;
+//     margin: 10px 60px 0 0;
+//   }
+//   .videoface {
+//     background: url('../assets/img/lego-full-lg.png') no-repeat center;
+//     background-size: 84px 67px;
+//
+//   }
+// }
+
+.videoscreens {
   position: relative;
-  background: url('../assets/img/lego-screen.png') no-repeat;
-  background-size: 230px 137px;
-  width: 242px;
-  height: 143px;
-  &:nth-child(2){
-    float: right;
+  .screen {
+    background: url('../assets/img/lego-screen.png') no-repeat;
+    background-size: 230px 137px;
+    width: 242px;
+    height: 143px;
   }
-  &:nth-child(3){
-    float: left;
-    margin: 10px 60px 0 0;
+  .lego {
+    position: absolute;
+  }
+  .playmobil {
+    position: absolute;
+    right: 0;
+  }
+  .doll {
+    position: absolute;
+    bottom: 0;
   }
 }
-
 
 // @-webkit-keyframes fadeInDown {
 //   0% {
