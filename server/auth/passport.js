@@ -52,7 +52,7 @@ passport.loginAuth = function(req, res, next) {
     if (!user) {
       console.log('req session: ', req.session);
       req.session.messages =  [info.message];
-      return res.redirect('login');
+      return res.redirect('/#/login');
     }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
