@@ -274,16 +274,14 @@ code {
   margin: 0 auto;
   .screen {
     background: url('../assets/img/laptop-screen.png') no-repeat;
-    background-size: 14.4rem 8.58rem;
-    width: 15.15rem;
+    background-size: 95%;
+    width: 46.3%;
     height: 8.95rem;
-    // 14.4*8.58
-    // 15.15*8.95
   }
   .lego {
     position: absolute;
     .video-screen .face {
-      background: url('../assets/img/lego.png') no-repeat center;
+      background: url('../assets/img/lego.png') no-repeat;
       background-size: 80px 67px;
     }
   }
@@ -291,7 +289,7 @@ code {
     position: absolute;
     right: 0;
     .video-screen .face {
-      background: url('../assets/img/jellybear.png') no-repeat center;
+      background: url('../assets/img/kimono.png') no-repeat;
       background-size: 74px 77px;
     }
   }
@@ -300,7 +298,7 @@ code {
     top: 10rem;
     left: 9rem;
     .video-screen .face {
-      background: url('../assets/img/playmobil.png') no-repeat center;
+      background: url('../assets/img/playmobil.png') no-repeat;
       background-size: 80px 67px;
     }
   }
@@ -527,14 +525,42 @@ code {
       }
     }
     .videoscreens {
-      
+      width: 100%;
+      height: 0;
+      padding-bottom: 50%;
+      .doll {
+        top: 80%;
+        left: 30%;
+      }
+      .playmobil {
+        .video-screen .face {
+          width: 80% !important;
+        }
+      }
+      .video-screen {
+        top: 10%;
+        left: 27%;
+        width: 40%;
+        .face {
+          background-size: 100% !important;
+          width: 100%;
+        }
+      }
     }
   }
 }
+.light {
+  display: none;
+}
+
+
+
+// width: 71
+// height: 67
 
 @media all and (max-width: 1020px) {
   .videoscreens {
-    margin-top: 30px;
+    margin: 30px auto;
   }
 }
 
