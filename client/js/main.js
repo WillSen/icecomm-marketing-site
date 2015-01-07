@@ -31,4 +31,3 @@ app.controller('AnimationCtrl', function($scope) {
       $scope.isActive = true;
   } 
 })
-

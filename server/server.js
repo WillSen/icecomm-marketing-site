@@ -2,11 +2,12 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var session = require('express-session');
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+
 var db = require('./auth/db');
 var bcrypt = require('./auth/bcryptFile');
-var mongoose = require('mongoose');
 var passport = require('./auth/passport');
-var bodyParser = require('body-parser');
 
 ////////////////////////
 // Testing
