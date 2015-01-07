@@ -20,10 +20,6 @@ $topCodeTimeDelay: 0s;
 $middleCodeTimeDelay: 2s;
 $bottomCodeTimeDelay: 4s;
 
-// .main {
-//   padding: 0 5rem;
-// }
-
 body {
     padding: 25px;
     font-size: 24px;
@@ -91,24 +87,6 @@ body {
   background-color:#fff;
 }
 
-// .button-group li {
-//   padding-top:3%
-// }
-
-// .button-group a {
-//   color:rgba(0,0,0,1);
-//   background-color:transparent
-// }
-
-// .button-group a:hover {
-//   color:rgba(0,0,0,0.4);
-//   background-color:transparent
-// }
-
-// .button-group {
-//   float:none
-// }
-
 @media only screen and (min-width: 40.063em) {
 .button-group {
   float:right
@@ -157,37 +135,6 @@ body {
 }
 }
 
-// .intro-text p {
-//   font-family:'Shadows Into Light',cursive;
-//   font-size:44px
-// }
-
-// .about,.work,.contact {
-//   padding:50px 0 0
-// }
-
-// .about img {
-//   width:250px;
-//   height:250px;
-//   border-radius:150px;
-//   -webkit-border-radius:150px;
-//   -moz-border-radius:150px
-// }
-
-// .work img:hover {
-//   opacity:.5;
-//   -webkit-transition:.3s ease;
-//   -moz-transition:.3s ease;
-//   -ms-transition:.3s ease;
-//   -o-transition:.3s ease;
-//   transition:.3s ease
-// }
-
-// .work li {
-//   height:140px;
-//   overflow:hidden
-// }
-
 hr {
   border:0;
   height:1px;
@@ -197,15 +144,6 @@ hr {
   background-image:-o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));
   opacity:.8
 }
-
-// footer {
-//   padding:80px 0 10px
-// }
-
-// footer a:hover {
-//   color:rgba(0,0,0,0.4);
-//   background-color:transparent
-// }
 
 ///////////////////////////////////
 ///Terminal window on homepage ////
