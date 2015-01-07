@@ -10,42 +10,75 @@
 </div>
 
 <div class="row screens">
-  <div class="medium-6 large-6 columns">
-    <div class="term">
+  <div class="medium-12 small-12 large-5 columns" ng-controller="AnimationCtrl">
+    <div class="term" ng-class="{'shake': isActive==true}">
       <div class="chrome">
-        <span class="btn btn-term close"></span>
+        <span class="btn btn-term close" data-ng-click="doCtrlStuff()"></span>
         <span class="btn btn-term min"></span>
-        <span class="btn btn-term max"></span>
+        <span class="btn btn-term max" ></span>
       </div>
-      <div class="shell">
-        <code>var comm = new IceComm('test');</code>
-        <code>comm.on('room', function(options) {<br>
+      <div class="shell codebase">
+        <code class="slideInRightTop">var comm = new IceComm('test');</code>
+        <code class="slideInRightMiddle">comm.on('room', function(options) {<br>
                 &nbsp;&nbsp; createRemoteVideo(options.stream);<br>
 });
 </code>
-<code>
+<code class="slideInRightBottom">
   comm.ready(function(data) { <br>
     &nbsp;&nbsp;for (var key in data.remoteStreams) {<br>
       &nbsp;&nbsp;&nbsp;&nbsp;createRemoteVideo(URL.createObjectURL(data));<br>
     &nbsp;&nbsp;}<br>
-  });  
+  });
 </code>
+
+
       </div>
     </div>
   </div>
 
-  <div class="medium-6 large-6 columns">
-    <div class="term">
+  <div class="medium-12 large-7 columns videoscreens">
+    <div class="connection fadeIn">
+      <span class="connectionDot one">.</span><span class="connectionDot two">.</span><span class="connectionDot three">.</span>​
+    </div>
+    <div class="connection fadeIn">
+      <span class="connectionDot one">.</span><span class="connectionDot two">.</span><span class="connectionDot three">.</span>​<span class="connectionDot four">.</span>​<span class="connectionDot five">.</span>​<span class="connectionDot six">.</span>​<span class="connectionDot seven">.</span>​<span class="connectionDot eight">.</span>​
+    </div>
+    <div class="connection fadeIn">
+      <span class="connectionDot one">.</span><span class="connectionDot two">.</span><span class="connectionDot three">.</span>​<span class="connectionDot four">.</span>​<span class="connectionDot five">.</span>​<span class="connectionDot six">.</span>​<span class="connectionDot seven">.</span>​<span class="connectionDot eight">.</span>​
+    </div>
+
+    <div class="screen lego">
+      <div class="video-screen fadeInSecond">
+        <div class="face"></div>
+        <div class="light blink_me"></div>
+      </div>
+    </div>
+    <div class="screen playmobil">
+      <div class="video-screen fadeInSecond">
+        <div class="face"></div>
+        <div class="light blink_me"></div>
+      </div>
+    </div>
+    <div class="screen doll">
+      <div class="video-screen fadeInSecond">
+        <div class="face"></div>
+        <div class="light blink_me"></div>
+      </div>
+    </div>
+    <!-- <div class="term">
       <div class="chrome">
         <span class="btn btn-term close"></span>
         <span class="btn btn-term min"></span>
         <span class="btn btn-term max"></span>
       </div>
       <div class="shell">
-        <div class="video-screen"></div>
-        <div class="video-screen"></div>
+
+        <div class="video-screen fadeIn">
+          <span class="recording-light blink_me"></span>
+        </div>
+        <div class="video-screen fadeIn"></div>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <!-- <div class="medium-6 large-4 columns"><img src=
@@ -60,6 +93,13 @@
   <div class="large-12 columns">
     <h4>Work</h4>
 
+
+    <span ng-class='{"myclass":tog==1}' ng-click='tog=1'>span 1</span>
+    <!-- <div class="cell" ng-class="{'active': isActive==true}">
+      <div class="offset-container pull-left">
+        <i data-ng-click="doCtrlStuff()">clicky</i>     
+      </div>
+    </div> -->
     <p>Click on each image to view my work!</p>
 
     <ul class=

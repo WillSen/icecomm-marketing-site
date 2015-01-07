@@ -1,5 +1,6 @@
 @import url("../../bower_components/foundation/css/foundation.css");
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
+@import "../bourbon/bourbon";
 
 @font-face {
   font-family: 'GothamXLight';
@@ -15,9 +16,17 @@
   font-style: normal;
 }
 
+$topCodeTimeDelay: 0s;
+$middleCodeTimeDelay: 2s;
+$bottomCodeTimeDelay: 4s;
 
 .main {
   padding: 0 180px;
+}
+
+body {
+    padding: 25px;
+    font-size: 24px;
 }
 
 .row {
@@ -33,13 +42,13 @@
     width: 180px;
   }
   .top-bar-section {
-    ul {      
-      padding: 15px 0px 10px 0px; 
+    ul {
+      padding: 15px 0px 10px 0px;
       a {
         font-family: 'Open Sans', sans-serif !important;
       }
       &.left {
-        padding-left: 30px;  
+        padding-left: 30px;
       }
     }
   }
@@ -57,7 +66,7 @@
       font-size: 40px;
     }
     .sub-intro-text {
-      font-size: 16px; 
+      font-size: 16px;
     }
 }
 
@@ -68,6 +77,16 @@
     width: 400px;
     height: 290px;
   }
+  // .columns {
+  //   &:nth-child(1){
+  //     width: 40%;
+  //     left: -60px;
+  //   }
+  //   &:nth-child(2){
+  //     width: 60%;
+  //     // left: -60px;
+  //   }
+  // }
 }
 
 // .main {
@@ -202,10 +221,20 @@ footer a:hover {
 }
 
 
+// terminal window on homepage
 
 .term,.term .chrome,.term .chrome {
   border:solid 2px #777
 }
+
+.term .shell {
+
+}
+
+.term .shell::hover {
+
+}
+
 
 .term {
   display:block;
@@ -333,6 +362,261 @@ code {
 .term.min .chrome {
   border:0 none
 }
+
+.myclass {
+ border:dotted pink 3px;   
+}
+
+.light {
+  background: #5BCC8B;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  top: -25px;
+  left: 39px;
+}
+
+// .video-screen {
+//   border: solid red 1px;
+// }
+
+.blink_me {
+  @include animation-name(blinker);
+  @include animation-duration(1s);
+  @include animation-timing-function(linear);
+  @include animation-iteration-count(infinite);
+}
+
+@-moz-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+
+// .animated {
+//   animation-duration: 1s;
+//   animation-fill-mode: both;
+// }
+
+@include keyframes(slideInRight) {
+  0% {
+    transform: translateX(110%);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slideInRightTop {
+  @include animation-duration(1s);
+  @include animation-name(slideInRight);
+  @include animation-fill-mode(both);
+  @include animation-delay($topCodeTimeDelay);
+}
+
+.slideInRightMiddle {
+  @include animation-duration(1s);
+  @include animation-name(slideInRight);
+  @include animation-fill-mode(both);
+  @include animation-delay($middleCodeTimeDelay);
+}
+.slideInRightBottom {
+  @include animation-duration(1s);
+  @include animation-name(slideInRight);
+  @include animation-fill-mode(both);
+  @include animation-delay($bottomCodeTimeDelay);
+}
+
+@include keyframes(fadeIn) {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+
+
+
+.fadeIn {
+  @include animation-name(fadeIn);
+  @include animation-duration(200ms);
+  @include animation-delay(3s);
+  @include animation-fill-mode(both);
+}
+
+.fadeInSecond {
+  @include animation-name(fadeIn);
+  @include animation-duration(400ms);
+  @include animation-delay(5s);
+  @include animation-fill-mode(both);
+}
+
+
+@include keyframes(shake) {
+  0%, 100% {
+    @include transform(translate3d(0, 0, 0));
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    @include transform(translate3d(-10px, 0, 0));
+  }
+
+  20%, 40%, 60%, 80% {
+    @include transform(translate3d(10px, 0, 0));
+  }
+}
+
+.shake {
+  @include animation(shake 2.3s);
+}
+
+
+.connection:nth-of-type(1) {
+  position: absolute;
+  top: 10px;
+  left: 235px;
+}.connection:nth-of-type(2) {
+  position: absolute;
+  top: 130px;
+  left: 65px;
+  @include transform(rotate(40deg))
+}
+.connection:nth-of-type(3) {
+  position: absolute;
+  top: 130px;
+  left: 360px;
+  @include transform(rotate(-40deg))
+}
+
+.connectionDot {
+  color: #82CAFF;
+  opacity: 0;
+  position: relative;
+  font-size: 55px;
+  font-family: 'BrandonGrotesque' !important;
+}
+
+.one {
+    @include animation(dot 1.3s infinite);
+    @include animation-delay(50ms);
+}
+
+.two {
+    @include animation(dot 1.3s infinite);
+    @include animation-delay(100ms);
+}
+
+.three {
+    @include animation(dot 1.3s infinite);
+    @include animation-delay(150ms);
+}
+.four {
+    @include animation(dot 1.3s infinite);
+    @include animation-delay(200ms);
+}
+.five {
+    @include animation(dot 1.3s infinite);
+    @include animation-delay(250ms);
+}
+.six {
+    @include animation(dot 1.3s infinite);
+    @include animation-delay(300ms);
+}
+.seven {
+    @include animation(dot 1.3s infinite);
+    @include animation-delay(350ms);
+}
+.eight {
+    @include animation(dot 1.3s infinite);
+    @include animation-delay(400ms);
+}
+
+@include keyframes(dot) {
+      0% { opacity: 0.01; }
+     50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.videoscreens {
+  position: relative;
+  width: 500px;
+  height: 290px;
+  .screen {
+    background: url('../assets/img/laptop-screen.png') no-repeat;
+    background-size: 230px 137px;
+    width: 242px;
+    height: 143px;
+  }
+  .lego {
+    position: absolute;
+    .video-screen .face {
+      background: url('../assets/img/lego.png') no-repeat center;
+      background-size: 80px 67px;
+    }
+  }
+  .playmobil {
+    position: absolute;
+    right: 0;
+    .video-screen .face {
+      background: url('../assets/img/kimono.png') no-repeat center;
+      background-size: 74px 77px;
+    }
+  }
+  .doll {
+    position: absolute;
+    top: 10rem;
+    left: 9rem;
+    .video-screen .face {
+      background: url('../assets/img/playmobil.png') no-repeat center;
+      background-size: 80px 67px;
+    }
+  }
+  .video-screen {
+    position: relative;
+    top: 30px;
+    left: 63px;
+    .face {
+      position: absolute;
+      
+      
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+
+
+
+// @-webkit-keyframes fadeInDown {
+//   0% {
+//     opacity: 0;
+//     -webkit-transform: translate3d(0, -100%, 0);
+//             transform: translate3d(0, -100%, 0);
+//   }
+
+//   100% {
+//     opacity: 1;
+//     -webkit-transform: none;
+//             transform: none;
+//   }
+// }
+
+
 
 // Or selectively include components
 // @import
