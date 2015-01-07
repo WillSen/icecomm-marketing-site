@@ -546,7 +546,8 @@ code {
 .videoscreens {
   position: relative;
   width: 500px;
-  height: 290px; }
+  height: 290px;
+  margin: 0 auto; }
   .videoscreens .screen {
     background: url("../assets/img/laptop-screen.png") no-repeat;
     background-size: 230px 137px;
