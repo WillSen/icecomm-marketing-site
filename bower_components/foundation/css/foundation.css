@@ -11,11 +11,11 @@ meta.foundation-mq-small-only {
 
 meta.foundation-mq-medium {
   font-family: "/only screen and (min-width:40.063em)/";
-  width: 40.063em; }
+  width: 45.063em; }
 
 meta.foundation-mq-medium-only {
   font-family: "/only screen and (min-width:40.063em) and (max-width:64em)/";
-  width: 40.063em; }
+  width: 45.063em; }
 
 meta.foundation-mq-large {
   font-family: "/only screen and (min-width:64.063em)/";

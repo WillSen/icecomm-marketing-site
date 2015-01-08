@@ -28,8 +28,15 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
   <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script> -->
   <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="client/js/angular-mm-foundation.js"></script>
 
   <script src="client/js/main.js"></script>
   <script src="client/js/authControllers.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(document).foundation();
+      console.log('ready')
+    });
+  </script>
 </body>
 </html>
