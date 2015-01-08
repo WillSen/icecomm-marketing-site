@@ -309,6 +309,9 @@ code {
   .overview .medium-6 {
     padding-right: 50px; }
 
+.login-form {
+  padding: 50px 150px; }
+
 .blink_me {
   -webkit-animation-name: blinker;
   -moz-animation-name: blinker;
