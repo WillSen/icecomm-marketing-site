@@ -52,6 +52,7 @@ passport.loginAuth = function(req, res, next) {
     if (!user) {
       console.log('req session: ', req.session);
       req.session.messages =  [info.message];
+      console.log('info', info);
       return res.redirect('/#/login');
     }
     req.logIn(user, function(err) {
@@ -75,19 +76,6 @@ passport.signupAuth = function(req, res, next) {
           if (err) { return next(err); }
           return res.redirect('/');
       });
-      // passport.authenticate('local', function(err, user, info) {
-      //   if (err) { return next(err) }
-      //   if (!user) {
-      //     console.log('req session: ', req.session);
-      //     req.session.messages =  [info.message];
-      //     return res.redirect('login')
-      //   }
-        // req.logIn(user, function(err) {
-        //   if (err) { return next(err); }
-        //   return res.redirect('/');
-        // });
-      // }) (req, res, next);
-      // callback(req, res, next);
     }
   });
 };
