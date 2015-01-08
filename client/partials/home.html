@@ -18,16 +18,17 @@
         <span class="btn btn-term max" ></span>
       </div>
       <div class="shell codebase">
-        <code class="slideInRightTop">var comm = new IceComm('test');</code>
-        <code class="slideInRightMiddle">comm.on('room', function(options) {<br>
-                &nbsp;&nbsp; createRemoteVideo(options.stream);<br>
+        <code class="slideInRightTop"  ng-mouseover="count = count + 1" ng-init="count=0"> var comm = new IceComm('$APItoken');<br>
+   comm.connect('someroom');</code>
+        <code class="slideInRightMiddle">comm.on('local', function(options) {<br>
+                &nbsp;&nbsp; localVideo.src = options.stream;<br>
 });
 </code>
 <code class="slideInRightBottom">
-  comm.ready(function(data) { <br>
-    &nbsp;&nbsp;for (var key in data.remoteStreams) {<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;createRemoteVideo(URL.createObjectURL(data));<br>
-    &nbsp;&nbsp;}<br>
+  comm.on('connected', function(options){<br>
+    &nbsp;&nbsp;remoteVideo.src = options.stream;<br>
+      <!-- &nbsp;&nbsp;&nbsp;&nbsp;createRemoteVideo(URL.createObjectURL(data));<br> -->
+    <!-- &nbsp;&nbsp;}<br> -->
   });
 </code>
 
