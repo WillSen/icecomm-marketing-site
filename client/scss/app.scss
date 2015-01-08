@@ -32,7 +32,7 @@ body {
 .top-bar {
   background: #fff;
   height: 70px;
-  padding: 0px 170px;
+  padding: 0px 12%;
   .title-area {
     flat: left;
   }
@@ -319,7 +319,7 @@ code {
 .connection:nth-of-type(1) {
   position: absolute;
   top: 10px;
-  left: 235px;
+  left: 225px;
 }.connection:nth-of-type(2) {
   position: absolute;
   top: 130px;
@@ -548,15 +548,89 @@ code {
       }
     }
   }
+  .light {
+    display: none;
+  }
+
+  .connection:nth-of-type(1) {
+    top: 2%;
+    left: 45%;
+  }.connection:nth-of-type(2) {
+    position: absolute;
+    top: 45%;
+    left: 10%;
+    @include transform(rotate(40deg));
+  }
+  .connection:nth-of-type(3) {
+    position: absolute;
+    top: 45%;
+    left: 70%;
+    @include transform(rotate(-40deg))
+  }
+  .connectionDot {
+    font-size: 40px;
+  }
 }
-.light {
-  display: none;
+
+@media all and (max-width: 640px) and (min-width: 460px) {
+  .connectionDot {
+    font-size: 55px;
+  }
+  .connection:nth-of-type(1) {
+    top: 10%;
+    left: 45%;
+  }.connection:nth-of-type(2) {
+    position: absolute;
+    top: 55%;
+    left: 10%;
+    @include transform(rotate(40deg));
+    .one {
+      display: none;
+    }
+  }
+  .connection:nth-of-type(3) {
+    position: absolute;
+    top: 55%;
+    left: 70%;
+    @include transform(rotate(-40deg))
+  }
 }
 
+@media all and (max-width: 460px) {
+  .connection:nth-of-type(1) {
+    left: 43% !important;
+  }
+  .connection:nth-of-type(2) {
+    left: 5%;
+    .eight {
+      display: none;
+    }
+  }
+  .connection:nth-of-type(3) {
+    left: 65%;
+    .one {
+      display: none;
+    }
+  }
+  .doll {
+    left: 25% !important;
+  }
+}
 
-
-// width: 71
-// height: 67
+@media all and (max-width: 915px) {
+  .top-bar {
+    padding: 0;
+    .namelogo {
+      width: 140px;
+      font-size: 12px;
+    }
+  }
+  .top-bar-section {
+    li > a {
+      padding: 0 5px !important;
+    }
+  }
+}
 
 @media all and (max-width: 1020px) {
   .videoscreens {
