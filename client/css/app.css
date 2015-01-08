@@ -325,6 +325,11 @@ code {
     color: #72649f;
     font-weight: 200;
     letter-spacing: 1px; }
+  .panel p {
+    font-size: 12px;
+    color: #333;
+    padding: 20px 0;
+    text-align: center; }
   .panel form {
     font-family: 'Open Sans', sans-serif !important;
     padding: 10px 15px; }
@@ -406,6 +411,9 @@ input[type=text]:focus, textarea:focus {
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 1px solid #72649f; }
+
+.account .panel {
+  padding-top: 80px; }
 
 .blink_me {
   -webkit-animation-name: blinker;
@@ -769,7 +777,10 @@ input[type=text]:focus, textarea:focus {
   .copyright {
     padding-left: 10px !important; }
     .copyright p {
-      font-size: 12px; } }
+      font-size: 12px; }
+
+  .account .panel p {
+    font-size: 10px; } }
 @media (max-width: 915px) {
   .top-bar {
     padding: 0 5% !important; } }
