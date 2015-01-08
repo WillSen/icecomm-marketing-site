@@ -3,6 +3,7 @@ var app = express();
 var server = require('http').Server(app);
 var session = require('express-session');
 var mongoose = require('mongoose');
+var flash = require('connect-flash');
 var bodyParser = require('body-parser');
 
 var db = require('./auth/db');
@@ -46,6 +47,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());  
 
 app.use(express.static('.'));
 

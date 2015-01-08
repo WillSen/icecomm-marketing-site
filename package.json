@@ -13,6 +13,7 @@
     "angular-ui-router": "^0.2.13",
     "bcrypt": "^0.8.0",
     "body-parser": "^1.10.0",
+    "connect-flash": "^0.1.1",
     "express": "^4.10.6",
     "express-session": "^1.9.3",
     "mongodb": "^1.4.26",
