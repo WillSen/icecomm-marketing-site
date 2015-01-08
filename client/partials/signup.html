@@ -1,36 +1,60 @@
-<form action="/signup" method="post" name="signup_form" novalidate>
-  <div>
-    <label>Username:</label>
-    <input type="text" name="username" ng-blur="checkUnique()" ng-model="username"/><br/>
-    {{alreadyExistErrorMsg}}
-<!--     <div class="error" 
-        ng-show="signup_form.username.$dirty && signup_form.username.$invalid">
-      <small class="error" 
-          ng-show="signup_form.username.$error.required">
-          Your name is required.
-      </small>
-      <small class="error" 
-              ng-show="signup_form.username.$error.minlength">
-              Your name is required to be at least 3 characters
-      </small>
-      <small class="error" 
-              ng-show="signup_form.username.$error.maxlength">
-              Your name cannot be longer than 20 characters
-      </small> -->
+<div class="row login-form">
+  <div class="columns panel">
+  <h1>
+    Sign Up to Icecomm
+  </h1>
+    <form action="/signup" method="post" name="signup_form" novalidate>
+      
+      <div>
+        <!-- <label>Username:</label> -->
+        <div class="input-icon">
+          <span>
+            <span class="fa fa-user"></span>
+          </span>
+        </div>
+        <input type="text" name="username" placeholder="Username" ng-blur="checkUnique()" ng-model="username"/>
+        {{alreadyExistErrorMsg}}
+        <!--     <div class="error" 
+          ng-show="signup_form.username.$dirty && signup_form.username.$invalid">
+        <small class="error" 
+            ng-show="signup_form.username.$error.required">
+            Your name is required.
+        </small>
+        <small class="error" 
+                ng-show="signup_form.username.$error.minlength">
+                Your name is required to be at least 3 characters
+        </small>
+        <small class="error" 
+                ng-show="signup_form.username.$error.maxlength">
+                Your name cannot be longer than 20 characters
+        </small> -->
+      </div>
+      
+      <div>
+        <!-- <label>Email:</label> -->
+        <div class="input-icon">
+          <span>
+            <span class="fa fa-email">@</span>
+          </span>
+        </div>
+        <input type="email" name="email" placeholder="Email"/>
+      </div>
 
-    </div>
+      <div>
+        <!-- <label>Password:</label> -->
+        <div class="input-icon">
+          <span>
+            <span class="fa fa-lock"></span>
+          </span>
+        </div>
+        <input type="password" name="password" placeholder="Password"/>
+      </div>
+
+      <div>
+        <button type="submit" value="Submit">Sign Up</button>
+      </div>
+    </form>
   </div>
-  <div>
-    <label>Password:</label>
-    <input type="password" name="password"/>
-  </div>
-  <div> 
-    <label>Email:</label>
-    <input type="text" name="email"/>
-  </div>
-  <div>
-    <input type="submit" value="Submit"/>
-  </div>
-</form>
-<!-- <button ng-click="getUsername()">Get Username</button> -->
-<p><small>Create a username and password.</small></p>
+
+
+</div>
