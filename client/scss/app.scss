@@ -21,8 +21,12 @@ $middleCodeTimeDelay: 2s;
 $bottomCodeTimeDelay: 4s;
 
 body {
-    padding: 25px;
     font-size: 24px;
+}
+
+.main {
+  min-height: 100%;
+  padding-top: 50px;
 }
 
 .row {
@@ -32,7 +36,7 @@ body {
 .top-bar {
   background: #fff;
   height: 70px;
-  padding: 0px 12%;
+  padding: 25px 10% 0 10%;
   .title-area {
     flat: left;
   }
@@ -67,7 +71,7 @@ body {
       color: #333;
       font-family: 'BrandonGrotesque';
       font-size: 40px;
-      padding-top: 18%;
+      padding-top: 7%;
     }
     .sub-intro-text {
       font-size: 16px;
@@ -86,6 +90,37 @@ body {
   font-weight:400;
   background-color:#fff;
 }
+
+.footer {
+  padding-bottom: 40px;
+  background: #333;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+
+  p {
+    margin-bottom: 0;
+    position: relative;
+    @include transform(translateY(80%));
+  }
+  li > a {
+    color: #fff;
+  }
+  .inline-list {
+    margin-bottom: 0;
+    position: relative;
+    @include transform(translateY(80%));
+  }
+  div > div > div {
+    width: 50%;
+  }
+  .footer-links {
+    padding-right: 50px;
+  }
+  .copyright {
+    padding-left: 50px;
+  }
+}
+
 
 
 @media only screen and (min-width: 40.063em) {
@@ -342,9 +377,60 @@ code {
 }
 
 ///////////////////////////////////
-/////// Animations ////////////////
+///// Overview on homepage ////////
 ///////////////////////////////////
 
+.overview {
+  padding: 150px 0;
+  color: #333;
+  font-family: 'Open Sans', sans-serif !important;
+  h1 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 14px;
+  }
+  img {
+      float: left;
+      width: 75px;
+      height: 75px;
+      margin: 5px 20px 0px 0px;
+    }
+  
+  .columns {
+    margin-bottom: 100px;
+  }
+  .medium-6 {
+    padding-right: 50px;
+  }
+}
+
+///////////////////////////////////
+/////////// Login page ////////////
+///////////////////////////////////
+
+.login-form {
+  padding: 50px 150px;
+}
+
+.form-group {
+  box-sizing: border-box;
+  color: rgb(63, 63, 68);
+  display: block;
+  font-family: benton-sans, 'Helvetica Neue', helvetica, arial, sans-serif;
+  font-size: 14px;
+  height: 44px;
+  line-height: 19.999979019165px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 348px;
+}
+
+
+
+///////////////////////////////////
+/////// Animations ////////////////
+///////////////////////////////////
 
 .blink_me {
   @include animation-name(blinker);
@@ -570,6 +656,37 @@ code {
   .connectionDot {
     font-size: 40px;
   }
+  .overview {
+    img {
+      display: block;
+      float: none;
+      margin: 0 auto !important;
+    }
+    h1 {
+      font-size: 18px;
+      text-align: center;
+    }
+    p {
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+  .footer-links {
+    font-size: 12px;
+    padding-right: 10px !important;
+  }
+  .copyright {
+    padding-left: 10px !important;
+    p {
+      font-size: 12px;  
+    }
+  }
+}
+
+@media (max-width: 915px) {
+  .top-bar {
+  padding: 0 5% !important;
+  }
 }
 
 @media all and (max-width: 640px) and (min-width: 460px) {
@@ -638,10 +755,6 @@ code {
   }
 }
 
-// 14.4rem = 230px
-// 15.97
-// 14.4*8.58
-// 15.15*8.95
 
 // Or selectively include components
 // @import
