@@ -6,6 +6,7 @@ app.controller('UsernameCtrl', function($scope, $http) {
   $http.get("/checkUsername").success(function (data) {
     console.log(data);
     $scope.user = data.username;
+    $scope.apiKey = data.apiKey;
   });
 })
 
@@ -28,3 +29,11 @@ app.controller('SignupCtrl', function($scope, $http) {
       })
   }
 })
+
+
+// app.controller('ApiCtrl', function($scope, $http) {
+//   $http.get("/findApi").success(function (data) {
+//     console.log(data);
+//     $scope.user = data.username;
+//   });
+// })

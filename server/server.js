@@ -53,7 +53,8 @@ app.use(express.static('.'));
 
 app.get('/checkUsername', function(req, res) {
   if (req.user) {
-    res.json({username: req.user.username});
+    res.json(req.user);
+    // res.json({username: req.user.username});
     console.log('req', req.user.username);
   }
   // res.json({A: 5});
