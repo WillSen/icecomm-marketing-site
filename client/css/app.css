@@ -359,6 +359,8 @@ code {
         font-style: normal;
         font-weight: normal;
         line-height: 1; }
+      .panel form .input-icon > span .fa-email {
+        font-weight: 700; }
     .panel form button {
       width: 100%;
       color: #fff;
