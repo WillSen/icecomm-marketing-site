@@ -1,27 +1,36 @@
 <div class="login-form">
   <div class="panel">
   <h1>
-    Login to Icecomm
+    Log In to Icecomm
   </h1>
     <form action="/login" method="post">
+      
       <div>
-        <label>Username:</label>
+        <!-- <label>Username:</label> -->
         <div class="input-icon">
           <span>
             <span class="fa fa-user"></span>
           </span>
         </div>
-        <input type="text" name="username" placeholder="Username"/><br/>
+        <input type="text" name="username" placeholder="Username"/>
       </div>
+      
       <div>
-        <label>Password:</label>
+        <!-- <label>Password:</label> -->
+        <div class="input-icon">
+          <span>
+            <span class="fa fa-lock"></span>
+          </span>
+        </div>
         <input type="password" name="password" placeholder="Password"/>
       </div>
       <div>
-        <button type="submit" value="Login"></button>
+        <button type="submit" value="Login">Log In</button>
       </div>
     </form>
-    <a href="#signup"> Sign Up </a>
+    <a class="panel-footer" href="/signup">
+      New to Heroku? &nbsp;<span>Sign Up</span>
+    </a>
   </div>
 
 
