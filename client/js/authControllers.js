@@ -4,7 +4,7 @@ var app = angular.module('tawnyOwlApp.authControllers', [
 
 app.controller('UsernameCtrl', function($scope, $http) {
   $http.get("/checkUsername").success(function (data) {
-    console.log(data);
+    console.log(data, data.username, data.apiKey);
     $scope.user = data.username;
     $scope.apiKey = data.apiKey;
   });
