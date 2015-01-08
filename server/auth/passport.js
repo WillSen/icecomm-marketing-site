@@ -73,8 +73,8 @@ passport.signupAuth = function(req, res, next) {
     } else {
       console.log('user: ' + newUser.username + " saved.");
       req.logIn(newUser, function(err) {
-          if (err) { return next(err); }
-          return res.redirect('/');
+        if (err) { return next(err); }
+        return res.redirect('/');
       });
     }
   });
