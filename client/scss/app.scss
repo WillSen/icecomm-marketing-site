@@ -31,7 +31,7 @@ body {
 .top-bar {
   background: #fff;
   height: 70px;
-  padding: 25px 13% 0 13%;
+  padding: 25px 10% 0 10%;
   .title-area {
     flat: left;
   }
@@ -107,7 +107,14 @@ body {
   div > div > div {
     width: 50%;
   }
+  .footer-links {
+    padding-right: 50px;
+  }
+  .copyright {
+    padding-left: 50px;
+  }
 }
+
 
 
 @media only screen and (min-width: 40.063em) {
@@ -634,6 +641,22 @@ code {
       font-size: 14px;
       text-align: center;
     }
+  }
+  .footer-links {
+    font-size: 12px;
+    padding-right: 10px !important;
+  }
+  .copyright {
+    padding-left: 10px !important;
+    p {
+      font-size: 12px;  
+    }
+  }
+}
+
+@media (max-width: 915px) {
+  .top-bar {
+  padding: 0 5% !important;
   }
 }
 

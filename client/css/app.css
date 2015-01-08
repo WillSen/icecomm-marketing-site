@@ -19,7 +19,7 @@ body {
 .top-bar {
   background: #fff;
   height: 70px;
-  padding: 25px 13% 0 13%; }
+  padding: 25px 10% 0 10%; }
   .top-bar .title-area {
     flat: left; }
   .top-bar .namelogo {
@@ -85,6 +85,10 @@ body {
     transform: translateY(80%); }
   .footer div > div > div {
     width: 50%; }
+  .footer .footer-links {
+    padding-right: 50px; }
+  .footer .copyright {
+    padding-left: 50px; }
 
 @media only screen and (min-width: 40.063em) {
   .button-group {
@@ -654,7 +658,19 @@ code {
     text-align: center; }
   .overview p {
     font-size: 14px;
-    text-align: center; } }
+    text-align: center; }
+
+  .footer-links {
+    font-size: 12px;
+    padding-right: 10px !important; }
+
+  .copyright {
+    padding-left: 10px !important; }
+    .copyright p {
+      font-size: 12px; } }
+@media (max-width: 915px) {
+  .top-bar {
+    padding: 0 5% !important; } }
 @media all and (max-width: 640px) and (min-width: 460px) {
   .connectionDot {
     font-size: 55px; }

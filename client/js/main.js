@@ -29,6 +29,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'client/partials/login.html'
       // controller: ''
     })
+    .state('getting-started', {
+      url: '/getting-started',
+      templateUrl: 'client/partials/getting-started.html'
+      // controller: ''
+    })
 });
 
 app.controller('TopBarDemoCtrl', function ($scope) {
