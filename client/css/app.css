@@ -310,19 +310,24 @@ code {
     padding-right: 50px; }
 
 .login-form {
-  padding: 50px 150px; }
+  padding: 50px 0; }
 
 .panel {
   width: 430px;
   margin: 0 auto;
-  background: #fff; }
+  background: #fff;
+  border: none;
+  float: none;
+  max-width: 100%; }
   .panel h1 {
     text-align: center;
     font-size: 24px;
-    color: #72649f; }
+    color: #72649f;
+    font-weight: 200;
+    letter-spacing: 1px; }
   .panel form {
     font-family: 'Open Sans', sans-serif !important;
-    padding: 40px 15px; }
+    padding: 10px 15px; }
     .panel form div {
       margin-bottom: 20px; }
     .panel form label {
@@ -376,6 +381,20 @@ code {
     border-radius: 4px; }
     .panel input:focus {
       background: #fff !important; }
+  .panel .panel-footer {
+    padding: 20px;
+    display: block;
+    font-size: 17px;
+    color: #878797;
+    font-weight: 200;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    text-align: center; }
+    .panel .panel-footer span {
+      color: #79589f;
+      text-decoration: underline; }
 
 input[type=text], textarea {
   -webkit-transition: all 0.3s ease-in-out;

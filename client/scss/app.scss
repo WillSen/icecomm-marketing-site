@@ -411,21 +411,27 @@ code {
 ///////////////////////////////////
 
 .login-form {
-  padding: 50px 150px;
+  padding: 50px 0;
+  // margin: 0 auto;
 }
 
 .panel {
   width: 430px;
   margin: 0 auto;
   background: #fff;
+  border: none;
+  float: none;
+  max-width: 100%;
   h1 {
     text-align: center;
     font-size: 24px;
     color: #72649f;
+    font-weight: 200;
+    letter-spacing: 1px;
   }
   form {
     font-family: 'Open Sans', sans-serif !important;
-    padding: 40px 15px;
+    padding: 10px 15px;
     div {
       margin-bottom: 20px;
     }
@@ -487,6 +493,22 @@ code {
     border-radius: 4px;
     &:focus {
       background: #fff !important;
+    }
+  }
+  .panel-footer {
+    padding: 20px;
+    display: block;
+    font-size: 17px;
+    color: #878797;
+    font-weight: 200;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    text-align: center;
+    span {
+      color: #79589f;
+      text-decoration: underline;
     }
   }
 }
