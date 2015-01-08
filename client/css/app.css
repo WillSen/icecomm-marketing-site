@@ -60,8 +60,31 @@ body {
   font-weight: 400;
   background-color: #fff; }
 
-footer {
-  background: #333; }
+.footer {
+  padding-bottom: 40px;
+  background: #333;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif; }
+  .footer p {
+    margin-bottom: 0;
+    position: relative;
+    -webkit-transform: translateY(80%);
+    -moz-transform: translateY(80%);
+    -ms-transform: translateY(80%);
+    -o-transform: translateY(80%);
+    transform: translateY(80%); }
+  .footer li > a {
+    color: #fff; }
+  .footer .inline-list {
+    margin-bottom: 0;
+    position: relative;
+    -webkit-transform: translateY(80%);
+    -moz-transform: translateY(80%);
+    -ms-transform: translateY(80%);
+    -o-transform: translateY(80%);
+    transform: translateY(80%); }
+  .footer div > div > div {
+    width: 50%; }
 
 @media only screen and (min-width: 40.063em) {
   .button-group {

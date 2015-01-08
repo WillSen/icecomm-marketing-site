@@ -86,8 +86,27 @@ body {
   background-color:#fff;
 }
 
-footer {
+.footer {
+  padding-bottom: 40px;
   background: #333;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  p {
+    margin-bottom: 0;
+    position: relative;
+    @include transform(translateY(80%));
+  }
+  li > a {
+    color: #fff;
+  }
+  .inline-list {
+    margin-bottom: 0;
+    position: relative;
+    @include transform(translateY(80%));
+  }
+  div > div > div {
+    width: 50%;
+  }
 }
 
 
