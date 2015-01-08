@@ -312,6 +312,18 @@ code {
 .login-form {
   padding: 50px 150px; }
 
+.form-group {
+  box-sizing: border-box;
+  color: #3f3f44;
+  display: block;
+  font-family: benton-sans, 'Helvetica Neue', helvetica, arial, sans-serif;
+  font-size: 14px;
+  height: 44px;
+  line-height: 19.999979019165px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 348px; }
+
 .blink_me {
   -webkit-animation-name: blinker;
   -moz-animation-name: blinker;
