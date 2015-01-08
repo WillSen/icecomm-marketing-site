@@ -19,10 +19,15 @@
 $topCodeTimeDelay: 0s;
 $middleCodeTimeDelay: 2s;
 $bottomCodeTimeDelay: 4s;
+$themeColor: #82CAFF;
 
 body {
-    padding: 25px;
     font-size: 24px;
+}
+
+.main {
+  min-height: 100%;
+  padding-top: 50px;
 }
 
 .row {
@@ -32,7 +37,7 @@ body {
 .top-bar {
   background: #fff;
   height: 70px;
-  padding: 0px 12%;
+  padding: 25px 10% 0 10%;
   .title-area {
     flat: left;
   }
@@ -67,7 +72,7 @@ body {
       color: #333;
       font-family: 'BrandonGrotesque';
       font-size: 40px;
-      padding-top: 18%;
+      padding-top: 7%;
     }
     .sub-intro-text {
       font-size: 16px;
@@ -86,6 +91,37 @@ body {
   font-weight:400;
   background-color:#fff;
 }
+
+.footer {
+  padding-bottom: 40px;
+  background: #333;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+
+  p {
+    margin-bottom: 0;
+    position: relative;
+    @include transform(translateY(80%));
+  }
+  li > a {
+    color: #fff;
+  }
+  .inline-list {
+    margin-bottom: 0;
+    position: relative;
+    @include transform(translateY(80%));
+  }
+  div > div > div {
+    width: 50%;
+  }
+  .footer-links {
+    padding-right: 50px;
+  }
+  .copyright {
+    padding-left: 50px;
+  }
+}
+
 
 
 @media only screen and (min-width: 40.063em) {
@@ -342,9 +378,163 @@ code {
 }
 
 ///////////////////////////////////
-/////// Animations ////////////////
+///// Overview on homepage ////////
 ///////////////////////////////////
 
+.overview {
+  padding: 150px 0;
+  color: #333;
+  font-family: 'Open Sans', sans-serif !important;
+  h1 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 14px;
+  }
+  img {
+      float: left;
+      width: 75px;
+      height: 75px;
+      margin: 5px 20px 0px 0px;
+    }
+  
+  .columns {
+    margin-bottom: 100px;
+  }
+  .medium-6 {
+    padding-right: 50px;
+  }
+}
+
+///////////////////////////////////
+/////////// Login page ////////////
+///////////////////////////////////
+
+.login-form {
+  padding: 50px 0;
+  // margin: 0 auto;
+}
+
+.panel {
+  width: 430px;
+  margin: 0 auto;
+  background: #fff;
+  border: none;
+  float: none;
+  max-width: 100%;
+  h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #72649f;
+    font-weight: 200;
+    letter-spacing: 1px;
+  }
+  form {
+    font-family: 'Open Sans', sans-serif !important;
+    padding: 10px 15px;
+    div {
+      margin-bottom: 20px;
+    }
+    label {
+      text-align: left;
+      position: absolute;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      width: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+    }
+    .input-icon {
+      position: relative;
+    }
+    .input-icon>span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      line-height: 16px;
+      img, .fa {
+        border-right: 1px solid #cbcbd2;
+        padding: 0px 8px 0px 4px;
+        color: #72649f;
+        position: relative;
+        // top: 1px;
+        // display: inline-block;
+        // font-size: 20px;
+        // font-style: normal;
+        // font-weight: normal;
+        // line-height: 1;
+      }
+      .fa-email {
+        font-weight: 700;
+      }
+    }
+    button {
+      width: 100%;
+      color: #fff;
+      background-color: #79589f;
+      background-image: -webkit-linear-gradient(left bottom,rgba(159,88,150,0) 0,rgba(159,88,150,0.6) 100%);
+      border-radius: 5px;
+      border: none;
+      padding-left: 18px;
+      padding-right: 18px;
+      padding: 10px 16px;
+      font-size: 18px;
+      line-height: 1.33;
+      border-color: #79589f;
+
+    }
+  }
+  input {
+    box-shadow: inset 0 1px 2px rgba(203,203,210,0.4);
+    height: 44px;
+    padding-left: 48px !important;
+    color: #3f3f44;
+    border: 1px solid #cbcbd2;
+    border-radius: 4px;
+    &:focus {
+      background: #fff !important;
+    }
+  }
+  .panel-footer {
+    padding: 20px;
+    display: block;
+    font-size: 17px;
+    color: #878797;
+    font-weight: 200;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    text-align: center;
+    span {
+      color: #79589f;
+      text-decoration: underline;
+    }
+  }
+}
+
+input[type=text], textarea {
+  @include transition(all 0.30s ease-in-out);
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+}
+ 
+input[type=text]:focus, textarea:focus {
+  // box-shadow: 0 0 5px #72649f;
+  box-shadow: 0;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #72649f;
+}
+
+///////////////////////////////////
+/////// Animations ////////////////
+///////////////////////////////////
 
 .blink_me {
   @include animation-name(blinker);
@@ -570,6 +760,37 @@ code {
   .connectionDot {
     font-size: 40px;
   }
+  .overview {
+    img {
+      display: block;
+      float: none;
+      margin: 0 auto !important;
+    }
+    h1 {
+      font-size: 18px;
+      text-align: center;
+    }
+    p {
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+  .footer-links {
+    font-size: 12px;
+    padding-right: 10px !important;
+  }
+  .copyright {
+    padding-left: 10px !important;
+    p {
+      font-size: 12px;  
+    }
+  }
+}
+
+@media (max-width: 915px) {
+  .top-bar {
+  padding: 0 5% !important;
+  }
 }
 
 @media all and (max-width: 640px) and (min-width: 460px) {
@@ -638,10 +859,6 @@ code {
   }
 }
 
-// 14.4rem = 230px
-// 15.97
-// 14.4*8.58
-// 15.15*8.95
 
 // Or selectively include components
 // @import

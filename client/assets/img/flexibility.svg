@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="97px" height="92px" viewBox="0 0 97 92" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>flexibility</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-472.000000, -939.000000)">
+            <g id="flexibility" sketch:type="MSLayerGroup" transform="translate(472.000000, 939.000000)">
+                <path d="M96.379,91.698 L96.379,17.046 C81.209,3.608 62.513,-0.851 40.359,3.74 L40.359,77.591 C40.293,78.657 41.024,79.191 42.42,79.191 L51.865,79.191 C52.866,79.125 53.332,78.591 53.399,77.723 L53.399,41.864 C71.229,47.588 78.282,60.162 74.49,79.651 L61.982,79.651 C60.916,79.651 59.917,79.789 58.92,79.988 C57.922,80.119 57.391,80.785 57.19,81.983 L57.19,91.698 L96.379,91.698 L96.379,91.698 Z" id="Shape" fill="#777777" sketch:type="MSShapeGroup"></path>
+                <path d="M31.71,30.219 C35.3,26.761 37.098,22.571 37.098,17.71 C37.098,12.856 35.301,8.661 31.71,5.203 C28.114,1.744 23.793,0.013 18.668,0.013 C13.543,0.013 9.219,1.744 5.626,5.203 C2.033,8.661 0.238,12.856 0.238,17.71 C0.238,22.57 2.033,26.76 5.626,30.219 C9.219,33.677 13.543,35.409 18.668,35.409 C23.793,35.409 28.115,33.678 31.71,30.219 L31.71,30.219 L31.71,30.219 Z" id="Shape" fill="#777777" sketch:type="MSShapeGroup"></path>
+                <path d="M37.098,17.71 C37.098,12.856 35.301,8.661 31.71,5.203 C28.114,1.744 23.793,0.013 18.668,0.013 C13.543,0.013 9.219,1.744 5.626,5.203 C2.033,8.661 0.238,12.856 0.238,17.71 C0.238,22.57 2.033,26.76 5.626,30.219 C9.219,33.677 13.543,35.409 18.668,35.409 C23.793,35.409 28.114,33.678 31.71,30.219 C35.301,26.761 37.098,22.571 37.098,17.71 L37.098,17.71 L37.098,17.71 Z" id="Shape" stroke="#777777" stroke-width="0.0256" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>
