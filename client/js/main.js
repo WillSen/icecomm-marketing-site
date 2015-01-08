@@ -1,6 +1,6 @@
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
-// $(document).foundation();
+$(document).foundation();
 
 
 
@@ -8,7 +8,8 @@
 
 var app = angular.module('tawnyOwlApp', [
   'ui.router',
-  'tawnyOwlApp.authControllers'
+  'tawnyOwlApp.authControllers',
+  'mm.foundation'
   ]);
 
 // switched from ngroute to ui.router
@@ -31,6 +32,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'client/partials/login.html'
       // controller: 'UsernameCtrl'
     })
+});
+
+app.controller('TopBarDemoCtrl', function ($scope) {
+
 });
 
 app.controller('AnimationCtrl', function($scope) {

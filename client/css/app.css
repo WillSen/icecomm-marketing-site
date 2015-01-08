@@ -10,9 +10,6 @@
   src: url("../assets/fonts/brandon_re.ttf");
   font-weight: regular;
   font-style: normal; }
-.main {
-  padding: 0 180px; }
-
 body {
   padding: 25px;
   font-size: 24px; }
@@ -23,12 +20,18 @@ body {
 .top-bar {
   background: #fff;
   height: 70px;
-  padding: 0px 170px; }
+  padding: 0px 12%; }
+  .top-bar .title-area {
+    flat: left; }
   .top-bar .namelogo {
     content: url("../assets/img/icecomm-logo-lg.png");
-    width: 180px; }
+    width: 180px;
+    padding-bottom: 20px; }
   .top-bar .top-bar-section ul {
-    padding: 15px 0px 10px 0px; }
+    padding: 15px 0px 10px 0px;
+    width: auto;
+    height: auto !important;
+    display: inline; }
     .top-bar .top-bar-section ul a {
       font-family: 'Open Sans', sans-serif !important; }
     .top-bar .top-bar-section ul.left {
@@ -42,7 +45,8 @@ body {
   .hero .intro-text {
     color: #333;
     font-family: 'BrandonGrotesque';
-    font-size: 40px; }
+    font-size: 40px;
+    padding-top: 18%; }
   .hero .sub-intro-text {
     font-size: 16px; }
 
@@ -50,26 +54,12 @@ body {
   padding: 50px 50px 0 50px; }
   .screens .term {
     margin: 0 auto;
-    width: 400px;
-    height: 290px; }
+    width: 100%;
+    max-width: 500px; }
 
 body {
   font-weight: 400;
   background-color: #fff; }
-
-.button-group li {
-  padding-top: 3%; }
-
-.button-group a {
-  color: black;
-  background-color: transparent; }
-
-.button-group a:hover {
-  color: rgba(0, 0, 0, 0.4);
-  background-color: transparent; }
-
-.button-group {
-  float: none; }
 
 @media only screen and (min-width: 40.063em) {
   .button-group {
@@ -99,32 +89,6 @@ body {
 @media only screen and (min-width: 64.063em) {
   .intro-text {
     padding-top: 18%; } }
-.intro-text p {
-  font-family: 'Shadows Into Light',cursive;
-  font-size: 44px; }
-
-.about, .work, .contact {
-  padding: 50px 0 0; }
-
-.about img {
-  width: 250px;
-  height: 250px;
-  border-radius: 150px;
-  -webkit-border-radius: 150px;
-  -moz-border-radius: 150px; }
-
-.work img:hover {
-  opacity: .5;
-  -webkit-transition: .3s ease;
-  -moz-transition: .3s ease;
-  -ms-transition: .3s ease;
-  -o-transition: .3s ease;
-  transition: 0.3s ease; }
-
-.work li {
-  height: 140px;
-  overflow: hidden; }
-
 hr {
   border: 0;
   height: 1px;
@@ -133,13 +97,6 @@ hr {
   background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
   background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
   opacity: 0.8; }
-
-footer {
-  padding: 80px 0 10px; }
-
-footer a:hover {
-  color: rgba(0, 0, 0, 0.4);
-  background-color: transparent; }
 
 .term, .term .chrome, .term .chrome {
   border: solid 2px #777; }
@@ -152,24 +109,6 @@ footer a:hover {
   .term .shell {
     min-height: 130px;
     overflow: hidden; }
-    div:nth-child(2) > .term .shell {
-      padding: 20px 30px; }
-    .term .shell .video-screen {
-      position: relative;
-      border-radius: 4px;
-      width: 150px;
-      height: 120px;
-      border-bottom: 8px solid #82CAFF;
-      padding: 20px;
-      border-radius: 0px; }
-      .term .shell .video-screen:nth-child(1) {
-        float: left;
-        background: url("../assets/img/lego-full-lg.png") no-repeat center;
-        background-size: 84px 67px; }
-      .term .shell .video-screen:nth-child(2) {
-        float: right;
-        background: url("../assets/img/playmobil-full.png") no-repeat center;
-        background-size: 77px 70px; }
   .term .chrome {
     height: 34px;
     padding-left: 10px;
@@ -241,9 +180,6 @@ code {
 .term.min .chrome {
   border: 0 none; }
 
-.myclass {
-  border: dotted pink 3px; }
-
 .light {
   background: #5BCC8B;
   position: absolute;
@@ -252,6 +188,75 @@ code {
   border-radius: 100%;
   top: -25px;
   left: 39px; }
+
+.videoscreens {
+  position: relative;
+  width: 500px;
+  height: 290px;
+  margin: 0 auto; }
+  .videoscreens .screen {
+    background: url("../assets/img/laptop-screen.png") no-repeat;
+    background-size: 95%;
+    width: 46.3%;
+    height: 8.95rem; }
+  .videoscreens .lego {
+    position: absolute; }
+    .videoscreens .lego .video-screen .face {
+      background: url("../assets/img/lego.png") no-repeat;
+      background-size: 80px 67px; }
+  .videoscreens .playmobil {
+    position: absolute;
+    right: 0; }
+    .videoscreens .playmobil .video-screen .face {
+      background: url("../assets/img/kimono.png") no-repeat;
+      background-size: 74px 77px; }
+  .videoscreens .doll {
+    position: absolute;
+    top: 10rem;
+    left: 9rem; }
+    .videoscreens .doll .video-screen .face {
+      background: url("../assets/img/playmobil.png") no-repeat;
+      background-size: 80px 67px; }
+  .videoscreens .video-screen {
+    position: relative;
+    top: 30px;
+    left: 63px; }
+    .videoscreens .video-screen .face {
+      position: absolute;
+      width: 100px;
+      height: 100px; }
+
+.connection:nth-of-type(1) {
+  position: absolute;
+  top: 10px;
+  left: 225px; }
+
+.connection:nth-of-type(2) {
+  position: absolute;
+  top: 130px;
+  left: 65px;
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg); }
+
+.connection:nth-of-type(3) {
+  position: absolute;
+  top: 130px;
+  left: 360px;
+  -webkit-transform: rotate(-40deg);
+  -moz-transform: rotate(-40deg);
+  -ms-transform: rotate(-40deg);
+  -o-transform: rotate(-40deg);
+  transform: rotate(-40deg); }
+
+.connectionDot {
+  color: #82CAFF;
+  opacity: 0;
+  position: relative;
+  font-size: 55px;
+  font-family: 'BrandonGrotesque' !important; }
 
 .blink_me {
   -webkit-animation-name: blinker;
@@ -267,14 +272,14 @@ code {
   -moz-animation-iteration-count: infinite;
   animation-iteration-count: infinite; }
 
-@-moz-keyframes blinker {
+@-webkit-keyframes blinker {
   0% {
     opacity: 1.0; }
   50% {
     opacity: 0.0; }
   100% {
     opacity: 1.0; } }
-@-webkit-keyframes blinker {
+@-moz-keyframes blinker {
   0% {
     opacity: 1.0; }
   50% {
@@ -429,38 +434,6 @@ code {
   -moz-animation: shake 2.3s;
   animation: shake 2.3s; }
 
-.connection:nth-of-type(1) {
-  position: absolute;
-  top: 10px;
-  left: 235px; }
-
-.connection:nth-of-type(2) {
-  position: absolute;
-  top: 130px;
-  left: 65px;
-  -webkit-transform: rotate(40deg);
-  -moz-transform: rotate(40deg);
-  -ms-transform: rotate(40deg);
-  -o-transform: rotate(40deg);
-  transform: rotate(40deg); }
-
-.connection:nth-of-type(3) {
-  position: absolute;
-  top: 130px;
-  left: 360px;
-  -webkit-transform: rotate(-40deg);
-  -moz-transform: rotate(-40deg);
-  -ms-transform: rotate(-40deg);
-  -o-transform: rotate(-40deg);
-  transform: rotate(-40deg); }
-
-.connectionDot {
-  color: #82CAFF;
-  opacity: 0;
-  position: relative;
-  font-size: 55px;
-  font-family: 'BrandonGrotesque' !important; }
-
 .one {
   -webkit-animation: dot 1.3s infinite;
   -moz-animation: dot 1.3s infinite;
@@ -546,40 +519,144 @@ code {
     opacity: 0.3; }
   100% {
     opacity: 1; } }
-.videoscreens {
-  position: relative;
-  width: 500px;
-  height: 290px; }
-  .videoscreens .screen {
-    background: url("../assets/img/laptop-screen.png") no-repeat;
-    background-size: 230px 137px;
-    width: 242px;
-    height: 143px; }
-  .videoscreens .lego {
-    position: absolute; }
-    .videoscreens .lego .video-screen .face {
-      background: url("../assets/img/lego.png") no-repeat center;
-      background-size: 80px 67px; }
-  .videoscreens .playmobil {
+@media all and (max-width: 640px) {
+  .top-bar {
+    padding: 0px;
+    height: 45px; }
+    .top-bar .namelogo {
+      width: 130px;
+      padding-top: 12px; }
+    .top-bar .name {
+      background: #fff; }
+    .top-bar .right {
+      float: none !important; }
+    .top-bar .left {
+      padding-left: 0px !important; }
+    .top-bar .top-bar-section ul {
+      width: 100%;
+      padding-top: 0px; }
+    .top-bar .hello-username {
+      display: none; }
+
+  .hero .intro-text {
+    font-size: 30px;
+    padding-bottom: 10px; }
+  .hero .sub-intro-text {
+    font-size: 11px;
+    padding-bottom: 10px; }
+
+  .main {
+    padding: 0; }
+
+  .screens {
+    padding: 0; }
+    .screens .term {
+      width: 100%;
+      height: 310px; }
+      .screens .term code {
+        font-size: 11px !important; }
+    .screens .videoscreens {
+      width: 100%;
+      height: 0;
+      padding-bottom: 50%; }
+      .screens .videoscreens .doll {
+        top: 80%;
+        left: 30%; }
+      .screens .videoscreens .playmobil .video-screen .face {
+        width: 80% !important; }
+      .screens .videoscreens .video-screen {
+        top: 10%;
+        left: 27%;
+        width: 40%; }
+        .screens .videoscreens .video-screen .face {
+          background-size: 100% !important;
+          width: 100%; }
+
+  .light {
+    display: none; }
+
+  .connection:nth-of-type(1) {
+    top: 2%;
+    left: 45%; }
+
+  .connection:nth-of-type(2) {
     position: absolute;
-    right: 0; }
-    .videoscreens .playmobil .video-screen .face {
-      background: url("../assets/img/kimono.png") no-repeat center;
-      background-size: 74px 77px; }
-  .videoscreens .doll {
+    top: 45%;
+    left: 10%;
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    -o-transform: rotate(40deg);
+    transform: rotate(40deg); }
+
+  .connection:nth-of-type(3) {
     position: absolute;
-    top: 10rem;
-    left: 9rem; }
-    .videoscreens .doll .video-screen .face {
-      background: url("../assets/img/playmobil.png") no-repeat center;
-      background-size: 80px 67px; }
-  .videoscreens .video-screen {
-    position: relative;
-    top: 30px;
-    left: 63px; }
-    .videoscreens .video-screen .face {
-      position: absolute;
-      width: 100px;
-      height: 100px; }
+    top: 45%;
+    left: 70%;
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    -ms-transform: rotate(-40deg);
+    -o-transform: rotate(-40deg);
+    transform: rotate(-40deg); }
+
+  .connectionDot {
+    font-size: 40px; } }
+@media all and (max-width: 640px) and (min-width: 460px) {
+  .connectionDot {
+    font-size: 55px; }
+
+  .connection:nth-of-type(1) {
+    top: 10%;
+    left: 45%; }
+
+  .connection:nth-of-type(2) {
+    position: absolute;
+    top: 55%;
+    left: 10%;
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    -o-transform: rotate(40deg);
+    transform: rotate(40deg); }
+    .connection:nth-of-type(2) .one {
+      display: none; }
+
+  .connection:nth-of-type(3) {
+    position: absolute;
+    top: 55%;
+    left: 70%;
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    -ms-transform: rotate(-40deg);
+    -o-transform: rotate(-40deg);
+    transform: rotate(-40deg); } }
+@media all and (max-width: 460px) {
+  .connection:nth-of-type(1) {
+    left: 43% !important; }
+
+  .connection:nth-of-type(2) {
+    left: 5%; }
+    .connection:nth-of-type(2) .eight {
+      display: none; }
+
+  .connection:nth-of-type(3) {
+    left: 65%; }
+    .connection:nth-of-type(3) .one {
+      display: none; }
+
+  .doll {
+    left: 25% !important; } }
+@media all and (max-width: 915px) {
+  .top-bar {
+    padding: 0; }
+    .top-bar .namelogo {
+      width: 140px;
+      font-size: 12px; }
+
+  .top-bar-section li > a {
+    padding: 0 5px !important; } }
+@media all and (max-width: 1020px) {
+  .videoscreens {
+    margin: 30px auto; } }
 
 /*# sourceMappingURL=app.css.map */

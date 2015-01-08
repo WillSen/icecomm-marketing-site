@@ -79,4 +79,4 @@ app.get('/checkUserExists', function(req, res) {
 app.post('/login', passport.loginAuth);
 app.post('/signup', passport.signupAuth);
 
-server.listen(3000);
+server.listen(process.env.PORT || 3000);
