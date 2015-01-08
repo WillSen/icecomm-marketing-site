@@ -46,7 +46,7 @@ body {
     color: #333;
     font-family: 'BrandonGrotesque';
     font-size: 40px;
-    padding-top: 18%; }
+    padding-top: 12%; }
   .hero .sub-intro-text {
     font-size: 16px; }
 
@@ -259,7 +259,22 @@ code {
   font-family: 'BrandonGrotesque' !important; }
 
 .overview {
-  padding: 40px 0; }
+  padding: 150px 0;
+  color: #333;
+  font-family: 'Open Sans', sans-serif !important; }
+  .overview h1 {
+    font-size: 18px; }
+  .overview p {
+    font-size: 14px; }
+  .overview img {
+    float: left;
+    width: 75px;
+    height: 75px;
+    margin: 5px 20px 0px 0px; }
+  .overview .columns {
+    margin-bottom: 100px; }
+  .overview .medium-6 {
+    padding-right: 50px; }
 
 .blink_me {
   -webkit-animation-name: blinker;
@@ -603,7 +618,18 @@ code {
     transform: rotate(-40deg); }
 
   .connectionDot {
-    font-size: 40px; } }
+    font-size: 40px; }
+
+  .overview img {
+    display: block;
+    float: none;
+    margin: 0 auto !important; }
+  .overview h1 {
+    font-size: 18px;
+    text-align: center; }
+  .overview p {
+    font-size: 14px;
+    text-align: center; } }
 @media all and (max-width: 640px) and (min-width: 460px) {
   .connectionDot {
     font-size: 55px; }

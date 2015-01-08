@@ -67,7 +67,7 @@ body {
       color: #333;
       font-family: 'BrandonGrotesque';
       font-size: 40px;
-      padding-top: 18%;
+      padding-top: 12%;
     }
     .sub-intro-text {
       font-size: 16px;
@@ -346,7 +346,28 @@ code {
 ///////////////////////////////////
 
 .overview {
-  padding: 40px 0;
+  padding: 150px 0;
+  color: #333;
+  font-family: 'Open Sans', sans-serif !important;
+  h1 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 14px;
+  }
+  img {
+      float: left;
+      width: 75px;
+      height: 75px;
+      margin: 5px 20px 0px 0px;
+    }
+  
+  .columns {
+    margin-bottom: 100px;
+  }
+  .medium-6 {
+    padding-right: 50px;
+  }
 }
 
 ///////////////////////////////////
@@ -576,6 +597,21 @@ code {
   }
   .connectionDot {
     font-size: 40px;
+  }
+  .overview {
+    img {
+      display: block;
+      float: none;
+      margin: 0 auto !important;
+    }
+    h1 {
+      font-size: 18px;
+      text-align: center;
+    }
+    p {
+      font-size: 14px;
+      text-align: center;
+    }
   }
 }
 
