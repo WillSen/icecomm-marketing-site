@@ -312,17 +312,69 @@ code {
 .login-form {
   padding: 50px 150px; }
 
-.form-group {
-  box-sizing: border-box;
-  color: #3f3f44;
-  display: block;
-  font-family: benton-sans, 'Helvetica Neue', helvetica, arial, sans-serif;
-  font-size: 14px;
-  height: 44px;
-  line-height: 19.999979019165px;
-  margin-bottom: 20px;
-  text-align: center;
-  width: 348px; }
+.panel {
+  width: 430px;
+  margin: 0 auto;
+  background: #fff; }
+  .panel h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #82CAFF; }
+  .panel form {
+    padding: 40px; }
+    .panel form label {
+      text-align: left;
+      position: absolute;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      width: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0; }
+    .panel form .input-icon {
+      position: relative; }
+    .panel form .input-icon > span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      line-height: 10px; }
+      .panel form .input-icon > span .fa {
+        border-right: 1px solid #cbcbd2;
+        padding: 0px 10px 0px 4px;
+        color: #72649f;
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1; }
+  .panel input {
+    box-shadow: inset 0 1px 2px rgba(203, 203, 210, 0.4);
+    height: 44px;
+    padding-left: 48px !important;
+    color: #3f3f44;
+    border: 1px solid #cbcbd2;
+    border-radius: 4px; }
+    .panel input:focus {
+      background: #fff !important; }
+
+input[type=text], textarea {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD; }
+
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #72649f; }
 
 .blink_me {
   -webkit-animation-name: blinker;
