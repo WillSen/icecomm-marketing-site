@@ -24,6 +24,11 @@ body {
     font-size: 24px;
 }
 
+.main {
+  min-height: 100%;
+  padding-top: 50px;
+}
+
 .row {
   max-width: 70rem;
 }
@@ -66,7 +71,7 @@ body {
       color: #333;
       font-family: 'BrandonGrotesque';
       font-size: 40px;
-      padding-top: 12%;
+      padding-top: 7%;
     }
     .sub-intro-text {
       font-size: 16px;
@@ -91,6 +96,7 @@ body {
   background: #333;
   color: #fff;
   font-family: 'Open Sans', sans-serif;
+
   p {
     margin-bottom: 0;
     position: relative;
