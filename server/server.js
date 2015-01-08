@@ -2,11 +2,12 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var session = require('express-session');
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+
 var db = require('./auth/db');
 var bcrypt = require('./auth/bcryptFile');
-var mongoose = require('mongoose');
 var passport = require('./auth/passport');
-var bodyParser = require('body-parser');
 
 ////////////////////////
 // Testing
@@ -63,17 +64,18 @@ app.get('/checkUserExists', function(req, res) {
   // else res.send(true)
   console.log('checking if user exists: ', req.query.username);
   // var alreadyExists = false;
+  var alreadyExisting = false;
   db.User.find(function(err, data){
     console.log('finding mongoose data');
     data.forEach(function(item) {
       console.log(item.username);
       if (item.username === req.query.username) {
-        res.json(true);
-      }
+        alreadyExisting = true;
+      } 
     })
-    // res.json(false);
+    // res.json({alreadyExisting: false});
+    res.json({"alreadyExisting":alreadyExisting});
   })
-  // res.json(alreadyExists);
 })
 
 app.post('/login', passport.loginAuth);
