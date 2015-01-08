@@ -342,9 +342,16 @@ code {
 }
 
 ///////////////////////////////////
-/////// Animations ////////////////
+///// Overview on homepage ////////
 ///////////////////////////////////
 
+.overview {
+  padding: 40px 0;
+}
+
+///////////////////////////////////
+/////// Animations ////////////////
+///////////////////////////////////
 
 .blink_me {
   @include animation-name(blinker);
@@ -638,10 +645,6 @@ code {
   }
 }
 
-// 14.4rem = 230px
-// 15.97
-// 14.4*8.58
-// 15.15*8.95
 
 // Or selectively include components
 // @import

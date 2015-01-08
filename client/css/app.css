@@ -258,6 +258,9 @@ code {
   font-size: 55px;
   font-family: 'BrandonGrotesque' !important; }
 
+.overview {
+  padding: 40px 0; }
+
 .blink_me {
   -webkit-animation-name: blinker;
   -moz-animation-name: blinker;
