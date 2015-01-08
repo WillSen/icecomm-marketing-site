@@ -21,7 +21,6 @@ $middleCodeTimeDelay: 2s;
 $bottomCodeTimeDelay: 4s;
 
 body {
-    padding: 25px;
     font-size: 24px;
 }
 
@@ -32,7 +31,7 @@ body {
 .top-bar {
   background: #fff;
   height: 70px;
-  padding: 0px 12%;
+  padding: 25px 13% 0 13%;
   .title-area {
     flat: left;
   }
@@ -85,6 +84,10 @@ body {
 body {
   font-weight:400;
   background-color:#fff;
+}
+
+footer {
+  background: #333;
 }
 
 
