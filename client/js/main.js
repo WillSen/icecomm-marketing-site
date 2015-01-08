@@ -39,6 +39,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'client/partials/docs.html'
       // controller: ''
     })
+    .state('account', {
+      url: '/account',
+      templateUrl: 'client/partials/account.html'
+      // controller
+    })
 });
 
 app.controller('TopBarDemoCtrl', function ($scope) {
@@ -50,3 +55,4 @@ app.controller('AnimationCtrl', function($scope) {
       $scope.isActive = true;
   } 
 })
+
