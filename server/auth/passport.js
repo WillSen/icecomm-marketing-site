@@ -53,6 +53,8 @@ passport.loginAuth = function(req, res, next) {
       console.log('req session: ', req.session);
       req.session.messages =  [info.message];
       console.log('info', info);
+      failureFlash: true;
+      req.flash('error', 'Flash error: username or password incorrect');
       return res.redirect('/#/login');
     }
     req.logIn(user, function(err) {

@@ -80,6 +80,14 @@ app.get('/checkUserExists', function(req, res) {
   })
 })
 
+app.get('/login', function(req,res){
+  console.log('app dot getting login');
+  res.render('login',{
+    title  : 'Login',
+    errors : req.flash('error')
+  });
+});
+
 app.post('/login', passport.loginAuth);
 app.post('/signup', passport.signupAuth);
 
