@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>head</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-47.000000, -8.000000)">
+            <g id="head" sketch:type="MSLayerGroup" transform="translate(47.000000, 8.000000)">
+                <rect id="Rectangle-38" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="0" width="18" height="18"></rect>
+                <g id="Group" transform="translate(0.900000, 0.000000)" fill="#72649F" sketch:type="MSShapeGroup">
+                    <ellipse id="Oval" cx="8.03729647" cy="4.26006" rx="4.51065176" ry="4.26006"></ellipse>
+                    <path d="M8.03729647,9.31356 C6.37288941,9.31356 4.88496706,8.60022 3.89714824,7.47972 C1.56225176,8.39718 0,11.475 0,13.383 C0,16.27884 3.59830588,18 8.03729647,18 C12.4760965,18 16.0745929,16.27884 16.0745929,13.383 C16.0745929,11.475 14.5125318,8.39718 12.1776353,7.4799 C11.1894353,8.60022 9.70189412,9.31356 8.03729647,9.31356 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

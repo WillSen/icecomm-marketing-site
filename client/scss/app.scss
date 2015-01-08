@@ -454,18 +454,18 @@ code {
       top: 0;
       left: 0;
       padding: 10px;
-      line-height: 10px;
-      .fa {
+      line-height: 16px;
+      img, .fa {
         border-right: 1px solid #cbcbd2;
-        padding: 0px 10px 0px 4px;
+        padding: 0px 8px 0px 4px;
         color: #72649f;
         position: relative;
-        top: 1px;
-        display: inline-block;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: normal;
-        line-height: 1;
+        // top: 1px;
+        // display: inline-block;
+        // font-size: 20px;
+        // font-style: normal;
+        // font-weight: normal;
+        // line-height: 1;
       }
       .fa-email {
         font-weight: 700;
