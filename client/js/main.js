@@ -10,7 +10,7 @@ var app = angular.module('tawnyOwlApp', [
   ]);
 
 // switched from ngroute to ui.router
-app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
@@ -44,6 +44,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'client/partials/account.html'
       // controller
     })
+
+    $locationProvider.html5Mode(true);
 });
 
 app.controller('TopBarDemoCtrl', function ($scope) {
@@ -53,6 +55,5 @@ app.controller('TopBarDemoCtrl', function ($scope) {
 app.controller('AnimationCtrl', function($scope) {
   $scope.doCtrlStuff = function(){
       $scope.isActive = true;
-  } 
+  }
 })
-
