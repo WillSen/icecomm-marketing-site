@@ -57,3 +57,7 @@ app.controller('AnimationCtrl', function($scope) {
       $scope.isActive = true;
   }
 })
+
+app.factory('flash', function($rootScope) {
+
+})

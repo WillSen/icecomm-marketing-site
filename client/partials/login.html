@@ -3,6 +3,10 @@
   <h1>
     Log In to Icecomm
   </h1>
+  <div class="alert-box alert alert-danger" ng-show="flash.getMessage()">
+    Alerting dummy danger! {{flash.getMessage()}}
+  </div>
+
     <form action="/login" method="post">
 
       <div>
