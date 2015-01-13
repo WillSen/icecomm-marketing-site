@@ -7,7 +7,14 @@
     Alerting dummy danger! {{flash.getMessage()}}
   </div>
 
-    <form action="/login" method="post">
+    <form ng-submit="login(username, password)" name="signin_form" novalidate>
+      <div class="error" 
+         >
+        <small class="error" 
+            ng-show="errMsg">
+            Username or password incorrect.
+        </small>
+      </div>
 
       <div>
         <!-- <label>Username:</label> -->
@@ -17,7 +24,7 @@
             <!-- <span class="fa fa-user"></span> -->
           </span>
         </div>
-        <input type="text" name="username" placeholder="Username"/>
+        <input type="text" name="username" ng-model="username" placeholder="Username"/>
       </div>
 
       <div>
@@ -28,7 +35,7 @@
             <!-- <span class="fa fa-lock"></span> -->
           </span>
         </div>
-        <input type="password" name="password" placeholder="Password"/>
+        <input type="password" name="password" ng-model="password" placeholder="Password"/>
       </div>
       <div>
         <button type="submit" value="Login">Log In</button>

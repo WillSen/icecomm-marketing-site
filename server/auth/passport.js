@@ -48,18 +48,22 @@ passport.use(new LocalStrategy(function(username, password, done) {
 
 passport.loginAuth = function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
+    console.log('user', user);
     if (err) { return next(err) }
     if (!user) {
       console.log('req session: ', req.session);
       req.session.messages =  [info.message];
       console.log('info', info);
-      failureFlash: true;
-      req.flash('error', 'Flash error: username or password incorrect');
-      return res.redirect('/#/login');
+      // failureFlash: true;
+      // req.flash('error', 'Flash error: username or password incorrect');
+      // res.send 404 error
+      return res.json(false);
+      // return res.redirect('/#/login');
     }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      return res.redirect('/');
+      return res.json(true);
+      // return res.redirect('/');
     });
   }) (req, res, next);
 }

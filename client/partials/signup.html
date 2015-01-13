@@ -13,10 +13,10 @@
             <!-- <span class="fa fa-user"></span> -->
           </span>
         </div>
-        <input type="text" name="username" placeholder="Username" ng-blur="checkUnique()" ng-model="username"/>
+        <input type="text" name="username" placeholder="Username" ng-blur="validate=true; checkUnique()" ng-model="username" ng-minlength=3 ng-maxlength=20/>
         {{alreadyExistErrorMsg}}
-        <!--     <div class="error" 
-          ng-show="signup_form.username.$dirty && signup_form.username.$invalid">
+      <div class="error" 
+          ng-show="signup_form.username.$dirty && signup_form.username.$invalid && validate">
         <small class="error" 
             ng-show="signup_form.username.$error.required">
             Your name is required.
@@ -28,7 +28,7 @@
         <small class="error" 
                 ng-show="signup_form.username.$error.maxlength">
                 Your name cannot be longer than 20 characters
-        </small> -->
+        </small> 
       </div>
       
       <div>

@@ -26,8 +26,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('login', {
       url: '/login',
-      templateUrl: 'client/partials/login.html'
-      // controller: ''
+      templateUrl: 'client/partials/login.html',
+      controller: 'LoginCtrl'
     })
     .state('getting-started', {
       url: '/getting-started',

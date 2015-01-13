@@ -1,3 +1,4 @@
+
 var app = angular.module('tawnyOwlApp.authControllers', [
   'ui.router'
 ]);
@@ -30,6 +31,24 @@ app.controller('SignupCtrl', function($scope, $http) {
   }
 })
 
+app.controller('LoginCtrl', function($scope, $http) {
+  $scope.login = function(username, password) {
+    if (!username || !password) {
+      //send error message
+      console.log('both username and password required');
+    }
+    console.log('loginChecker reached on frontend')
+    $http.post("/loginChecker", {
+      username: $scope.username, 
+      password: $scope.password
+    }).success(function(data) {
+      console.log('data from backend', data);
+      if (data === 'false') {
+        $scope.errMsg = true;
+      }
+    })
+  }
+})
 
 // app.controller('ApiCtrl', function($scope, $http) {
 //   $http.get("/findApi").success(function (data) {

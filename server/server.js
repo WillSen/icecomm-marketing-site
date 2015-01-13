@@ -77,12 +77,16 @@ app.get('/checkUserExists', function(req, res) {
   })
 })
 
-app.post('/login', passport.loginAuth);
+app.post('/loginChecker', function(req, res, next) {
+  console.log('loginchecker reached on backend');
+  passport.loginAuth(req, res, next);
+})
+// app.post('/login', passport.loginAuth);
 app.post('/signup', passport.signupAuth);
 
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
-    res.sendfile(path.resolve(__dirname + '/../index.html'));
+    res.sendFile(path.resolve(__dirname + '/../index.html'));
 });
 
 server.listen(process.env.PORT || 3000);
