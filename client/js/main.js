@@ -17,7 +17,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('home', {
       url: '/',
       templateUrl: 'client/partials/home.html'
-      // controller: ''
+      // controller: 'UsernameCtrl'
     })
     .state('signup', {
       url: '/signup',

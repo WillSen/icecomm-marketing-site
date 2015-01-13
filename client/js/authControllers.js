@@ -31,7 +31,7 @@ app.controller('SignupCtrl', function($scope, $http) {
   }
 })
 
-app.controller('LoginCtrl', function($scope, $http) {
+app.controller('LoginCtrl', function($scope, $http, $state, $location, $rootScope) {
   $scope.login = function(username, password) {
     if (!username || !password) {
       //send error message
@@ -45,6 +45,18 @@ app.controller('LoginCtrl', function($scope, $http) {
       console.log('data from backend', data);
       if (data === 'false') {
         $scope.errMsg = true;
+      }
+      else {
+        $rootScope.user = data.username;
+        $rootScope.apiKey = data.apiKey;
+        $state.go('home');
+        // $location.path('/../partials/home.html')
+        // console.log('reached else case');
+        // $http.post("/performLogin").success(function (data) {
+        //   console.log('performlogin data', data, data.username, data.apiKey);
+        //   $scope.user = data.username;
+        //   $scope.apiKey = data.apiKey;
+        // });
       }
     })
   }
