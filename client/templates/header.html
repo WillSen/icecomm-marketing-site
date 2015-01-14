@@ -9,9 +9,10 @@
 
     <top-bar-section>
       <ul class="right" ng-controller="UsernameCtrl">
-        <li class="hello-username"><a href="/account">Hello {{currentUser}}</a></li>
-        <li><a ui-sref="login">Login</a></li>
-        <li><a href="/signup">Signup</a></li>
+        <li ng-show="isLoggedIn()" class="hello-username"><a href="/account">Hello {{currentUser}}</a></li>
+        <li><a ng-hide="isLoggedIn()" ui-sref="login">Login</a></li>
+        <li><a ng-hide="isLoggedIn()" href="/signup">Signup</a></li>
+        <li><a ng-show="isLoggedIn()" ng-click="logout()">Logout</a></li>
       </ul>
 
       <ul class="left">
