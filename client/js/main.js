@@ -39,11 +39,17 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'client/partials/docs.html'
       // controller: ''
     })
+    .state('demos', {
+      url: '/demos',
+      templateUrl: 'client/partials/demos.html'
+      // controller
+    })
     .state('account', {
       url: '/account',
       templateUrl: 'client/partials/account.html'
       // controller
     })
+
 
     $locationProvider.html5Mode(true);
 });
