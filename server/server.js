@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 
 var db = require('./auth/db');
-var bcrypt = require('./auth/bcryptFile');
+// var bcrypt = require('./auth/bcryptFile');
 var passport = require('./auth/passport');
 
 ////////////////////////
@@ -55,7 +55,6 @@ app.use(express.static('.'));
 app.get('/checkUsername', function(req, res) {
   if (req.user) {
     res.json(req.user);
-    // res.json({username: req.user.username});
     console.log('req', req.user.username);
   }
 })
