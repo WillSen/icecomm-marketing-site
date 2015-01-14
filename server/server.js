@@ -62,7 +62,6 @@ app.get('/checkUsername', function(req, res) {
 
 app.get('/checkUserExists', function(req, res) {
   console.log('checking if user exists: ', req.query.username);
-  // var alreadyExists = false;
   var alreadyExisting = false;
   db.User.find(function(err, data){
     console.log('finding mongoose data');
@@ -72,7 +71,6 @@ app.get('/checkUserExists', function(req, res) {
         alreadyExisting = true;
       } 
     })
-    // res.json({alreadyExisting: false});
     res.json({"alreadyExisting":alreadyExisting});
   })
 })

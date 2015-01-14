@@ -78,21 +78,7 @@ app.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
         $rootScope.currentUser = data.username;
         $rootScope.currentApiKey = data.apiKey;
         $state.go('home');
-        // $location.path('/../partials/home.html')
-        // console.log('reached else case');
-        // $http.post("/performLogin").success(function (data) {
-        //   console.log('performlogin data', data, data.username, data.apiKey);
-        //   $scope.user = data.username;
-        //   $scope.apiKey = data.apiKey;
-        // });
       }
     })
   }
 })
-
-// app.controller('ApiCtrl', function($scope, $http) {
-//   $http.get("/findApi").success(function (data) {
-//     console.log(data);
-//     $scope.user = data.username;
-//   });
-// })
