@@ -3,8 +3,9 @@ var app = express();
 var server = require('http').Server(app);
 var session = require('express-session');
 var mongoose = require('mongoose');
-var flash = require('connect-flash');
+var flash = require('express-flash');
 var bodyParser = require('body-parser');
+var path = require('path');
 
 var db = require('./auth/db');
 var bcrypt = require('./auth/bcryptFile');
@@ -57,16 +58,10 @@ app.get('/checkUsername', function(req, res) {
     // res.json({username: req.user.username});
     console.log('req', req.user.username);
   }
-  // res.json({A: 5});
 })
 
 app.get('/checkUserExists', function(req, res) {
-  //req.params.tryusername
-  //query database with req.params.tryusername
-  // if present res.send(false)
-  // else res.send(true)
   console.log('checking if user exists: ', req.query.username);
-  // var alreadyExists = false;
   var alreadyExisting = false;
   db.User.find(function(err, data){
     console.log('finding mongoose data');
@@ -76,20 +71,25 @@ app.get('/checkUserExists', function(req, res) {
         alreadyExisting = true;
       } 
     })
-    // res.json({alreadyExisting: false});
     res.json({"alreadyExisting":alreadyExisting});
   })
 })
 
-app.get('/login', function(req,res){
-  console.log('app dot getting login');
-  res.render('login',{
-    title  : 'Login',
-    errors : req.flash('error')
-  });
-});
+app.post('/loginChecker', function(req, res, next) {
+  console.log('loginchecker reached on backend');
+  passport.loginAuth(req, res, next);
+})
 
-app.post('/login', passport.loginAuth);
-app.post('/signup', passport.signupAuth);
+app.post('/signupChecker', function(req, res, next) {
+  console.log('signupchecker reached on backend');
+  passport.signupAuth(req, res, next);
+})
+// app.post('/login', passport.loginAuth);
+// app.post('/signup', passport.signupAuth);
+
+app.all('/*', function(req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendFile(path.resolve(__dirname + '/../index.html'));
+});
 
 server.listen(process.env.PORT || 3000);

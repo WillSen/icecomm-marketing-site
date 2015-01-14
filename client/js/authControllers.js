@@ -1,3 +1,4 @@
+
 var app = angular.module('tawnyOwlApp.authControllers', [
   'ui.router'
 ]);
@@ -10,7 +11,7 @@ app.controller('UsernameCtrl', function($scope, $http) {
   });
 })
 
-app.controller('SignupCtrl', function($scope, $http) {
+app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
   $scope.checkUnique = function() {
     console.log('the blur has activated');
     $http.get("/checkUserExists", {
@@ -28,12 +29,56 @@ app.controller('SignupCtrl', function($scope, $http) {
         }
       })
   }
+  $scope.signUp = function(username, password, email) {
+    console.log('username', username);
+    console.log('password', password);
+    console.log('email', email);
+    if (!username || !password || !email) {
+      //send error message
+      console.log('valid username and password and email required');
+      $scope.errMsg = true;
+    }
+    else {
+      console.log('signup checker reached on frontend');
+      $http.post("/signupChecker", {
+        username: $scope.username, 
+        password: $scope.password,
+        email: $scope.email
+      }).success(function(data) {
+        console.log('data from backent', data);
+        if (data === 'false') {
+          $scope.errMsg = true;
+        }
+        else {
+          $rootScope.currentUser = data.username;
+          $rootScope.currentApiKey = data.apiKey;
+          $state.go('home');
+        }
+      })
+    }
+  }
 })
 
-
-// app.controller('ApiCtrl', function($scope, $http) {
-//   $http.get("/findApi").success(function (data) {
-//     console.log(data);
-//     $scope.user = data.username;
-//   });
-// })
+app.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
+  $scope.login = function(username, password) {
+    if (!username || !password) {
+      //send error message
+      console.log('both username and password required');
+    }
+    console.log('loginChecker reached on frontend')
+    $http.post("/loginChecker", {
+      username: $scope.username, 
+      password: $scope.password
+    }).success(function(data) {
+      console.log('data from backend', data);
+      if (data === 'false') {
+        $scope.errMsg = true;
+      }
+      else {
+        $rootScope.currentUser = data.username;
+        $rootScope.currentApiKey = data.apiKey;
+        $state.go('home');
+      }
+    })
+  }
+})

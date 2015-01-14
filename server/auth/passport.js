@@ -48,18 +48,19 @@ passport.use(new LocalStrategy(function(username, password, done) {
 
 passport.loginAuth = function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
+    console.log('user', user);
     if (err) { return next(err) }
     if (!user) {
       console.log('req session: ', req.session);
       req.session.messages =  [info.message];
       console.log('info', info);
-      failureFlash: true;
-      req.flash('error', 'Flash error: username or password incorrect');
-      return res.redirect('/#/login');
+      return res.json(false);
+      // return res.redirect('/#/login');
     }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      return res.redirect('/');
+      return res.json(user);
+      // return res.redirect('/');
     });
   }) (req, res, next);
 }
@@ -71,12 +72,14 @@ passport.signupAuth = function(req, res, next) {
     console.log('attempting to save user');
     if(err) {
       console.log('Error with saving new user', err);
-      return res.redirect('/#/signup');
+      return res.json(false);
+      // return res.redirect('/#/signup');
     } else {
       console.log('user: ' + newUser.username + " saved.");
       req.logIn(newUser, function(err) {
         if (err) { return next(err); }
-        return res.redirect('/');
+        return res.json(newUser);
+        // return res.redirect('/');
       });
     }
   });

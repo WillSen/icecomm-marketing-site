@@ -17,7 +17,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('home', {
       url: '/',
       templateUrl: 'client/partials/home.html'
-      // controller: ''
+      // controller: 'UsernameCtrl'
     })
     .state('signup', {
       url: '/signup',
@@ -26,8 +26,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('login', {
       url: '/login',
-      templateUrl: 'client/partials/login.html'
-      // controller: ''
+      templateUrl: 'client/partials/login.html',
+      controller: 'LoginCtrl'
     })
     .state('getting-started', {
       url: '/getting-started',
@@ -56,4 +56,8 @@ app.controller('AnimationCtrl', function($scope) {
   $scope.doCtrlStuff = function(){
       $scope.isActive = true;
   }
+})
+
+app.factory('flash', function($rootScope) {
+
 })
