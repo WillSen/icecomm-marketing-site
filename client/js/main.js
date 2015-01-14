@@ -48,15 +48,19 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 });
 
-app.controller('TopBarDemoCtrl', function ($scope, TopBarDemoFactory) {
-  console.log('demo');
+app.controller('TopBarDemoCtrl', function ($scope, $rootScope, TopBarDemoFactory) {
   $scope.logout = function() {
-    console.log('logout');
     TopBarDemoFactory.logout()
       .then(function(data) {
         window.location = '/';
       });
   }
+
+  $scope.isLoggedIn = function() {
+   return $scope.loggedIn = $rootScope.currentUser !== undefined;
+  }
+  console.log($scope.loggedIn);
+
 });
 
 app.controller('AnimationCtrl', function($scope) {
