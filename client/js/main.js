@@ -48,8 +48,15 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 });
 
-app.controller('TopBarDemoCtrl', function ($scope) {
-
+app.controller('TopBarDemoCtrl', function ($scope, TopBarDemoFactory) {
+  console.log('demo');
+  $scope.logout = function() {
+    console.log('logout');
+    TopBarDemoFactory.logout()
+      .then(function(data) {
+        window.location = '/';
+      });
+  }
 });
 
 app.controller('AnimationCtrl', function($scope) {
@@ -61,3 +68,21 @@ app.controller('AnimationCtrl', function($scope) {
 app.factory('flash', function($rootScope) {
 
 })
+
+app.factory('TopBarDemoFactory', TopBarDemoFactory);
+
+function TopBarDemoFactory($http) {
+
+  return {
+    logout: logout
+  }
+
+  function logout() {
+
+    return $http({
+      method: 'GET',
+      url: '/logout'
+    });
+  };
+}
+
