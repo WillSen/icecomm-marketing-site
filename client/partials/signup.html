@@ -3,8 +3,13 @@
   <h1>
     Sign Up to Icecomm
   </h1>
-    <form action="/signup" method="post" name="signup_form" novalidate>
-      
+    <form ng-submit="signUp(username, password, email)" name="signup_form" novalidate>
+      <div class="error">
+        <small class="error" 
+            ng-show="errMsg">
+            Signup failed. Not a unique/valid username or email.
+        </small>
+      </div>
       <div>
         <!-- <label>Username:</label> -->
         <div class="input-icon">
@@ -38,7 +43,7 @@
             <span class="fa fa-email">@</span>
           </span>
         </div>
-        <input type="email" name="email" placeholder="Email"/>
+        <input type="email" name="email" ng-model="email" placeholder="Email"/>
       </div>
 
       <div>
@@ -49,7 +54,7 @@
             <!-- <span class="fa fa-lock"></span> -->
           </span>
         </div>
-        <input type="password" name="password" placeholder="Password"/>
+        <input type="password" name="password" ng-model="password" placeholder="Password"/>
       </div>
 
       <div>

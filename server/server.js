@@ -81,8 +81,13 @@ app.post('/loginChecker', function(req, res, next) {
   console.log('loginchecker reached on backend');
   passport.loginAuth(req, res, next);
 })
+
+app.post('/signupChecker', function(req, res, next) {
+  console.log('signupchecker reached on backend');
+  passport.signupAuth(req, res, next);
+})
 // app.post('/login', passport.loginAuth);
-app.post('/signup', passport.signupAuth);
+// app.post('/signup', passport.signupAuth);
 
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
