@@ -1,1 +1,106 @@
-<!-- <h1>Getting started</h1> -->
+
+<div style="padding-left: 100px; padding-right: 100px; padding-bottom: 100px">
+  <h1 id="overview">Overview</h1>
+  <p>IceComm is a client-side wrapper for Web Real-Time Communication (WebRTC). Developers are able to fully utilize the benefits of WebRTC without having to type any server-side code. Below is an example of a fully functional skype-like web application utilizing IceComm (a demo can be found on this <a href="http://jsfiddle.net/kirby8u/jLzq04su/">jsfiddle</a>). </p>
+
+  <p hljs>
+    var comm = new IceComm(&#39;$2a$10$KqS6dKC1ic90tZ6Y4yepQ.soiOkH7Az7rS9umXSLckahsrzfDDK5e&#39;);
+
+    comm.connect(&quot;custom room name&quot;);
+
+    comm.on(&#39;connected&#39;, function(options) {
+      createRemoteVideo(options.stream, options.callerID);
+    });
+
+    comm.on(&#39;local&#39;, function(options) {
+      localVideo.src = options.stream;
+    });
+
+    comm.on(&#39;disconnect&#39;, function(options) {
+      document.getElementById(options.callerID).remove();
+    });
+
+    function createRemoteVideo(stream, key) {
+      var remoteVideo = document.createElement(&#39;video&#39;);
+      remoteVideo.src = stream;
+      remoteVideo.id = key;
+      remoteVideo.autoplay = true;
+      document.body.appendChild(remoteVideo);
+    }
+  </p>
+  <br>
+
+  <h1 id="getting-started">Getting Started</h1>
+  <p>Inject the IceComm script by placing the following line in the beginning of your HTML file:</p>
+  <p hljs>
+  <script type="text/javascript" src="http://icecomm.cloudapp.net/icecomm-0.0.5.js"></script></p>
+  <p>Instantiate an instance of IceComm object. Visit <a href="/account">here</a> to obtain your unique generated API key; then pass in the valid API key as the single parameter to the object instantiation.</p>
+
+  <p hljs>var comm = new IceComm(YOUR_API_KEY);</p>
+
+  <h3>.connect(roomname[,options])</h3> 
+  <p>You can create and join rooms with the following function:</p>
+
+  <p hljs>var comm = comm.connect('roomname', options);</p>
+
+  <p>Clients can only be part of one room at a time, but can switch rooms by calling the <code>.connect(roomname)</code> method again. If the room is already populated with clients, each client will fire the <code>.on('connected', callback)</code>. If the client is the first in the room, the <code>.isHost()</code> method will return true.</p>
+  <p>Additionally, an optional second paramater can be passed to the connect method:</p>
+  <p hljs>options = {
+    stream: false, // allows the application to access the media stream; defaults to true
+    limit: 2 // sets a limit to the number of clients that can join the specified room; defaults to no limit
+  }</p>
+
+  <h3>.on('local', callback)</h3> <p> If the media stream is allowed, clients can access their local media stream with the following event listener:</p>
+  <p hljs>comm.on(&#39;local&#39;, function(options) {
+    localVideo.src = options.stream;
+  });</p>
+  <p>The options parameter includes the following properties:</p>
+  <p hljs>options = {
+    stream: stream, // the client&#39;s local stream
+  }</p>
+
+  <h3>.on('connected', callback)</h3>
+  <p>When clients connect with one another (by joining the same room), the following callback is fired:</p>
+  <p hljs>comm.on(&#39;connected&#39;, function(options) {
+    remoteVideo.src = options.stream;
+    remoteVideo.id = options.callerID;
+  });</p>
+  <p>The options parameter includes the following properties</p>
+  <p hljs>options = {
+    stream: stream, // the remote stream
+    callerID: callerID // the ID of the remote client
+  }</p>
+
+  <h3>.on('disconnect', callback)</h3>
+  <p>Other clients are notified when a client in their room disconnects. When a client closes the window, the following callback function is fired:</p>
+  <p hljs>comm.on(&#39;disconnect&#39;, function(options) {
+    document.getElementById(options.callerID).remove();
+  });</p>
+  <p>The options parameter includes the following properties:</p>
+  <p hljs>options = {
+    callerID: callerID // the ID of the client that disconnected
+  }</p>
+
+  <h3>.send(data[, callerID])</h3> <p> Clients can send data to other clients via the following method:</p>
+  <p hljs>comm.send(&#39;hello&#39;);</p>
+  <p>By default the data is sent to all clients in the current room. An optional second parameter can be passed to specify individual clients.
+
+   <h3>.on('data', callback)</h3>
+   <p>When a remote client sends data, the following callback fires:</p>
+  <p hljs>comm.on(&#39;data&#39;, function(options) {
+    console.log(options.data);
+  });</p>
+  <p>The options parameter includes the following properties:</p>
+  <p hljs>options = {
+    data: data, // the data that was sent from the remote client using the send method
+    callerID: callerID // the ID of the client who called the send method
+  }</p>
+  <br>
+
+  <h1 id="other-methods">Other Methods</h1>
+  <p hljs>comm.getLocalID(); // returns the client&#39;s ID
+  comm.getRemoteIDs(); // returns an array of the remote IDs in the room
+  comm.getRooms(); // returns a list of all active rooms (with at least one client per room)
+  comm.getRoomSize(); // returns the number clients in the current room
+  comm.isHost(); // return a boolean indicating if the client was the first client in the room</p>
+</div>
