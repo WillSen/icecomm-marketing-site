@@ -66,7 +66,6 @@ passport.loginAuth = function(req, res, next) {
 }
 
 passport.signupAuth = function(req, res, next) {
-  console.log(req.body);
   var newUser = new db.User({ username: req.body.username, email: req.body.email, password: req.body.password, apiKey: '' });
   newUser.save(function(err) {
     console.log('attempting to save user');
@@ -77,9 +76,12 @@ passport.signupAuth = function(req, res, next) {
     } else {
       console.log('user: ' + newUser.username + " saved.");
       req.logIn(newUser, function(err) {
-        if (err) { return next(err); }
-        return res.json(newUser);
-        // return res.redirect('/');
+        if (err) {
+          return next(err);
+        }
+        // next()
+        // return res.json(newUser);
+        return res.redirect('/');
       });
     }
   });

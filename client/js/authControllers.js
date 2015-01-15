@@ -3,12 +3,8 @@ var app = angular.module('tawnyOwlApp.authControllers', [
   'ui.router'
 ]);
 
-app.controller('UsernameCtrl', function($scope, $http) {
-  $http.get("/checkUsername").success(function (data) {
-    console.log(data, data.username, data.apiKey);
-    $scope.user = data.username;
-    $scope.apiKey = data.apiKey;
-  });
+app.controller('UsernameCtrl', function($scope, $rootScope) {
+  $scope.currentUser = $rootScope.currentUser;
 })
 
 app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {

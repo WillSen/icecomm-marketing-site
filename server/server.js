@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var flash = require('express-flash');
 var bodyParser = require('body-parser');
 var path = require('path');
+var mailController = require('./mail/mailController');
 
 var db = require('./auth/db');
 // var bcrypt = require('./auth/bcryptFile');
@@ -63,9 +64,7 @@ app.get('/checkUserExists', function(req, res) {
   console.log('checking if user exists: ', req.query.username);
   var alreadyExisting = false;
   db.User.find(function(err, data){
-    console.log('finding mongoose data');
     data.forEach(function(item) {
-      console.log(item.username);
       if (item.username === req.query.username) {
         alreadyExisting = true;
       }
@@ -79,16 +78,20 @@ app.post('/loginChecker', function(req, res, next) {
   passport.loginAuth(req, res, next);
 })
 
-app.post('/signupChecker', function(req, res, next) {
-  console.log('signupchecker reached on backend');
-  passport.signupAuth(req, res, next);
-})
+app.post('/signupChecker', mailController.sendConfirmationEmail);
 // app.post('/login', passport.loginAuth);
 // app.post('/signup', passport.signupAuth);
+
+app.get('/verify', mailController.verficationOfAccount, passport.signupAuth);
 
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
+});
+
+app.get('/loggedin', function(req, res) {
+  console.log('checking', req.user);
+  res.send(req.isAuthenticated() ? req.user : '0');
 });
 
 app.all('/*', function(req, res, next) {
