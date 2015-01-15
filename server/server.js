@@ -94,9 +94,13 @@ app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
+
+// remove
 app.get('/recover', mailController.recoveredPassword);
-app.post('/lostpassword', mailController.sendForgotPasswordEmail);
-app.post('/reset', mailController.resetPassword, passport.loginAuth);
+
+
+app.post('/forgotPassword', mailController.sendForgotPasswordEmail);
+app.post('/resetPassword', mailController.resetPassword, passport.loginAuth);
 
 
 app.get('/loggedin', function(req, res) {

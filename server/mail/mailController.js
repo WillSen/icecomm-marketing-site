@@ -7,7 +7,7 @@ var mandrill_client = new mandrill.Mandrill(mandrillAPI.APIKEY);
 var mailController = {};
 
 var accountsToVerify = {};
-var forgottenAccounts = {};
+var forgottenAccountEmail = {};
 
 mailController.sendConfirmationEmail = sendConfirmationEmail;
 mailController.verficationOfAccount = verficationOfAccount;
@@ -47,8 +47,8 @@ function sendForgotPasswordEmail(req, res, next) {
     var email = req.body.email;
     var rand=Math.floor((Math.random() * 10000) + 54);
     host=req.get('host');
-    forgottenAccounts[rand] = email;
-    var link="http://"+req.get('host')+"/recover?id="+rand;
+    forgottenAccountEmail[rand] = email;
+    var link="http://"+req.get('host')+"/recover/" + rand;
     mandrill_client.messages.send({"message": mailCreator.createForgottenPasswordEmail(link), "async": false}, function(result) {
         console.log(result);
     }, function(e) {
@@ -58,12 +58,14 @@ function sendForgotPasswordEmail(req, res, next) {
 }
 
 function recoveredPassword(req, res, next) {
-    if (forgottenAccounts[req.query.id]) {
-        var forgottenUser = forgottenAccounts[req.query.id];
-        User.findOne({email: forgottenAccounts[req.query.id]}, function(err, foundUser) {
+    console.log('recover should not be called');
+    if (forgottenAccountEmail[req.body.resetId]) {
+        var forgottenUser = forgottenAccountEmail[req.query.id];
+        User.findOne({email: forgottenAccountEmail[req.query.id]}, function(err, foundUser) {
             console.log('foundUser', foundUser);
             if (!err) {
-                req.body = foundUser;
+                req.body.username = foundUser.username;
+                req.body.password =
                 next();
             }
         });
@@ -75,13 +77,19 @@ function recoveredPassword(req, res, next) {
 }
 
 function resetPassword(req, res, next) {
-    var forgottenUser = forgottenAccounts[req.query.id];
+    console.log('reset password');
+    var forgottenUserEmail = forgottenAccountEmail[req.query.id];
     var newPassword = req.body.password;
-    User.update({email: forgottenUser}, {password: newPassword}, function(err, updatedUser) {
+    User.findOne({email: forgottenUserEmail}, function(err, foundUser) {
         if (!err) {
-            req.body.username = updatedUser.username;
+            foundUser.password = newPassword;
+            foundUser.save();
+            req.body.username = foundUser;
             req.body.password = newPassword;
             next();
+        }
+        if (err) {
+            console.log('error resetting password');
         }
 
     });

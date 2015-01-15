@@ -14,15 +14,12 @@ var app = angular.module('tawnyOwlApp', [
 // switched from ngroute to ui.router
 app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
-  var checkLoggedIn = function($q, $timeout, $http, $location, $rootScope){
+  var checkLoggedIn = function($q, $timeout, $http, $location, $rootScope) {
     // Initialize a new promise
     var deferred = $q.defer();
-    console.log('called');
     // Make an AJAX call to check if the user is logged in
     $http.get('/loggedin').success(function(user) {
       // Authenticated
-      //
-      console.log('called http', user);
       if (user !== '0') {
         $rootScope.currentUser = user;
         $timeout(deferred.resolve, 0);
@@ -38,7 +35,30 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     return deferred.promise;
   };
 
+  var checkResetLink = function($q, $timeout, $http, $state, $rootScope, $stateParams, $location) {
 
+    var deffered = $q.defer();
+    console.log('is this a valid resetId');
+    $http.post('/resetPassword', {
+      resetId: $stateParams.resetId
+    }).success(function(user) {
+      console.log('user');
+      console.log(user);
+      // query id is valid
+      if (user) {
+        $timeout(deffered.resolve, 0);
+      } else {
+        $location.path('/');
+        $timeout(deffered.resolve, 0);
+      }
+
+    }).error(function(err) {
+      $location.path('/');
+      $timeout(deffered.resolve, 0);
+    });
+
+    return defered.promise;
+  }
 
 
 
@@ -62,6 +82,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/login',
       templateUrl: 'client/partials/login.html',
       controller: 'LoginCtrl',
+
+      // might neeed to remove
       resolve: {
         loggedin: checkLoggedIn
       }
@@ -98,17 +120,27 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'client/partials/account.html'
       // controller
     })
-
+    .state('forgot-password', {
+      url: '/forgot-password',
+      controller: 'ForgotPasswordCtrl',
+      templateUrl: 'client/partials/forgot-password.html'
+    })
+    .state('reset-password', {
+      url: '/reset/:resetId',
+      controller: 'ResetPasswordCtrl',
+      resolve: {
+        checkResetLink: checkResetLink
+      },
+      templateUrl: 'client/partials/reset-password.html'
+    });
 
     $locationProvider.html5Mode(true);
 });
 
 app.controller('TopBarDemoCtrl', function ($scope, $rootScope, $location, $state, TopBarDemoFactory) {
   $scope.logout = function() {
-    console.log('attemting logout');
     TopBarDemoFactory.logout()
       .then(function(data) {
-        console.log('logout');
         $state.reload();
       });
   }

@@ -8,10 +8,8 @@
   </div>
 
     <form ng-submit="login(username, password)" name="signin_form" novalidate>
-      <div class="error"
-         >
-        <small class="error"
-            ng-show="errMsg">
+      <div class="error">
+        <small class="error" ng-show="errMsg">
             Username or password incorrect.
         </small>
       </div>
@@ -43,6 +41,9 @@
     </form>
     <a class="panel-footer" href="/signup">
       New to Icecomm? &nbsp;<span>Sign Up</span>
+    </a>
+    <a class="panel-footer" href="/forgot-password">
+      Forgot your password? &nbsp;
     </a>
   </div>
 
