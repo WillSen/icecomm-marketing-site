@@ -41,7 +41,7 @@ app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
     else {
       console.log('signup checker reached on frontend');
       $http.post("/signupChecker", {
-        username: $scope.username, 
+        username: $scope.username,
         password: $scope.password,
         email: $scope.email
       }).success(function(data) {
@@ -67,7 +67,7 @@ app.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
     }
     console.log('loginChecker reached on frontend')
     $http.post("/loginChecker", {
-      username: $scope.username, 
+      username: $scope.username,
       password: $scope.password
     }).success(function(data) {
       console.log('data from backend', data);

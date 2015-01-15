@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 
 var db = require('./auth/db');
-var bcrypt = require('./auth/bcryptFile');
+// var bcrypt = require('./auth/bcryptFile');
 var passport = require('./auth/passport');
 
 ////////////////////////
@@ -40,22 +40,21 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
-app.use(session({ 
-  secret: 'keyboard cat', 
+app.use(session({
+  secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());  
+app.use(flash());
 
 app.use(express.static('.'));
 
 app.get('/checkUsername', function(req, res) {
   if (req.user) {
     res.json(req.user);
-    // res.json({username: req.user.username});
     console.log('req', req.user.username);
   }
 })
@@ -69,7 +68,7 @@ app.get('/checkUserExists', function(req, res) {
       console.log(item.username);
       if (item.username === req.query.username) {
         alreadyExisting = true;
-      } 
+      }
     })
     res.json({"alreadyExisting":alreadyExisting});
   })
@@ -86,6 +85,11 @@ app.post('/signupChecker', function(req, res, next) {
 })
 // app.post('/login', passport.loginAuth);
 // app.post('/signup', passport.signupAuth);
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
