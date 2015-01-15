@@ -3,10 +3,12 @@
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
 
+
 var app = angular.module('tawnyOwlApp', [
   'ui.router',
   'tawnyOwlApp.authControllers',
-  'mm.foundation'
+  'mm.foundation',
+  'hljs'
   ]);
 
 // switched from ngroute to ui.router
