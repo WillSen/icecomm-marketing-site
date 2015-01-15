@@ -7,10 +7,19 @@ var flash = require('express-flash');
 var bodyParser = require('body-parser');
 var path = require('path');
 var mailController = require('./mail/mailController');
+var mongoose = require('mongoose');
+var mongooseURI = require('./config/database');
+var User = require('./user/userModel');
 
-var db = require('./auth/db');
-// var bcrypt = require('./auth/bcryptFile');
 var passport = require('./auth/passport');
+
+// 30 second connection timeout reccommended by mongolab:
+var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
+
+
+mongoose.connect(mongooseURI.URI, options);
+
 
 ////////////////////////
 // Testing
@@ -63,7 +72,7 @@ app.get('/checkUsername', function(req, res) {
 app.get('/checkUserExists', function(req, res) {
   console.log('checking if user exists: ', req.query.username);
   var alreadyExisting = false;
-  db.User.find(function(err, data){
+  User.find(function(err, data){
     data.forEach(function(item) {
       if (item.username === req.query.username) {
         alreadyExisting = true;
@@ -73,10 +82,7 @@ app.get('/checkUserExists', function(req, res) {
   })
 })
 
-app.post('/loginChecker', function(req, res, next) {
-  console.log('loginchecker reached on backend');
-  passport.loginAuth(req, res, next);
-})
+app.post('/loginChecker', passport.loginAuth)
 
 app.post('/signupChecker', mailController.sendConfirmationEmail);
 // app.post('/login', passport.loginAuth);
@@ -88,11 +94,17 @@ app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
+app.get('/recover', mailController.recoveredPassword);
+app.post('/lostpassword', mailController.sendForgotPasswordEmail);
+app.post('/reset', mailController.resetPassword, passport.loginAuth);
+
 
 app.get('/loggedin', function(req, res) {
   console.log('checking', req.user);
   res.send(req.isAuthenticated() ? req.user : '0');
 });
+
+
 
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode

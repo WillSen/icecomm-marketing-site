@@ -46,10 +46,24 @@ var messageContent = {
     "images": []
 };
 
-module.exports = function(link) {
+var mailCreator = {};
+mailCreator.createVerificationEmail = createVerificationEmail;
+mailCreator.createForgottenPasswordEmail = createForgottenPasswordEmail;
+
+function createVerificationEmail(link) {
     var html = "<p>Hi</p></br><p>" + link + "</p>";
+    var subject = "IceComm Verification Email"
     messageContent.html = html;
-    console.log('hello');
-    console.log(html);
+    messageContent.subject = subject;
     return messageContent;
-};
+}
+
+function createForgottenPasswordEmail(link) {
+    var html = "<p>Hi</p></br><p>" + link + "</p>";
+    var subject = "IceComm Forgotten Password Email"
+    messageContent.html = html;
+    messageContent.subject = subject;
+    return messageContent;
+}
+
+module.exports = mailCreator;
