@@ -41,7 +41,6 @@ app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
         password: $scope.password,
         email: $scope.email
       }).success(function(data) {
-        console.log('data from backent', data);
         if (data === 'false') {
           $scope.errMsg = true;
         }
@@ -78,3 +77,34 @@ app.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
     })
   }
 })
+
+app.controller('ForgotPasswordCtrl', function($scope, $http) {
+  $scope.forgotPassword = function(username) {
+    $http.post('/forgotPassword', {
+      email: email
+    }).success(function(data) {
+
+      // clear
+      $scope.username = "";
+    });
+  }
+});
+
+app.controller('ResetPasswordCtrl', function($scope, $http) {
+
+  $scope.resetPassword = function(reset) {
+
+    if ($scope.password !== $scope.verify_password) {
+      $scope.differentPasswordError = true;
+    }
+    else {
+      $http.post('/resetPassword', {
+        username: username
+      }).success(function(data) {
+
+        // clear
+        $scope.username = "";
+      });
+    }
+  }
+});
