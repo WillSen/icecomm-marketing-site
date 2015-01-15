@@ -415,6 +415,64 @@ code {
   padding: 0 8% 100px 8%;
 }
 
+
+///////////////////////////////////
+///////////// Demos ///////////////
+///////////////////////////////////
+
+.demos {
+  padding: 40px 15%;
+  position: relative;
+  height: 1500px;
+  .demo {
+    width: 500px;
+    position: relative;
+    margin: 0 auto;
+    .img {
+      position: relative;
+      margin: 0 auto;
+    }
+    .caption {
+      text-align: center;
+    }
+  }
+
+
+}
+
+.appearin {
+  
+  .img {
+    background: url('../assets/img/appearin.png') no-repeat;
+    background-size: 95%;
+    width: 450px;
+    height: 319px;  
+  }
+}
+.fileshare {
+  .img {
+    background: url('../assets/img/fileshare.png') no-repeat;
+    background-size: 95%;
+    width: 450px;
+    height: 319px;  
+  }
+}
+.youtube {
+  .img {
+    background: url('../assets/img/youtube.png') no-repeat;
+    background-size: 95%;
+    width: 450px;
+    height: 319px;  
+  }
+}
+.tictactoe {
+  .img {
+    background: url('../assets/img/tictactoe.png') no-repeat;
+    background-size: 95%;
+    width: 450px;
+    height: 319px;  
+  }
+}
 ///////////////////////////////////
 /////////// Login page ////////////
 ///////////////////////////////////
