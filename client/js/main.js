@@ -103,11 +103,13 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 });
 
-app.controller('TopBarDemoCtrl', function ($scope, $rootScope, $location, TopBarDemoFactory) {
+app.controller('TopBarDemoCtrl', function ($scope, $rootScope, $location, $state, TopBarDemoFactory) {
   $scope.logout = function() {
+    console.log('attemting logout');
     TopBarDemoFactory.logout()
       .then(function(data) {
-        $location.path('/');
+        console.log('logout');
+        $state.reload();
       });
   }
 
