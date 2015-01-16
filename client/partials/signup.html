@@ -42,7 +42,7 @@
               <span class="fa fa-email">@</span>
             </span>
           </div>
-          <input type="email" name="email" placeholder="Email" ng-blur="validate=true; checkUniqueEmail()" ng-model="email" ng-minlength=3 ng-maxlength=20/>
+          <input type="email" name="email" placeholder="Email" ng-blur="validate=true; checkUniqueEmail()" ng-model="email"/>
           {{emailAlreadyExistErrorMsg}}
         <div class="error" ng-show="signup_form.email.$dirty && signup_form.email.$invalid && validate">
           <small class="error"

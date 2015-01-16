@@ -25,7 +25,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $timeout(deferred.resolve, 0);
       } else {
         $rootScope.currentUser = undefined;
-        console.log('not logged in');
         $timeout(deferred.resolve, 0);
       }
     }).error(function(err) {
@@ -42,7 +41,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $http.post('/verifyResetCode', {
       resetId: $stateParams.resetId
     }).success(function(resetObj) {
-      console.log('success reset link');
       // query id is valid
       if (!resetObj.isValid) {
         $location.path('/');
