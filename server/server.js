@@ -95,12 +95,18 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-// remove
-app.get('/recover', mailController.recoveredPassword);
 
-
+// Sends email
 app.post('/forgotPassword', mailController.sendForgotPasswordEmail);
+
+// app.get('/recover', mailController.recoveredPassword);
+
+// Verify that
+app.post('/verifyResetCode', mailController.verifyResetCode);
+
+// Send new password
 app.post('/resetPassword', mailController.resetPassword, passport.loginAuth);
+
 
 
 app.get('/loggedin', function(req, res) {

@@ -12,16 +12,17 @@ var forgottenAccountEmail = {};
 mailController.sendConfirmationEmail = sendConfirmationEmail;
 mailController.verficationOfAccount = verficationOfAccount;
 mailController.sendForgotPasswordEmail = sendForgotPasswordEmail;
-mailController.recoveredPassword = recoveredPassword;
+mailController.verifyResetCode = verifyResetCode;
 mailController.resetPassword = resetPassword;
 
 function sendConfirmationEmail(req, res, next) {
     var tempAccount = req.body;
+    var email = tempAccount.email;
     var rand=Math.floor((Math.random() * 10000) + 54);
     host=req.get('host');
     accountsToVerify[rand] = tempAccount;
     var link="http://"+req.get('host')+"/verify?id="+rand;
-    mandrill_client.messages.send({"message": mailCreator.createVerificationEmail(link), "async": false}, function(result) {
+    mandrill_client.messages.send({"message": mailCreator.createVerificationEmail(email, link), "async": false}, function(result) {
         console.log(result);
     }, function(e) {
         console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
@@ -48,45 +49,55 @@ function sendForgotPasswordEmail(req, res, next) {
     var rand=Math.floor((Math.random() * 10000) + 54);
     host=req.get('host');
     forgottenAccountEmail[rand] = email;
+    console.log('rand', rand);
     var link="http://"+req.get('host')+"/recover/" + rand;
-    mandrill_client.messages.send({"message": mailCreator.createForgottenPasswordEmail(link), "async": false}, function(result) {
-        console.log(result);
-    }, function(e) {
-        console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
-    });
-    res.sendStatus(200);
-}
 
-function recoveredPassword(req, res, next) {
-    console.log('recover should not be called');
+    User.findOne({email: email}, function(err, foundUser) {
+        var forgotEmailObj = {
+            isValid: false
+        };
+        if (err || !foundUser) {
+            res.send(forgotEmailObj);
+        }
+        if (foundUser) {
+            var username = foundUser.username;
+            mandrill_client.messages.send({"message": mailCreator.createForgottenPasswordEmail(email, username, link), "async": false}, function(result) {
+                forgotEmailObj.isValid = true;
+                res.send(forgotEmailObj);
+
+            }, function(e) {
+                console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+            });
+        }
+    });
+}
+// forgottenAccountEmail['234'] = 'azai91@gmail.com';
+
+function verifyResetCode(req, res, next) {
+    var resetObj = {
+        isValid: false
+    };
     if (forgottenAccountEmail[req.body.resetId]) {
-        var forgottenUser = forgottenAccountEmail[req.query.id];
-        User.findOne({email: forgottenAccountEmail[req.query.id]}, function(err, foundUser) {
-            console.log('foundUser', foundUser);
-            if (!err) {
-                req.body.username = foundUser.username;
-                req.body.password =
-                next();
-            }
-        });
+        resetObj.isValid = true;
     }
-    else {
-        console.log("recover password error");
-        res.redirect('/');
-    }
+    res.send(resetObj);
 }
 
 function resetPassword(req, res, next) {
-    console.log('reset password');
-    var forgottenUserEmail = forgottenAccountEmail[req.query.id];
+    console.log('reset password', req.body.resetId);
+    var forgottenUserEmail = forgottenAccountEmail[req.body.resetId];
     var newPassword = req.body.password;
+    console.log('email', forgottenUserEmail);
     User.findOne({email: forgottenUserEmail}, function(err, foundUser) {
         if (!err) {
+            console.log('foundUser', foundUser);
             foundUser.password = newPassword;
-            foundUser.save();
-            req.body.username = foundUser;
-            req.body.password = newPassword;
-            next();
+            foundUser.save(function(err) {
+                forgottenAccountEmail[req.body.resetId] = undefined;
+                req.body.username = foundUser.username;
+                req.body.password = newPassword;
+                next();
+            });
         }
         if (err) {
             console.log('error resetting password');

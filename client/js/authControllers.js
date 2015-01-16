@@ -79,31 +79,41 @@ app.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
 })
 
 app.controller('ForgotPasswordCtrl', function($scope, $http) {
-  $scope.forgotPassword = function(username) {
+
+  $scope.hasEmailBeenSent = false;
+  $scope.invalidEmail = false;
+
+  $scope.forgotPassword = function(email) {
     $http.post('/forgotPassword', {
       email: email
-    }).success(function(data) {
-
-      // clear
-      $scope.username = "";
+    }).success(function(forgotEmailObj) {
+      console.log('data', forgotEmailObj);
+      if (forgotEmailObj.isValid) {
+        $scope.email = "";
+        $scope.hasEmailBeenSent = true;
+        $scope.invalidEmail = false;
+      }
+      if (!forgotEmailObj.isValid) {
+        $scope.invalidEmail = true;
+        $scope.hasEmailBeenSent = false;
+      }
     });
   }
 });
 
-app.controller('ResetPasswordCtrl', function($scope, $http) {
+app.controller('ResetPasswordCtrl', function($scope, $http, $location, $stateParams) {
 
   $scope.resetPassword = function(reset) {
-
     if ($scope.password !== $scope.verify_password) {
       $scope.differentPasswordError = true;
     }
     else {
       $http.post('/resetPassword', {
-        username: username
+        resetId: $stateParams.resetId,
+        password: $scope.password
       }).success(function(data) {
 
-        // clear
-        $scope.username = "";
+        $location.path('/');
       });
     }
   }
