@@ -141,6 +141,19 @@ app.controller('ResetPasswordCtrl', function($scope, $http, $location, $statePar
 
 app.controller('StatsCtrl', function($scope, $http) {
   $scope.getStats = function() {
-    $http.get("/getAPIStats");
+    $http.get("/getAPIStats")
+      .success(function(data) {
+        console.log(data);
+        var dataStr = "";
+        for (var i = 0; i < data.length; i++) {
+          var rawDay = Math.floor(Date.parse(data[i].date) / 86400000);
+          console.log(Math.floor(Date.parse(data[i].date) / 86400000));
+          var month = data[i].date.split(" ")[1];
+          var day = data[i].date.split(" ")[2];
+          var year = data[i].date.split(" ")[3]
+          dataStr += "Raw: " + rawDay + "Date: " + month + ' ' + day + ' ' + year + "\n\n";
+        }
+        $scope.userStats = "\n" + dataStr;
+      });
   };
 });

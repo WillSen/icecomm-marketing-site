@@ -134,6 +134,7 @@ app.get('/getAPIStats', function(req, res){
   Stats.find(function(err, stats){
     if(err) throw err;
     console.log(stats);
+    res.json(stats);
   });
 });
 
