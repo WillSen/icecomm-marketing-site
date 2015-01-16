@@ -8,6 +8,7 @@ app.controller('UsernameCtrl', function($scope, $rootScope) {
 })
 
 app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
+
   $scope.checkUniqueUserName = function() {
     $http.post("/checkUsernameExists", {
         username: $scope.username
@@ -87,7 +88,12 @@ app.controller('ForgotPasswordCtrl', function($scope, $http) {
   $scope.hasEmailBeenSent = false;
   $scope.invalidEmail = false;
 
+  // button can only be clicked once
+  $scope.waitingForValidEmail = false;
+
   $scope.forgotPassword = function(email) {
+    $scope.waitingForValidEmail = true;
+
     $http.post('/forgotPassword', {
       email: email
     }).success(function(forgotEmailObj) {
@@ -95,9 +101,11 @@ app.controller('ForgotPasswordCtrl', function($scope, $http) {
         $scope.email = "";
         $scope.hasEmailBeenSent = true;
         $scope.invalidEmail = false;
+        $scope.waitingForValidEmail = true;
       }
       if (!forgotEmailObj.isValid) {
         $scope.invalidEmail = true;
+        $scope.waitingForValidEmail = true;
         $scope.hasEmailBeenSent = false;
       }
     });
