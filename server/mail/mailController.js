@@ -74,7 +74,6 @@ function sendForgotPasswordEmail(req, res, next) {
         }
     });
 }
-// forgottenAccountEmail['234'] = 'azai91@gmail.com';
 
 function verifyResetCode(req, res, next) {
     var resetObj = {
