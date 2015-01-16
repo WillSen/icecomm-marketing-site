@@ -8,20 +8,37 @@ app.controller('UsernameCtrl', function($scope, $rootScope) {
 })
 
 app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
-  $scope.checkUnique = function() {
+  $scope.checkUniqueUserName = function() {
     console.log('the blur has activated');
-    $http.get("/checkUserExists", {
-        params: {username: $scope.username}
+    $http.post("/checkUsernameExists", {
+        username: $scope.username
       })
       .success(function(data) {
         console.log('checkuserexists data' , data.alreadyExisting);
         if (data.alreadyExisting === true) {
           console.log('this user is already in the system');
-          $scope.alreadyExistErrorMsg = "Not a unique user name!";
+          $scope.usernameAlreadyExistErrorMsg = "Not a unique user name!";
         }
         else {
           console.log('this user is not yet in the db');
-          $scope.alreadyExistErrorMsg = "";
+          $scope.usernameAlreadyExistErrorMsg = "";
+        }
+      })
+  }
+  $scope.checkUniqueEmail = function() {
+    console.log('the blur has activated');
+    $http.post("/checkEmailExists", {
+        email: $scope.email
+      })
+      .success(function(data) {
+        console.log('data', data);
+        if (data.alreadyExisting === true) {
+          console.log('this user is already in the system');
+          $scope.emailAlreadyExistErrorMsg = "Not a unique email!";
+        }
+        else {
+          console.log('this user is not yet in the db');
+          $scope.emailAlreadyExistErrorMsg = "";
         }
       })
   }

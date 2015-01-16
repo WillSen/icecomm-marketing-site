@@ -69,18 +69,36 @@ app.get('/checkUsername', function(req, res) {
   }
 })
 
-app.get('/checkUserExists', function(req, res) {
-  console.log('checking if user exists: ', req.query.username);
-  var alreadyExisting = false;
-  User.find(function(err, data){
-    data.forEach(function(item) {
-      if (item.username === req.query.username) {
-        alreadyExisting = true;
-      }
-    })
-    res.json({"alreadyExisting":alreadyExisting});
-  })
-})
+
+// Can refactor these two blocks into one
+app.post('/checkUsernameExists', function(req, res) {
+  console.log('req', req.body);
+  var username = req.body.username;
+  var alreadyExisting = {};
+  alreadyExisting.alreadyExisting = true;
+  User.findOne({username: username}, function(err, foundUser) {
+    console.log('foundUser', foundUser);
+    if (!foundUser) {
+      alreadyExisting.alreadyExisting = false;
+    }
+    res.send(alreadyExisting);
+
+  });
+});
+
+app.post('/checkEmailExists', function(req, res) {
+  console.log('req', req.body);
+  var email = req.body.email;
+  var alreadyExisting = {};
+  alreadyExisting.alreadyExisting = true;
+  User.findOne({email: email}, function(err, foundEmail) {
+    console.log('foundEmail', foundEmail);
+    if (!foundEmail) {
+      alreadyExisting.alreadyExisting = false;
+    }
+    res.send(alreadyExisting);
+  });
+});
 
 app.post('/loginChecker', passport.loginAuth)
 
