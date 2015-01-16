@@ -35,7 +35,9 @@ function sendConfirmationEmail(req, res, next) {
 function verficationOfAccount(req, res, next) {
     console.log("Domain is matched. Information is from Authentic email");
     if(accountsToVerify[req.query.id]) {
+        console.log('verified');
         req.body = accountsToVerify[req.query.id];
+        console.log(req.body);
         accountsToVerify[req.query.id] = undefined;
         next();
     }
