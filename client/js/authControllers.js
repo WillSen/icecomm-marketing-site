@@ -135,3 +135,9 @@ app.controller('ResetPasswordCtrl', function($scope, $http, $location, $statePar
     }
   }
 });
+
+app.controller('StatsCtrl', function($scope, $http) {
+  $scope.getStats = function() {
+    $http.get("/getAPIStats");
+  };
+});

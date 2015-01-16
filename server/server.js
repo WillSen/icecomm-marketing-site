@@ -10,6 +10,7 @@ var mailController = require('./mail/mailController');
 var mongoose = require('mongoose');
 var mongooseURI = require('./config/database');
 var User = require('./user/userModel');
+var Stats = require('./stats/statsModel');
 
 var passport = require('./auth/passport');
 
@@ -132,6 +133,13 @@ app.get('/loggedin', function(req, res) {
   res.send(req.isAuthenticated() ? req.user : '0');
 });
 
+app.get('/getAPIStats', function(req, res){
+  Stats.find(function(err, stats){
+    if(err) throw err;
+    console.log(stats);
+  });
+});
+
 
 
 app.all('/*', function(req, res, next) {
@@ -139,4 +147,4 @@ app.all('/*', function(req, res, next) {
     res.sendFile(path.resolve(__dirname + '/../index.html'));
 });
 
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 3001);
