@@ -5,7 +5,7 @@
   </h1>
     <form ng-submit="signUp(username, password, email)" name="signup_form" novalidate>
       <div class="error">
-        <small class="error" 
+        <small class="error"
             ng-show="errMsg">
             Signup failed. Not a unique/valid username or email.
         </small>
@@ -18,34 +18,46 @@
             <!-- <span class="fa fa-user"></span> -->
           </span>
         </div>
-        <input type="text" name="username" placeholder="Username" ng-blur="validate=true; checkUnique()" ng-model="username" ng-minlength=3 ng-maxlength=20/>
-        {{alreadyExistErrorMsg}}
-      <div class="error" 
-          ng-show="signup_form.username.$dirty && signup_form.username.$invalid && validate">
-        <small class="error" 
+        <input type="text" name="username" placeholder="Username" ng-blur="validate=true; checkUniqueUserName()" ng-model="username" ng-minlength=3 ng-maxlength=20/>
+        {{usernameAlreadyExistErrorMsg}}
+      <div class="error" ng-show="signup_form.username.$dirty && signup_form.username.$invalid && validate">
+        <small class="error"
             ng-show="signup_form.username.$error.required">
             Your name is required.
         </small>
-        <small class="error" 
+        <small class="error"
                 ng-show="signup_form.username.$error.minlength">
                 Your name is required to be at least 3 characters
         </small>
-        <small class="error" 
+        <small class="error"
                 ng-show="signup_form.username.$error.maxlength">
                 Your name cannot be longer than 20 characters
-        </small> 
-      </div>
-      
-      <div>
-        <!-- <label>Email:</label> -->
-        <div class="input-icon">
-          <span>
-            <span class="fa fa-email">@</span>
-          </span>
-        </div>
-        <input type="email" name="email" ng-model="email" placeholder="Email"/>
+        </small>
       </div>
 
+      <div>
+        <!-- <label>Email:</label> -->
+          <div class="input-icon">
+            <span>
+              <span class="fa fa-email">@</span>
+            </span>
+          </div>
+          <input type="email" name="email" placeholder="Email" ng-blur="validate=true; checkUniqueEmail()" ng-model="email" ng-minlength=3 ng-maxlength=20/>
+          {{emailAlreadyExistErrorMsg}}
+        <div class="error" ng-show="signup_form.email.$dirty && signup_form.email.$invalid && validate">
+          <small class="error"
+              ng-show="signup_form.email.$error.required">
+              Your email is required.
+          </small>
+          <small class="error"
+                  ng-show="signup_form.useremail.$error.minlength">
+                  Your email is required to be at least 3 characters
+          </small>
+          <small class="error"
+                  ng-show="signup_form.useremail.$error.maxlength">
+                  Your email cannot be longer than 20 characters
+          </small>
+        </div>
       <div>
         <!-- <label>Password:</label> -->
         <div class="input-icon">
@@ -60,7 +72,13 @@
       <div>
         <button type="submit" value="Submit">Sign Up</button>
       </div>
+
+
+      <div ng-show="hasEmailBeenSent">
+      An email has been sent to confirm your password
+      </div>
     </form>
+
   </div>
 
 

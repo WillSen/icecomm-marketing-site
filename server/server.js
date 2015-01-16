@@ -6,10 +6,18 @@ var mongoose = require('mongoose');
 var flash = require('express-flash');
 var bodyParser = require('body-parser');
 var path = require('path');
+var mailController = require('./mail/mailController');
+var mongoose = require('mongoose');
+var mongooseURI = require('./config/database');
+var User = require('./user/userModel');
+var Stats = require('./stats/statsModel');
+var passport = require('./config/passport');
 
-var db = require('./auth/db');
-// var bcrypt = require('./auth/bcryptFile');
-var passport = require('./auth/passport');
+// 30 second connection timeout reccommended by mongolab:
+var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
+
+mongoose.connect(mongooseURI.URI, options);
 
 ////////////////////////
 // Testing
@@ -57,38 +65,76 @@ app.get('/checkUsername', function(req, res) {
     res.json(req.user);
     console.log('req', req.user.username);
   }
-})
+});
 
-app.get('/checkUserExists', function(req, res) {
-  console.log('checking if user exists: ', req.query.username);
-  var alreadyExisting = false;
-  db.User.find(function(err, data){
-    console.log('finding mongoose data');
-    data.forEach(function(item) {
-      console.log(item.username);
-      if (item.username === req.query.username) {
-        alreadyExisting = true;
-      }
-    })
-    res.json({"alreadyExisting":alreadyExisting});
-  })
-})
+// Can refactor these two blocks into one
+app.post('/checkUsernameExists', function(req, res) {
+  console.log('req', req.body);
+  var username = req.body.username;
+  var alreadyExisting = {};
+  alreadyExisting.alreadyExisting = true;
+  User.findOne({username: username}, function(err, foundUser) {
+    console.log('foundUser', foundUser);
+    if (!foundUser) {
+      alreadyExisting.alreadyExisting = false;
+    }
+    res.send(alreadyExisting);
 
-app.post('/loginChecker', function(req, res, next) {
-  console.log('loginchecker reached on backend');
-  passport.loginAuth(req, res, next);
-})
+  });
+});
 
-app.post('/signupChecker', function(req, res, next) {
-  console.log('signupchecker reached on backend');
-  passport.signupAuth(req, res, next);
-})
-// app.post('/login', passport.loginAuth);
-// app.post('/signup', passport.signupAuth);
+app.post('/checkEmailExists', function(req, res) {
+  console.log('req', req.body);
+  var email = req.body.email;
+  var alreadyExisting = {};
+  alreadyExisting.alreadyExisting = true;
+  User.findOne({email: email}, function(err, foundEmail) {
+    console.log('foundEmail', foundEmail);
+    if (!foundEmail) {
+      alreadyExisting.alreadyExisting = false;
+    }
+    res.send(alreadyExisting);
+  });
+});
+
+app.post('/loginChecker', passport.authenticate('local-login'), function(req, res) {
+  res.send(req.user);
+});
+
+app.post('/signupChecker', mailController.sendConfirmationEmail);
+
+app.get('/verify', mailController.verficationOfAccount, passport.authenticate('local-signup', {
+  successRedirect: '/',
+  failureRedirect: '/'
+}));
 
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
+});
+
+
+// Sends email
+app.post('/forgotPassword', mailController.sendForgotPasswordEmail);
+
+// app.get('/recover', mailController.recoveredPassword);
+
+// Verify that
+app.post('/verifyResetCode', mailController.verifyResetCode);
+
+// Send new password
+app.post('/resetPassword', mailController.resetPassword, passport.authenticate('local-login'));
+
+app.get('/loggedin', function(req, res) {
+  console.log('checking', req.user);
+  res.send(req.isAuthenticated() ? req.user : '0');
+});
+
+app.get('/getAPIStats', function(req, res){
+  Stats.find(function(err, stats){
+    if(err) throw err;
+    console.log(stats);
+  });
 });
 
 app.all('/*', function(req, res, next) {

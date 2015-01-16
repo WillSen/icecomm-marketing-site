@@ -3,29 +3,42 @@ var app = angular.module('tawnyOwlApp.authControllers', [
   'ui.router'
 ]);
 
-app.controller('UsernameCtrl', function($scope, $http) {
-  $http.get("/checkUsername").success(function (data) {
-    console.log(data, data.username, data.apiKey);
-    $scope.user = data.username;
-    $scope.apiKey = data.apiKey;
-  });
+app.controller('UsernameCtrl', function($scope, $rootScope) {
+  $scope.currentUser = $rootScope.currentUser;
 })
 
 app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
-  $scope.checkUnique = function() {
+  $scope.checkUniqueUserName = function() {
     console.log('the blur has activated');
-    $http.get("/checkUserExists", {
-        params: {username: $scope.username}
+    $http.post("/checkUsernameExists", {
+        username: $scope.username
       })
       .success(function(data) {
         console.log('checkuserexists data' , data.alreadyExisting);
         if (data.alreadyExisting === true) {
           console.log('this user is already in the system');
-          $scope.alreadyExistErrorMsg = "Not a unique user name!";
+          $scope.usernameAlreadyExistErrorMsg = "Not a unique user name!";
         }
         else {
           console.log('this user is not yet in the db');
-          $scope.alreadyExistErrorMsg = "";
+          $scope.usernameAlreadyExistErrorMsg = "";
+        }
+      })
+  }
+  $scope.checkUniqueEmail = function() {
+    console.log('the blur has activated');
+    $http.post("/checkEmailExists", {
+        email: $scope.email
+      })
+      .success(function(data) {
+        console.log('data', data);
+        if (data.alreadyExisting === true) {
+          console.log('this user is already in the system');
+          $scope.emailAlreadyExistErrorMsg = "Not a unique email!";
+        }
+        else {
+          console.log('this user is not yet in the db');
+          $scope.emailAlreadyExistErrorMsg = "";
         }
       })
   }
@@ -45,14 +58,16 @@ app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
         password: $scope.password,
         email: $scope.email
       }).success(function(data) {
-        console.log('data from backent', data);
         if (data === 'false') {
           $scope.errMsg = true;
         }
         else {
           $rootScope.currentUser = data.username;
           $rootScope.currentApiKey = data.apiKey;
-          $state.go('home');
+          $scope.hasEmailBeenSent = true;
+          $scope.username = "";
+          $scope.password = "";
+          $scope.email = "";
         }
       })
     }
@@ -82,3 +97,50 @@ app.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
     })
   }
 })
+
+app.controller('ForgotPasswordCtrl', function($scope, $http) {
+
+  $scope.hasEmailBeenSent = false;
+  $scope.invalidEmail = false;
+
+  $scope.forgotPassword = function(email) {
+    $http.post('/forgotPassword', {
+      email: email
+    }).success(function(forgotEmailObj) {
+      console.log('data', forgotEmailObj);
+      if (forgotEmailObj.isValid) {
+        $scope.email = "";
+        $scope.hasEmailBeenSent = true;
+        $scope.invalidEmail = false;
+      }
+      if (!forgotEmailObj.isValid) {
+        $scope.invalidEmail = true;
+        $scope.hasEmailBeenSent = false;
+      }
+    });
+  }
+});
+
+app.controller('ResetPasswordCtrl', function($scope, $http, $location, $stateParams) {
+
+  $scope.resetPassword = function(reset) {
+    if ($scope.password !== $scope.verify_password) {
+      $scope.differentPasswordError = true;
+    }
+    else {
+      $http.post('/resetPassword', {
+        resetId: $stateParams.resetId,
+        password: $scope.password
+      }).success(function(data) {
+
+        $location.path('/');
+      });
+    }
+  }
+});
+
+app.controller('StatsCtrl', function($scope, $http) {
+  $scope.getStats = function() {
+    $http.get("/getAPIStats");
+  };
+});

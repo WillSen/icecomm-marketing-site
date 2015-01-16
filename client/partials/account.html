@@ -1,9 +1,12 @@
 <div class="account">
   <div class="panel">
-    <h1 >Your API Key is 
+    <h1 >Your API Key is
     </h1>
     <p ng-controller="UsernameCtrl">
-      {{currentApiKey}}
+      {{currentUser.apiKey}}
     </p>
+    <div ng-controller="StatsCtrl">
+      <button ng-click="getStats()"></button>
+    </div>
   </div>
 </div>
