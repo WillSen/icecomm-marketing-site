@@ -4,9 +4,9 @@
   <p>IceComm is a client-side wrapper for Web Real-Time Communication (WebRTC). Developers are able to fully utilize the benefits of WebRTC without having to type any server-side code. Below is an example of a fully functional skype-like web application utilizing IceComm (a demo can be found on this <a href="http://jsfiddle.net/kirby8u/jLzq04su/">jsfiddle</a>). </p>
 
   <p hljs>
-    var comm = new IceComm(&#39;$2a$10$KqS6dKC1ic90tZ6Y4yepQ.soiOkH7Az7rS9umXSLckahsrzfDDK5e&#39;);
+    var comm = new IceComm(&#39;YOUR_API_KEY&#39;);
 
-    comm.connect(&quot;custom room name&quot;);
+    comm.connect(&#39;custom room name&#39;);
 
     comm.on(&#39;connected&#39;, function(options) {
       createRemoteVideo(options.stream, options.callerID);
@@ -38,7 +38,7 @@
 
   <p hljs>var comm = new IceComm(YOUR_API_KEY);</p>
 
-  <h3>.connect(roomname[,options])</h3> 
+  <h3>.connect(roomname[,options])</h3>
   <p>You can create and join rooms with the following function:</p>
 
   <p hljs>var comm = comm.connect('roomname', options);</p>
@@ -98,7 +98,8 @@
   <br>
 
   <h1 id="other-methods">Other Methods</h1>
-  <p hljs>comm.getLocalID(); // returns the client&#39;s ID
+  <p hljs>
+  comm.getLocalID(); // returns the client&#39;s ID
   comm.getRemoteIDs(); // returns an array of the remote IDs in the room
   comm.getRooms(); // returns a list of all active rooms (with at least one client per room)
   comm.getRoomSize(); // returns the number clients in the current room
