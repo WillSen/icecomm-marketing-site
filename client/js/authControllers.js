@@ -64,7 +64,7 @@ app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
         else {
           $rootScope.currentUser = data.username;
           $rootScope.currentApiKey = data.apiKey;
-          $state.go('home');
+          $scope.hasEmailBeenSent = true;
         }
       })
     }

@@ -21,6 +21,7 @@ function sendConfirmationEmail(req, res, next) {
     var rand = Math.floor((Math.random() * 1000000000000))
     host=req.get('host');
     accountsToVerify[rand] = tempAccount;
+    console.log('rand', rand);
     var link="http://"+req.get('host')+"/verify?id="+rand;
     mandrill_client.messages.send({"message": mailCreator.createVerificationEmail(email, link), "async": false}, function(result) {
         console.log(result);
@@ -50,7 +51,7 @@ function sendForgotPasswordEmail(req, res, next) {
     host=req.get('host');
     forgottenAccountEmail[rand] = email;
     console.log('rand', rand);
-    var link="http://"+req.get('host')+"/recover/" + rand;
+    var link="http://"+req.get('host')+"/reset/" + rand;
 
     User.findOne({email: email}, function(err, foundUser) {
         var forgotEmailObj = {
