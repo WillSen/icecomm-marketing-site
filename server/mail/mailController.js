@@ -18,7 +18,7 @@ mailController.resetPassword = resetPassword;
 function sendConfirmationEmail(req, res, next) {
     var tempAccount = req.body;
     var email = tempAccount.email;
-    var rand=Math.floor((Math.random() * 10000) + 54);
+    var rand = Math.floor((Math.random() * 1000000000000))
     host=req.get('host');
     accountsToVerify[rand] = tempAccount;
     var link="http://"+req.get('host')+"/verify?id="+rand;
@@ -46,7 +46,7 @@ function verficationOfAccount(req, res, next) {
 
 function sendForgotPasswordEmail(req, res, next) {
     var email = req.body.email;
-    var rand=Math.floor((Math.random() * 10000) + 54);
+    var rand = Math.floor((Math.random() * 1000000000000))
     host=req.get('host');
     forgottenAccountEmail[rand] = email;
     console.log('rand', rand);
