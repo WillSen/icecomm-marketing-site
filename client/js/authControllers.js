@@ -108,3 +108,9 @@ app.controller('ResetPasswordCtrl', function($scope, $http) {
     }
   }
 });
+
+app.controller('StatsCtrl', function($scope, $http) {
+  $scope.getStats = function() {
+    $http.get("/getAPIStats");
+  };
+});
