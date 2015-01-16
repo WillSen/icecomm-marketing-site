@@ -65,6 +65,8 @@ passport.use(new LocalStrategy(function(username, password, done) {
 
 
 passport.loginAuth = function(req, res, next) {
+  console.log('username', req.body.username);
+  console.log('password', req.body.password);
   passport.authenticate('local', function(err, user, info) {
     console.log('user', user);
     if (err) { return next(err) }

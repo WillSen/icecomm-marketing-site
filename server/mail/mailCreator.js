@@ -50,19 +50,22 @@ var mailCreator = {};
 mailCreator.createVerificationEmail = createVerificationEmail;
 mailCreator.createForgottenPasswordEmail = createForgottenPasswordEmail;
 
-function createVerificationEmail(link) {
+function createVerificationEmail(email, link) {
     var html = "<p>Hi</p></br><p>" + link + "</p>";
-    var subject = "IceComm Verification Email"
+    var subject = "IceComm Verification Email";
     messageContent.html = html;
     messageContent.subject = subject;
+    messageContent.to[0].email = email;
     return messageContent;
 }
 
-function createForgottenPasswordEmail(link) {
+function createForgottenPasswordEmail(email, username, link) {
     var html = "<p>Hi</p></br><p>" + link + "</p>";
-    var subject = "IceComm Forgotten Password Email"
+    var subject = "IceComm Forgotten Password Email";
     messageContent.html = html;
     messageContent.subject = subject;
+    messageContent.to[0].email = email;
+    messageContent.to[0].name = username;
     return messageContent;
 }
 

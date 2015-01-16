@@ -31,33 +31,30 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     }).error(function(err) {
         console.log(err);
     });
-
+    $timeout(deferred.resolve, 0);
     return deferred.promise;
   };
 
   var checkResetLink = function($q, $timeout, $http, $state, $rootScope, $stateParams, $location) {
 
-    var deffered = $q.defer();
-    console.log('is this a valid resetId');
-    $http.post('/resetPassword', {
+    var deferred = $q.defer();
+
+    $http.post('/verifyResetCode', {
       resetId: $stateParams.resetId
-    }).success(function(user) {
-      console.log('user');
-      console.log(user);
+    }).success(function(resetObj) {
+      console.log('success reset link');
       // query id is valid
-      if (user) {
-        $timeout(deffered.resolve, 0);
-      } else {
+      if (!resetObj.isValid) {
         $location.path('/');
-        $timeout(deffered.resolve, 0);
       }
+        $timeout(deferred.resolve, 0);
 
     }).error(function(err) {
       $location.path('/');
-      $timeout(deffered.resolve, 0);
+      $timeout(deferred.resolve, 0);
     });
 
-    return defered.promise;
+    return deferred.promise;
   }
 
 
