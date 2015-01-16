@@ -9,50 +9,37 @@ app.controller('UsernameCtrl', function($scope, $rootScope) {
 
 app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
   $scope.checkUniqueUserName = function() {
-    console.log('the blur has activated');
     $http.post("/checkUsernameExists", {
         username: $scope.username
       })
       .success(function(data) {
-        console.log('checkuserexists data' , data.alreadyExisting);
         if (data.alreadyExisting === true) {
-          console.log('this user is already in the system');
           $scope.usernameAlreadyExistErrorMsg = "Not a unique user name!";
         }
         else {
-          console.log('this user is not yet in the db');
           $scope.usernameAlreadyExistErrorMsg = "";
         }
       })
   }
   $scope.checkUniqueEmail = function() {
-    console.log('the blur has activated');
     $http.post("/checkEmailExists", {
         email: $scope.email
       })
       .success(function(data) {
-        console.log('data', data);
         if (data.alreadyExisting === true) {
-          console.log('this user is already in the system');
           $scope.emailAlreadyExistErrorMsg = "Not a unique email!";
         }
         else {
-          console.log('this user is not yet in the db');
           $scope.emailAlreadyExistErrorMsg = "";
         }
       })
   }
   $scope.signUp = function(username, password, email) {
-    console.log('username', username);
-    console.log('password', password);
-    console.log('email', email);
     if (!username || !password || !email) {
       //send error message
-      console.log('valid username and password and email required');
       $scope.errMsg = true;
     }
     else {
-      console.log('signup checker reached on frontend');
       $http.post("/signupChecker", {
         username: $scope.username,
         password: $scope.password,
@@ -78,14 +65,11 @@ app.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
   $scope.login = function(username, password) {
     if (!username || !password) {
       //send error message
-      console.log('both username and password required');
     }
-    console.log('loginChecker reached on frontend')
     $http.post("/loginChecker", {
       username: $scope.username,
       password: $scope.password
     }).success(function(data) {
-      console.log('data from backend', data);
       if (data === 'false') {
         $scope.errMsg = true;
       }
@@ -107,7 +91,6 @@ app.controller('ForgotPasswordCtrl', function($scope, $http) {
     $http.post('/forgotPassword', {
       email: email
     }).success(function(forgotEmailObj) {
-      console.log('data', forgotEmailObj);
       if (forgotEmailObj.isValid) {
         $scope.email = "";
         $scope.hasEmailBeenSent = true;
