@@ -65,6 +65,9 @@ app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
           $rootScope.currentUser = data.username;
           $rootScope.currentApiKey = data.apiKey;
           $scope.hasEmailBeenSent = true;
+          $scope.username = "";
+          $scope.password = "";
+          $scope.email = "";
         }
       })
     }

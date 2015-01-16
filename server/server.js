@@ -11,16 +11,13 @@ var mongoose = require('mongoose');
 var mongooseURI = require('./config/database');
 var User = require('./user/userModel');
 var Stats = require('./stats/statsModel');
-
-var passport = require('./auth/passport');
+var passport = require('./config/passport');
 
 // 30 second connection timeout reccommended by mongolab:
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
 
-
 mongoose.connect(mongooseURI.URI, options);
-
 
 ////////////////////////
 // Testing
@@ -68,8 +65,7 @@ app.get('/checkUsername', function(req, res) {
     res.json(req.user);
     console.log('req', req.user.username);
   }
-})
-
+});
 
 // Can refactor these two blocks into one
 app.post('/checkUsernameExists', function(req, res) {
@@ -101,13 +97,16 @@ app.post('/checkEmailExists', function(req, res) {
   });
 });
 
-app.post('/loginChecker', passport.loginAuth)
+app.post('/loginChecker', passport.authenticate('local-login'), function(req, res) {
+  res.send(req.user);
+});
 
 app.post('/signupChecker', mailController.sendConfirmationEmail);
-// app.post('/login', passport.loginAuth);
-// app.post('/signup', passport.signupAuth);
 
-app.get('/verify', mailController.verficationOfAccount, passport.signupAuth);
+app.get('/verify', mailController.verficationOfAccount, passport.authenticate('local-signup', {
+  successRedirect: '/',
+  failureRedirect: '/'
+}));
 
 app.get('/logout', function(req, res){
   req.logout();
@@ -124,9 +123,7 @@ app.post('/forgotPassword', mailController.sendForgotPasswordEmail);
 app.post('/verifyResetCode', mailController.verifyResetCode);
 
 // Send new password
-app.post('/resetPassword', mailController.resetPassword, passport.loginAuth);
-
-
+app.post('/resetPassword', mailController.resetPassword, passport.authenticate('local-login'));
 
 app.get('/loggedin', function(req, res) {
   console.log('checking', req.user);
@@ -140,11 +137,9 @@ app.get('/getAPIStats', function(req, res){
   });
 });
 
-
-
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile(path.resolve(__dirname + '/../index.html'));
 });
 
-server.listen(process.env.PORT || 3001);
+server.listen(process.env.PORT || 3000);
