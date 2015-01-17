@@ -20,6 +20,9 @@ $topCodeTimeDelay: 0s;
 $middleCodeTimeDelay: 2s;
 $bottomCodeTimeDelay: 4s;
 $themeColor: #82CAFF;
+$secondaryColor: #3879D9;
+
+//#72649f
 
 body {
     font-size: 24px;
@@ -59,6 +62,13 @@ body {
         padding-left: 30px;
       }
     }
+    .hello-username a {
+      cursor: default;
+      &:hover {
+        background: #fff !important;
+        color: #333;
+      }
+    }
   }
   li:not(.has-form) a:not(.button) {
     background: #fff;
@@ -91,6 +101,11 @@ body {
   font-weight:400;
   background-color:#fff;
 }
+
+
+///////////////////////////////////
+//////////// Footer ///////////////
+///////////////////////////////////
 
 .footer {
   padding-bottom: 40px;
@@ -244,7 +259,7 @@ code {
   display:block;
   margin:12px 0;
   padding:4px 10px;
-  border-left:8px solid #82CAFF;
+  border-left:8px solid $themeColor;
   border-radius:0;
   background:none
 }
@@ -295,8 +310,8 @@ code {
   width: 5px;
   height: 5px;
   border-radius: 100%;
-  top: -25px;
-  left: 39px;
+  top: -26px;
+  left: 36px;
 }
 
 ///////////////////////////////////
@@ -370,7 +385,7 @@ code {
 }
 
 .connectionDot {
-  color: #82CAFF;
+  color: $themeColor;
   opacity: 0;
   position: relative;
   font-size: 55px;
@@ -381,10 +396,16 @@ code {
 ///// Overview on homepage ////////
 ///////////////////////////////////
 
+
+
+
 .overview {
-  padding: 150px 0;
+  padding: 150px 0 0 0;
   color: #333;
   font-family: 'Open Sans', sans-serif !important;
+  & + & {
+    padding: 0;
+  }
   h1 {
     font-size: 18px;
   }
@@ -408,15 +429,6 @@ code {
 
 
 ///////////////////////////////////
-/////////Getting started //////////
-///////////////////////////////////
-
-.getting-started {
-  padding: 0 8% 100px 8%;
-}
-
-
-///////////////////////////////////
 ///////////// Demos ///////////////
 ///////////////////////////////////
 
@@ -436,8 +448,6 @@ code {
       text-align: center;
     }
   }
-
-
 }
 
 .appearin {
@@ -500,7 +510,7 @@ code {
   h1 {
     text-align: center;
     font-size: 24px;
-    color: #72649f;
+    color: $secondaryColor;
     font-weight: 200;
     letter-spacing: 1px;
   }
@@ -539,14 +549,9 @@ code {
       img, .fa {
         border-right: 1px solid #cbcbd2;
         padding: 0px 8px 0px 4px;
-        color: #72649f;
+
+        color: $secondaryColor;
         position: relative;
-        // top: 1px;
-        // display: inline-block;
-        // font-size: 20px;
-        // font-style: normal;
-        // font-weight: normal;
-        // line-height: 1;
       }
       .fa-email {
         font-weight: 700;
@@ -555,8 +560,11 @@ code {
     button {
       width: 100%;
       color: #fff;
-      background-color: #79589f;
-      background-image: -webkit-linear-gradient(left bottom,rgba(159,88,150,0) 0,rgba(159,88,150,0.6) 100%);
+      // background-color: #79589f;
+      background-color: $secondaryColor;
+      background-image: -webkit-linear-gradient(left bottom, rgba(159, 88, 150, 0) 0, rgba(130,202,255,0.3) 100%);
+
+      // background-image: -webkit-linear-gradient(left bottom,rgba(159,88,150,0) 0,rgba(159,88,150,0.6) 100%);
       border-radius: 5px;
       border: none;
       padding-left: 18px;
@@ -591,7 +599,7 @@ code {
     border-bottom-left-radius: 3px;
     text-align: center;
     span {
-      color: #79589f;
+      color: $secondaryColor;
       text-decoration: underline;
     }
   }
@@ -610,7 +618,7 @@ input[type=text]:focus, textarea:focus {
   box-shadow: 0;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
-  border: 1px solid #72649f;
+  border: 1px solid $secondaryColor;
 }
 
 
@@ -622,6 +630,23 @@ input[type=text]:focus, textarea:focus {
   .panel {
     padding-top: 80px;
   }
+}
+
+///////////////////////////////////
+////// Password/email status //////
+///////////////////////////////////
+
+.alert {
+  background-color: #d64242;
+  border-color: #d64242;
+  color: #FFF;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.42857;
 }
 
 ///////////////////////////////////
