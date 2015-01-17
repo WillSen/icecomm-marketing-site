@@ -54,7 +54,8 @@ body {
     color: #333;
     font-family: 'BrandonGrotesque';
     font-size: 40px;
-    padding-top: 7%; }
+    padding-top: 7%;
+    padding-bottom: 5px; }
   .hero .sub-intro-text {
     font-size: 16px; }
 
@@ -182,7 +183,7 @@ code {
   display: block;
   margin: 12px 0;
   padding: 4px 10px;
-  border-left: 8px solid #82CAFF;
+  border-left: 8px solid #3879D9;
   border-radius: 0;
   background: none; }
 
@@ -290,7 +291,7 @@ code {
   transform: rotate(-40deg); }
 
 .connectionDot {
-  color: #82CAFF;
+  color: #3879D9;
   opacity: 0;
   position: relative;
   font-size: 55px;
@@ -883,6 +884,13 @@ button {
 
   .account .panel p {
     font-size: 10px; } }
+.highlight {
+  background-color: #3879D9;
+  background-image: -webkit-linear-gradient(left bottom, rgba(159, 88, 150, 0) 0, rgba(130, 202, 255, 0.3) 100%);
+  padding: 0 14px !important;
+  color: #fff;
+  margin-bottom: 5px; }
+
 @media (max-width: 915px) {
   .top-bar {
     padding: 0 5% !important; } }

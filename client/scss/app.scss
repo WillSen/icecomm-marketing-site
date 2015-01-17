@@ -19,7 +19,7 @@
 $topCodeTimeDelay: 0s;
 $middleCodeTimeDelay: 2s;
 $bottomCodeTimeDelay: 4s;
-$themeColor: #82CAFF;
+$themeColor: #3879D9;
 $secondaryColor: #3879D9;
 
 //#72649f
@@ -83,6 +83,7 @@ body {
       font-family: 'BrandonGrotesque';
       font-size: 40px;
       padding-top: 7%;
+      padding-bottom: 5px; 
     }
     .sub-intro-text {
       font-size: 16px;
@@ -865,6 +866,7 @@ button {
     .intro-text {
       font-size: 30px;
       padding-bottom: 10px;
+      
     }
     .sub-intro-text {
       font-size: 11px;
@@ -961,6 +963,14 @@ button {
       }
     }
   }
+}
+
+.highlight {
+  background-color: $secondaryColor;
+  background-image: -webkit-linear-gradient(left bottom, rgba(159, 88, 150, 0) 0, rgba(130,202,255,0.3) 100%);
+  padding: 0 14px !important;
+  color: #fff;
+  margin-bottom: 5px;
 }
 
 @media (max-width: 915px) {
