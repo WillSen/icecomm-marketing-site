@@ -2,20 +2,24 @@
   <div class="panel">
     <h1>Your API Key is
     </h1>
-    <p ng-controller="UsernameCtrl">
-      {{currentUser.apiKey}}
-    </p>
+    <div ng-controller="UsernameCtrl">
+      <p>
+        {{currentUser.apiKey}}
+      </p>
+      <h1>To link your APIKey to your domain</h1>
+      <p>Web apps using IceComm can be hosted on any domain. For additional flexiblity, IceComm provides developers the options to link their APIKey to their domain to prevent other users from using their APIKey.</p>
+      <form ng-submit="lockDomain(domain)" name="domain_form">
+        <input type="url" name="domain" ng-model="domain" placeholder="{{currentUser.url}}"/>
+        <div>
+          <button type="submit" value="Login">Set Domain</button>
+        </div>
+        <div ng-show="domainLockedSuccessMessage">
+        Domain successfully locked
+        </div>
+      <form>
+    </div>
     <div id="stats-container" ng-controller="StatsCtrl">
       <button id="show-stats-btn" ng-click="getStats()">Show user statistics</button><br>
-    <h1>To link your APIKey to your domain</h1>
-    <p>Web apps using IceComm can be hosted on any domain. For additional flexiblity, IceComm provides developers the options to link their APIKey to their domain to prevent other users from using their APIKey.</p>
-    <input placeholder="Your Domain Name"></input>
-    <div ng-controller="StatsCtrl">
-      <button ng-click="getStats()">Show user statistics</button><br>
-      <!-- {{userStats}} -->
-      <br>
       <div id="chart"></div>
     </div>
-
-  </div>
 </div>

@@ -12,37 +12,13 @@ var mongooseURI = require('./config/database');
 var User = require('./user/userModel');
 var Stats = require('./stats/statsModel');
 var passport = require('./config/passport');
+var userController = require('./user/userController');
 
 // 30 second connection timeout reccommended by mongolab:
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
 
 mongoose.connect(mongooseURI.URI, options);
-
-////////////////////////
-// Testing
-////////////////////////
-// var userWallace = new db.User({ username: 'Wallace', email: 'wally@example.com', password: 'poop', apiKey: '' });
-
-// userWallace.save(function(err) {
-//   if(err) {
-//     console.log(err);
-//   } else {
-//     console.log('user: ' + userWallace.username + " saved.");
-//   }
-// });
-
-// db.User.find(function(err, data){
-//   console.log('finding mongoose data');
-//   data.forEach(function(item) {
-//     console.log(item);
-//   })
-//   // console.log(data);
-// })
-
-////////////////////////
-// End Testing
-////////////////////////
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -96,6 +72,8 @@ app.post('/checkEmailExists', function(req, res) {
     res.send(alreadyExisting);
   });
 });
+
+app.post('/lockDomain', userController.lockDomain);
 
 app.post('/loginChecker', passport.authenticate('local-login'), function(req, res) {
   res.send(req.user);
