@@ -31,27 +31,33 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
           
           dataStr += "Raw: " + rawDay + "Date: " + month + ' ' + day + ' ' + year + "\n\n";
         }
+        if (dayArr.length > 1) {
+            var chart = c3.generate({
+              data: {
+                x : 'x',
+                columns: [
+                  dayArr,
+                  countArr,
+                ],
+                type: 'bar'
+              },
+              color: {
+                pattern: ['#397AD9']
+              },
+              axis: {
+                x: {
+                  type: 'category' // this needed to load string x value
+                }
+              }
+            });
+            $scope.userStats = "\n" + dataStr;
+        }
+        else {
+          $scope.noConnectionsMsg = "There are no connections to display from your API Key."
+        }
+    });
         // console.log('dayArr', dayArr);
         // console.log('countArr', countArr);
-        var chart = c3.generate({
-          data: {
-            x : 'x',
-            columns: [
-              dayArr,
-              countArr,
-            ],
-            type: 'bar'
-          },
-          color: {
-            pattern: ['#397AD9']
-          },
-          axis: {
-            x: {
-              type: 'category' // this needed to load string x value
-            }
-          }
-        });
-        $scope.userStats = "\n" + dataStr;
-      });
+        
   };
 });
