@@ -39,6 +39,11 @@ body {
       font-family: 'Open Sans', sans-serif !important; }
     .top-bar .top-bar-section ul.left {
       padding-left: 30px; }
+  .top-bar .top-bar-section .hello-username a {
+    cursor: default; }
+    .top-bar .top-bar-section .hello-username a:hover {
+      background: #fff !important;
+      color: #333; }
   .top-bar li:not(.has-form) a:not(.button) {
     background: #fff;
     color: #333; }
