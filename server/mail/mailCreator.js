@@ -51,7 +51,7 @@ mailCreator.createVerificationEmail = createVerificationEmail;
 mailCreator.createForgottenPasswordEmail = createForgottenPasswordEmail;
 
 function createVerificationEmail(email, link) {
-    var html = "<p>Hi</p></br><p>" + link + "</p>";
+    var html = "<p>Please click the following link to validate your email and sign in:</p></br><p>" + link + "</p>";
     var subject = "IceComm Verification Email";
     messageContent.html = html;
     messageContent.subject = subject;
@@ -60,7 +60,7 @@ function createVerificationEmail(email, link) {
 }
 
 function createForgottenPasswordEmail(email, username, link) {
-    var html = "<p>Hi</p></br><p>" + link + "</p>";
+    var html = "<p>Please visit the following link to reset your password:</p></br><p>" + link + "</p>";
     var subject = "IceComm Forgotten Password Email";
     messageContent.html = html;
     messageContent.subject = subject;
