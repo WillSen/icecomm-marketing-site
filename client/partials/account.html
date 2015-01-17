@@ -5,9 +5,10 @@
     <p ng-controller="UsernameCtrl">
       {{currentUser.apiKey}}
     </p>
-    <div ng-controller="StatsCtrl">
-      <button ng-click="getStats()">Show user statistics</button><br>
+    <div id="stats-container" ng-controller="StatsCtrl">
+      <button id="show-stats-btn" ng-click="getStats()">Show user statistics</button><br>
       <!-- {{userStats}} -->
+      <br>
       <div id="chart"></div>
     </div>
 
