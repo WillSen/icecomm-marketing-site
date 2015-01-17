@@ -1,10 +1,10 @@
 
 <div class="getting-started">
   <h1 id="overview">Overview</h1>
-  <p>IceComm is a client-side wrapper for Web Real-Time Communication (WebRTC). Developers are able to fully utilize the benefits of WebRTC without having to type any server-side code. Below is an example of a fully functional skype-like web application utilizing IceComm (a demo can be found on this <a href="http://jsfiddle.net/kirby8u/jLzq04su/">jsfiddle</a>). </p>
+  <p>Icecomm is a client-side wrapper for Web Real-Time Communication (WebRTC). Developers are able to fully utilize the benefits of WebRTC without having to type any server-side code. Below is an example of a fully functional skype-like web application utilizing Icecomm (a demo can be found on this <a href="http://jsfiddle.net/kirby8u/jLzq04su/">jsfiddle</a>). </p>
 
   <p hljs>
-    var comm = new IceComm(&#39;YOUR_API_KEY&#39;);
+    var comm = new Icecomm(&#39;YOUR_API_KEY&#39;);
 
     comm.connect(&#39;custom room name&#39;);
 
@@ -23,12 +23,18 @@
   <br>
 
   <h1 id="getting-started">Getting Started</h1>
-  <p>Inject the IceComm script by placing the following line in the beginning of your HTML file:</p>
+  <p>Inject the Icecomm script by placing the following line in the beginning of your HTML file:</p>
   <p hljs>
-  <script type="text/javascript" src="http://icecomm.cloudapp.net/icecomm-0.0.7.js"></script></p>
-  <p>Instantiate an instance of IceComm object. Visit <a href="/account">here</a> to obtain your unique generated API key; then pass in the valid API key as the single parameter to the object instantiation.</p>
+  <script type="text/javascript" src="http://cdn.icecomm.io/icecomm-0.0.7.js"></script></p>
 
-  <p hljs>var comm = new IceComm('YOUR_API_KEY');</p>
+  <p>Alternatively, Icecomm can be downloaded via bower: 
+    <p hljs>bower install icecomm</p>
+    <p>After running the bower install, place the following script in your HTML:</p>
+    <p hljs>
+  <script type="text/javascript" src="bower_components/icecomm/icecomm.js"></script></p>
+  <p>Instantiate an instance of Icecomm object. Visit <a href="/account">here</a> to obtain your unique generated API key; then pass in the valid API key as the single parameter to the object instantiation.</p>
+
+  <p hljs>var comm = new Icecomm('YOUR_API_KEY');</p>
 
   <h3>.connect(roomname[,options])</h3>
   <p>You can create and join rooms with the following function:</p>
