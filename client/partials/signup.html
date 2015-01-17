@@ -19,7 +19,7 @@
           </span>
         </div>
         <input type="text" name="username" placeholder="Username" ng-blur="validate=true; checkUniqueUserName()" ng-model="username" ng-minlength=3 ng-maxlength=20/>
-        {{usernameAlreadyExistErrorMsg}}
+        <small class="error" ng-show="usernameAlreadyExistErrorMsg">{{usernameAlreadyExistErrorMsg}}</small>
       <div class="error" ng-show="signup_form.username.$dirty && signup_form.username.$invalid && validate">
         <small class="error"
             ng-show="signup_form.username.$error.required">
