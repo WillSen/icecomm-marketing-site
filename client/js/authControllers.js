@@ -136,14 +136,41 @@ app.controller('StatsCtrl', function($scope, $http) {
       .success(function(data) {
         console.log(data);
         var dataStr = "";
+        var dayArr = ['x'];
+        var countArr = ['hits'];
         for (var i = 0; i < data.length; i++) {
           var rawDay = Math.floor(Date.parse(data[i].date) / 86400000);
           console.log(Math.floor(Date.parse(data[i].date) / 86400000));
           var month = data[i].date.split(" ")[1];
           var day = data[i].date.split(" ")[2];
           var year = data[i].date.split(" ")[3]
+          var day = month + ' ' + day + ' ' + year;
+          if (dayArr.indexOf(day) === -1) {
+            dayArr.push(day);
+            countArr.push(1);
+          }
+          else {
+            countArr[dayArr.indexOf(day)]++;
+          }
           dataStr += "Raw: " + rawDay + "Date: " + month + ' ' + day + ' ' + year + "\n\n";
         }
+        console.log('dayArr', dayArr);
+        console.log('countArr', countArr);
+        var chart = c3.generate({
+          data: {
+            x : 'x',
+            columns: [
+              dayArr,
+              countArr,
+            ],
+            type: 'bar'
+          },
+          axis: {
+            x: {
+              type: 'category' // this needed to load string x value
+            }
+          }
+        });
         $scope.userStats = "\n" + dataStr;
       });
   };
