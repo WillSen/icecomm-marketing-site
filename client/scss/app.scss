@@ -500,6 +500,26 @@ code {
   // margin: 0 auto;
 }
 
+.forgot {
+  display: block;
+  // text-decoration: underline;
+  text-align: center !important;
+  // background-color: #d64242;
+  // border-color: #d64242;
+  color: #333;
+  padding: 10px;
+  margin-bottom: 20px;
+  // border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  width: 100%;
+  &:hover {
+    color: #333 
+  }
+}
+
 .panel {
   width: 430px;
   margin: 0 auto;

@@ -360,6 +360,20 @@ code {
 .login-form {
   padding: 50px 0; }
 
+.forgot {
+  display: block;
+  text-align: center !important;
+  color: #333;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  width: 100%; }
+  .forgot:hover {
+    color: #333; }
+
 .panel {
   width: 430px;
   margin: 0 auto;
