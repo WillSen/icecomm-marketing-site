@@ -417,15 +417,6 @@ code {
 
 
 ///////////////////////////////////
-/////////Getting started //////////
-///////////////////////////////////
-
-.getting-started {
-  padding: 0 8% 100px 8%;
-}
-
-
-///////////////////////////////////
 ///////////// Demos ///////////////
 ///////////////////////////////////
 
@@ -445,8 +436,6 @@ code {
       text-align: center;
     }
   }
-
-
 }
 
 .appearin {
@@ -509,7 +498,6 @@ code {
   h1 {
     text-align: center;
     font-size: 24px;
-    // color: #72649f;
     color: $secondaryColor;
     font-weight: 200;
     letter-spacing: 1px;
@@ -550,7 +538,7 @@ code {
         border-right: 1px solid #cbcbd2;
         padding: 0px 8px 0px 4px;
 
-        // color: #72649f;
+        color: $secondaryColor;
         position: relative;
       }
       .fa-email {
@@ -599,7 +587,7 @@ code {
     border-bottom-left-radius: 3px;
     text-align: center;
     span {
-      color: #79589f;
+      color: $secondaryColor;
       text-decoration: underline;
     }
   }
