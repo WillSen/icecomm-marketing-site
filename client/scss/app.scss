@@ -381,10 +381,16 @@ code {
 ///// Overview on homepage ////////
 ///////////////////////////////////
 
+
+
+
 .overview {
-  padding: 150px 0;
+  padding: 150px 0 0 0;
   color: #333;
   font-family: 'Open Sans', sans-serif !important;
+  & + & {
+    padding: 0;
+  }
   h1 {
     font-size: 18px;
   }
