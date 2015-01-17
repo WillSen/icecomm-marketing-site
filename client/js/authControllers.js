@@ -77,7 +77,7 @@ app.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
       else {
         $rootScope.currentUser = data.username;
         $rootScope.currentApiKey = data.apiKey;
-        $state.go('home');
+        $state.go('account');
       }
     }).error(function(err) {
       $scope.errMsg = true;
