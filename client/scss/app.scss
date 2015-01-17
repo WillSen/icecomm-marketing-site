@@ -20,6 +20,7 @@ $topCodeTimeDelay: 0s;
 $middleCodeTimeDelay: 2s;
 $bottomCodeTimeDelay: 4s;
 $themeColor: #82CAFF;
+$secondaryColor: #3879D9;
 
 body {
     font-size: 24px;
@@ -547,12 +548,6 @@ code {
         padding: 0px 8px 0px 4px;
         color: #72649f;
         position: relative;
-        // top: 1px;
-        // display: inline-block;
-        // font-size: 20px;
-        // font-style: normal;
-        // font-weight: normal;
-        // line-height: 1;
       }
       .fa-email {
         font-weight: 700;
@@ -561,8 +556,11 @@ code {
     button {
       width: 100%;
       color: #fff;
-      background-color: #79589f;
-      background-image: -webkit-linear-gradient(left bottom,rgba(159,88,150,0) 0,rgba(159,88,150,0.6) 100%);
+      // background-color: #79589f;
+      background-color: $secondaryColor;
+      background-image: -webkit-linear-gradient(left bottom, rgba(159, 88, 150, 0) 0, rgba(130,202,255,0.3) 100%);
+
+      // background-image: -webkit-linear-gradient(left bottom,rgba(159,88,150,0) 0,rgba(159,88,150,0.6) 100%);
       border-radius: 5px;
       border: none;
       padding-left: 18px;
