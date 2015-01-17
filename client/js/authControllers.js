@@ -134,10 +134,13 @@ app.controller('StatsCtrl', function($scope, $http) {
   $scope.getStats = function() {
     $http.get("/getAPIStats")
       .success(function(data) {
-        console.log(data);
+        data.sort(function(a, b) { 
+          return Date.parse(a.date) - Date.parse(b.date);
+        })
+        console.log('sorted', data);
         var dataStr = "";
         var dayArr = ['x'];
-        var countArr = ['hits'];
+        var countArr = ['Connections'];
         for (var i = 0; i < data.length; i++) {
           var rawDay = Math.floor(Date.parse(data[i].date) / 86400000);
           console.log(Math.floor(Date.parse(data[i].date) / 86400000));
