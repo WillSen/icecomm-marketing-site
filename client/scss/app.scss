@@ -22,6 +22,8 @@ $bottomCodeTimeDelay: 4s;
 $themeColor: #82CAFF;
 $secondaryColor: #3879D9;
 
+//#72649f
+
 body {
     font-size: 24px;
 }
@@ -507,7 +509,8 @@ code {
   h1 {
     text-align: center;
     font-size: 24px;
-    color: #72649f;
+    // color: #72649f;
+    color: $secondaryColor;
     font-weight: 200;
     letter-spacing: 1px;
   }
@@ -546,7 +549,8 @@ code {
       img, .fa {
         border-right: 1px solid #cbcbd2;
         padding: 0px 8px 0px 4px;
-        color: #72649f;
+
+        // color: #72649f;
         position: relative;
       }
       .fa-email {
@@ -614,7 +618,7 @@ input[type=text]:focus, textarea:focus {
   box-shadow: 0;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
-  border: 1px solid #72649f;
+  border: 1px solid $secondaryColor;
 }
 
 
