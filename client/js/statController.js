@@ -10,16 +10,16 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
         data.sort(function(a, b) { 
           return Date.parse(a.date) - Date.parse(b.date);
         })
-        // console.log('sorted', data);
-        var dataStr = "";
+
         var dayArr = ['x'];
         var countArr = ['Connections'];
         for (var i = 0; i < data.length; i++) {
-          var rawDay = Math.floor(Date.parse(data[i].date) / 86400000);
-          // console.log(Math.floor(Date.parse(data[i].date) / 86400000));
+          // use below line if we need to limit graph to past X days (eg past month)
+          // var rawDay = Math.floor(Date.parse(data[i].date) / 86400000);
+
           var month = data[i].date.split(" ")[1];
           var day = data[i].date.split(" ")[2];
-          var year = data[i].date.split(" ")[3]
+          // var year = data[i].date.split(" ")[3]
           var day = month + ' ' + day;
           if (dayArr.indexOf(day) === -1 && data[i].apiKey === $rootScope.currentApiKey) {
             dayArr.push(day);
@@ -28,8 +28,6 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
           else if (data[i].apiKey === $rootScope.currentApiKey){
             countArr[dayArr.indexOf(day)]++;
           }
-          
-          dataStr += "Raw: " + rawDay + "Date: " + month + ' ' + day + ' ' + year + "\n\n";
         }
         if (dayArr.length > 1) {
             var chart = c3.generate({
@@ -50,14 +48,10 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
                 }
               }
             });
-            $scope.userStats = "\n" + dataStr;
         }
         else {
           $scope.noConnectionsMsg = "There are no connections to display from your API Key."
         }
     });
-        // console.log('dayArr', dayArr);
-        // console.log('countArr', countArr);
-        
   };
 });
