@@ -1,12 +1,17 @@
 <div class="account">
   <div class="panel">
-    <h1 >Your API Key is
+    <h1>Your API Key is
     </h1>
     <p ng-controller="UsernameCtrl">
       {{currentUser.apiKey}}
     </p>
     <div id="stats-container" ng-controller="StatsCtrl">
       <button id="show-stats-btn" ng-click="getStats()">Show user statistics</button><br>
+    <h1>To link your APIKey to your domain</h1>
+    <p>Web apps using IceComm can be hosted on any domain. For additional flexiblity, IceComm provides developers the options to link their APIKey to their domain to prevent other users from using their APIKey.</p>
+    <input placeholder="Your Domain Name"></input>
+    <div ng-controller="StatsCtrl">
+      <button ng-click="getStats()">Show user statistics</button><br>
       <!-- {{userStats}} -->
       <br>
       <div id="chart"></div>
