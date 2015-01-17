@@ -149,7 +149,7 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
           var month = data[i].date.split(" ")[1];
           var day = data[i].date.split(" ")[2];
           var year = data[i].date.split(" ")[3]
-          var day = month + ' ' + day + ' ' + year;
+          var day = month + ' ' + day;
           if (dayArr.indexOf(day) === -1 && data[i].apiKey === $rootScope.currentApiKey) {
             dayArr.push(day);
             countArr.push(1);
