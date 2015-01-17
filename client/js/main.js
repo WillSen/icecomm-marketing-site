@@ -137,6 +137,7 @@ app.controller('TopBarDemoCtrl', function ($scope, $rootScope, $location, $state
     TopBarDemoFactory.logout()
       .then(function(data) {
         $state.reload();
+        $state.go('home');
       });
   }
 

@@ -8,35 +8,27 @@
 
     comm.connect(&#39;custom room name&#39;);
 
-    comm.on(&#39;connected&#39;, function(options) {
-      createRemoteVideo(options.stream, options.callerID);
-    });
-
     comm.on(&#39;local&#39;, function(options) {
       localVideo.src = options.stream;
+    });
+
+    comm.on(&#39;connected&#39;, function(options) {
+      document.body.appendChild(options.video);      
     });
 
     comm.on(&#39;disconnect&#39;, function(options) {
       document.getElementById(options.callerID).remove();
     });
-
-    function createRemoteVideo(stream, key) {
-      var remoteVideo = document.createElement(&#39;video&#39;);
-      remoteVideo.src = stream;
-      remoteVideo.id = key;
-      remoteVideo.autoplay = true;
-      document.body.appendChild(remoteVideo);
-    }
   </p>
   <br>
 
   <h1 id="getting-started">Getting Started</h1>
   <p>Inject the IceComm script by placing the following line in the beginning of your HTML file:</p>
   <p hljs>
-  <script type="text/javascript" src="http://icecomm.cloudapp.net/icecomm-0.0.5.js"></script></p>
+  <script type="text/javascript" src="http://icecomm.cloudapp.net/icecomm-0.0.7.js"></script></p>
   <p>Instantiate an instance of IceComm object. Visit <a href="/account">here</a> to obtain your unique generated API key; then pass in the valid API key as the single parameter to the object instantiation.</p>
 
-  <p hljs>var comm = new IceComm(YOUR_API_KEY);</p>
+  <p hljs>var comm = new IceComm('YOUR_API_KEY');</p>
 
   <h3>.connect(roomname[,options])</h3>
   <p>You can create and join rooms with the following function:</p>
@@ -48,38 +40,49 @@
   <p hljs>options = {
     stream: false, // allows the application to access the media stream; defaults to true
     limit: 2 // sets a limit to the number of clients that can join the specified room; defaults to no limit
-  }</p>
+};</p>
 
   <h3>.on('local', callback)</h3> <p> If the media stream is allowed, clients can access their local media stream with the following event listener:</p>
   <p hljs>comm.on(&#39;local&#39;, function(options) {
     localVideo.src = options.stream;
-  });</p>
+});</p>
   <p>The options parameter includes the following properties:</p>
   <p hljs>options = {
-    stream: stream, // the client&#39;s local stream
-  }</p>
+    stream: stream, // the client&#39;s local stream that can be attached to any html video element
+    video: video, // html video element with local audio/video stream already attached to source for convenience
+    myID: callerID // the ID of the local client
+};</p>
 
   <h3>.on('connected', callback)</h3>
   <p>When clients connect with one another (by joining the same room), the following callback is fired:</p>
   <p hljs>comm.on(&#39;connected&#39;, function(options) {
     remoteVideo.src = options.stream;
     remoteVideo.id = options.callerID;
-  });</p>
+});
+
+
+// OR append the video directly to the DOM on connection:
+
+comm.on(&#39;connected&#39;, function(options) {
+    document.body.appendChild(options.video);      
+});  
+</p>
   <p>The options parameter includes the following properties</p>
   <p hljs>options = {
-    stream: stream, // the remote stream
+    stream: stream, // the client&#39;s local stream that can be attached to any html video element
+    video: video, // html video element with local audio/video stream already attached to source for convenience
     callerID: callerID // the ID of the remote client
-  }</p>
+};</p>
 
   <h3>.on('disconnect', callback)</h3>
   <p>Other clients are notified when a client in their room disconnects. When a client closes the window, the following callback function is fired:</p>
   <p hljs>comm.on(&#39;disconnect&#39;, function(options) {
     document.getElementById(options.callerID).remove();
-  });</p>
+});</p>
   <p>The options parameter includes the following properties:</p>
   <p hljs>options = {
     callerID: callerID // the ID of the client that disconnected
-  }</p>
+};</p>
 
   <h3>.send(data[, callerID])</h3> <p> Clients can send data to other clients via the following method:</p>
   <p hljs>comm.send(&#39;hello&#39;);</p>
@@ -89,12 +92,12 @@
    <p>When a remote client sends data, the following callback fires:</p>
   <p hljs>comm.on(&#39;data&#39;, function(options) {
     console.log(options.data);
-  });</p>
+});</p>
   <p>The options parameter includes the following properties:</p>
   <p hljs>options = {
     data: data, // the data that was sent from the remote client using the send method
     callerID: callerID // the ID of the client who called the send method
-  }</p>
+};</p>
   <br>
 
   <h1 id="other-methods">Other Methods</h1>
@@ -103,5 +106,7 @@
   comm.getRemoteIDs(); // returns an array of the remote IDs in the room
   comm.getRooms(); // returns a list of all active rooms (with at least one client per room)
   comm.getRoomSize(); // returns the number clients in the current room
-  comm.isHost(); // return a boolean indicating if the client was the first client in the room</p>
+  comm.isHost(); // returns a boolean indicating if the client was the first client in the room
+  comm.close(); // stops local audio/video stream
+  </p>
 </div>
