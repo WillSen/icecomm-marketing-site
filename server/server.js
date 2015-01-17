@@ -98,6 +98,7 @@ app.post('/checkEmailExists', function(req, res) {
 });
 
 app.post('/loginChecker', passport.authenticate('local-login'), function(req, res) {
+  console.log('Dora the database explorer says HOLA! :)');
   res.send(req.user);
 });
 
