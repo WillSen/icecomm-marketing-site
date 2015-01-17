@@ -476,6 +476,8 @@ button {
   font-size: 18px;
   line-height: 1.33;
   border-color: #79589f; }
+  button:hover, button:focus {
+    background-color: #3879D9 !important; }
 
 .alert {
   background-color: #d64242;

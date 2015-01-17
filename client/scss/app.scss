@@ -646,7 +646,9 @@ button {
   font-size: 18px;
   line-height: 1.33;
   border-color: #79589f;
-
+  &:hover, &:focus {
+    background-color: $secondaryColor !important;
+  }
 }
 
 ///////////////////////////////////
