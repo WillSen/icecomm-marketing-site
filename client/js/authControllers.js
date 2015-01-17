@@ -130,7 +130,7 @@ app.controller('ResetPasswordCtrl', function($scope, $http, $location, $statePar
   }
 });
 
-app.controller('StatsCtrl', function($scope, $http) {
+app.controller('StatsCtrl', function($scope, $http, $rootScope) {
   $scope.getStats = function() {
     $http.get("/getAPIStats")
       .success(function(data) {
@@ -148,13 +148,14 @@ app.controller('StatsCtrl', function($scope, $http) {
           var day = data[i].date.split(" ")[2];
           var year = data[i].date.split(" ")[3]
           var day = month + ' ' + day + ' ' + year;
-          if (dayArr.indexOf(day) === -1) {
+          if (dayArr.indexOf(day) === -1 && data[i].apiKey === $rootScope.currentApiKey) {
             dayArr.push(day);
             countArr.push(1);
           }
-          else {
+          else if (data[i].apiKey === $rootScope.currentApiKey){
             countArr[dayArr.indexOf(day)]++;
           }
+          
           dataStr += "Raw: " + rawDay + "Date: " + month + ' ' + day + ' ' + year + "\n\n";
         }
         console.log('dayArr', dayArr);
