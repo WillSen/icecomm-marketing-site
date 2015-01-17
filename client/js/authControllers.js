@@ -171,6 +171,9 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
             ],
             type: 'bar'
           },
+          color: {
+            pattern: ['#397AD9']
+          },
           axis: {
             x: {
               type: 'category' // this needed to load string x value
