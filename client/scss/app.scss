@@ -621,6 +621,23 @@ input[type=text]:focus, textarea:focus {
 }
 
 ///////////////////////////////////
+////// Password/email status //////
+///////////////////////////////////
+
+.alert {
+  background-color: #d64242;
+  border-color: #d64242;
+  color: #FFF;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.42857;
+}
+
+///////////////////////////////////
 /////// Animations ////////////////
 ///////////////////////////////////
 
