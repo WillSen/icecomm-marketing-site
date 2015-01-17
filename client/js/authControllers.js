@@ -103,11 +103,10 @@ app.controller('ForgotPasswordCtrl', function($scope, $http) {
         $scope.email = "";
         $scope.hasEmailBeenSent = true;
         $scope.invalidEmail = false;
-        $scope.waitingForValidEmail = true;
       }
       if (!forgotEmailObj.isValid) {
         $scope.invalidEmail = true;
-        $scope.waitingForValidEmail = true;
+        $scope.waitingForValidEmail = false;
         $scope.hasEmailBeenSent = false;
       }
     });
@@ -136,7 +135,7 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
   $scope.getStats = function() {
     $http.get("/getAPIStats")
       .success(function(data) {
-        data.sort(function(a, b) { 
+        data.sort(function(a, b) {
           return Date.parse(a.date) - Date.parse(b.date);
         })
         // console.log('sorted', data);
@@ -157,7 +156,7 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
           else if (data[i].apiKey === $rootScope.currentApiKey){
             countArr[dayArr.indexOf(day)]++;
           }
-          
+
           dataStr += "Raw: " + rawDay + "Date: " + month + ' ' + day + ' ' + year + "\n\n";
         }
         // console.log('dayArr', dayArr);
