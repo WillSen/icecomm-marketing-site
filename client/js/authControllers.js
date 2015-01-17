@@ -139,13 +139,13 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
         data.sort(function(a, b) { 
           return Date.parse(a.date) - Date.parse(b.date);
         })
-        console.log('sorted', data);
+        // console.log('sorted', data);
         var dataStr = "";
         var dayArr = ['x'];
         var countArr = ['Connections'];
         for (var i = 0; i < data.length; i++) {
           var rawDay = Math.floor(Date.parse(data[i].date) / 86400000);
-          console.log(Math.floor(Date.parse(data[i].date) / 86400000));
+          // console.log(Math.floor(Date.parse(data[i].date) / 86400000));
           var month = data[i].date.split(" ")[1];
           var day = data[i].date.split(" ")[2];
           var year = data[i].date.split(" ")[3]
@@ -160,8 +160,8 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
           
           dataStr += "Raw: " + rawDay + "Date: " + month + ' ' + day + ' ' + year + "\n\n";
         }
-        console.log('dayArr', dayArr);
-        console.log('countArr', countArr);
+        // console.log('dayArr', dayArr);
+        // console.log('countArr', countArr);
         var chart = c3.generate({
           data: {
             x : 'x',
