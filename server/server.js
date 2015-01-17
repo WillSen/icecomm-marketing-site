@@ -134,7 +134,7 @@ app.get('/loggedin', function(req, res) {
 app.get('/getAPIStats', function(req, res){
   Stats.find(function(err, stats){
     if(err) throw err;
-    console.log(stats);
+    // console.log(stats);
     res.json(stats);
   });
 });
