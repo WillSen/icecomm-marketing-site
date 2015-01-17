@@ -16,6 +16,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
   var checkLoggedIn = function($q, $timeout, $http, $location, $rootScope) {
     // Initialize a new promise
+    console.log('checking');
     var deferred = $q.defer();
     // Make an AJAX call to check if the user is logged in
     $http.get('/loggedin').success(function(user) {
@@ -25,12 +26,13 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $timeout(deferred.resolve, 0);
       } else {
         $rootScope.currentUser = undefined;
+        $location.path('/');
         $timeout(deferred.resolve, 0);
       }
     }).error(function(err) {
         console.log(err);
     });
-    $timeout(deferred.resolve, 0);
+
     return deferred.promise;
   };
 
@@ -109,10 +111,10 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('account', {
       url: '/account',
+      templateUrl: 'client/partials/account.html',
       resolve: {
         loggedin: checkLoggedIn
-      },
-      templateUrl: 'client/partials/account.html'
+      }
       // controller
     })
     .state('forgot-password', {
