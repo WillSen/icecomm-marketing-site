@@ -9,7 +9,6 @@ var path = require('path');
 var mailController = require('./mail/mailController');
 var mongoose = require('mongoose');
 var mongooseURI = require('./config/database');
-var User = require('./user/userModel');
 var Stats = require('./stats/statsModel');
 var passport = require('./config/passport');
 var userController = require('./user/userController');
@@ -44,34 +43,9 @@ app.get('/checkUsername', function(req, res) {
 });
 
 // Can refactor these two blocks into one
-app.post('/checkUsernameExists', function(req, res) {
-  console.log('req', req.body);
-  var username = req.body.username;
-  var alreadyExisting = {};
-  alreadyExisting.alreadyExisting = true;
-  User.findOne({username: username}, function(err, foundUser) {
-    console.log('foundUser', foundUser);
-    if (!foundUser) {
-      alreadyExisting.alreadyExisting = false;
-    }
-    res.send(alreadyExisting);
+app.post('/checkUsernameExists', userController.checkUsernameExists);
 
-  });
-});
-
-app.post('/checkEmailExists', function(req, res) {
-  console.log('req', req.body);
-  var email = req.body.email;
-  var alreadyExisting = {};
-  alreadyExisting.alreadyExisting = true;
-  User.findOne({email: email}, function(err, foundEmail) {
-    console.log('foundEmail', foundEmail);
-    if (!foundEmail) {
-      alreadyExisting.alreadyExisting = false;
-    }
-    res.send(alreadyExisting);
-  });
-});
+app.post('/checkEmailExists', userController.checkEmailExists);
 
 app.post('/lockDomain', userController.lockDomain);
 
@@ -90,7 +64,6 @@ app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
-
 
 // Sends email
 app.post('/forgotPassword', mailController.sendForgotPasswordEmail);
