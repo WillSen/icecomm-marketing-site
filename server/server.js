@@ -132,9 +132,10 @@ app.get('/loggedin', function(req, res) {
 });
 
 app.get('/getAPIStats', function(req, res){
-  Stats.find(function(err, stats){
+  console.log('api stats req.user.apikey', req.user.apiKey);
+  Stats.find({apiKey: {$regex : ".*" + req.user.apiKey + ".*"}}).find(function(err, stats){
     if(err) throw err;
-    // console.log(stats);
+    console.log('stats', stats);
     res.json(stats);
   });
 });

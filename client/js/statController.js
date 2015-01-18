@@ -5,53 +5,68 @@ var app = angular.module('tawnyOwlApp.statController', [
 
 app.controller('StatsCtrl', function($scope, $http, $rootScope) {
   $scope.getStats = function() {
-    $http.get("/getAPIStats")
+    var graphData = {
+      dayArr: ['x'],
+      countArr: ['Connections']
+    }
+    $http.get("/getAPIStats", {
+        userApiKey: $rootScope.currentApiKey
+      })
       .success(function(data) {
         data.sort(function(a, b) { 
           return Date.parse(a.date) - Date.parse(b.date);
         })
-
-        var dayArr = ['x'];
-        var countArr = ['Connections'];
-        for (var i = 0; i < data.length; i++) {
-          // use below line if we need to limit graph to past X days (eg past month)
-          // var rawDay = Math.floor(Date.parse(data[i].date) / 86400000);
-
-          var month = data[i].date.split(" ")[1];
-          var day = data[i].date.split(" ")[2];
-          // var year = data[i].date.split(" ")[3]
-          var day = month + ' ' + day;
-          if (dayArr.indexOf(day) === -1 && data[i].apiKey === $rootScope.currentApiKey) {
-            dayArr.push(day);
-            countArr.push(1);
-          }
-          else if (data[i].apiKey === $rootScope.currentApiKey){
-            countArr[dayArr.indexOf(day)]++;
-          }
-        }
-        if (dayArr.length > 1) {
-            var chart = c3.generate({
-              data: {
-                x : 'x',
-                columns: [
-                  dayArr,
-                  countArr,
-                ],
-                type: 'bar'
-              },
-              color: {
-                pattern: ['#397AD9']
-              },
-              axis: {
-                x: {
-                  type: 'category' // this needed to load string x value
-                }
-              }
-            });
+        
+        populateData(data, graphData);
+        if (graphData.dayArr.length > 1) {
+          generateGraph(graphData.dayArr, graphData.countArr);
         }
         else {
           $scope.noConnectionsMsg = "There are no connections to display from your API Key."
         }
     });
   };
+
+  function populateData(rawData, graphData) {
+    for (var i = 0; i < rawData.length; i++) {
+      // use below line if we need to limit graph to past X days (eg past month)
+      // var rawDay = Math.floor(Date.parse(rawData[i].date) / 86400000);
+
+      var month = rawData[i].date.split(" ")[1];
+      var day = rawData[i].date.split(" ")[2];
+      // var year = rawData[i].date.split(" ")[3]
+      var day = month + ' ' + day;
+      // console.log(graphData.dayArr);
+      // console.log(rawData[i].apiKey, $rootScope.currentApiKey);
+      if (graphData.dayArr.indexOf(day) === -1 && rawData[i].apiKey === $rootScope.currentApiKey) {
+        graphData.dayArr.push(day);
+        graphData.countArr.push(1);
+      }
+      else if (rawData[i].apiKey === $rootScope.currentApiKey){
+        graphData.countArr[graphData.dayArr.indexOf(day)]++;
+      }
+    }
+  }
+
+  function generateGraph(Xdata, Ydata) {
+    var chart = c3.generate({
+      data: {
+        x : 'x',
+        columns: [
+          Xdata,
+          Ydata,
+        ],
+        type: 'bar'
+      },
+      color: {
+        pattern: ['#397AD9']
+      },
+      axis: {
+        x: {
+          type: 'category' // this needed to load string x value
+        }
+      }
+    });
+    return chart;
+  }
 });
