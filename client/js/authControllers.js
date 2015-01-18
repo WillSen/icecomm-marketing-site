@@ -3,8 +3,16 @@ var app = angular.module('tawnyOwlApp.authControllers', [
   'ui.router'
 ]);
 
-app.controller('UsernameCtrl', function($scope, $rootScope) {
+app.controller('UsernameCtrl', function($scope, $rootScope, $http) {
   $scope.currentUser = $rootScope.currentUser;
+  $scope.domainLockedSuccessMessage = false;
+  $scope.lockDomain = function(domain) {
+    $http.post('/lockDomain', {
+      domain: domain
+    }).success(function(data) {
+      $scope.domainLockedSuccessMessage = true;
+    });
+  }
 })
 
 app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
@@ -60,7 +68,8 @@ app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
       })
     }
   }
-})
+
+});
 
 app.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
   $scope.login = function(username, password) {
@@ -77,7 +86,7 @@ app.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
       else {
         $rootScope.currentUser = data.username;
         $rootScope.currentApiKey = data.apiKey;
-        $state.go('home');
+        $state.go('account');
       }
     }).error(function(err) {
       $scope.errMsg = true;
@@ -103,11 +112,10 @@ app.controller('ForgotPasswordCtrl', function($scope, $http) {
         $scope.email = "";
         $scope.hasEmailBeenSent = true;
         $scope.invalidEmail = false;
-        $scope.waitingForValidEmail = true;
       }
       if (!forgotEmailObj.isValid) {
         $scope.invalidEmail = true;
-        $scope.waitingForValidEmail = true;
+        $scope.waitingForValidEmail = false;
         $scope.hasEmailBeenSent = false;
       }
     });
