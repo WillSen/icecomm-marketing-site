@@ -50,6 +50,7 @@ app.post('/checkEmailExists', userController.checkEmailExists);
 app.post('/lockDomain', userController.lockDomain);
 
 app.post('/loginChecker', passport.authenticate('local-login'), function(req, res) {
+  console.log('Dora the database explorer says HOLA! :)');
   res.send(req.user);
 });
 
@@ -82,9 +83,8 @@ app.get('/loggedin', function(req, res) {
 });
 
 app.get('/getAPIStats', function(req, res){
-  Stats.find(function(err, stats){
+  Stats.find({apiKey: {$regex : ".*" + req.user.apiKey + ".*"}}).find(function(err, stats){
     if(err) throw err;
-    console.log(stats);
     res.json(stats);
   });
 });

@@ -7,6 +7,7 @@ $(document).foundation();
 var app = angular.module('tawnyOwlApp', [
   'ui.router',
   'tawnyOwlApp.authControllers',
+  'tawnyOwlApp.statController',
   'mm.foundation',
   'hljs'
   ]);
