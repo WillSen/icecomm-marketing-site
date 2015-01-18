@@ -36,13 +36,11 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
       var day = rawData[i].date.split(" ")[2];
       // var year = rawData[i].date.split(" ")[3]
       var day = month + ' ' + day;
-      // console.log(graphData.dayArr);
-      // console.log(rawData[i].apiKey, $rootScope.currentApiKey);
-      if (graphData.dayArr.indexOf(day) === -1 && rawData[i].apiKey === $rootScope.currentApiKey) {
+      if (graphData.dayArr.indexOf(day) === -1) {
         graphData.dayArr.push(day);
         graphData.countArr.push(1);
       }
-      else if (rawData[i].apiKey === $rootScope.currentApiKey){
+      else {
         graphData.countArr[graphData.dayArr.indexOf(day)]++;
       }
     }
