@@ -18,6 +18,27 @@ body {
   text-align: center;
 }
 
+#setDomainBtn {
+  width: 26%;
+  margin-left: 2%;
+  /*display: inline-block;*/
+  /*font-size: 11px;*/
+}
+
+#domainInput {
+  width: 72%;
+  float: left;
+  text-align: left;
+  padding: 0.5rem 0.75em !important;
+  /*display: inline-block;*/
+}
+
+#apiDomainForm {
+  width: 100%;
+  float: left;
+  /*text-align: center;*/
+}
+
 .main {
   min-height: 100%;
   padding-top: 50px; }
