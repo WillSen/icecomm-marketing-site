@@ -319,41 +319,24 @@ code {
 
 .demos {
   padding: 40px 15%;
-  position: relative;
-  height: 1500px; }
+  position: relative; }
   .demos .demo {
-    width: 500px;
+    width: 640px;
     position: relative;
-    margin: 0 auto; }
+    margin: 0 auto 50px; }
+    .demos .demo h3 {
+      font-weight: 800;
+      padding: 0 0 20px; }
+    .demos .demo p {
+      text-align: left;
+      color: #333; }
     .demos .demo .img {
       position: relative;
-      margin: 0 auto; }
+      margin: 0 auto;
+      width: 640px; }
     .demos .demo .caption {
+      padding-top: 10px;
       text-align: center; }
-
-.appearin .img {
-  background: url("../assets/img/appearin.png") no-repeat;
-  background-size: 95%;
-  width: 450px;
-  height: 319px; }
-
-.fileshare .img {
-  background: url("../assets/img/fileshare.png") no-repeat;
-  background-size: 95%;
-  width: 450px;
-  height: 319px; }
-
-.youtube .img {
-  background: url("../assets/img/youtube.png") no-repeat;
-  background-size: 95%;
-  width: 450px;
-  height: 319px; }
-
-.tictactoe .img {
-  background: url("../assets/img/tictactoe.png") no-repeat;
-  background-size: 95%;
-  width: 450px;
-  height: 319px; }
 
 .getting-started {
   padding: 0 8% 100px 8%; }
@@ -893,7 +876,10 @@ button {
 
 @media (max-width: 915px) {
   .top-bar {
-    padding: 0 5% !important; } }
+    padding: 0 5% !important; }
+
+  .demos .demo {
+    width: 100%; } }
 @media all and (max-width: 640px) and (min-width: 460px) {
   .connectionDot {
     font-size: 55px; }
