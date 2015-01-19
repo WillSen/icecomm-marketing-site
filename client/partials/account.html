@@ -8,20 +8,26 @@
           <p>
             {{currentUser.apiKey}}
           </p>
-          <h1>To link your APIKey to your domain</h1>
-          <p>Web apps using IceComm can be hosted on any domain. For additional flexiblity, IceComm provides developers the option to link their APIKey to their domain to prevent other users from using their APIKey.</p>
-          <form ng-submit="lockDomain(domain)" name="domain_form">
-            <input type="url" name="domain" ng-model="domain" placeholder="http://www.yourdomain.com"/>
-            <div id="apiDomain" ng-show="currentUser.url.length > 0">
-              Your APIKey is currently linked to the following domain: {{currentUser.url}}
+          <div id="domain-api-container">
+            <button ng-click="toggleDomainApi()">APIKey/Domain Link</button>
+            <div ng-hide="hideOptions">
+              <h1>To link your APIKey to your domain</h1>
+              <p>Web apps using IceComm can be hosted on any domain. For additional flexiblity, IceComm provides developers the option to link their APIKey to their domain to prevent other users from using their APIKey.</p>
+              <form ng-submit="lockDomain(domain)" name="domain_form">
+                <input type="url" name="domain" ng-model="domain" placeholder="http://www.yourdomain.com"/>
+                <div id="apiDomain" ng-show="currentUser.url.length > 0">
+                  Your APIKey is currently linked to the following domain: {{currentUser.url}}
+                </div>
+                <div>
+                  <button type="submit" value="Login">Set Domain</button>
+                </div>
+                <div ng-show="domainLockedSuccessMessage">
+                Domain successfully locked
+                </div>
+              </form>
             </div>
-            <div>
-              <button type="submit" value="Login">Set Domain</button>
-            </div>
-            <div ng-show="domainLockedSuccessMessage">
-            Domain successfully locked
-            </div>
-          <form>
+            <div ng-show="hideOptions"></div>
+          </div>
         </div>
         <div id="stats-container">
           <button id="show-stats-btn" ng-click="getStats()">Show user statistics</button>
