@@ -6,8 +6,8 @@ $(document).foundation();
 
 var app = angular.module('tawnyOwlApp', [
   'ui.router',
-  'tawnyOwlApp.authControllers',
   'tawnyOwlApp.statController',
+  'tawnyOwlApp.authControllers',
   'mm.foundation',
   'hljs'
   ]);
@@ -27,10 +27,10 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $timeout(deferred.resolve, 0);
       } else {
         $rootScope.currentUser = undefined;
-        $location.path('/');
         $timeout(deferred.resolve, 0);
       }
     }).error(function(err) {
+        $location.path('/');
         console.log(err);
     });
 
