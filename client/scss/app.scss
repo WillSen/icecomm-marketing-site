@@ -436,54 +436,34 @@ code {
 .demos {
   padding: 40px 15%;
   position: relative;
-  height: 1500px;
+  
   .demo {
-    width: 500px;
+    width: 640px;
     position: relative;
-    margin: 0 auto;
+    margin: 0 auto 50px;
+    h3 {
+      font-weight: 800;
+      padding: 0 0 20px
+     
+    }
+    p {
+      text-align: left;
+      color: #333;
+    }
     .img {
       position: relative;
       margin: 0 auto;
+      width: 640px;
     }
     .caption {
+      padding-top: 10px;
       text-align: center;
     }
   }
 }
 
-.appearin {
-  
-  .img {
-    background: url('../assets/img/appearin.png') no-repeat;
-    background-size: 95%;
-    width: 450px;
-    height: 319px;  
-  }
-}
-.fileshare {
-  .img {
-    background: url('../assets/img/fileshare.png') no-repeat;
-    background-size: 95%;
-    width: 450px;
-    height: 319px;  
-  }
-}
-.youtube {
-  .img {
-    background: url('../assets/img/youtube.png') no-repeat;
-    background-size: 95%;
-    width: 450px;
-    height: 319px;  
-  }
-}
-.tictactoe {
-  .img {
-    background: url('../assets/img/tictactoe.png') no-repeat;
-    background-size: 95%;
-    width: 450px;
-    height: 319px;  
-  }
-}
+
+
 ///////////////////////////////////
 //////////Getting started /////////
 ///////////////////////////////////
@@ -976,6 +956,9 @@ button {
 @media (max-width: 915px) {
   .top-bar {
   padding: 0 5% !important;
+  }
+  .demos .demo {
+    width: 100%;
   }
 }
 
