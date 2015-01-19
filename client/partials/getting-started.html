@@ -13,7 +13,7 @@
     });
 
     comm.on(&#39;connected&#39;, function(options) {
-      document.body.appendChild(options.video);      
+      document.body.appendChild(options.video);
     });
 
     comm.on(&#39;disconnect&#39;, function(options) {
@@ -25,13 +25,17 @@
   <h1 id="getting-started">Getting Started</h1>
   <p>Inject the Icecomm script by placing the following line in the beginning of your HTML file:</p>
   <p hljs>
-  <script type="text/javascript" src="http://cdn.icecomm.io/icecomm-0.0.7.js"></script></p>
+  <script type="text/javascript" src="http://cdn.icecomm.io/icecomm-0.0.9.js"></script></p>
 
-  <p>Alternatively, Icecomm can be downloaded via bower: 
+  <p>Alternatively, Icecomm can be downloaded via bower:</p>
     <p hljs>bower install icecomm</p>
     <p>After running the bower install, place the following script in your HTML:</p>
-    <p hljs>
-  <script type="text/javascript" src="bower_components/icecomm/icecomm.js"></script></p>
+
+  <p hljs>
+    <script type="text/javascript" src="bower_components/icecomm/icecomm.js"></script></p>
+  </p>
+
+
   <p>Instantiate an instance of Icecomm object. Visit <a href="/account">here</a> to obtain your unique generated API key; then pass in the valid API key as the single parameter to the object instantiation.</p>
 
   <p hljs>var comm = new Icecomm('YOUR_API_KEY');</p>
@@ -70,8 +74,8 @@
 // OR append the video directly to the DOM on connection:
 
 comm.on(&#39;connected&#39;, function(options) {
-    document.body.appendChild(options.video);      
-});  
+    document.body.appendChild(options.video);
+});
 </p>
   <p>The options parameter includes the following properties</p>
   <p hljs>options = {

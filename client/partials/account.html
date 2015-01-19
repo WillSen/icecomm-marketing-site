@@ -19,10 +19,10 @@
       <form>
     </div>
     <div id="stats-container" ng-controller="StatsCtrl">
-      <button id="show-stats-btn" ng-click="getStats()">Show user statistics</button><br>
+      <button id="show-stats-btn" ng-click="getStats()">Show user statistics</button>
       <br>
-      <small>{{noConnectionsMsg}}</small>
-
+      <!-- <small>{{noConnectionsMsg}}</small> -->
+      {{noConnectionsMsg}}
       <div id="chart"></div>
     </div>
 </div>

@@ -13,10 +13,10 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
         userApiKey: $rootScope.currentApiKey
       })
       .success(function(data) {
-        data.sort(function(a, b) { 
+        data.sort(function(a, b) {
           return Date.parse(a.date) - Date.parse(b.date);
         })
-        
+
         populateData(data, graphData);
         if (graphData.dayArr.length > 1) {
           generateGraph(graphData.dayArr, graphData.countArr);
