@@ -5,6 +5,7 @@ var app = angular.module('tawnyOwlApp.authControllers', [
 
 app.controller('UsernameCtrl', function($scope, $rootScope, $http) {
   $scope.currentUser = $rootScope.currentUser;
+  $scope.hideOptions = true;
   $scope.domainLockedSuccessMessage = false;
   $scope.lockDomain = function(domain) {
     $http.post('/lockDomain', {
@@ -12,6 +13,9 @@ app.controller('UsernameCtrl', function($scope, $rootScope, $http) {
     }).success(function(data) {
       $scope.domainLockedSuccessMessage = true;
     });
+  }
+  $scope.toggleDomainApi = function() {
+    $scope.hideOptions = $scope.hideOptions === false ? true: false;
   }
 })
 
