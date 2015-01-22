@@ -21,11 +21,9 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 userSchema.methods.changeApiKey = function(callback) {
   var salt = bcrypt.genSaltSync(SALT_WORK_FACTOR);
-  console.log(this.apiKey);
   this.apiKey = bcrypt.hashSync(this.apiKey, salt).slice(10).replace(/\./g, '');
-  console.log(this.apiKey);
   this.save();
-  callback();
+  callback(this);
 };
 
 userSchema.pre('save', function(next) {

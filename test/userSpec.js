@@ -11,7 +11,6 @@ describe('Database Spec', function() {
     });
   });
 
-
   it('should create a user', function(done) {
     // console.log(db.User.create);
     db.User.create({username: 'test', email: "email", password: 'test'}, function(err, createdUser) {

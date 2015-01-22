@@ -17,7 +17,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
   var checkLoggedIn = function($q, $timeout, $http, $location, $rootScope) {
     // Initialize a new promise
-    console.log('checking');
     var deferred = $q.defer();
     // Make an AJAX call to check if the user is logged in
     $http.get('/loggedin').success(function(user) {
@@ -31,7 +30,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     }).error(function(err) {
         $location.path('/');
-        console.log(err);
     });
 
     return deferred.promise;

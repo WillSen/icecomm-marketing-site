@@ -38,7 +38,6 @@ app.use(express.static('.'));
 app.get('/checkUsername', function(req, res) {
   if (req.user) {
     res.json(req.user);
-    console.log('req', req.user.username);
   }
 });
 
@@ -50,7 +49,6 @@ app.post('/checkEmailExists', userController.checkEmailExists);
 app.post('/lockDomain', userController.lockDomain);
 
 app.post('/loginChecker', passport.authenticate('local-login'), function(req, res) {
-  console.log('Dora the database explorer says HOLA! :)');
   res.send(req.user);
 });
 
