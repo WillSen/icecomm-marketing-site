@@ -130,11 +130,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         checkResetLink: checkResetLink
       },
       templateUrl: 'client/partials/reset-password.html'
-    })
-    .state('admin', {
-      url: '/admin', 
-      controller: 'AdminCtrl',
-      templateUrl: 'client/partials/admin.html'
     });
 
     $locationProvider.html5Mode(true);
