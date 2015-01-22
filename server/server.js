@@ -78,9 +78,10 @@ app.post('/verifyResetCode', mailController.verifyResetCode);
 app.post('/resetPassword', mailController.resetPassword, passport.authenticate('local-login'));
 
 app.get('/loggedin', function(req, res) {
-  console.log('checking', req.user);
   res.send(req.isAuthenticated() ? req.user : '0');
 });
+
+app.put('/change-api', userController.changeAPIKey);
 
 app.get('/getAPIStats', function(req, res){
   Stats.find({apiKey: {$regex : ".*" + req.user.apiKey + ".*"}}).find(function(err, stats){
