@@ -17,6 +17,16 @@ app.controller('UsernameCtrl', function($scope, $rootScope, $http) {
   $scope.toggleDomainApi = function() {
     $scope.hideOptions = $scope.hideOptions === false ? true: false;
   }
+
+  $scope.changeAPIKey = function() {
+    $http.put('/change-api').success(function(user) {
+      console.log('success on changing api');
+      console.log('user', user);
+      $scope.currentUser = user;
+      $rootScope.currentUser
+    });
+  }
+
 })
 
 app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {

@@ -8,6 +8,7 @@
           <p>
             {{currentUser.apiKey}}
           </p>
+          <span><button ng-click="changeAPIKey()">Change</button></span>
           <div id="domain-api-container">
             <button ng-click="toggleDomainApi()">APIKey/Domain Link</button>
             <div ng-hide="hideOptions">

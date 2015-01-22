@@ -4,6 +4,7 @@ var userController = {};
 userController.lockDomain = lockDomain;
 userController.checkUsernameExists = checkUsernameExists;
 userController.checkEmailExists = checkEmailExists;
+userController.changeAPIKey = changeAPIKey;
 
 function lockDomain(req, res) {
   var user = req.user;
@@ -39,5 +40,14 @@ function checkEmailExists(req, res) {
   });
 }
 
+function changeAPIKey(req ,res) {
+  var user = req.user;
+  console.log('user');
+  User.findOne(user, function(err, foundUser) {
+    foundUser.changeApiKey(function() {
+      res.send(user);
+    });
+  });
+}
 
 module.exports = userController;
