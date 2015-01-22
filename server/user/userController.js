@@ -44,8 +44,8 @@ function changeAPIKey(req ,res) {
   var user = req.user;
   console.log('user');
   User.findOne(user, function(err, foundUser) {
-    foundUser.changeApiKey(function() {
-      res.send(user);
+    foundUser.changeApiKey(function(newUser) {
+      res.send(newUser);
     });
   });
 }

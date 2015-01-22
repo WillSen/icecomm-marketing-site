@@ -20,10 +20,9 @@ app.controller('UsernameCtrl', function($scope, $rootScope, $http) {
 
   $scope.changeAPIKey = function() {
     $http.put('/change-api').success(function(user) {
-      console.log('success on changing api');
-      console.log('user', user);
       $scope.currentUser = user;
-      $rootScope.currentUser
+      $rootScope.currentUser = user;
+      console.log($scope.currentUser);
     });
   }
 
