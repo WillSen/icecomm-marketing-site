@@ -8,6 +8,7 @@ var app = angular.module('tawnyOwlApp', [
   'ui.router',
   'tawnyOwlApp.statController',
   'tawnyOwlApp.authControllers',
+  'tawnyOwlApp.adminController',
   'mm.foundation',
   'hljs'
   ]);

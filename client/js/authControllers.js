@@ -144,16 +144,3 @@ app.controller('ResetPasswordCtrl', function($scope, $http, $location, $statePar
   }
 });
 
-app.controller('AdminCtrl', function($scope, $rootScope) {
-  $scope.isAdmin = function() {
-    if ($rootScope.currentUser && $rootScope.currentUser.username === "azai91") {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-  $scope.getAdminStats = function() {
-    console.log('getting admin stats');
-  }
-})
