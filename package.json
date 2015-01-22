@@ -5,15 +5,13 @@
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server.js"
+    "start": "node  server/server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular-ui-router": "^0.2.13",
     "bcrypt": "^0.8.0",
     "body-parser": "^1.10.0",
-    "c3": "^0.4.8",
     "connect-flash": "^0.1.1",
     "express": "^4.10.6",
     "express-flash": "0.0.2",

@@ -4,6 +4,8 @@
   "private": "true",
   "dependencies": {
     "foundation": "zurb/bower-foundation",
-    "angular-ui-ace": "bower"
+    "angular-ui-ace": "bower",
+    "c3": "~0.4.9",
+    "angular-ui-router": "~0.2.13"
   }
 }

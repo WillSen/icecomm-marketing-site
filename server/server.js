@@ -92,4 +92,4 @@ app.all('/*', function(req, res, next) {
     res.sendFile(path.resolve(__dirname + '/../index.html'));
 });
 
-server.listen(process.env.PORT || 80);
+server.listen(process.env.PORT || 3000);
