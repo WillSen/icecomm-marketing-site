@@ -36,7 +36,7 @@ function UsernameCtrl($scope, $rootScope, $http) {
     });
   }
 
-})
+}
 
 function SignupCtrl($scope, $http, $rootScope, $state) {
 
