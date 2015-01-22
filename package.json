@@ -29,6 +29,7 @@
     "node": "0.10.x"
   },
   "devDependencies": {
-    "chai": "^1.10.0"
+    "chai": "^1.10.0",
+    "flightplan": "^0.5.6"
   }
 }
