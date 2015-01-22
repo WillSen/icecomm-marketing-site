@@ -3,7 +3,17 @@ var app = angular.module('tawnyOwlApp.authControllers', [
   'ui.router'
 ]);
 
-app.controller('UsernameCtrl', function($scope, $rootScope, $http) {
+app.controller('UsernameCtrl', UsernameCtrl);
+
+app.controller('SignupCtrl', SignupCtrl);
+
+app.controller('LoginCtrl', LoginCtrl);
+
+app.controller('ForgotPasswordCtrl', ForgotPasswordCtrl);
+
+app.controller('ResetPasswordCtrl', ResetPasswordCtrl);
+
+function UsernameCtrl($scope, $rootScope, $http) {
   $scope.currentUser = $rootScope.currentUser;
   $scope.hideOptions = true;
   $scope.domainLockedSuccessMessage = false;
@@ -26,9 +36,9 @@ app.controller('UsernameCtrl', function($scope, $rootScope, $http) {
     });
   }
 
-})
+}
 
-app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
+function SignupCtrl($scope, $http, $rootScope, $state) {
 
   $scope.checkUniqueUserName = function() {
     $http.post("/checkUsernameExists", {
@@ -81,10 +91,9 @@ app.controller('SignupCtrl', function($scope, $http, $rootScope, $state) {
       })
     }
   }
+}
 
-});
-
-app.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
+function LoginCtrl($scope, $http, $state, $rootScope) {
   $scope.login = function(username, password) {
     if (!username || !password) {
       //send error message
@@ -105,9 +114,9 @@ app.controller('LoginCtrl', function($scope, $http, $state, $rootScope) {
       $scope.errMsg = true;
     })
   }
-})
+}
 
-app.controller('ForgotPasswordCtrl', function($scope, $http) {
+function ForgotPasswordCtrl($scope, $http) {
 
   $scope.hasEmailBeenSent = false;
   $scope.invalidEmail = false;
@@ -133,9 +142,10 @@ app.controller('ForgotPasswordCtrl', function($scope, $http) {
       }
     });
   }
-});
+}
 
-app.controller('ResetPasswordCtrl', function($scope, $http, $location, $stateParams) {
+
+function ResetPasswordCtrl($scope, $http, $location, $stateParams) {
 
   $scope.resetPassword = function(reset) {
     if ($scope.password !== $scope.verify_password) {
@@ -151,4 +161,4 @@ app.controller('ResetPasswordCtrl', function($scope, $http, $location, $statePar
       });
     }
   }
-});
+}
