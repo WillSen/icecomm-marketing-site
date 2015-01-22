@@ -89,6 +89,13 @@ app.get('/getAPIStats', function(req, res){
   });
 });
 
+app.get('/getAdminStats', function(req, res) {
+  Stats.find(function(err, stats) {
+    if(err) throw err;
+    res.json(stats);
+  })
+})
+
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile(path.resolve(__dirname + '/../index.html'));
