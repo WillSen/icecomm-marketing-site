@@ -12,67 +12,86 @@ app.controller('AdminCtrl', function($scope, $rootScope, $http) {
       return false;
     }
   }
-  $scope.getAdminStats = function() {
-    $scope.getAdminStats = function() {
-      console.log('getting admin stats');
-      var graphData = {
-        userArr: ['x'],
-        countArr: ['Connections']
-      }
-      $http.get("/getAdminStats")
-        .success(function(data) {
-          console.log(data);
-          data.sort(function(a, b) {
-            return Date.parse(a.date) - Date.parse(b.date);
-          })
-
-          populateData(data, graphData);
-          if (graphData.userArr.length > 1) {
-            generateGraph(graphData.userArr, graphData.countArr);
-          }
-          else {
-            // $scope.noConnectionsMsg = "There are no connections to display from your API Key."
-          }
-      });
+  $scope.getAdminStats = function(cb) {
+    console.log('getting admin stats');
+    var userData = getUserData();
+    var graphData = {
+      userArr: ['x'],
+      countArr: ['Connections']
     };
+    cb(userData, graphData)
+  };
 
-    function populateData(rawData, graphData) {
-      for (var i = 0; i < rawData.length; i++) {
-        // use below line if we need to limit graph to past X days (eg past month)
-        // var rawDay = Math.floor(Date.parse(rawData[i].date) / 86400000);
-
-        var userApi = rawData[i].apiKey;
-        if (graphData.userArr.indexOf(userApi) === -1) {
-          graphData.userArr.push(userApi);
-          graphData.countArr.push(1);
+  $scope.requestAdminStats = function(userData, graphData) {
+    $http.get("/getAdminStats")
+      .success(function(data) {
+        data.sort(function(a, b) {
+          return Date.parse(a.date) - Date.parse(b.date);
+        })
+        console.log('userData', userData);
+        populateData(data, graphData, userData);
+        if (graphData.userArr.length > 1) {
+          generateGraph(graphData.countArr, graphData.userArr);
         }
         else {
-          graphData.countArr[graphData.userArr.indexOf(userApi)]++;
-        }
-      }
-    }
-
-    function generateGraph(Xdata, Ydata) {
-      var chart2 = c3.generate({
-        data: {
-          x : 'x',
-          columns: [
-            Xdata,
-            Ydata,
-          ],
-          type: 'bar'
-        },
-        color: {
-          pattern: ['#397AD9']
-        },
-        axis: {
-          x: {
-            type: 'category' // this needed to load string x value
-          }
+          // $scope.noConnectionsMsg = "There are no connections to display from your API Key."
         }
       });
-      return chart2;
+  }
+
+  function getUserData() {
+    $http.get("/getAdminUserData")
+      .success(function(data) {
+        console.log('adminuserdata', data)
+        return data;
+      })
+  }
+
+  function matchUserApi(api, userData) {
+    for (var i = 0; i < userData.length; i++) {
+      if (userData[i].apiKey === api) {
+        return userData[i].username;
+      }
     }
+    return undefined;
+  }
+
+  function populateData(rawData, graphData, userData) {
+    for (var i = 0; i < rawData.length; i++) {
+
+      var user = rawData[i].apiKey;
+      // var user = matchUserApi(userApi, userData);
+      if (graphData.userArr.indexOf(user) === -1) {
+        graphData.userArr.push(user);
+        graphData.countArr.push(1);
+      }
+      else {
+        graphData.countArr[graphData.userArr.indexOf(user)]++;
+      }
+    }
+  }
+
+  function generateGraph(Xdata, Ydata) {
+    var chart2 = c3.generate({
+      data: {
+        x : 'x',
+        columns: [
+          Xdata,
+          Ydata,
+        ],
+        type: 'bar'
+      },
+      color: {
+        pattern: ['#397AD9']
+      },
+      axis: {
+        x: {
+          type: 'category' // this needed to load string x value
+        },
+        rotated: true
+      }
+    });
+    return chart2;
   }
 })
 

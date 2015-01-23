@@ -10,6 +10,7 @@ var mailController = require('./mail/mailController');
 var mongoose = require('mongoose');
 var mongooseURI = require('./config/database');
 var Stats = require('./stats/statsModel');
+var Users = require('./user/userModel');
 var passport = require('./config/passport');
 var userController = require('./user/userController');
 
@@ -93,6 +94,13 @@ app.get('/getAdminStats', function(req, res) {
   Stats.find(function(err, stats) {
     if(err) throw err;
     res.json(stats);
+  })
+})
+
+app.get('/getAdminUserData', function(req, res) {
+  Users.find(function(err, users) {
+    if(err) throw err;
+    res.json(users);
   })
 })
 
