@@ -10,15 +10,17 @@ var app = angular.module('tawnyOwlApp', [
   'tawnyOwlApp.authControllers',
   'tawnyOwlApp.adminController',
   'mm.foundation',
-  'hljs'
+  'hljs',
+  'angularytics'
   ]);
 
 // switched from ngroute to ui.router
 app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
+
+
   var checkLoggedIn = function($q, $timeout, $http, $location, $rootScope) {
     // Initialize a new promise
-    console.log('checking');
     var deferred = $q.defer();
     // Make an AJAX call to check if the user is logged in
     $http.get('/loggedin').success(function(user) {
@@ -32,7 +34,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
       }
     }).error(function(err) {
         $location.path('/');
-        console.log(err);
     });
 
     return deferred.promise;
@@ -134,7 +135,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     });
 
     $locationProvider.html5Mode(true);
-});
+}).config(['AngularyticsProvider', function(AngularyticsProvider) {
+  AngularyticsProvider.setEventHandlers(['GoogleUniversal']);
+}]).run(['Angularytics', function(Angularytics) {
+  Angularytics.init();
+}]);
 
 app.controller('TopBarDemoCtrl', function ($scope, $rootScope, $location, $state, TopBarDemoFactory) {
   $scope.logout = function() {

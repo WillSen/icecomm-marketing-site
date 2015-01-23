@@ -19,6 +19,13 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
   });
 };
 
+userSchema.methods.changeApiKey = function(callback) {
+  var salt = bcrypt.genSaltSync(SALT_WORK_FACTOR);
+  this.apiKey = bcrypt.hashSync(this.apiKey, salt).slice(10).replace(/\./g, '');
+  this.save();
+  callback(this);
+};
+
 userSchema.pre('save', function(next) {
   var user = this;
   if(!user.isModified('password')) {
@@ -30,6 +37,8 @@ userSchema.pre('save', function(next) {
   user.apiKey = bcrypt.hashSync(user.username, salt).slice(10).replace(/\./g, '');
   next();
 });
+
+
 
 // Change when releasing/ clear DB before
 module.exports = mongoose.model('User', userSchema);

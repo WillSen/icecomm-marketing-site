@@ -14,7 +14,6 @@ var Users = require('./user/userModel');
 var passport = require('./config/passport');
 var userController = require('./user/userController');
 
-// 30 second connection timeout reccommended by mongolab:
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
 
@@ -39,7 +38,6 @@ app.use(express.static('.'));
 app.get('/checkUsername', function(req, res) {
   if (req.user) {
     res.json(req.user);
-    console.log('req', req.user.username);
   }
 });
 
@@ -51,7 +49,6 @@ app.post('/checkEmailExists', userController.checkEmailExists);
 app.post('/lockDomain', userController.lockDomain);
 
 app.post('/loginChecker', passport.authenticate('local-login'), function(req, res) {
-  console.log('Dora the database explorer says HOLA! :)');
   res.send(req.user);
 });
 
@@ -79,9 +76,10 @@ app.post('/verifyResetCode', mailController.verifyResetCode);
 app.post('/resetPassword', mailController.resetPassword, passport.authenticate('local-login'));
 
 app.get('/loggedin', function(req, res) {
-  console.log('checking', req.user);
   res.send(req.isAuthenticated() ? req.user : '0');
 });
+
+app.put('/change-api', userController.changeAPIKey);
 
 app.get('/getAPIStats', function(req, res){
   Stats.find({apiKey: {$regex : ".*" + req.user.apiKey + ".*"}}).find(function(err, stats){

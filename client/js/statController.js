@@ -3,7 +3,10 @@ var app = angular.module('tawnyOwlApp.statController', [
   'ui.router'
 ]);
 
-app.controller('StatsCtrl', function($scope, $http, $rootScope) {
+app.controller('StatsCtrl', StatsCtrl);
+
+function StatsCtrl($scope, $http, $rootScope) {
+
   $scope.getStats = function() {
     var graphData = {
       dayArr: ['x'],
@@ -26,45 +29,45 @@ app.controller('StatsCtrl', function($scope, $http, $rootScope) {
         }
     });
   };
+}
 
-  function populateData(rawData, graphData) {
-    for (var i = 0; i < rawData.length; i++) {
-      // use below line if we need to limit graph to past X days (eg past month)
-      // var rawDay = Math.floor(Date.parse(rawData[i].date) / 86400000);
+function populateData(rawData, graphData) {
+  for (var i = 0; i < rawData.length; i++) {
+    // use below line if we need to limit graph to past X days (eg past month)
+    // var rawDay = Math.floor(Date.parse(rawData[i].date) / 86400000);
 
-      var month = rawData[i].date.split(" ")[1];
-      var day = rawData[i].date.split(" ")[2];
-      // var year = rawData[i].date.split(" ")[3]
-      var day = month + ' ' + day;
-      if (graphData.dayArr.indexOf(day) === -1) {
-        graphData.dayArr.push(day);
-        graphData.countArr.push(1);
-      }
-      else {
-        graphData.countArr[graphData.dayArr.indexOf(day)]++;
-      }
+    var month = rawData[i].date.split(" ")[1];
+    var day = rawData[i].date.split(" ")[2];
+    // var year = rawData[i].date.split(" ")[3]
+    var day = month + ' ' + day;
+    if (graphData.dayArr.indexOf(day) === -1) {
+      graphData.dayArr.push(day);
+      graphData.countArr.push(1);
+    }
+    else {
+      graphData.countArr[graphData.dayArr.indexOf(day)]++;
     }
   }
+}
 
-  function generateGraph(Xdata, Ydata) {
-    var chart = c3.generate({
-      data: {
-        x : 'x',
-        columns: [
-          Xdata,
-          Ydata,
-        ],
-        type: 'bar'
-      },
-      color: {
-        pattern: ['#397AD9']
-      },
-      axis: {
-        x: {
-          type: 'category' // this needed to load string x value
-        }
+function generateGraph(Xdata, Ydata) {
+  var chart = c3.generate({
+    data: {
+      x : 'x',
+      columns: [
+        Xdata,
+        Ydata,
+      ],
+      type: 'bar'
+    },
+    color: {
+      pattern: ['#397AD9']
+    },
+    axis: {
+      x: {
+        type: 'category' // this needed to load string x value
       }
-    });
-    return chart;
-  }
-});
+    }
+  });
+  return chart;
+}
