@@ -162,3 +162,4 @@ function ResetPasswordCtrl($scope, $http, $location, $stateParams) {
     }
   }
 }
+
