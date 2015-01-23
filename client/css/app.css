@@ -40,6 +40,8 @@ body {
   width: 82%;
   /*padding: 0.5rem 0.75em !important;*/
   margin: 7px 1px 3px 0px;
+  background-color: #fff;
+  border-radius: 0;
 }
 
 #setDomainBtn {
