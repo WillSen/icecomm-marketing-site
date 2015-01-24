@@ -58,7 +58,7 @@ function generateGraph(Xdata, Ydata) {
         Xdata,
         Ydata,
       ],
-      type: 'bar'
+      // type: 'bar'
     },
     color: {
       pattern: ['#397AD9']
