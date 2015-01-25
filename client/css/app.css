@@ -310,6 +310,8 @@ code {
   text-align: center;
   padding-top: 40px;
   font-size: 14px; }
+  .jsfiddle .jsfiddleLink {
+    width: 200px; }
   .jsfiddle a {
     color: #333;
     text-decoration: underline;
