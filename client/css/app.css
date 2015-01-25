@@ -298,7 +298,9 @@ code {
   font-family: 'BrandonGrotesque' !important; }
 
 .jsfiddle {
-  text-align: center; }
+  text-align: center;
+  padding-top: 40px;
+  font-size: 14px; }
   .jsfiddle a {
     color: #333;
     text-decoration: underline;
