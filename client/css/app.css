@@ -154,12 +154,20 @@ hr {
     border-top: 0 none;
     border-right: 0 none;
     border-left: 0 none; }
+    .term .chrome .chromeLink {
+      position: absolute;
+      top: -1.5%;
+      left: 27%; }
+      .term .chrome .chromeLink a {
+        color: #333;
+        font-size: 12px; }
     .term .chrome .btn {
       display: inline-block;
       vertical-align: middle;
       width: 8px;
       height: 8px;
-      border-radius: 100%; }
+      border-radius: 100%;
+      margin-top: -10px; }
   .term .chrome:before {
     content: " ";
     display: inline-block;

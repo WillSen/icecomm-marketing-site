@@ -216,17 +216,28 @@ hr {
     overflow:hidden;
   }
   .chrome {
+    // position: relative;
     height:34px;
     padding-left:10px;
     border-top:0 none;
     border-right:0 none;
     border-left:0 none;
+    .chromeLink {
+      position: absolute;
+      top: -1.5%;
+      left: 27%;
+      a {
+        color: #333;
+        font-size: 12px;
+      }
+    }
     .btn {
       display:inline-block;
       vertical-align:middle;
       width:8px;
       height:8px;
       border-radius:100%;
+      margin-top: -10px;
     }
   }
   .chrome:before {
