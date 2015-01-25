@@ -398,7 +398,14 @@ code {
 ///////////////////////////////////
 
 
-
+.jsfiddle {
+  text-align: center;
+  a {
+    color: #333;
+    text-decoration: underline;
+    font-style: italic;
+  }
+}
 
 .overview {
   padding: 150px 0 0 0;

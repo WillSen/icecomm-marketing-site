@@ -13,56 +13,6 @@
 body {
   font-size: 24px; }
 
-#apiDomain {
-  font-size: 13px;
-  text-align: center;
-}
-
-#change-api-key {
-  width: 15%;
-  margin-left: 2%;
-  height: 30px;
-  font-size: 14px;
-  padding: 3px 3px 3px 3px !important;
-}
-
-#view-set-api {
-  width: 100%;
-  float: left;
-}
-
-#api-key-display {
-  padding: 10px !important;
-  font-size: 11px;
-  height: 30px;
-  text-align: center;
-  float: left;
-  width: 82%;
-  /*padding: 0.5rem 0.75em !important;*/
-  margin: 7px 1px 3px 0px;
-}
-
-#setDomainBtn {
-  width: 26%;
-  margin-left: 2%;
-  /*display: inline-block;*/
-  /*font-size: 11px;*/
-}
-
-#domainInput {
-  width: 72%;
-  float: left;
-  text-align: left;
-  padding: 0.5rem 0.75em !important;
-  /*display: inline-block;*/
-}
-
-#apiDomainForm {
-  width: 100%;
-  float: left;
-  /*text-align: center;*/
-}
-
 .main {
   min-height: 100%;
   padding-top: 50px; }
@@ -346,6 +296,13 @@ code {
   position: relative;
   font-size: 55px;
   font-family: 'BrandonGrotesque' !important; }
+
+.jsfiddle {
+  text-align: center; }
+  .jsfiddle a {
+    color: #333;
+    text-decoration: underline;
+    font-style: italic; }
 
 .overview {
   padding: 150px 0 0 0;
