@@ -216,7 +216,6 @@ hr {
     overflow:hidden;
   }
   .chrome {
-    // position: relative;
     height:34px;
     padding-left:10px;
     border-top:0 none;
@@ -227,8 +226,9 @@ hr {
       top: -1.5%;
       left: 27%;
       a {
-        color: #333;
+        color: #766f79;
         font-size: 12px;
+        text-decoration: underline;
       }
     }
     .btn {

@@ -159,8 +159,9 @@ hr {
       top: -1.5%;
       left: 27%; }
       .term .chrome .chromeLink a {
-        color: #333;
-        font-size: 12px; }
+        color: #766f79;
+        font-size: 12px;
+        text-decoration: underline; }
     .term .chrome .btn {
       display: inline-block;
       vertical-align: middle;
