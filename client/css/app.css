@@ -13,67 +13,6 @@
 body {
   font-size: 24px; }
 
-#diagram {
-  text-align: center;
-  padding: 0 8% 8% 8%;
-}
-
-.diagram-description {
-  padding: 0 8% 0 8%;
-}
-
-#apiDomain {
-  font-size: 13px;
-  text-align: center;
-}
-
-#change-api-key {
-  width: 15%;
-  margin-left: 2%;
-  height: 30px;
-  font-size: 14px;
-  padding: 3px 3px 3px 3px !important;
-}
-
-#view-set-api {
-  width: 100%;
-  float: left;
-}
-
-#api-key-display {
-  padding: 10px !important;
-  font-size: 11px;
-  height: 30px;
-  text-align: center;
-  float: left;
-  width: 82%;
-  /*padding: 0.5rem 0.75em !important;*/
-  margin: 7px 1px 3px 0px;
-  background-color: #fff;
-  border-radius: 0;
-}
-
-#setDomainBtn {
-  width: 26%;
-  margin-left: 2%;
-  /*display: inline-block;*/
-  /*font-size: 11px;*/
-}
-
-#domainInput {
-  width: 72%;
-  float: left;
-  text-align: left;
-  padding: 0.5rem 0.75em !important;
-  /*display: inline-block;*/
-}
-
-#apiDomainForm {
-  width: 100%;
-  float: left;
-  /*text-align: center;*/
-}
-
 .main {
   min-height: 100%;
   padding-top: 50px; }
@@ -215,12 +154,21 @@ hr {
     border-top: 0 none;
     border-right: 0 none;
     border-left: 0 none; }
+    .term .chrome .chromeLink {
+      position: absolute;
+      top: -1.5%;
+      left: 27%; }
+      .term .chrome .chromeLink a {
+        color: #766f79;
+        font-size: 12px;
+        text-decoration: underline; }
     .term .chrome .btn {
       display: inline-block;
       vertical-align: middle;
       width: 8px;
       height: 8px;
-      border-radius: 100%; }
+      border-radius: 100%;
+      margin-top: -10px; }
   .term .chrome:before {
     content: " ";
     display: inline-block;
@@ -357,6 +305,20 @@ code {
   position: relative;
   font-size: 55px;
   font-family: 'BrandonGrotesque' !important; }
+
+.jsfiddle {
+  text-align: center;
+  padding-top: 40px;
+  font-size: 14px; }
+  .jsfiddle .jsfiddleLink {
+    width: 200px;
+    margin: 0 auto;
+    border: solid 2px #3879D9;
+    color: #3879D9;
+    border-radius: 3px;
+    padding: 10px; }
+  .jsfiddle a {
+    color: #3879D9; }
 
 .overview {
   padding: 150px 0 0 0;
@@ -998,5 +960,51 @@ button {
 @media all and (max-width: 1020px) {
   .videoscreens {
     margin: 30px auto; } }
+#diagram {
+  text-align: center;
+  padding: 0 8% 8% 8%; }
+
+.diagram-description {
+  padding: 0 8% 0 8%; }
+
+#apiDomain {
+  font-size: 13px;
+  text-align: center; }
+
+#change-api-key {
+  width: 15%;
+  margin-left: 2%;
+  height: 30px;
+  font-size: 14px;
+  padding: 3px 3px 3px 3px !important; }
+
+#view-set-api {
+  width: 100%;
+  float: left; }
+
+#api-key-display {
+  padding: 10px !important;
+  font-size: 11px;
+  height: 30px;
+  text-align: center;
+  float: left;
+  width: 82%;
+  margin: 7px 1px 3px 0px;
+  background-color: #fff;
+  border-radius: 0; }
+
+#setDomainBtn {
+  width: 26%;
+  margin-left: 2%; }
+
+#domainInput {
+  width: 72%;
+  float: left;
+  text-align: left;
+  padding: 0.5rem 0.75em !important; }
+
+#apiDomainForm {
+  width: 100%;
+  float: left; }
 
 /*# sourceMappingURL=app.css.map */
