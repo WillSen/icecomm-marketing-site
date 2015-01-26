@@ -120,6 +120,10 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
       }
       // controller
     })
+    .state('how-it-works', {
+      url:'/how-it-works',
+      templateUrl: 'client/partials/how-it-works.html'
+    })
     .state('forgot-password', {
       url: '/forgot-password',
       controller: 'ForgotPasswordCtrl',
