@@ -35,10 +35,15 @@
   &lt;script type="text/javascript" src="bower_components/icecomm/icecomm.js"></script></p>
  
 
+  <h3>new Icecomm(APIKEY[,options])</h3>
 
   <p>Instantiate an instance of Icecomm object. Visit <a href="/account">here</a> to obtain your unique generated API key; then pass in the valid API key as the single parameter to the object instantiation.</p>
 
   <p hljs>var comm = new Icecomm('YOUR_API_KEY');</p>
+
+  <p>You can optionally pass <code>{debug: true}</code> as the second parameter to the instantiation for debug mode:</p>
+  <p hljs>var comm = new Icecomm('YOUR_API_KEY', {debug: true});</p>
+
 
   <h3>.connect(roomname[,options])</h3>
   <p>You can create and join rooms with the following function:</p>
@@ -118,5 +123,6 @@ comm.on(&#39;connected&#39;, function(options) {
   comm.getRoomSize(); // returns the number clients in the current room
   comm.isHost(); // returns a boolean indicating if the client was the first client in the room
   comm.close(); // stops local audio/video stream
+
   </p>
 </div>

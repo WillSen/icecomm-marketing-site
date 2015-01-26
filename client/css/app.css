@@ -960,5 +960,51 @@ button {
 @media all and (max-width: 1020px) {
   .videoscreens {
     margin: 30px auto; } }
+#diagram {
+  text-align: center;
+  padding: 0 8% 8% 8%; }
+
+.diagram-description {
+  padding: 0 8% 0 8%; }
+
+#apiDomain {
+  font-size: 13px;
+  text-align: center; }
+
+#change-api-key {
+  width: 15%;
+  margin-left: 2%;
+  height: 30px;
+  font-size: 14px;
+  padding: 3px 3px 3px 3px !important; }
+
+#view-set-api {
+  width: 100%;
+  float: left; }
+
+#api-key-display {
+  padding: 10px !important;
+  font-size: 11px;
+  height: 30px;
+  text-align: center;
+  float: left;
+  width: 82%;
+  margin: 7px 1px 3px 0px;
+  background-color: #fff;
+  border-radius: 0; }
+
+#setDomainBtn {
+  width: 26%;
+  margin-left: 2%; }
+
+#domainInput {
+  width: 72%;
+  float: left;
+  text-align: left;
+  padding: 0.5rem 0.75em !important; }
+
+#apiDomainForm {
+  width: 100%;
+  float: left; }
 
 /*# sourceMappingURL=app.css.map */
