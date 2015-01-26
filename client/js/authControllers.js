@@ -32,7 +32,6 @@ function UsernameCtrl($scope, $rootScope, $http) {
     $http.put('/change-api').success(function(user) {
       $scope.currentUser = user;
       $rootScope.currentUser = user;
-      console.log($scope.currentUser);
     });
   }
 
