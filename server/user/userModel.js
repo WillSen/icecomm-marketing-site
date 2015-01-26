@@ -8,7 +8,8 @@ var userSchema = Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true},
   apiKey: {type: String},
-  url: {type: String, default: ""}
+  url: {type: String, default: ""},
+  user_limit: {type: Number, default: 50}
 });
 
 // Password verification
