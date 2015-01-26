@@ -13,6 +13,15 @@
 body {
   font-size: 24px; }
 
+#diagram {
+  text-align: center;
+  padding: 0 8% 8% 8%;
+}
+
+.diagram-description {
+  padding: 0 8% 0 8%;
+}
+
 #apiDomain {
   font-size: 13px;
   text-align: center;
