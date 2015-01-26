@@ -659,6 +659,68 @@ input[type=text]:focus, textarea:focus {
   .panel {
     padding-top: 80px;
   }
+  .changeAPI {
+    padding: 0 75px 0 0;
+    text-align: right;
+    font-size: 12px;
+    color: #333;
+  }
+  #diagram {
+    text-align: center;
+    padding: 0 8% 8% 8%;
+  }
+
+  .diagram-description {
+    padding: 0 8% 0 8%;
+  }
+
+  #apiDomain {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  #change-api-key {
+    width: 15%;
+    margin-left: 2%;
+    margin-bottom: 0px !important;
+    height: 30px;
+    font-size: 14px;
+    padding: 3px 3px 3px 3px !important;
+  }
+
+  #view-set-api {
+    width: 100%;
+    float: left;
+  }
+
+  #api-key-display {
+    padding: 10px !important;
+    font-size: 11px;
+    height: 30px;
+    text-align: center;
+    float: left;
+    width: 82%;
+    margin: 7px 1px 3px 0px;
+    background-color: #fff;
+    border-radius: 0;
+  }
+
+  #setDomainBtn {
+    width: 26%;
+    margin-left: 2%;
+  }
+
+  #domainInput {
+    width: 72%;
+    float: left;
+    text-align: left;
+    padding: 0.5rem 0.75em !important;
+  }
+
+  #apiDomainForm {
+    width: 100%;
+    float: left;
+  }
 }
 
 button {
@@ -666,7 +728,6 @@ button {
   color: #fff;
   background-color: $secondaryColor;
   background-image: -webkit-linear-gradient(left bottom, rgba(159, 88, 150, 0) 0, rgba(130,202,255,0.3) 100%);
-  // background-image: -webkit-linear-gradient(left bottom,rgba(159,88,150,0) 0,rgba(159,88,150,0.6) 100%);
   border-radius: 5px;
   border: none;
   padding-left: 18px;
@@ -679,6 +740,8 @@ button {
     background-color: $secondaryColor !important;
   }
 }
+
+
 
 ///////////////////////////////////
 ////// Password/email status //////
@@ -1061,61 +1124,7 @@ button {
 ////////// Account page ///////////
 ///////////////////////////////////
 
-#diagram {
-  text-align: center;
-  padding: 0 8% 8% 8%;
-}
 
-.diagram-description {
-  padding: 0 8% 0 8%;
-}
-
-#apiDomain {
-  font-size: 13px;
-  text-align: center;
-}
-
-#change-api-key {
-  width: 15%;
-  margin-left: 2%;
-  height: 30px;
-  font-size: 14px;
-  padding: 3px 3px 3px 3px !important;
-}
-
-#view-set-api {
-  width: 100%;
-  float: left;
-}
-
-#api-key-display {
-  padding: 10px !important;
-  font-size: 11px;
-  height: 30px;
-  text-align: center;
-  float: left;
-  width: 82%;
-  margin: 7px 1px 3px 0px;
-  background-color: #fff;
-  border-radius: 0;
-}
-
-#setDomainBtn {
-  width: 26%;
-  margin-left: 2%;
-}
-
-#domainInput {
-  width: 72%;
-  float: left;
-  text-align: left;
-  padding: 0.5rem 0.75em !important;
-}
-
-#apiDomainForm {
-  width: 100%;
-  float: left;
-}
 
 
 
