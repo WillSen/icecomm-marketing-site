@@ -311,11 +311,14 @@ code {
   padding-top: 40px;
   font-size: 14px; }
   .jsfiddle .jsfiddleLink {
-    width: 200px; }
+    width: 200px;
+    margin: 0 auto;
+    border: solid 2px #3879D9;
+    color: #3879D9;
+    border-radius: 3px;
+    padding: 10px; }
   .jsfiddle a {
-    color: #333;
-    text-decoration: underline;
-    font-style: italic; }
+    color: #3879D9; }
 
 .overview {
   padding: 150px 0 0 0;

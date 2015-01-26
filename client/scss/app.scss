@@ -415,12 +415,16 @@ code {
   font-size: 14px;
   .jsfiddleLink {
     width: 200px;
-    
+    margin: 0 auto;
+    border: solid 2px $themeColor;
+    color: $themeColor;
+    border-radius: 3px;
+    padding: 10px;
   }
   a {
-    color: #333;
-    text-decoration: underline;
-    font-style: italic;
+    color: $themeColor;
+    // text-decoration: underline;
+    // font-style: italic;
   }
 }
 
