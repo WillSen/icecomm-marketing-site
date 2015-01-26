@@ -13,7 +13,6 @@ app.controller('AdminCtrl', function($scope, $rootScope, $http) {
     }
   }
   $scope.getAdminStats = function(cb) {
-    console.log('getting admin stats');
     var userData = getUserData();
     var graphData = {
       userArr: ['x'],
@@ -28,7 +27,6 @@ app.controller('AdminCtrl', function($scope, $rootScope, $http) {
         data.sort(function(a, b) {
           return Date.parse(a.date) - Date.parse(b.date);
         })
-        console.log('userData', userData);
         populateData(data, graphData, userData);
         if (graphData.userArr.length > 1) {
           generateGraph(graphData.countArr, graphData.userArr);
@@ -42,7 +40,6 @@ app.controller('AdminCtrl', function($scope, $rootScope, $http) {
   function getUserData() {
     $http.get("/getAdminUserData")
       .success(function(data) {
-        console.log('adminuserdata', data)
         return data;
       })
   }
