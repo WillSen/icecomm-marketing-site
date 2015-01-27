@@ -1,6 +1,13 @@
-<div id="diagram">
+<div class="how-it-works">
+  <h1>How it works</h1>
+  <p class="diagram-description">
+    Icecomm abstracts away the complexity of setting up WebRTC for developers. In order for a peer-to-peer connection to happen between browsers, a framework known as Interactive Connectivity Establishment (ICE) must be used to exchange the information neccessary for the browsers to connect directly.
+  </p>
   <img src="client/assets/img/diagram.png"></img>
+  <p class="caption"><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Architecture/Connectivity">MDN WebRTC Overview</a></p>
+
+  
+  <p class="diagram-description">
+    With WebRTC, the ICE candidates exchange information via STUN (Session Traversal Utilities for NAT [Network Address Translation]) and TURN (Traversal Using Relays around NAT) servers. SDP (Session Description Protocol) information is passed between peers, which translates the data into a standard readable by all connected peers. For developers using Icecomm, this server communication is all handled behind the scenes.
+  </p>
 </div>
-<p class="diagram-description">This diagram, courtesy of MDN's <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Architecture/Connectivity">WebRTC connectivity</a> article, gives a sense of everything that Icecomm abstracts away for developers. Essentially, in order for a peer-to-peer connection to happen between browsers, a framwork known as Interactive Connectivity Establishment (ICE) must be used to exchange the information neccessary for the browsers to connect directly. As you may have surmised, the name 'Icecomm' was derived from this framework- with the 'comm' being shorthand for 'communication.'</p>
-<p class="diagram-description">With WebRTC, the ICE candidates exchange information via STUN (Session Traversal Utilities for NAT [Network Address Translation]) and TURN (Traversal Using Relays around NAT) servers. SDP (Session Description Protocol) information is passed between peers, which translates the data into a standard readable by all connected peers. For developers using Icecomm, this server communication is all handled behind the scenes.</p>
-<br>
