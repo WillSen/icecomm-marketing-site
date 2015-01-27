@@ -20,7 +20,7 @@
               <h1>To link your APIKey to your domain</h1>
               <p>Web apps using IceComm can be hosted on any domain. For additional flexiblity, IceComm provides developers the option to link their APIKey to their domain to prevent other users from using their APIKey.</p>
               <form ng-submit="lockDomain(domain)" id="apiDomainForm" name="domain_form">
-                <input type="url" id="domainInput" name="domain" ng-model="domain" placeholder="http://www.yourdomain.com"/>
+                <input type="url" id="domainInput" name="domain" ng-model="domain" placeholder={{url}}/>
                 <span><button type="submit" id="setDomainBtn" value="Login">Set</button></span>
 
                 <div id="apiDomain" ng-show="currentUser.url.length > 0">
