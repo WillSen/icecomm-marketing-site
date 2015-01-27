@@ -658,6 +658,9 @@ input[type=text]:focus, textarea:focus {
 .account {
   .panel {
     padding-top: 80px;
+    p {
+      padding: 0 !important;
+    }
   }
   .changeAPI {
     padding: 0;

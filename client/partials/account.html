@@ -15,10 +15,11 @@
             {{currentUser.apiKey}}
           </p> -->
           <div id="domain-api-container">
-            <button ng-click="toggleDomainApi()">APIKey/Domain Link</button>
+            <button ng-click="toggleDomainApi()">Link your API Key to your domain</button>
             <div ng-hide="hideOptions">
-              <h1>To link your APIKey to your domain</h1>
-              <p>Web apps using IceComm can be hosted on any domain. For additional flexiblity, IceComm provides developers the option to link their APIKey to their domain to prevent other users from using their APIKey.</p>
+              <p>Web apps using IceComm can be hosted on any domain. </p>
+              <p>
+                For additional flexiblity you can link your API Key to your domain to prevent other users from using your API Key on their domain</p>
               <form ng-submit="lockDomain(domain)" id="apiDomainForm" name="domain_form">
                 <input type="url" id="domainInput" name="domain" ng-model="domain" placeholder="http://www.yourdomain.com"/>
                 <span><button type="submit" id="setDomainBtn" value="Login">Set</button></span>
