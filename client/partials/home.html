@@ -21,7 +21,7 @@
         <div class="chromeLink"><a href="http://jsfiddle.net/TawnyOwl/j228hopd/" target="_blank">http://jsfiddle.net/TawnyOwl/j228hopd/</a></div>
       </div>
       <div class="shell codebase">
-        <code class="slideInRightTop"  ng-mouseover="count = count + 1" ng-init="count=0"> var comm = new Icecomm('$APItoken');<br>
+        <code class="slideInRightTop"  ng-mouseover="count = count + 1" ng-init="count=0"> var comm = new Icecomm('$Icecomm_API_token');<br>
    comm.connect('my_room');</code>
         <code class="slideInRightMiddle">comm.on('local', function(options) {<br>
                 &nbsp;&nbsp; localVideo.src = options.stream;<br>
@@ -33,6 +33,11 @@
       <!-- &nbsp;&nbsp;&nbsp;&nbsp;createRemoteVideo(URL.createObjectURL(data));<br> -->
     <!-- &nbsp;&nbsp;}<br> -->
   });
+</code>
+<code class="slideInRightLast">
+   comm.on('data', function(options) { 
+    &nbsp;&nbsp;console.log(options.data); <br>
+   });
 </code>
 
 
