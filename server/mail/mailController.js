@@ -2,11 +2,14 @@ var mandrill = require('mandrill-api/mandrill');
 var mandrillAPI = require('../config/mail');
 var mailCreator = require('./mailCreator');
 var User = require('../user/userModel');
+var tempUser = require('../tempUser/tempUserModel');
+
 
 var mandrill_client = new mandrill.Mandrill(mandrillAPI.APIKEY);
 var mailController = {};
 
-var accountsToVerify = {};
+// delete this
+// var accountsToVerify = {};
 var forgottenAccountEmail = {};
 
 mailController.sendConfirmationEmail = sendConfirmationEmail;
@@ -20,31 +23,47 @@ function sendConfirmationEmail(req, res, next) {
     var email = tempAccount.email;
     var rand = Math.floor((Math.random() * 1000000000000))
     host=req.get('host');
-    accountsToVerify[rand] = tempAccount;
-    console.log('rand', rand);
-    var link="http://"+req.get('host')+"/verify?id="+rand;
-    mandrill_client.messages.send({"message": mailCreator.createVerificationEmail(email, link), "async": false}, function(result) {
-        console.log(result);
-    }, function(e) {
-        console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+    console.log('tempAccount', tempAccount);
+    tempAccount.rand = rand;
+    // accountsToVerify[rand] = tempAccount;
+    tempUser.create(tempAccount, function(err, createdAccount) {
+        if (!err) {
+            var link="http://"+req.get('host')+"/verify?id="+rand;
+            mandrill_client.messages.send({"message": mailCreator.createVerificationEmail(email, link), "async": false}, function(result) {
+                console.log(result);
+            }, function(e) {
+                console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+            });
+            res.sendStatus(200);
+        }
     });
-    res.sendStatus(200);
+
+
 };
 
 
 function verficationOfAccount(req, res, next) {
     console.log("Domain is matched. Information is from Authentic email");
-    if(accountsToVerify[req.query.id]) {
-        console.log('verified');
-        req.body = accountsToVerify[req.query.id];
-        console.log(req.body);
-        accountsToVerify[req.query.id] = undefined;
-        next();
-    }
-    else {
-        console.log("email is not verified");
-        res.redirect('/');
-    }
+
+    tempUser.findOne({rand: req.query.id}, function(err, foundTemp) {
+        if(!err) {
+            console.log('verified');
+            var verifiedAccount = {
+                username: foundTemp.username,
+                email: foundTemp.email,
+                password: foundTemp.password
+            };
+
+            req.body = verifiedAccount;
+            console.log(req.body);
+            // accountsToVerify[req.query.id] = undefined;
+            next();
+        }
+        else {
+            console.log("email is not verified");
+            res.redirect('/');
+        }
+    })
 }
 
 function sendForgotPasswordEmail(req, res, next) {
