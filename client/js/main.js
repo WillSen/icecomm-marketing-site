@@ -3,6 +3,19 @@
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
 
+$(document).ready(function(){
+  
+  ZeroClipboard.setMoviePath('http://davidwalsh.name/demo/ZeroClipboard.swf');
+  //create client
+  var clip = new ZeroClipboard.Client();
+  
+  //event
+  clip.setText("Testing 1.2.3.4");
+  clip.glue('copy-api-key');
+  ZeroClipboard.dispatch();
+
+  //ert(JSON.stringify(clip));
+});
 
 var app = angular.module('tawnyOwlApp', [
   'ui.router',

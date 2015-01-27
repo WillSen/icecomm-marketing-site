@@ -7,7 +7,8 @@
         <div>
           <div id="view-set-api">
             <input type="text" id="api-key-display" value="{{currentUser.apiKey}}" readonly="readonly">
-            <span><button id="change-api-key" ng-click="changeAPIKey()">Change</button></span>
+            <span><button id="copy-api-key">Copy</button></span>
+            <p class="changeAPI" ng-click="changeAPIKey()">Change your API Key</p>
           </div>
 
           <!-- <p>
