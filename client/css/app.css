@@ -484,7 +484,7 @@ input[type=text]:focus, textarea:focus {
 .account .panel {
   padding-top: 80px; }
 .account .changeAPI {
-  padding: 0 75px 0 0;
+  padding: 0;
   text-align: right;
   font-size: 12px;
   color: #3879D9;
@@ -513,7 +513,7 @@ input[type=text]:focus, textarea:focus {
   height: 30px;
   text-align: center;
   float: left;
-  width: 82%;
+  width: 100%;
   margin: 7px 1px 3px 0px;
   background-color: #fff;
   border-radius: 0; }
