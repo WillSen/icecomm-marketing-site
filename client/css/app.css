@@ -320,14 +320,14 @@ code {
   .jsfiddle a {
     color: #3879D9; }
 
-.chrome {
+.built-for-Chrome {
   text-align: center;
   font-size: 18px;
   margin-bottom: 50px;
   letter-spacing: 1px; }
-  .chrome p {
+  .built-for-Chrome p {
     margin: 0 auto; }
-  .chrome img {
+  .built-for-Chrome img {
     width: 18px; }
 
 .overview {
