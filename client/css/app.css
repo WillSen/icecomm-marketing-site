@@ -547,6 +547,18 @@ button {
   button:hover, button:focus {
     background-color: #3879D9 !important; }
 
+.how-it-works {
+  padding: 0 8% 100px 8%; }
+  .how-it-works h1 {
+    padding-bottom: 30px; }
+  .how-it-works img {
+    display: block;
+    margin: 0 auto;
+    padding: 40px 0 0 0; }
+  .how-it-works .caption {
+    padding-right: 25%;
+    text-align: right; }
+
 .alert {
   background-color: #d64242;
   border-color: #d64242;
