@@ -13,6 +13,7 @@ var Stats = require('./stats/statsModel');
 var Users = require('./user/userModel');
 var passport = require('./config/passport');
 var userController = require('./user/userController');
+var MongoStore = require('connect-mongo')(session);
 
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
                 replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
@@ -26,7 +27,8 @@ app.use(bodyParser.json());
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 app.use(passport.initialize());
