@@ -428,6 +428,21 @@ code {
   }
 }
 
+.chrome {
+  text-align: center;
+  font-size: 18px;
+  // margin-top: -50px;
+  margin-bottom: 50px;
+  // color: $themeColor;
+  letter-spacing: 1px;
+  p {
+    margin: 0 auto;
+  }
+  img {
+    width: 18px;
+  }
+}
+
 .overview {
   padding: 150px 0 0 0;
   color: #333;

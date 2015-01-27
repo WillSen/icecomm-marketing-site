@@ -320,6 +320,16 @@ code {
   .jsfiddle a {
     color: #3879D9; }
 
+.chrome {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 50px;
+  letter-spacing: 1px; }
+  .chrome p {
+    margin: 0 auto; }
+  .chrome img {
+    width: 18px; }
+
 .overview {
   padding: 150px 0 0 0;
   color: #333;
