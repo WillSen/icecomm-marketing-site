@@ -983,9 +983,15 @@ button {
     padding-left: 10px !important; }
     .copyright p {
       font-size: 12px; }
+    .copyright a {
+      font-size: 12px;
+      color: #fff !important; }
 
   .account .panel p {
     font-size: 10px; } }
+.foot a {
+  color: #fff !important; }
+
 .highlight {
   background-color: #3879D9;
   background-image: -webkit-linear-gradient(left bottom, rgba(159, 88, 150, 0) 0, rgba(130, 202, 255, 0.3) 100%);
