@@ -1096,6 +1096,10 @@ button {
     p {
       font-size: 12px;  
     }
+    a {
+      font-size: 12px;   
+      color: #fff !important;
+    }
   }
   .account {
     .panel {
@@ -1104,6 +1108,13 @@ button {
       }
     }
   }
+}
+
+.foot {
+  a {
+    color: #fff !important;  
+  }
+  
 }
 
 .highlight {
