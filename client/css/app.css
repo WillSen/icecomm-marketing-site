@@ -583,6 +583,14 @@ button {
   font-size: 14px;
   line-height: 1.42857; }
 
+.credits .panel {
+  padding: 80px 0 0 0; }
+  .credits .panel h1 {
+    padding-bottom: 30px; }
+  .credits .panel li {
+    font-size: 14px;
+    padding: 10px; }
+
 .blink_me {
   -webkit-animation-name: blinker;
   -moz-animation-name: blinker;
