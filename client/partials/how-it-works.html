@@ -1,13 +1,21 @@
 <div class="how-it-works">
   <h1>How it works</h1>
   <p class="diagram-description">
-    Icecomm abstracts away the complexity of setting up WebRTC for developers. In order for a peer-to-peer connection to happen between browsers, a framework known as Interactive Connectivity Establishment (ICE) must be used to exchange the information neccessary for the browsers to connect directly.
+    The concept of peer-to-peer application architecture has been around for a long time, even being mentioned in the first ever RFC(<a href="http://tools.ietf.org/html/rfc1">RFC 1</a>) by the IETF, but the protocols used for peer-to-peer apps can't be used in a web browser without external plugins. Until now, with the new WEBRTC Protocol and WebRTC browser APIs, peer-to-peer applications are now more feasible options for web developers, however, with new technology theres new complexity. WebRTC deals with many new concepts on how to establish a peer-to-peer connection: ICE candidates, STUN/TURN servers, Signaling Servers, SDPs, etc. Icecomm abstracts away all the complexities of setting up WebRTC for developers. Let's take a look at how it all works.
   </p>
   <img src="client/assets/img/diagram.png"></img>
   <p class="caption"><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Architecture/Connectivity">MDN WebRTC Overview</a></p>
 
-  
   <p class="diagram-description">
-    With WebRTC, the ICE candidates exchange information via STUN (Session Traversal Utilities for NAT [Network Address Translation]) and TURN (Traversal Using Relays around NAT) servers. SDP (Session Description Protocol) information is passed between peers, which translates the data into a standard readable by all connected peers. For developers using Icecomm, this server communication is all handled behind the scenes.
+    In order for a peer-to-peer connection to happen between browsers, the first thing that takes place is a check for a public IP adress. This is obtained through the use of a STUN(Session Traversal Utilities for NAT) server. The STUN server will check if the client is behind a NAT, which means the client is accessing the web from a private IP that was assigned to the clients computer by the WiFi/Ethernet router. If this is the case, which it most always will be, the STUN will have to get the public IP and port number that the router has mapped to the clients private IP to and return it. Icecomm provides these STUN servers for you.
+  </p>
+  <p class="diagram-description">
+    Next, there is the SDP and ICE candidate exchange between peers. SDPs(Session Description Protocol) are a description of the type of media the peers would like to exchange with each other. The first SDP, from the first peer, will be called the Offer. When the second peer recieves the Offer, it will send back the Answer. Once the Answer has been recieved by the first peer, ICE candidates start getting exchanged between the 2 peers. ICE(Interactive Connectivity Establishment) candidates are, essentially, routes between the 2 peers. This exchange of ICE candidates will go on between the 2 peers until they both agree upon the most efficient candidate.
+  </p>
+  <p class="diagram-description">
+    If the ICE candidates fails to reach an agreement, the 2 peers will be connected through a TURN(Traversal Using Relays around NAT) server. The TURN server will have to act as the itermediary between the 2 peers to relay all media and data transfer. This is a backup option put in place to protect against those moments when the ICE candidate exchange fails. Icecomm provides these servers for developers as part of the platform.
+  </p>
+  <p class="diagram-description">
+    All the steps described above will be handled by a signaling server. It is the signaling servers job to exchange all this information between the 2 peers to establish the initial peer-to-peer connection. This will establish a standard peer-to-peer connection, but what if you wanted to connect more than just 2 peers together? If a developer wants to create connections between more than 2 peers, they must establish this peer connection between each of the new connecting clients. This becomes increasingly complex to set up. For developers using Icecomm, this server communication is all handled behind the scenes.
   </p>
 </div>
