@@ -63,10 +63,8 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
-
 server/config
-
-bower_components
 client/.sass-cache
 client/.sass-cache/*
 client/.sass-cache/*/*
+.elasticbeanstalk/

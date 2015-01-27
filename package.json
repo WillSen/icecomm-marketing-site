@@ -4,7 +4,6 @@
   "description": "The easiest way to get started with Foundation + Compass.",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node  server/server.js"
   },
   "author": "",
