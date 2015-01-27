@@ -483,6 +483,8 @@ input[type=text]:focus, textarea:focus {
 
 .account .panel {
   padding-top: 80px; }
+  .account .panel p {
+    padding: 0 !important; }
 .account .changeAPI {
   padding: 0;
   text-align: right;
