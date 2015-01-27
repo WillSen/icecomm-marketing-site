@@ -17,8 +17,9 @@
 }
 
 $topCodeTimeDelay: 0s;
-$middleCodeTimeDelay: 2s;
-$bottomCodeTimeDelay: 4s;
+$middleCodeTimeDelay: 1500ms;
+$bottomCodeTimeDelay: 3000ms;
+$lastCodeTimeDelay: 4500ms;
 $themeColor: #3879D9;
 $secondaryColor: #3879D9;
 
@@ -230,6 +231,7 @@ hr {
         font-size: 12px;
         text-decoration: underline;
       }
+      
     }
     .btn {
       display:inline-block;
@@ -248,7 +250,13 @@ hr {
   }
   .shell {
     padding:10px;
-    color:#777
+    color:#777;
+    .slideInRightTop {
+      margin-top: 0 !important;
+    }
+    .slideInRightLast {
+      margin-bottom: 0 !important;
+    }
   }
 
   .workshopper {
@@ -260,7 +268,8 @@ hr {
 
 code {
   border: none;
-  font-size: 13px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.6px;
 }
 
 .term .workshopper code {
@@ -415,7 +424,7 @@ code {
   font-size: 14px;
   .jsfiddleLink {
     width: 200px;
-    margin: 0 auto;
+    margin: 40px auto 0 auto;
     border: solid 2px $themeColor;
     color: $themeColor;
     border-radius: 3px;
@@ -425,6 +434,21 @@ code {
     color: $themeColor;
     // text-decoration: underline;
     // font-style: italic;
+  }
+}
+
+.built-for-Chrome {
+  text-align: center;
+  font-size: 18px;
+  // margin-top: -50px;
+  margin-bottom: 50px;
+  // color: $themeColor;
+  letter-spacing: 1px;
+  p {
+    margin: 0 auto;
+  }
+  img {
+    width: 18px;
   }
 }
 
@@ -860,6 +884,12 @@ button {
   @include animation-name(slideInRight);
   @include animation-fill-mode(both);
   @include animation-delay($bottomCodeTimeDelay);
+}
+.slideInRightLast {
+  @include animation-duration(1s);
+  @include animation-name(slideInRight);
+  @include animation-fill-mode(both);
+  @include animation-delay($lastCodeTimeDelay);
 }
 
 @include keyframes(fadeIn) {

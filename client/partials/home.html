@@ -5,7 +5,7 @@
       <span class="highlight">ICECOMM BETA IS HERE</span>
     </div>
     <div class="large-12 columns sub-intro-text">
-      POWER UP YOUR APPS WITH SERVERLESS BROWSER-TO-BROWSER VIDEO CHAT AND DATA TRANSFER
+      ADD SERVERLESS VIDEO CHAT AND DATA TRANSFER TO YOUR SITE
     </div>
     
   </div>
@@ -21,7 +21,7 @@
         <div class="chromeLink"><a href="http://jsfiddle.net/TawnyOwl/j228hopd/" target="_blank">http://jsfiddle.net/TawnyOwl/j228hopd/</a></div>
       </div>
       <div class="shell codebase">
-        <code class="slideInRightTop"  ng-mouseover="count = count + 1" ng-init="count=0"> var comm = new Icecomm('$APItoken');<br>
+        <code class="slideInRightTop"  ng-mouseover="count = count + 1" ng-init="count=0"> var comm = new Icecomm('$Icecomm_API_token');<br>
    comm.connect('my_room');</code>
         <code class="slideInRightMiddle">comm.on('local', function(options) {<br>
                 &nbsp;&nbsp; localVideo.src = options.stream;<br>
@@ -33,6 +33,11 @@
       <!-- &nbsp;&nbsp;&nbsp;&nbsp;createRemoteVideo(URL.createObjectURL(data));<br> -->
     <!-- &nbsp;&nbsp;}<br> -->
   });
+</code>
+<code class="slideInRightLast">
+   comm.on('data', function(options) { 
+    &nbsp;&nbsp;console.log(options.data); <br>
+   });
 </code>
 
 
@@ -77,7 +82,6 @@
 </div>
 <div class="row jsfiddle">
   <div class="medium-12 columns">
-    <!-- View the demo at <a href="http://jsfiddle.net/TawnyOwl/j228hopd/">JSFiddle</a> -->
     <a href="http://jsfiddle.net/TawnyOwl/j228hopd/"><div class="jsfiddleLink">View the demo at JSFiddle</div></a>
   </div>
 </div>
@@ -105,5 +109,12 @@
     <img src="client/assets/img/data-channels.svg"></img>
     <h1>Powered By WebRTC</h1>
     <p>WebRTC is the leading technology in fast and secure peer to peer connection. </p>
+  </div>
+</div>
+
+<div class="row built-for-Chrome">
+  <div class="medium-12 columns">
+    <p>Built for Chrome</p>
+    <img src="client/assets/img/chrome.svg"></img>
   </div>
 </div>

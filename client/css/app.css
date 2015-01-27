@@ -177,13 +177,18 @@ hr {
   .term .shell {
     padding: 10px;
     color: #777; }
+    .term .shell .slideInRightTop {
+      margin-top: 0 !important; }
+    .term .shell .slideInRightLast {
+      margin-bottom: 0 !important; }
   .term .workshopper {
     background: #F8F0BD;
     padding: 2px; }
 
 code {
   border: none;
-  font-size: 13px !important; }
+  font-size: 11px !important;
+  letter-spacing: 0.6px; }
 
 .term .workshopper code {
   border: 0 none; }
@@ -312,13 +317,23 @@ code {
   font-size: 14px; }
   .jsfiddle .jsfiddleLink {
     width: 200px;
-    margin: 0 auto;
+    margin: 40px auto 0 auto;
     border: solid 2px #3879D9;
     color: #3879D9;
     border-radius: 3px;
     padding: 10px; }
   .jsfiddle a {
     color: #3879D9; }
+
+.built-for-Chrome {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 50px;
+  letter-spacing: 1px; }
+  .built-for-Chrome p {
+    margin: 0 auto; }
+  .built-for-Chrome img {
+    width: 18px; }
 
 .overview {
   padding: 150px 0 0 0;
@@ -668,9 +683,9 @@ button {
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-delay: 2s;
-  -moz-animation-delay: 2s;
-  animation-delay: 2s; }
+  -webkit-animation-delay: 1500ms;
+  -moz-animation-delay: 1500ms;
+  animation-delay: 1500ms; }
 
 .slideInRightBottom {
   -webkit-animation-duration: 1s;
@@ -682,9 +697,23 @@ button {
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-delay: 4s;
-  -moz-animation-delay: 4s;
-  animation-delay: 4s; }
+  -webkit-animation-delay: 3000ms;
+  -moz-animation-delay: 3000ms;
+  animation-delay: 3000ms; }
+
+.slideInRightLast {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: slideInRight;
+  -moz-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 4500ms;
+  -moz-animation-delay: 4500ms;
+  animation-delay: 4500ms; }
 
 @-webkit-keyframes fadeIn {
   0% {
