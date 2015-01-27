@@ -312,7 +312,7 @@ code {
   font-size: 14px; }
   .jsfiddle .jsfiddleLink {
     width: 200px;
-    margin: 0 auto;
+    margin: 40px auto 0 auto;
     border: solid 2px #3879D9;
     color: #3879D9;
     border-radius: 3px;
