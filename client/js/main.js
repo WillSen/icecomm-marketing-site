@@ -3,8 +3,6 @@
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
 
-
-
 var app = angular.module('tawnyOwlApp', [
   'ui.router',
   'tawnyOwlApp.statController',
@@ -39,6 +37,28 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     return deferred.promise;
   };
+
+  var checkLoggedInForAccounts = function($q, $timeout, $http, $location, $rootScope) {
+    // Initialize a new promise
+    var deferred = $q.defer();
+    // Make an AJAX call to check if the user is logged in
+    $http.get('/loggedin').success(function(user) {
+      // Authenticated
+      if (user !== '0') {
+        $rootScope.currentUser = user;
+        $timeout(deferred.resolve, 0);
+      } else {
+        $rootScope.currentUser = undefined;
+        $location.path('/');
+        $timeout(deferred.resolve, 0);
+      }
+    }).error(function(err) {
+        $location.path('/');
+    });
+
+    return deferred.promise;
+  };
+
 
   var checkResetLink = function($q, $timeout, $http, $state, $rootScope, $stateParams, $location) {
 
@@ -117,7 +137,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/account',
       templateUrl: 'client/partials/account.html',
       resolve: {
-        loggedin: checkLoggedIn
+        loggedin: checkLoggedInForAccounts
       }
       // controller
     })

@@ -42,8 +42,9 @@ function checkEmailExists(req, res) {
 
 function changeAPIKey(req ,res) {
   var user = req.user;
-  console.log('user');
-  User.findOne(user, function(err, foundUser) {
+  console.log('user', user);
+  User.findOne({username: user.username}, function(err, foundUser) {
+    console.log(foundUser);
     foundUser.changeApiKey(function(newUser) {
       res.send(newUser);
     });
