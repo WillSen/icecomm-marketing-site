@@ -9,7 +9,7 @@ var userSchema = Schema({
   password: { type: String, required: true},
   apiKey: {type: String},
   url: {type: String, default: ""},
-  user_limit: {type: Number, default: 50}
+  user_limit: {type: Number, default: 1000}
 });
 
 // Password verification
