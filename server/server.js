@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 var mongooseURI = require('./config/database');
 var Stats = require('./stats/statsModel');
 var Users = require('./user/userModel');
-var passport = require('./config/passport');
+var passport = require('./auth/passport');
 var userController = require('./user/userController');
 var MongoStore = require('connect-mongo')(session);
 
