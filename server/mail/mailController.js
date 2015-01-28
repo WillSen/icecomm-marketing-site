@@ -8,10 +8,6 @@ var tempUser = require('../tempUser/tempUserModel');
 var mandrill_client = new mandrill.Mandrill(mandrillAPI.APIKEY);
 var mailController = {};
 
-// delete this
-// var accountsToVerify = {};
-var forgottenAccountEmail = {};
-
 mailController.sendConfirmationEmail = sendConfirmationEmail;
 mailController.verficationOfAccount = verficationOfAccount;
 mailController.sendForgotPasswordEmail = sendForgotPasswordEmail;
@@ -23,9 +19,7 @@ function sendConfirmationEmail(req, res, next) {
     var email = tempAccount.email;
     var rand = Math.floor((Math.random() * 1000000000000))
     host=req.get('host');
-    console.log('tempAccount', tempAccount);
     tempAccount.rand = rand;
-    // accountsToVerify[rand] = tempAccount;
     tempUser.create(tempAccount, function(err, createdAccount) {
         if (!err) {
             var link="http://"+req.get('host')+"/verify?id="+rand;
@@ -43,8 +37,6 @@ function sendConfirmationEmail(req, res, next) {
 
 
 function verficationOfAccount(req, res, next) {
-    console.log("Domain is matched. Information is from Authentic email");
-
     tempUser.findOne({rand: req.query.id}, function(err, foundTemp) {
         if(!err) {
             console.log('verified');
@@ -56,7 +48,7 @@ function verficationOfAccount(req, res, next) {
 
             req.body = verifiedAccount;
             console.log(req.body);
-            // accountsToVerify[req.query.id] = undefined;
+            foundTemp.remove();
             next();
         }
         else {
@@ -70,10 +62,8 @@ function sendForgotPasswordEmail(req, res, next) {
     var email = req.body.email;
     var rand = Math.floor((Math.random() * 1000000000000))
     host=req.get('host');
-    forgottenAccountEmail[rand] = email;
-    console.log('rand', rand);
-    var link="http://"+req.get('host')+"/reset/" + rand;
 
+    var link="http://"+req.get('host')+"/reset/" + rand;
     User.findOne({email: email}, function(err, foundUser) {
         var forgotEmailObj = {
             isValid: false
@@ -82,14 +72,23 @@ function sendForgotPasswordEmail(req, res, next) {
             res.send(forgotEmailObj);
         }
         if (foundUser) {
-            var username = foundUser.username;
-            mandrill_client.messages.send({"message": mailCreator.createForgottenPasswordEmail(email, username, link), "async": false}, function(result) {
-                forgotEmailObj.isValid = true;
-                res.send(forgotEmailObj);
 
-            }, function(e) {
-                console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+            var forgotAccount = {
+                rand: rand,
+                email: email
+            };
+            tempUser.create(forgotAccount, function(err, createdTempAccount) {
+                var username = foundUser.username;
+                mandrill_client.messages.send({"message": mailCreator.createForgottenPasswordEmail(email, username, link), "async": false}, function(result) {
+                    forgotEmailObj.isValid = true;
+                    res.send(forgotEmailObj);
+
+                }, function(e) {
+                    console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+                });
             });
+
+
         }
     });
 }
@@ -98,34 +97,42 @@ function verifyResetCode(req, res, next) {
     var resetObj = {
         isValid: false
     };
-    if (forgottenAccountEmail[req.body.resetId]) {
-        resetObj.isValid = true;
-    }
-    res.send(resetObj);
+
+    tempUser.findOne({rand: req.body.resetId}, function(err, foundTempUser) {
+        if (err) {
+
+        }
+        if (foundTempUser) {
+           resetObj.isValid = true;
+        }
+        res.send(resetObj);
+    });
+
 }
 
 function resetPassword(req, res, next) {
-    console.log('reset password', req.body.resetId);
-    var forgottenUserEmail = forgottenAccountEmail[req.body.resetId];
     var newPassword = req.body.password;
-    console.log('email', forgottenUserEmail);
-    User.findOne({email: forgottenUserEmail}, function(err, foundUser) {
+
+    tempUser.findOne({rand: req.body.resetId}, function(err, foundTempUser) {
         if (!err) {
-            console.log('foundUser', foundUser);
-            foundUser.password = newPassword;
-            foundUser.save(function(err) {
-                forgottenAccountEmail[req.body.resetId] = undefined;
-                req.body.username = foundUser.username;
-                req.body.password = newPassword;
-                next();
+            User.findOne({email: foundTempUser.email}, function(err, foundUser) {
+                if (!err) {
+                    console.log('foundUser', foundUser);
+                    foundUser.password = newPassword;
+                    foundUser.save(function(err) {
+                        req.body.username = foundUser.username;
+                        req.body.password = newPassword;
+                        foundTempUser.remove();
+                        next();
+                    });
+                }
+                if (err) {
+                    console.log('error resetting password');
+                }
+
             });
         }
-        if (err) {
-            console.log('error resetting password');
-        }
-
     });
-
 }
 
 module.exports = mailController;
