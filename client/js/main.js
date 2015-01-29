@@ -212,5 +212,3 @@ function TopBarDemoFactory($http) {
     });
   };
 }
-
-
