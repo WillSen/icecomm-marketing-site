@@ -1,5 +1,5 @@
 @import url("../../bower_components/foundation/css/foundation.css");
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
 @import "../bourbon/bourbon";
 
 @font-face {
@@ -84,7 +84,7 @@ body {
       font-family: 'BrandonGrotesque';
       font-size: 40px;
       padding-top: 7%;
-      padding-bottom: 5px; 
+      padding-bottom: 5px;
     }
     .sub-intro-text {
       font-size: 16px;
@@ -231,7 +231,7 @@ hr {
         font-size: 12px;
         text-decoration: underline;
       }
-      
+
     }
     .btn {
       display:inline-block;
@@ -380,8 +380,8 @@ code {
     left: 63px;
     .face {
       position: absolute;
-      
-      
+
+
       width: 100px;
       height: 100px;
     }
@@ -471,7 +471,7 @@ code {
       height: 75px;
       margin: 5px 20px 70px 0px;
     }
-  
+
   .columns {
     margin-bottom: 100px;
   }
@@ -488,7 +488,7 @@ code {
 .demos {
   padding: 40px 15%;
   position: relative;
-  
+
   .demo {
     width: 640px;
     position: relative;
@@ -496,7 +496,7 @@ code {
     h3 {
       font-weight: 800;
       padding: 0 0 20px
-     
+
     }
     p {
       text-align: left;
@@ -549,7 +549,7 @@ code {
   line-height: 20px;
   width: 100%;
   &:hover {
-    color: #333 
+    color: #333
   }
 }
 
@@ -665,7 +665,7 @@ input[type=text], textarea {
   margin: 5px 1px 3px 0px;
   border: 1px solid #DDDDDD;
 }
- 
+
 input[type=text]:focus, textarea:focus {
   // box-shadow: 0 0 5px #72649f;
   box-shadow: 0;
@@ -691,7 +691,7 @@ input[type=text]:focus, textarea:focus {
     text-align: right;
     font-size: 12px;
     color: $secondaryColor;
-    cursor: pointer;  
+    cursor: pointer;
   }
   #diagram {
     text-align: center;
@@ -1007,11 +1007,11 @@ button {
     .intro-text {
       font-size: 30px;
       padding-bottom: 10px;
-      
+
     }
     .sub-intro-text {
       font-size: 11px;
-      padding-bottom: 10px; 
+      padding-bottom: 10px;
     }
   }
   .main {
@@ -1094,10 +1094,10 @@ button {
   .copyright {
     padding-left: 10px !important;
     p {
-      font-size: 12px;  
+      font-size: 12px;
     }
     a {
-      font-size: 12px;   
+      font-size: 12px;
       color: #fff !important;
     }
   }
@@ -1112,9 +1112,9 @@ button {
 
 .foot {
   a {
-    color: #fff !important;  
+    color: #fff !important;
   }
-  
+
 }
 
 .highlight {
