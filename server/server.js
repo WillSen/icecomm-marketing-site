@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var server = require('http').Server(app);
+var http = require('http').Server(app);
 var session = require('express-session');
 var mongoose = require('mongoose');
 var flash = require('express-flash');
@@ -109,4 +109,4 @@ app.all('/*', function(req, res, next) {
     res.sendFile(path.resolve(__dirname + '/../index.html'));
 });
 
-server.listen(process.env.PORT || 3000);
+http.listen(process.env.PORT || 3000);
