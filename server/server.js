@@ -1,4 +1,5 @@
 var express = require('express');
+var cookieParser = require('cookie-parser');
 var app = express();
 var server = require('http').Server(app);
 var session = require('express-session');
@@ -20,16 +21,21 @@ var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000
 
 mongoose.connect(mongooseURI.URI, options);
 
+var sessionStore = new MongoStore({mongooseConnection: mongoose.connection});
+var sessionOpts = { 
+  saveUninitialized: true, // saved new sessions 
+  resave: false, // do not automatically write to the session store 
+  store: sessionStore, 
+  secret: 'balls', 
+  cookie : { httpOnly: true, maxAge: 2419200000 } // configure when sessions expires 
+}
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
-}));
+app.use(cookieParser('balls'));
+app.use(session(sessionOpts));
 
 app.use(passport.initialize());
 app.use(passport.session());
