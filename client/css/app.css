@@ -1,5 +1,5 @@
 @import url("../../bower_components/foundation/css/foundation.css");
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
 @font-face {
   font-family: 'GothamXLight';
   src: asset-url("assets/fonts/Gotham-XLight.otf");
