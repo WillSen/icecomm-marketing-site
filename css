@@ -1,0 +1,25 @@
+/*
+Errno::ENOENT: No such file or directory @ rb_sysopen - scss
+
+Backtrace:
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:482:in `read'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:482:in `update_stylesheet'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:293:in `watch'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/plugin.rb:108:in `method_missing'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:370:in `watch_or_update'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/exec/sass_scss.rb:50:in `process_result'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/exec/base.rb:52:in `parse'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/lib/sass/exec/base.rb:19:in `parse!'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.9/bin/sass:13:in `<top (required)>'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/bin/sass:23:in `load'
+/Users/willsentance/.rvm/rubies/ruby-2.1.2/bin/sass:23:in `<main>'
+/Users/willsentance/.rvm/gems/ruby-2.1.2@global/bin/ruby_executable_hooks:15:in `eval'
+/Users/willsentance/.rvm/gems/ruby-2.1.2@global/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Errno::ENOENT: No such file or directory @ rb_sysopen - scss"; }
