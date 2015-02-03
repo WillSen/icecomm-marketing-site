@@ -1,3 +1,4 @@
 module.exports = {
-  APIKEY: '6B9VRjoWNPuYyN2h9DdziA'
+  api_user: 'TawnyOwl',
+  api_key: '$hackreactor&1'
 };

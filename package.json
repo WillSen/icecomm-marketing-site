@@ -23,7 +23,8 @@
     "mongodb-uri": "^0.9.7",
     "mongoose": "^3.8.21",
     "passport": "^0.2.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "sendgrid": "^1.5.0"
   },
   "engines": {
     "node": "0.10.x"
