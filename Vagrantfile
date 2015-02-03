@@ -14,25 +14,34 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
   # config.vm.box = "ubuntu/trusty64"
 
-  config.vm.define "web2" do |web1|
-    web1.vm.box = "ubuntu/trusty64"
-    web1.vm.network "private_network", ip: "55.55.55.2"
-  end
-
-  config.vm.define "web3" do |web2|
+  config.vm.define "web2" do |web2|
+    web2.vm.network "private_network", ip: "55.55.55.2"
     web2.vm.box = "ubuntu/trusty64"
-    web2.vm.network "private_network", ip: "55.55.55.3"
+    # web2.ssh.username = 'root'
+    # web2.ssh.password = 'vagrant'
+    # web2.ssh.insert_key = 'true'
   end
 
-  config.vm.define "web4" do |web2|
-    web2.vm.box = "ubuntu/trusty64"
-    web2.vm.network "private_network", ip: "55.55.55.4"
-  end
+  # config.vm.define "web3" do |web3|
+  #   web3.ssh.username = 'root'
+  #   web3.ssh.password = 'vagrant'
+  #   web3.ssh.insert_key = 'true'
+  #   web3.vm.box = "ubuntu/trusty64"
+  #   web3.vm.network "private_network", ip: "55.55.55.3"
+  # end
 
-  config.vm.define "load" do |load|
-    load.vm.box = "ubuntu/trusty64"
-    load.vm.network "private_network", ip: "55.55.55.5"
-  end
+  # config.vm.define "web4" do |web4|
+  #   web4.ssh.username = 'root'
+  #   web4.ssh.password = 'vagrant'
+  #   web4.ssh.insert_key = 'true'
+  #   web4.vm.box = "ubuntu/trusty64"
+  #   web4.vm.network "private_network", ip: "55.55.55.4"
+  # end
+
+  # config.vm.define "load" do |load|
+  #   load.vm.box = "ubuntu/trusty64"
+  #   load.vm.network "private_network", ip: "55.55.55.5"
+  # end
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
