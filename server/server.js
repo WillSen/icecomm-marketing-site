@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var mailController = require('./mail/mailController');
 var mongoose = require('mongoose');
-var mongooseURI = require('./config/database');
+var mongooseURI = require('../config/database');
 var Stats = require('./stats/statsModel');
 var Users = require('./user/userModel');
 var passport = require('./auth/passport');
@@ -22,19 +22,19 @@ var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000
 mongoose.connect(mongooseURI.URI, options);
 
 var sessionStore = new MongoStore({mongooseConnection: mongoose.connection});
-var sessionOpts = { 
-  saveUninitialized: true, // saved new sessions 
-  resave: false, // do not automatically write to the session store 
-  store: sessionStore, 
-  secret: 'balls', 
-  cookie : { httpOnly: true, maxAge: 2419200000 } // configure when sessions expires 
+var sessionOpts = {
+  saveUninitialized: true, // saved new sessions
+  resave: false, // do not automatically write to the session store
+  store: sessionStore,
+  secret: 'secret',
+  cookie : { httpOnly: true, maxAge: 2419200000 } // configure when sessions expires
 }
 
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
-app.use(cookieParser('balls'));
+app.use(cookieParser('secret'));
 app.use(session(sessionOpts));
 
 app.use(passport.initialize());
@@ -112,6 +112,7 @@ app.get('/getAdminUserData', function(req, res) {
 
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
+    console.log('loaded');
     res.sendFile(path.resolve(__dirname + '/../index.html'));
 });
 
