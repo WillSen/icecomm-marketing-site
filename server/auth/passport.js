@@ -1,7 +1,6 @@
 var passport = require('passport');
 var User = require('../user/userModel');
 var LocalStrategy = require('passport-local').Strategy;
-var bcrypt = require('bcrypt');
 
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to

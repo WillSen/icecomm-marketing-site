@@ -1,7 +1,7 @@
 var mailCreator = require('./mailCreator');
 var User = require('../user/userModel');
 var tempUser = require('../tempUser/tempUserModel');
-var sendGridInfo = require('../config/mail');
+var sendGridInfo = require('../../config/mail');
 var sendgrid  = require('sendgrid')(sendGridInfo.api_user, sendGridInfo.api_key);
 
 var mailController = {};
