@@ -1,7 +1,8 @@
 var plan = require('flightplan');
 
 var appName = 'market';
-var username = 'azai91';
+var username = 'vagrant';
+var password = 'vagrant';
 var startFile = 'server/server.js';
 
 var tmpDir = appName+'-' + new Date().getTime();
@@ -9,18 +10,32 @@ var tmpDir = appName+'-' + new Date().getTime();
 // configuration
 plan.target('staging', [
   {
-    host: 'icecomm-market.cloudapp.net',
+    host: '55.55.55.2',
     username: username,
+    password: password,
     agent: process.env.SSH_AUTH_SOCK
   }
 ]);
 
 plan.target('production', [
   {
-    host: 'icecomm-market.cloudapp.net',
+    host: '55.55.55.2',
     username: username,
+    password: password,
     agent: process.env.SSH_AUTH_SOCK
   },
+  {
+    host: '55.55.55.3',
+    username: username,
+    password: password,
+    agent: process.env.SSH_AUTH_SOCK
+  },
+  {
+    host: '55.55.55.4',
+    username: username,
+    password: password,
+    agent: process.env.SSH_AUTH_SOCK
+  }
 //add in another server if you have more than one
 // {
 //   host: '104.131.93.216',

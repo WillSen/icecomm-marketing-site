@@ -68,3 +68,7 @@ client/.sass-cache
 client/.sass-cache/*
 client/.sass-cache/*/*
 .elasticbeanstalk/
+
+# New Relic
+newrelic.js
+newrelic_angent.log

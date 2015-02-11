@@ -1,11 +1,9 @@
-var mandrill = require('mandrill-api/mandrill');
-var mandrillAPI = require('../config/mail');
 var mailCreator = require('./mailCreator');
 var User = require('../user/userModel');
 var tempUser = require('../tempUser/tempUserModel');
+var sendGridInfo = require('../../config/mail');
+var sendgrid  = require('sendgrid')(sendGridInfo.api_user, sendGridInfo.api_key);
 
-
-var mandrill_client = new mandrill.Mandrill(mandrillAPI.APIKEY);
 var mailController = {};
 
 mailController.sendConfirmationEmail = sendConfirmationEmail;
@@ -23,12 +21,16 @@ function sendConfirmationEmail(req, res, next) {
     tempUser.create(tempAccount, function(err, createdAccount) {
         if (!err) {
             var link="http://"+req.get('host')+"/verify?id="+rand;
-            mandrill_client.messages.send({"message": mailCreator.createVerificationEmail(email, link), "async": false}, function(result) {
-                console.log(result);
-            }, function(e) {
-                console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+            sendgrid.send(mailCreator.createVerificationEmail(email, link), function(err, json) {
+                if (err) {
+                    return console.error(err);
+                } else {
+                    res.sendStatus(200);
+                }
+
             });
-            res.sendStatus(200);
+
+
         }
     });
 
@@ -47,7 +49,6 @@ function verficationOfAccount(req, res, next) {
             };
 
             req.body = verifiedAccount;
-            console.log(req.body);
             foundTemp.remove();
             next();
         }
@@ -79,12 +80,14 @@ function sendForgotPasswordEmail(req, res, next) {
             };
             tempUser.create(forgotAccount, function(err, createdTempAccount) {
                 var username = foundUser.username;
-                mandrill_client.messages.send({"message": mailCreator.createForgottenPasswordEmail(email, username, link), "async": false}, function(result) {
-                    forgotEmailObj.isValid = true;
-                    res.send(forgotEmailObj);
 
-                }, function(e) {
-                    console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+                sendgrid.send(mailCreator.createForgottenPasswordEmail(email, username, link), function(err, json) {
+                    if (err) {
+                        return console.error(err);
+                    } else {
+                        forgotEmailObj.isValid = true;
+                        res.send(forgotEmailObj);
+                    }
                 });
             });
 
