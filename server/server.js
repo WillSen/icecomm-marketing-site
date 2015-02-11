@@ -31,6 +31,8 @@ var sessionOpts = {
   cookie : { httpOnly: true, maxAge: 2419200000 } // configure when sessions expires
 }
 
+console.log('__dirname', __dirname)
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
